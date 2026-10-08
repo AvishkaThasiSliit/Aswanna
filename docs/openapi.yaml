@@ -1,0 +1,293 @@
+openapi: 3.0.3
+info:
+  title: Aswanna REST API
+  description: REST API for Aswanna Agricultural Management System
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api
+    description: Local development server
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+                - role
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 6
+                role:
+                  type: string
+                  enum: [farmer, officer, admin]
+                farmerProfile:
+                  type: object
+                  properties:
+                    fullName:
+                      type: string
+                    nic:
+                      type: string
+                    district:
+                      type: string
+                    dsDivision:
+                      type: string
+                    phone:
+                      type: string
+      responses:
+        '201':
+          description: User registered successfully
+        '400':
+          description: Validation error
+        '409':
+          description: Email already registered
+
+  /auth/login:
+    post:
+      summary: Authenticate user and receive JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Authentication successful
+        '401':
+          description: Invalid credentials
+
+  /auth/me:
+    get:
+      summary: Get current authenticated user profile
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Profile retrieved
+        '401':
+          description: Unauthorized
+
+  /cycles:
+    get:
+      summary: List crop cycles
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+            default: 10
+      responses:
+        '200':
+          description: List of cycles
+    post:
+      summary: Create a crop cycle
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - landId
+                - cropName
+                - startDate
+              properties:
+                landId:
+                  type: string
+                cropName:
+                  type: string
+                variety:
+                  type: string
+                startDate:
+                  type: string
+                  format: date
+                targetYieldKg:
+                  type: number
+      responses:
+        '201':
+          description: Cycle created
+
+  /cycles/{id}/transition:
+    post:
+      summary: Transition cycle status along forward-only pipeline
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: string
+                  enum: [draft, active, harvesting, closed]
+      responses:
+        '200':
+          description: Cycle status updated successfully
+        '400':
+          description: Invalid state transition
+
+  /cycles/{id}/summary:
+    get:
+      summary: Financial breakdown and metrics for cycle
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Summary metrics
+
+  /cycles/{id}/calendar:
+    get:
+      summary: Daily activity calendar for cycle
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Calendar activity list
+
+  /expenses:
+    get:
+      summary: List expenses with query filters
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: cycleId
+          schema:
+            type: string
+        - in: query
+          name: category
+          schema:
+            type: string
+            enum: [inputs, machinery, labour, other]
+        - in: query
+          name: startDate
+          schema:
+            type: string
+        - in: query
+          name: endDate
+          schema:
+            type: string
+        - in: query
+          name: minAmount
+          schema:
+            type: number
+        - in: query
+          name: maxAmount
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Paginated expense list
+    post:
+      summary: Create an expense record (Idempotent via clientRequestId)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cycleId
+              properties:
+                cycleId:
+                  type: string
+                entryDate:
+                  type: string
+                dayStatus:
+                  type: string
+                  enum: [worked, no_work]
+                clientRequestId:
+                  type: string
+      responses:
+        '201':
+          description: Expense created
+        '200':
+          description: Existing expense returned (Idempotency)
+        '409':
+          description: Cycle is closed
+        '422':
+          description: Zero cost on worked day
+
+  /expenses/export.csv:
+    get:
+      summary: Export expenses as CSV file
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: CSV file download
+
+  /expenses/{id}/restore:
+    post:
+      summary: Restore soft-deleted expense within 10 seconds
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expense restored
+        '400':
+          description: Restoration window expired
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
