@@ -1,0 +1,74 @@
+
+===============================================================
+       ASWANNA EVALUATION HARNESS (SO3.6) - OFFLINE EVAL       
+===============================================================
+
+1. Loading synthetic ground-truth fixtures...
+   Loaded 10 fixtures from /server/eval/fixtures:
+   - [on_track.json] scenario: on_track (SYNTHETIC: replace with DoA field data)
+   - [mild_overspend.json] scenario: mild_overspend (SYNTHETIC: replace with DoA field data)
+   - [significant_overspend.json] scenario: significant_overspend (SYNTHETIC: replace with DoA field data)
+   - [late_season_spike.json] scenario: late_season_spike (SYNTHETIC: replace with DoA field data)
+   - [underspend.json] scenario: underspend (SYNTHETIC: replace with DoA field data)
+   - [zero_baseline.json] scenario: zero_baseline (SYNTHETIC: replace with DoA field data)
+   - [drift_volatile.json] scenario: drift_volatile (SYNTHETIC: replace with DoA field data)
+   - [drift_stable.json] scenario: drift_stable (SYNTHETIC: replace with DoA field data)
+   - [exact_boundaries.json] scenario: exact_boundaries (SYNTHETIC: replace with DoA field data)
+   - [temporary_spike_resolving.json] scenario: temporary_spike_resolving (SYNTHETIC: replace with DoA field data)
+
+2. Evaluating variance accuracy (engine vs reference implementation)...
+   Total comparisons: 65
+   Exact agreements:  65
+   Agreement Rate:    100.00% (Target: 100%)
+
+3. Evaluating alert precision & recall (Tiered vs Proposal Baseline vs Flat-10%)...
+   Evaluated 42 hand-labelled ground truth events.
+
+   --- TIERED MODE (Proposal Table 3) ---
+   Attention:   P = 100.0%, R = 100.0%, F1 = 100.0%
+   Significant: P = 100.0%, R = 100.0%, F1 = 100.0%
+   Overall:     P = 100.0%, R = 100.0%, F1 = 100.0%
+
+   --- PROPOSAL BASELINE (Section 3.3: Binary Alert when v > 0) ---
+   Attention:   P = 100.0%, R = 18.2%, F1 = 30.8% (N/A in binary baseline)
+   Significant: P = 26.9%, R = 100.0%, F1 = 42.4%
+   Overall:     P = 64.3%, R = 100.0%, F1 = 78.3%
+
+   --- EXTRA BASELINE (Flat 10% Threshold) ---
+   Attention:   P = 100.0%, R = 18.2%, F1 = 30.8% (N/A in single mode)
+   Significant: P = 58.3%, R = 100.0%, F1 = 73.7%
+   Overall:     P = 100.0%, R = 77.8%, F1 = 87.5%
+
+   --- FAILURE MODES (One sentence each) ---
+   * Proposal Baseline (Section 3.3): The binary baseline rule (v > 0) causes severe alarm fatigue by falsely alerting on harmless minor budget variances and normal seasonal fluctuations (such as labour or machinery drifting 1–8% within safe limits), while failing to distinguish between early advisory warnings and critical emergencies.
+   * Extra Baseline (Flat 10%): The flat 10% baseline rule misses critical early intervention windows for volatile inputs (such as seed, fertilizer, and fuel drifting between 7% and 10%), while simultaneously over-escalating routine 11–15% stable operational variances into emergency alarms.
+   * Tiered Mode: Tiered mode successfully mitigates false alarms and early misses by calibrating tolerances against category volatility, but relies on static category classifications and currently treats severe agricultural under-spending as normal.
+
+   --- HONEST FAILING CASES ---
+   Tiered Mode Failing Cases: 0
+   Proposal Baseline Failing Cases: 19
+   Flat 10% Baseline Failing Cases: 9
+
+4. Evaluating crop recommendation engine...
+   Determinism over 100 runs: PASS (100% identical)
+   Permutation stability:      PASS (Invariant)
+
+5. Running live API response time and alert latency benchmarks...
+   Alert Latency (220 runs, same-request):
+     p50: 80.96 ms, p95: 135.41 ms
+     Same-request alert present: 100.0%
+   API Response Times (CRUD + Variance, target < 2 s):
+     createExpense   : p50 = 62.54 ms, p95 = 93.68 ms (Target Met: YES)
+     listExpenses    : p50 = 20.61 ms, p95 = 27.04 ms (Target Met: YES)
+     updateExpense   : p50 = 63.64 ms, p95 = 95.24 ms (Target Met: YES)
+     deleteExpense   : p50 = 30.44 ms, p95 = 45.29 ms (Target Met: YES)
+     getVariance     : p50 = 23.47 ms, p95 = 34.44 ms (Target Met: YES)
+
+6. Writing output reports...
+   Wrote JSON metrics to: D:\Aswanna\server\eval\evaluation-results.json
+   Wrote Markdown report to: D:\Aswanna\docs\evaluation-report.md
+
+===============================================================
+                 EVALUATION COMPLETE - ALL PASS                
+===============================================================
+

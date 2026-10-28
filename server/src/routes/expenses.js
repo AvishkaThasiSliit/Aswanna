@@ -10,7 +10,7 @@ import {
 import { Cycle } from '../models/Cycle.js';
 
 const inputSchema = z.object({
-  inputType: z.enum(['seed', 'fertilizer', 'agrochemical', 'other']).optional(),
+  inputType: z.string().optional(),
   categoryTag: z.string().optional(),
   quantity: z.number().min(0).optional(),
   unit: z.string().optional(),
@@ -42,6 +42,8 @@ const createSchema = z.object({
   // Client may send totalAmount but server will recompute and ignore client value
   totalAmount: z.number().optional(),
   clientRequestId: z.string().optional(),
+  source: z.enum(['manual', 'voice']).optional().default('manual'),
+  reviewConfirmed: z.boolean().optional(),
 });
 
 const updateSchema = createSchema.partial().omit({ cycleId: true, clientRequestId: true });
@@ -109,8 +111,35 @@ router.post('/', asyncHandler(async (req, res) => {
   if (!cycle) throw new AppError('NOT_FOUND', 'Cycle not found', 404);
   await assertOwnership(req.user, { farmerId: cycle.farmerId });
 
-  const { expense, created } = await createExpense(data.cycleId, data, req.user._id);
-  res.status(created ? 201 : 200).json(expense);
+  if (cycle.status === 'closed') {
+    throw new AppError('CYCLE_CLOSED', 'Cycle is closed and read-only', 409, {
+      cycle: 'Cycle is closed and read-only'
+    });
+  }
+
+  // Server-side enforcement of review confirmation invariant for voice expenses
+  if (data.source === 'voice') {
+    if (data.reviewConfirmed !== true) {
+      throw new AppError(
+        'UNREVIEWED_VOICE_EXPENSE',
+        'Voice-derived expenses require explicit farmer review and confirmation before persistence',
+        422
+      );
+    }
+    if (!data.clientRequestId || typeof data.clientRequestId !== 'string' || !data.clientRequestId.trim()) {
+      throw new AppError(
+        'SUBMISSION_ID_REQUIRED',
+        'Voice review confirmation must be bound to a unique clientRequestId submission token',
+        422
+      );
+    }
+  }
+
+  const { expense, created, alerts, warnings } = await createExpense(data.cycleId, data, req.user._id);
+  const resp = expense.toObject ? expense.toObject() : { ...expense };
+  resp.alerts = alerts || [];
+  resp.warnings = warnings || [];
+  res.status(created ? 201 : 200).json(resp);
 }));
 
 // ─── GET /api/expenses/:id ────────────────────────────────────────────────────
@@ -127,9 +156,19 @@ router.put('/:id', asyncHandler(async (req, res) => {
   if (!expense) throw new AppError('NOT_FOUND', 'Expense not found', 404);
   await assertExpenseOwnership(req.user, expense);
 
+  const cycle = await Cycle.findOne({ _id: expense.cycleId, deletedAt: null });
+  if (cycle && cycle.status === 'closed') {
+    throw new AppError('CYCLE_CLOSED', 'Cycle is closed and read-only', 409, {
+      cycle: 'Cycle is closed and read-only'
+    });
+  }
+
   const data = updateSchema.parse(req.body);
-  const updated = await updateExpense(req.params.id, data, req.user._id);
-  res.json(updated);
+  const result = await updateExpense(req.params.id, data, req.user._id);
+  const updatedDoc = result.expense || result;
+  const resp = updatedDoc.toObject ? updatedDoc.toObject() : { ...updatedDoc };
+  resp.warnings = result.warnings || [];
+  res.json(resp);
 }));
 
 // ─── DELETE /api/expenses/:id ─────────────────────────────────────────────────
@@ -137,6 +176,14 @@ router.delete('/:id', asyncHandler(async (req, res) => {
   const expense = await Expense.findOne({ _id: req.params.id, deletedAt: null });
   if (!expense) throw new AppError('NOT_FOUND', 'Expense not found', 404);
   await assertExpenseOwnership(req.user, expense);
+
+  const cycle = await Cycle.findOne({ _id: expense.cycleId, deletedAt: null });
+  if (cycle && cycle.status === 'closed') {
+    throw new AppError('CYCLE_CLOSED', 'Cycle is closed and read-only', 409, {
+      cycle: 'Cycle is closed and read-only'
+    });
+  }
+
   await deleteExpense(req.params.id, req.user._id);
   res.json({ success: true });
 }));
@@ -146,6 +193,14 @@ router.post('/:id/restore', asyncHandler(async (req, res) => {
   const expense = await Expense.findById(req.params.id);
   if (!expense) throw new AppError('NOT_FOUND', 'Expense not found', 404);
   await assertExpenseOwnership(req.user, expense);
+
+  const cycle = await Cycle.findOne({ _id: expense.cycleId, deletedAt: null });
+  if (cycle && cycle.status === 'closed') {
+    throw new AppError('CYCLE_CLOSED', 'Cycle is closed and read-only', 409, {
+      cycle: 'Cycle is closed and read-only'
+    });
+  }
+
   const restored = await restoreExpense(req.params.id, req.user._id);
   res.json(restored);
 }));

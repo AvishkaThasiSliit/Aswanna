@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #14532D;
+  --color-nav-active: #0F4D2E;
+  --color-tint: #EAF4EC;
+  --color-page: #F7FAF7;
+  --color-border: #E1EBE3;
+  --color-success: #16A34A;
+  --color-attention: #D97706;
+  --color-significant: #DC2626;
+  --radius-card: 16px;
+  --radius-control: 10px;
+}
+
+body {
+  background-color: var(--color-page);
+  color: #1F2937;
+  min-height: 100vh;
+}

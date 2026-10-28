@@ -1,0 +1,237 @@
+
+=== FILES MODIFIED/CREATED IN SO3 SCOPE CLEANUP TASK ===
+1. client/src/components/ForecastCard.jsx (Added FROZEN header comment, explicit disabled check)
+2. client/src/test/ForecastCard.test.jsx (Added disabled render test)
+3. server/src/services/forecastService.js (Added FROZEN header comment)
+4. server/tests/forecast.test.js (Added default unset FORECAST_MODE 404 test)
+5. server/.env.example (New file: documented FORECAST_MODE=off)
+6. .env.example (New file: documented FORECAST_MODE=off)
+7. docs/forecast.md (Added Out of SO3 scope banner)
+8. docs/ml-forecast-evaluation.md (Added banner, S2 tau=0.7 distinction, Changelog)
+9. docs/ml-phasing-prior.md (Relabeled to phasing & variance baseline; simulator-only limitation)
+10. docs/ml-simulator.md (Relabeled to phasing & variance baseline; simulator-only limitation)
+11. server/eval/evaluate.js (Added ML Phasing & Variance Baseline section to report generator)
+12. docs/evaluation-report.md (Regenerated with ML Phasing & Variance Baseline section)
+13. docs/api.md (Documented FROZEN status and FORECAST_MODE=off default)
+14. scripts/scope_inventory.py (Helper script for inventory generation)
+15. scripts/run_scope_tests.js (Helper runner for clean UTF-8 log capture)
+16. logs/scope-inventory.txt (Step 1 read-only inventory)
+17. logs/scope-test.txt (Step 5 root npm test log)
+18. logs/scope-eval.txt (Step 5 evaluate.js log)
+19. logs/scope-ml-tests.txt (Step 5 pytest log)
+20. logs/scope-changed-files.txt (Step 5 git status & task change log)
+
+
+=== FULL GIT STATUS PORCELAIN OUTPUT ===
+ M client/package.json
+
+ M docs/api.md
+
+ M package-lock.json
+
+ M package.json
+
+ M server/package.json
+
+ M server/scripts/seed.js
+
+ M server/src/app.js
+
+ M server/src/config/env.js
+
+ M server/src/controllers/crudController.js
+
+ M server/src/index.js
+
+ M server/src/models/Cycle.js
+
+ M server/src/models/Expense.js
+
+ M server/src/routes/cycleNotes.js
+
+ M server/src/routes/cycles.js
+
+ M server/src/routes/expenses.js
+
+ M server/src/routes/farmerProfile.js
+
+ M server/src/routes/harvests.js
+
+ M server/src/routes/lands.js
+
+ M server/src/routes/machineryOwned.js
+
+ M server/src/routes/sales.js
+
+ M server/src/services/cycleService.js
+
+ M server/src/services/expenseService.js
+
+ M server/src/services/summaryService.js
+
+ M server/src/utils/errors.js
+
+ M server/tests/api.test.js
+
+ M server/tests/logic.test.js
+
+ M server/tests/setup.js
+
+ M shared/coverage/paper-coverage.json
+
+ M shared/formSchemas/costSheet.js
+
+ M shared/formSchemas/farmer.js
+
+ M shared/formSchemas/harvest.js
+
+ M shared/formSchemas/land.js
+
+ M shared/formSchemas/machinery.js
+
+ M shared/formSchemas/notes.js
+
+ M shared/formSchemas/sale.js
+
+ M shared/scripts/checkSinhala.js
+
+?? .env.example
+
+?? .mongo-cache/
+
+?? AGENTS.md
+
+?? "Profit Folder/"
+
+?? client/dist/
+
+?? client/index.html
+
+?? client/node_modules/
+
+?? client/playwright.config.js
+
+?? client/postcss.config.js
+
+?? client/src/
+
+?? client/tailwind.config.js
+
+?? client/temp/
+
+?? client/test-results/
+
+?? client/vite.config.js
+
+?? docs/evaluation-report.md
+
+?? docs/forecast.md
+
+?? docs/ml-feasibility.md
+
+?? docs/ml-forecast-evaluation.md
+
+?? docs/ml-phasing-prior.md
+
+?? docs/ml-simulator.md
+
+?? docs/open-questions.md
+
+?? docs/ranking.md
+
+?? docs/receipt-reader-design.md
+
+?? docs/so1-discovery.md
+
+?? docs/so1-integration.md
+
+?? docs/sus-questionnaire.md
+
+?? logs/
+
+?? ml/
+
+?? node_modules/
+
+?? scripts/
+
+?? server/.env.example
+
+?? server/eval/
+
+?? server/scripts/exportCycles.js
+
+?? server/src/middleware/validate.js
+
+?? server/src/models/Alert.js
+
+?? server/src/models/Baseline.js
+
+?? server/src/models/CropAccuracyHistory.js
+
+?? server/src/models/ThresholdConfig.js
+
+?? server/src/routes/alerts.js
+
+?? server/src/routes/forecast.js
+
+?? server/src/routes/mockSo1.js
+
+?? server/src/routes/recommendation.js
+
+?? server/src/routes/thresholdConfig.js
+
+?? server/src/routes/variance.js
+
+?? server/src/services/alertService.js
+
+?? server/src/services/baselineService.js
+
+?? server/src/services/forecastService.js
+
+?? server/src/services/recommendationService.js
+
+?? server/src/services/so1Adapter.js
+
+?? server/temp/
+
+?? server/test_output.txt
+
+?? server/tests/evalHarness.test.js
+
+?? server/tests/fixtures/
+
+?? server/tests/forecast.test.js
+
+?? server/tests/phase3.test.js
+
+?? server/tests/recommendation.test.js
+
+?? server/tests/so1Contract.test.js
+
+?? server/tests/so1RealIntegration.test.js
+
+?? server/tests/validationMatrix.test.js
+
+?? shared/config/
+
+?? shared/constants/
+
+?? shared/formSchemas/cycle.js
+
+?? shared/phasing.js
+
+?? shared/ranking.js
+
+?? shared/receipt/
+
+?? shared/validation/
+
+?? shared/variance.js
+
+?? so1-service/
+
+?? temp/
+
+?? test-results/
+

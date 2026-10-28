@@ -1,0 +1,16 @@
+{
+  "detail": [
+    {
+      "type": "value_error",
+      "loc": [
+        "body",
+        "district"
+      ],
+      "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+      "input": "Galle",
+      "ctx": {
+        "error": {}
+      }
+    }
+  ]
+}

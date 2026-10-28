@@ -1,0 +1,594 @@
+
+===============================================================
+       ASWANNA EVALUATION HARNESS (SO3.6) - OFFLINE EVAL       
+===============================================================
+
+1. Loading synthetic ground-truth fixtures...
+   Loaded 10 fixtures from /server/eval/fixtures:
+   - [on_track.json] scenario: on_track (SYNTHETIC: replace with DoA field data)
+   - [mild_overspend.json] scenario: mild_overspend (SYNTHETIC: replace with DoA field data)
+   - [significant_overspend.json] scenario: significant_overspend (SYNTHETIC: replace with DoA field data)
+   - [late_season_spike.json] scenario: late_season_spike (SYNTHETIC: replace with DoA field data)
+   - [underspend.json] scenario: underspend (SYNTHETIC: replace with DoA field data)
+   - [zero_baseline.json] scenario: zero_baseline (SYNTHETIC: replace with DoA field data)
+   - [drift_volatile.json] scenario: drift_volatile (SYNTHETIC: replace with DoA field data)
+   - [drift_stable.json] scenario: drift_stable (SYNTHETIC: replace with DoA field data)
+   - [exact_boundaries.json] scenario: exact_boundaries (SYNTHETIC: replace with DoA field data)
+   - [temporary_spike_resolving.json] scenario: temporary_spike_resolving (SYNTHETIC: replace with DoA field data)
+
+2. Evaluating variance accuracy (engine vs reference implementation)...
+   Total comparisons: 65
+   Exact agreements:  65
+   Agreement Rate:    100.00% (Target: 100%)
+
+3. Evaluating alert precision & recall (Tiered vs Proposal Baseline vs Flat-10%)...
+   Evaluated 42 hand-labelled ground truth events.
+
+   --- TIERED MODE (Proposal Table 3) ---
+   Attention:   P = 100.0%, R = 100.0%, F1 = 100.0%
+   Significant: P = 100.0%, R = 100.0%, F1 = 100.0%
+   Overall:     P = 100.0%, R = 100.0%, F1 = 100.0%
+
+   --- PROPOSAL BASELINE (Section 3.3: Binary Alert when v > 0) ---
+   Attention:   P = 100.0%, R = 18.2%, F1 = 30.8% (N/A in binary baseline)
+   Significant: P = 26.9%, R = 100.0%, F1 = 42.4%
+   Overall:     P = 64.3%, R = 100.0%, F1 = 78.3%
+
+   --- EXTRA BASELINE (Flat 10% Threshold) ---
+   Attention:   P = 100.0%, R = 18.2%, F1 = 30.8% (N/A in single mode)
+   Significant: P = 58.3%, R = 100.0%, F1 = 73.7%
+   Overall:     P = 100.0%, R = 77.8%, F1 = 87.5%
+
+   --- FAILURE MODES (One sentence each) ---
+   * Proposal Baseline (Section 3.3): The binary baseline rule (v > 0) causes severe alarm fatigue by falsely alerting on harmless minor budget variances and normal seasonal fluctuations (such as labour or machinery drifting 1ΓÇô8% within safe limits), while failing to distinguish between early advisory warnings and critical emergencies.
+   * Extra Baseline (Flat 10%): The flat 10% baseline rule misses critical early intervention windows for volatile inputs (such as seed, fertilizer, and fuel drifting between 7% and 10%), while simultaneously over-escalating routine 11ΓÇô15% stable operational variances into emergency alarms.
+   * Tiered Mode: Tiered mode successfully mitigates false alarms and early misses by calibrating tolerances against category volatility, but relies on static category classifications and currently treats severe agricultural under-spending as normal.
+
+   --- HONEST FAILING CASES ---
+   Tiered Mode Failing Cases: 0
+   Proposal Baseline Failing Cases: 19
+   Flat 10% Baseline Failing Cases: 9
+
+4. Evaluating crop recommendation engine...
+   Determinism over 100 runs: PASS (100% identical)
+   Permutation stability:      PASS (Invariant)
+
+5. Running live API response time and alert latency benchmarks...
+[0mPOST /api/expenses [32m201[0m 86.707 ms - 932[0m
+[0mPOST /api/expenses [32m201[0m 39.590 ms - 1108[0m
+[0mPOST /api/expenses [32m201[0m 51.111 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 238.175 ms - 1108[0m
+[0mPOST /api/expenses [32m201[0m 38.201 ms - 1108[0m
+[0mPOST /api/expenses [32m201[0m 128.262 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 39.549 ms - 1107[0m
+[0mPOST /api/expenses [32m201[0m 41.872 ms - 1108[0m
+[0mPOST /api/expenses [32m201[0m 44.644 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 36.201 ms - 1108[0m
+[0mPOST /api/expenses [32m201[0m 36.794 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 39.899 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 42.363 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 40.326 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 41.364 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 34.936 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 46.071 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 38.491 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.004 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 33.017 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 37.695 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 32.625 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 30.754 ms - 1098[0m
+[0mPOST /api/expenses [32m201[0m 33.750 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 33.715 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 33.247 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 37.897 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 32.179 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.137 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.088 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 33.550 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 33.133 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 34.592 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 34.353 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.003 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.565 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 37.913 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 88.885 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 55.981 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 43.119 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 39.321 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 44.032 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 55.132 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 50.598 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 53.246 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 50.151 ms - 1097[0m
+[0mPOST /api/expenses [32m201[0m 45.288 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.907 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 40.792 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 40.271 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 39.713 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 41.564 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.218 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 32.254 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 34.381 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 36.552 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 36.988 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.732 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.654 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.952 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 34.653 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 33.019 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 33.160 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 40.698 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 36.661 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 40.830 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 40.144 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 36.856 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 37.832 ms - 1098[0m
+[0mPOST /api/expenses [32m201[0m 36.937 ms - 1109[0m
+[0mPOST /api/expenses [32m201[0m 38.763 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 38.855 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 38.341 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 39.234 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 35.851 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.432 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 35.148 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 36.540 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 38.173 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 39.872 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 36.115 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.239 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 36.394 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.690 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 39.251 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 36.439 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.933 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 41.923 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 42.699 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 42.114 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 40.995 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 43.975 ms - 1096[0m
+[0mPOST /api/expenses [32m201[0m 42.420 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 45.553 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 49.166 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 47.095 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 48.969 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 46.617 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 55.516 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 46.406 ms - 1110[0m
+[0mPOST /api/expenses [32m201[0m 42.213 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 123.366 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 46.668 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 47.410 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 42.681 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.154 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 40.749 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.349 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.933 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 36.899 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 36.151 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 35.521 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 34.885 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 32.790 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 33.419 ms - 1100[0m
+[0mPOST /api/expenses [32m201[0m 33.715 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 35.984 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 33.110 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 36.578 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.063 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 38.910 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 36.960 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 40.469 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 36.745 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.299 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 40.852 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.443 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 40.539 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 38.261 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 38.336 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 38.143 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 39.704 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 39.562 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.347 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.600 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 38.790 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 38.448 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 37.558 ms - 1099[0m
+[0mPOST /api/expenses [32m201[0m 38.175 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 38.507 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 38.155 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 39.383 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 38.428 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 37.667 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 39.054 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 36.259 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 34.982 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 35.543 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 36.334 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 44.172 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 59.040 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 50.696 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 50.800 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.819 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 47.702 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.998 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 50.616 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 49.629 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 63.358 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 66.933 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 54.947 ms - 1100[0m
+[0mPOST /api/expenses [32m201[0m 54.956 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 50.700 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 47.989 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 48.447 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 46.670 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 48.509 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 42.328 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.225 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.836 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 44.209 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 43.506 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 42.094 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 43.111 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 47.123 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 48.737 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.521 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.459 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.177 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 44.971 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 48.136 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 44.398 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 41.741 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 46.208 ms - 1097[0m
+[0mPOST /api/expenses [32m201[0m 42.675 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 45.801 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 45.334 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.526 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.117 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 47.863 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 48.809 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 46.500 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.603 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.643 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.616 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 40.888 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 42.976 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.523 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 42.331 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 41.622 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 42.068 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.540 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 42.806 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.405 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.013 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 45.004 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 43.218 ms - 1100[0m
+[0mPOST /api/expenses [32m201[0m 45.555 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 47.353 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.088 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 44.371 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 44.164 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 45.384 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 45.752 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.420 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.504 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 43.721 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 45.260 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 47.869 ms - 1112[0m
+[0mPOST /api/expenses [32m201[0m 61.146 ms - 1111[0m
+[0mPOST /api/expenses [32m201[0m 56.936 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 25.982 ms - 13088[0m
+[0mPUT /api/expenses/6ada0dadc3300f962fa8a5f1 [32m200[0m 144.541 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 39.083 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dadc3300f962fa8a5f1 [32m200[0m 60.239 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 137.095 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 14.695 ms - 13088[0m
+[0mPUT /api/expenses/6ada0dadc3300f962fa8a635 [32m200[0m 73.376 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 20.187 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dadc3300f962fa8a635 [32m200[0m 30.633 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 66.214 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.770 ms - 13088[0m
+[0mPUT /api/expenses/6ada0dadc3300f962fa8a679 [32m200[0m 72.139 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 23.299 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dadc3300f962fa8a679 [32m200[0m 33.048 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 66.646 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.084 ms - 13088[0m
+[0mPUT /api/expenses/6ada0daec3300f962fa8a6bd [32m200[0m 68.764 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 18.980 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0daec3300f962fa8a6bd [32m200[0m 27.821 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 64.611 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 16.187 ms - 13088[0m
+[0mPUT /api/expenses/6ada0daec3300f962fa8a701 [32m200[0m 66.250 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 24.357 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0daec3300f962fa8a701 [32m200[0m 26.079 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 69.085 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.467 ms - 13088[0m
+[0mPUT /api/expenses/6ada0daec3300f962fa8a745 [32m200[0m 57.258 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 16.782 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0daec3300f962fa8a745 [32m200[0m 25.712 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 59.389 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 14.240 ms - 13088[0m
+[0mPUT /api/expenses/6ada0daec3300f962fa8a789 [32m200[0m 60.466 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.430 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0daec3300f962fa8a789 [32m200[0m 24.151 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 56.100 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.587 ms - 13088[0m
+[0mPUT /api/expenses/6ada0daec3300f962fa8a7cd [32m200[0m 73.245 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 20.034 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0daec3300f962fa8a7cd [32m200[0m 34.047 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 62.083 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.633 ms - 13088[0m
+[0mPUT /api/expenses/6ada0dafc3300f962fa8a811 [32m200[0m 69.126 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 22.753 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dafc3300f962fa8a811 [32m200[0m 38.929 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 78.745 ms - 888[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 19.055 ms - 13088[0m
+[0mPUT /api/expenses/6ada0dafc3300f962fa8a855 [32m200[0m 88.144 ms - 615[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 26.821 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dafc3300f962fa8a855 [32m200[0m 30.611 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 95.523 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 19.432 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dafc3300f962fa8a899 [32m200[0m 106.924 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 30.604 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dafc3300f962fa8a899 [32m200[0m 36.992 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 70.659 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 16.067 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db0c3300f962fa8a8dd [32m200[0m 79.302 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.479 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db0c3300f962fa8a8dd [32m200[0m 24.480 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 60.261 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 14.233 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db0c3300f962fa8a921 [32m200[0m 59.581 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.577 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db0c3300f962fa8a921 [32m200[0m 28.006 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 53.034 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.997 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db0c3300f962fa8a965 [32m200[0m 57.115 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.052 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db0c3300f962fa8a965 [32m200[0m 19.387 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 54.781 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.166 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db0c3300f962fa8a9a9 [32m200[0m 65.397 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.188 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db0c3300f962fa8a9a9 [32m200[0m 22.472 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 61.968 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.865 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db1c3300f962fa8a9ed [32m200[0m 60.493 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 18.534 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db1c3300f962fa8a9ed [32m200[0m 26.742 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 57.816 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.696 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db1c3300f962fa8aa31 [32m200[0m 56.765 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 18.873 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db1c3300f962fa8aa31 [32m200[0m 26.548 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 66.143 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.735 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db1c3300f962fa8aa75 [32m200[0m 59.348 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 16.417 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db1c3300f962fa8aa75 [32m200[0m 26.095 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 56.036 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.112 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db1c3300f962fa8aab9 [32m200[0m 53.591 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.951 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db1c3300f962fa8aab9 [32m200[0m 23.882 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 60.142 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.333 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db1c3300f962fa8aafd [32m200[0m 53.207 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.176 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db1c3300f962fa8aafd [32m200[0m 21.200 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 50.907 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.443 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db2c3300f962fa8ab41 [32m200[0m 52.451 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.252 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db2c3300f962fa8ab41 [32m200[0m 19.614 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 45.323 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.299 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db2c3300f962fa8ab85 [32m200[0m 48.117 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.509 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db2c3300f962fa8ab85 [32m200[0m 21.640 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 48.522 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.882 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db2c3300f962fa8abc9 [32m200[0m 50.103 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.147 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db2c3300f962fa8abc9 [32m200[0m 20.976 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 48.184 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.695 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db2c3300f962fa8ac0d [32m200[0m 46.890 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.040 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db2c3300f962fa8ac0d [32m200[0m 21.300 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 55.218 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.048 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db2c3300f962fa8ac51 [32m200[0m 64.657 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 18.197 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db2c3300f962fa8ac51 [32m200[0m 32.138 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 59.407 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.210 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db3c3300f962fa8ac95 [32m200[0m 67.406 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 19.896 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db3c3300f962fa8ac95 [32m200[0m 27.488 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 61.600 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.778 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db3c3300f962fa8acd9 [32m200[0m 64.248 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 19.201 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db3c3300f962fa8acd9 [32m200[0m 26.124 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 62.600 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.324 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db3c3300f962fa8ad1d [32m200[0m 72.061 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 24.230 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db3c3300f962fa8ad1d [32m200[0m 24.571 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 62.548 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 16.986 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db3c3300f962fa8ad61 [32m200[0m 69.186 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 19.858 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db3c3300f962fa8ad61 [32m200[0m 30.001 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 67.250 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 13.064 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db4c3300f962fa8ada5 [32m200[0m 89.625 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 22.998 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db4c3300f962fa8ada5 [32m200[0m 26.069 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 59.349 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 15.027 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db4c3300f962fa8ade9 [32m200[0m 67.794 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.693 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db4c3300f962fa8ade9 [32m200[0m 27.566 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 63.558 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 14.249 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db4c3300f962fa8ae2d [32m200[0m 67.961 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.963 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db4c3300f962fa8ae2d [32m200[0m 29.431 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 59.661 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 12.333 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db4c3300f962fa8ae71 [32m200[0m 64.218 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 16.800 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db4c3300f962fa8ae71 [32m200[0m 28.769 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 67.715 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 14.611 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db5c3300f962fa8aeb5 [32m200[0m 65.177 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 19.360 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db5c3300f962fa8aeb5 [32m200[0m 25.142 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 61.094 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.180 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db5c3300f962fa8aef9 [32m200[0m 47.220 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.131 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db5c3300f962fa8aef9 [32m200[0m 21.414 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 48.780 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.622 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db6c3300f962fa8af3d [32m200[0m 52.787 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.935 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db6c3300f962fa8af3d [32m200[0m 21.160 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 44.459 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.937 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db6c3300f962fa8af81 [32m200[0m 41.269 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 11.798 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db6c3300f962fa8af81 [32m200[0m 23.103 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 49.159 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.103 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db6c3300f962fa8afc5 [32m200[0m 49.612 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.571 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db6c3300f962fa8afc5 [32m200[0m 20.591 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 44.094 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.542 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db7c3300f962fa8b009 [32m200[0m 41.649 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.319 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db7c3300f962fa8b009 [32m200[0m 20.419 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 45.885 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 8.534 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db7c3300f962fa8b04d [32m200[0m 40.924 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 11.897 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db7c3300f962fa8b04d [32m200[0m 17.544 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 37.359 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.502 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db7c3300f962fa8b091 [32m200[0m 43.322 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.301 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db7c3300f962fa8b091 [32m200[0m 20.038 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 46.549 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.532 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db8c3300f962fa8b0d5 [32m200[0m 51.013 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.920 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db8c3300f962fa8b0d5 [32m200[0m 23.192 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 48.548 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.664 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db9c3300f962fa8b119 [32m200[0m 48.853 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.820 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db9c3300f962fa8b119 [32m200[0m 23.481 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 49.110 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.480 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db9c3300f962fa8b15d [32m200[0m 48.079 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.045 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db9c3300f962fa8b15d [32m200[0m 25.637 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 54.570 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.711 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db9c3300f962fa8b1a1 [32m200[0m 54.090 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.403 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db9c3300f962fa8b1a1 [32m200[0m 24.684 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 42.929 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.337 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db9c3300f962fa8b1e5 [32m200[0m 42.917 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 11.674 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db9c3300f962fa8b1e5 [32m200[0m 17.202 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 39.885 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.233 ms - 13089[0m
+[0mPUT /api/expenses/6ada0db9c3300f962fa8b229 [32m200[0m 43.565 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 12.762 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0db9c3300f962fa8b229 [32m200[0m 18.261 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 38.938 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.870 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbac3300f962fa8b26d [32m200[0m 41.124 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 11.677 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbac3300f962fa8b26d [32m200[0m 18.822 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 44.907 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.825 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbac3300f962fa8b2b1 [32m200[0m 48.993 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.326 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbac3300f962fa8b2b1 [32m200[0m 20.174 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 47.157 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.909 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbac3300f962fa8b2f5 [32m200[0m 42.427 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 11.876 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbac3300f962fa8b2f5 [32m200[0m 18.387 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 47.556 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.215 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbac3300f962fa8b339 [32m200[0m 49.302 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 12.271 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbac3300f962fa8b339 [32m200[0m 19.628 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 46.221 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.963 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b37d [32m200[0m 49.453 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 16.529 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b37d [32m200[0m 23.656 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 52.082 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 8.243 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b3c1 [32m200[0m 47.348 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 12.558 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b3c1 [32m200[0m 21.428 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 46.820 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.725 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b405 [32m200[0m 46.566 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.471 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b405 [32m200[0m 23.391 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 47.528 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 11.914 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b449 [32m200[0m 47.266 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 12.951 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b449 [32m200[0m 17.421 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 39.758 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.317 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b48d [32m200[0m 44.250 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.609 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b48d [32m200[0m 18.994 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 42.683 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.817 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbbc3300f962fa8b4d1 [32m200[0m 55.026 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 14.352 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbbc3300f962fa8b4d1 [32m200[0m 20.792 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 43.940 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 8.570 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbcc3300f962fa8b515 [32m200[0m 47.295 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 13.517 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbcc3300f962fa8b515 [32m200[0m 21.583 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 43.086 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 9.098 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbcc3300f962fa8b559 [32m200[0m 48.170 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 15.464 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbcc3300f962fa8b559 [32m200[0m 23.376 ms - 16[0m
+[0mPOST /api/expenses [32m201[0m 41.475 ms - 889[0m
+[0mGET /api/expenses?cycleId=6ada0da0c3300f962fa8965c [32m200[0m 10.092 ms - 13089[0m
+[0mPUT /api/expenses/6ada0dbcc3300f962fa8b59d [32m200[0m 46.919 ms - 616[0m
+[0mGET /api/cycles/6ada0da0c3300f962fa8965c/variance [32m200[0m 17.370 ms - 1326[0m
+[0mDELETE /api/expenses/6ada0dbcc3300f962fa8b59d [32m200[0m 22.713 ms - 16[0m
+   Alert Latency (220 runs, same-request):
+     p50: 51.54 ms, p95: 80.95 ms
+     Same-request alert present: 100.0%
+   API Response Times (CRUD + Variance, target < 2 s):
+     createExpense   : p50 = 64.11 ms, p95 = 149.03 ms (Target Met: YES)
+     listExpenses    : p50 = 21.17 ms, p95 = 274.11 ms (Target Met: YES)
+     updateExpense   : p50 = 60.19 ms, p95 = 97.15 ms (Target Met: YES)
+     deleteExpense   : p50 = 29.32 ms, p95 = 40.43 ms (Target Met: YES)
+     getVariance     : p50 = 22.77 ms, p95 = 38.02 ms (Target Met: YES)
+
+6. Writing output reports...
+   Wrote JSON metrics to: D:\Aswanna\server\eval\evaluation-results.json
+   Wrote Markdown report to: D:\Aswanna\docs\evaluation-report.md
+
+===============================================================
+                 EVALUATION COMPLETE - ALL PASS                
+===============================================================
+

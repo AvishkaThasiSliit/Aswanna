@@ -1,0 +1,839 @@
+[
+  {
+    "id": "VP-EN-001",
+    "language": "en",
+    "transcript": "Bought 2 bags of urea fertilizer for 14000 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "fertilizer",
+      "inputType": "fertilizer",
+      "description": "Urea fertilizer 2 bags",
+      "quantity": 2,
+      "unit": "bags",
+      "cost": 14000,
+      "dayStatus": "worked"
+    },
+    "notes": "Standard English paddy input expense",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-002",
+    "language": "en",
+    "transcript": "Paid 8500 rupees for tractor plowing yesterday",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "Tractor plowing",
+      "quantity": null,
+      "unit": null,
+      "cost": 8500,
+      "dayStatus": "worked"
+    },
+    "notes": "Machinery land preparation expense",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-003",
+    "language": "en",
+    "transcript": "Bought 30 kilos of BG 358 seed paddy for 7500",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Anuradhapura"
+    },
+    "expected_extracted": {
+      "categoryTag": "seed",
+      "inputType": "seed",
+      "description": "BG 358 seed paddy",
+      "quantity": 30,
+      "unit": "kg",
+      "cost": 7500,
+      "dayStatus": "worked"
+    },
+    "notes": "Paddy seed variety reference",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-004",
+    "language": "en",
+    "transcript": "Paid 6000 rupees to two hired laborers for weeding",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Ampara"
+    },
+    "expected_extracted": {
+      "categoryTag": "labour",
+      "inputType": null,
+      "description": "Hired labour for weeding",
+      "quantity": 2,
+      "unit": "laborers",
+      "cost": 6000,
+      "dayStatus": "worked"
+    },
+    "notes": "Labour category with head count",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-005",
+    "language": "en",
+    "transcript": "Purchased Nominee weedicide spray bottle for 4200 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Batticaloa"
+    },
+    "expected_extracted": {
+      "categoryTag": "agrochemical",
+      "inputType": "agrochemical",
+      "description": "Nominee weedicide spray bottle",
+      "quantity": 1,
+      "unit": "bottle",
+      "cost": 4200,
+      "dayStatus": "worked"
+    },
+    "notes": "Brand name weedicide agrochemical",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-006",
+    "language": "en",
+    "transcript": "Spent 3800 rupees on diesel for the water bowser pump",
+    "speaker_context": {
+      "crop": "Chilli",
+      "district": "Hambantota"
+    },
+    "expected_extracted": {
+      "categoryTag": "fuel",
+      "inputType": "fuel",
+      "description": "Diesel for water pump",
+      "quantity": null,
+      "unit": null,
+      "cost": 3800,
+      "dayStatus": "worked"
+    },
+    "notes": "Fuel category distinct from machinery and irrigation",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-007",
+    "language": "en",
+    "transcript": "Paid water board irrigation canal maintenance fee of 2500",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "irrigation",
+      "inputType": "irrigation",
+      "description": "Irrigation canal maintenance fee",
+      "quantity": null,
+      "unit": null,
+      "cost": 2500,
+      "dayStatus": "worked"
+    },
+    "notes": "Irrigation service fee",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-011",
+    "language": "si",
+    "transcript": "යූරියා මිටි දෙකක් ගත්තා රුපියල් දාහතරදාහයි",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "fertilizer",
+      "inputType": "fertilizer",
+      "description": "යූරියා පොහොර මිටි 2",
+      "quantity": 2,
+      "unit": "මිටි",
+      "cost": 14000,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala urea fertilizer purchase (මිටි = bags)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-012",
+    "language": "si",
+    "transcript": "කුඹුර හාලා දෙන්න ට්‍රැක්ටරේට අටදාස් පන්සියයක් දුන්නා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "ට්‍රැක්ටර් කුලිය (හාම)",
+      "quantity": null,
+      "unit": null,
+      "cost": 8500,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala tractor plowing land preparation",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-013",
+    "language": "si",
+    "transcript": "බීජ වී කිලෝ තිහක් ගත්තා රුපියල් හත්දාස් පන්සියයකට",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Anuradhapura"
+    },
+    "expected_extracted": {
+      "categoryTag": "seed",
+      "inputType": "seed",
+      "description": "බීජ වී කිලෝ 30",
+      "quantity": 30,
+      "unit": "kg",
+      "cost": 7500,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala seed paddy (බීජ වී) purchase",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-014",
+    "language": "si",
+    "transcript": "වල් නෙලන්න ආපු කුලී කම්කරුවන්ට හයදාහක් ගෙව්වා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Ampara"
+    },
+    "expected_extracted": {
+      "categoryTag": "labour",
+      "inputType": null,
+      "description": "වල් නෙලීමේ කුලී ශ්‍රමය",
+      "quantity": null,
+      "unit": null,
+      "cost": 6000,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala weeding hired labour (කුලී කම්කරුවන්)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-015",
+    "language": "si",
+    "transcript": "වල් නාශක බෝතලයක් ගත්තා හාරදාස් දෙසීයකට",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Batticaloa"
+    },
+    "expected_extracted": {
+      "categoryTag": "agrochemical",
+      "inputType": "agrochemical",
+      "description": "වල් නාශක බෝතලය",
+      "quantity": 1,
+      "unit": "බෝතල්",
+      "cost": 4200,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala herbicide / weedicide (වල් නාශක)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-016",
+    "language": "si",
+    "transcript": "වතුර මෝටරේට ඩීසල් ලීටර් දහයක් ගැහුවා රුපියල් තුන්දාස් අටසියයි",
+    "speaker_context": {
+      "crop": "Chilli",
+      "district": "Hambantota"
+    },
+    "expected_extracted": {
+      "categoryTag": "fuel",
+      "inputType": "fuel",
+      "description": "වතුර මෝටරයට ඩීසල් ලීටර් 10",
+      "quantity": 10,
+      "unit": "L",
+      "cost": 3800,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala fuel purchase for irrigation motor",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-017",
+    "language": "si",
+    "transcript": "ඇලෙන් වතුර හරවන්න වාරිමාර්ග ගාස්තුව දෙදහස් පන්සියයක් ගෙව්වා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "irrigation",
+      "inputType": "irrigation",
+      "description": "වාරිමාර්ග ගාස්තුව",
+      "quantity": null,
+      "unit": null,
+      "cost": 2500,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala canal irrigation fee (වාරිමාර්ග ගාස්තු)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-018",
+    "language": "si",
+    "transcript": "වී මිටි බඳින්න ගෝනි සහ ලණු වලට එක්දාස් දෙසීයක් ගියා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "other",
+      "inputType": null,
+      "description": "ගෝනි සහ ලණු",
+      "quantity": null,
+      "unit": null,
+      "cost": 1200,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala miscellaneous consumables (ගෝනි සහ ලණු)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-019",
+    "language": "si",
+    "transcript": "කොම්බයින් හාවස්ටර් එකට දොලොස්දාහක් ගෙව්වා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Anuradhapura"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "කොම්බයින් හාවස්ටර් කුලිය",
+      "quantity": 1,
+      "unit": "සේවාව",
+      "cost": 12000,
+      "dayStatus": "worked"
+    },
+    "notes": "Sinhala harvester machine rental",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-020",
+    "language": "si",
+    "transcript": "ටීඑස්පී පොහොර මිටියක් ගත්තා රුපියල් අටදාහයි",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "fertilizer",
+      "inputType": "fertilizer",
+      "description": "ටීඑස්පී පොහොර මිටි 1",
+      "quantity": 1,
+      "unit": "මිටි",
+      "cost": 8000,
+      "dayStatus": "worked"
+    },
+    "notes": "Triple superphosphate fertilizer in Sinhala",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MX-036",
+    "language": "mixed",
+    "transcript": "Urea 2 bags gaththa 14000 LKR",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Gampaha"
+    },
+    "expected_extracted": {
+      "categoryTag": "fertilizer",
+      "inputType": "fertilizer",
+      "description": "Urea 2 bags",
+      "quantity": 2,
+      "unit": "bags",
+      "cost": 14000,
+      "dayStatus": "worked"
+    },
+    "notes": "Mixed Singlish fertilizer transaction",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MX-037",
+    "language": "mixed",
+    "transcript": "Tractor plowing ekata 8500k gewwa",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "Tractor plowing hire",
+      "quantity": 1,
+      "unit": "service",
+      "cost": 8500,
+      "dayStatus": "worked"
+    },
+    "notes": "Mixed Singlish machinery service with 'k' suffix for thousands",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-008",
+    "language": "en",
+    "transcript": "Bought PVC pipe joint fittings and repair glue for 1800",
+    "speaker_context": {
+      "crop": "Big Onion",
+      "district": "Matale"
+    },
+    "expected_extracted": {
+      "categoryTag": "other",
+      "inputType": null,
+      "description": "PVC pipe joint fittings and glue",
+      "quantity": null,
+      "unit": null,
+      "cost": 1800,
+      "dayStatus": "worked"
+    },
+    "notes": "Maintenance fittings falling into other category",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-009",
+    "language": "en",
+    "transcript": "Paid 12000 for combine harvester hire for 2 hours",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Anuradhapura"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "Combine harvester hire",
+      "quantity": 2,
+      "unit": "hours",
+      "cost": 12000,
+      "dayStatus": "worked"
+    },
+    "notes": "Harvester machinery rental",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-EN-010",
+    "language": "en",
+    "transcript": "Bought 1 bag of MOP fertilizer for 9500 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "fertilizer",
+      "inputType": "fertilizer",
+      "description": "MOP fertilizer 1 bag",
+      "quantity": 1,
+      "unit": "bags",
+      "cost": 9500,
+      "dayStatus": "worked"
+    },
+    "notes": "Muriate of potash fertilizer bag",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-021",
+    "language": "si",
+    "transcript": "කෘමිනාශක බෙහෙත් දියර බෝතල් දෙකක් ගත්තා රුපියල් හයදාහයි",
+    "speaker_context": {
+      "crop": "Big Onion",
+      "district": "Matale"
+    },
+    "expected_extracted": {
+      "categoryTag": "agrochemical",
+      "inputType": "agrochemical",
+      "description": "කෘමිනාශක දියර බෝතල් 2",
+      "quantity": 2,
+      "unit": "බෝතල්",
+      "cost": 6000,
+      "dayStatus": "worked"
+    },
+    "notes": "Pesticide / insecticide in Sinhala (කෘමිනාශක)",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-022",
+    "language": "si",
+    "transcript": "පෝර ඉහින්න ආපු කුලී කම්කරුවාට දවසේ කුලිය දෙදහස් පන්සියයක් දුන්නා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Ampara"
+    },
+    "expected_extracted": {
+      "categoryTag": "labour",
+      "inputType": null,
+      "description": "පොහොර ඉසීමේ කුලී කම්කරු කුලිය",
+      "quantity": null,
+      "unit": null,
+      "cost": 2500,
+      "dayStatus": "worked"
+    },
+    "notes": "Single hired laborer daily wage in Sinhala",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-023",
+    "language": "si",
+    "transcript": "කනුවක් හිටවන්න සහ වැට බඳින්න කම්බි වලට හාරදාස් පන්සියයක් ගියා",
+    "speaker_context": {
+      "crop": "Maize",
+      "district": "Monaragala"
+    },
+    "expected_extracted": {
+      "categoryTag": "other",
+      "inputType": null,
+      "description": "වැට කම්බි සහ කණු",
+      "quantity": null,
+      "unit": null,
+      "cost": 4500,
+      "dayStatus": "worked"
+    },
+    "notes": "Fencing material expense in Sinhala",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-024",
+    "language": "si",
+    "transcript": "බිම් සකස් කරන්න රොටවෙටර් එකට හත්දාහක් දුන්නා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_extracted": {
+      "categoryTag": "machinery",
+      "inputType": null,
+      "description": "රොටවෙටර් කුලිය",
+      "quantity": 1,
+      "unit": "සේවාව",
+      "cost": 7000,
+      "dayStatus": "worked"
+    },
+    "notes": "Rotavator implement rental in Sinhala",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-SI-025",
+    "language": "si",
+    "transcript": "මෝටර් බට අලුත්වැඩියා කරන්න ප්ලාස්ටික් බට වලට තුන්දාහක් ගියා",
+    "speaker_context": {
+      "crop": "Chilli",
+      "district": "Hambantota"
+    },
+    "expected_extracted": {
+      "categoryTag": "irrigation",
+      "inputType": "irrigation",
+      "description": "ප්ලාස්ටික් වතුර බට",
+      "quantity": null,
+      "unit": null,
+      "cost": 3000,
+      "dayStatus": "worked"
+    },
+    "notes": "Irrigation piping maintenance in Sinhala",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MX-038",
+    "language": "mixed",
+    "transcript": "Weedicide spray bottle ekak gaththa 4200 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_extracted": {
+      "categoryTag": "agrochemical",
+      "inputType": "agrochemical",
+      "description": "Weedicide spray bottle",
+      "quantity": 1,
+      "unit": "bottle",
+      "cost": 4200,
+      "dayStatus": "worked"
+    },
+    "notes": "Mixed Singlish agrochemical purchase",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-041",
+    "language": "en",
+    "transcript": "Paid 4000 for fertilizer and 2500 for diesel",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "fertilizer",
+        "cost": 4000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fuel",
+        "cost": 2500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item English: 2 distinct items",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-042",
+    "language": "en",
+    "transcript": "1000 on seeds, 2000 on fertilizer and 1500 on fuel",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "seed",
+        "cost": 1000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fertilizer",
+        "cost": 2000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fuel",
+        "cost": 1500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item English: 3 distinct items",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-043",
+    "language": "en",
+    "transcript": "Bought 2 bags of urea for 14000 rupees and 1 bag of TSP for 8000 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Anuradhapura"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "fertilizer",
+        "cost": 14000,
+        "quantity": 2,
+        "unit": "bags",
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fertilizer",
+        "cost": 8000,
+        "quantity": 1,
+        "unit": "bag",
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item English: 2 items with quantities and units",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-044",
+    "language": "si",
+    "transcript": "බීජ වී වලට රු 7500 සහ පොහොර වලට රු 14000",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "seed",
+        "cost": 7500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fertilizer",
+        "cost": 14000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item Sinhala with digits and currency cue",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-045",
+    "language": "si",
+    "transcript": "ට්‍රැක්ටරයට 8500ක් ගෙව්වා, ඩීසල් වලට 3800ක් ගියා",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "machinery",
+        "cost": 8500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fuel",
+        "cost": 3800,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item Sinhala with digits and payment verbs",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-046",
+    "language": "mixed",
+    "transcript": "Urea for 14000 LKR and weedicide spray for 4200 LKR",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Gampaha"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "fertilizer",
+        "cost": 14000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "agrochemical",
+        "cost": 4200,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item Singlish: 2 distinct items with LKR currency",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-047",
+    "language": "mixed",
+    "transcript": "Tractor hire 8500k gewwa and labour wage 6000 rupees",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Kurunegala"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "machinery",
+        "cost": 8500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "labour",
+        "cost": 6000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Multi-item Singlish: machinery + labour",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-048",
+    "language": "en",
+    "transcript": "Bought urea for 7000 and more urea for 7000",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Ampara"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "fertilizer",
+        "cost": 7000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fertilizer",
+        "cost": 7000,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      }
+    ],
+    "notes": "Tricky multi-item: repeated items in same category must not merge",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-049",
+    "language": "en",
+    "transcript": "Paid 3500 for seeds and paid 1200 for miscellaneous",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Batticaloa"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "seed",
+        "cost": 3500,
+        "quantity": null,
+        "unit": null,
+        "status": "ok"
+      },
+      {
+        "categoryTag": null,
+        "cost": 1200,
+        "quantity": null,
+        "unit": null,
+        "status": "needs_review"
+      }
+    ],
+    "notes": "Tricky multi-item: amount with no known item category",
+    "review_status": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "VP-MI-050",
+    "language": "en",
+    "transcript": "Bought 2 bags of urea for 14000 and also bought some compost",
+    "speaker_context": {
+      "crop": "Paddy",
+      "district": "Polonnaruwa"
+    },
+    "expected_items": [
+      {
+        "categoryTag": "fertilizer",
+        "cost": 14000,
+        "quantity": 2,
+        "unit": "bags",
+        "status": "ok"
+      },
+      {
+        "categoryTag": "fertilizer",
+        "cost": null,
+        "quantity": null,
+        "unit": null,
+        "status": "needs_review"
+      }
+    ],
+    "notes": "Tricky multi-item: item with no amount",
+    "review_status": "DRAFT: needs native-speaker review"
+  }
+]

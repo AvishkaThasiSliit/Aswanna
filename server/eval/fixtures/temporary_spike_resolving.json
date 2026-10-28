@@ -1,0 +1,61 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "temporary_spike_resolving",
+  "description": "Synthetic 100-day cycle demonstrating a front-heavy expenditure spike on Day 20 that temporarily triggers a significant alert (+20.0% variance), but subsequently resolves back to normal tier by Day 60 (-8.33% variance) as linear expected-to-date schedule catches up without overspending the seasonal total.",
+  "cycle": {
+    "crop": "Paddy",
+    "district": "Ampara",
+    "season": "Maha",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 100000, "low": 90000, "high": 110000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "machinery": { "expected": 50000, "low": 45000, "high": 55000 },
+    "agrochemical": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-ts-1", "day": 10, "category": "seed", "amount": 14000, "notes": "Seed paddy" },
+    { "id": "exp-ts-2", "day": 18, "category": "labour", "amount": 24000, "notes": "Early bund reinforcement and flood channel digging creating temporary spend spike" },
+    { "id": "exp-ts-3", "day": 55, "category": "labour", "amount": 31000, "notes": "Mid-season maintenance bringing cumulative spend to 55,000" },
+    { "id": "exp-ts-4", "day": 95, "category": "labour", "amount": 43000, "notes": "Harvest labour bringing cumulative final spend to 98,000" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 20,
+      "category": "labour",
+      "expectedToDate": 20000,
+      "actualToDate": 24000,
+      "variancePct": 0.20,
+      "tier": "significant",
+      "proposalBaselineAlert": true,
+      "derivation": "Hand calculation: Day 20 linear phase is 0.20. expectedToDate = 100,000 * 0.20 = 20,000. actual = 24,000. variancePct = (24,000 - 20,000) / 20,000 = +4,000 / 20,000 = +0.2000 (+20.00%). Tiered rule (stable category): +20.0% > 15% threshold -> significant tier. Proposal baseline: triggers alert."
+    },
+    {
+      "day": 60,
+      "category": "labour",
+      "expectedToDate": 60000,
+      "actualToDate": 55000,
+      "variancePct": -0.0833,
+      "tier": "normal",
+      "proposalBaselineAlert": false,
+      "derivation": "Hand calculation: Day 60 linear phase is 0.60. expectedToDate = 100,000 * 0.60 = 60,000. actual = 55,000. variancePct = (55,000 - 60,000) / 60,000 = -5,000 / 60,000 = -0.0833 (-8.33%). Derivation: Cumulative actual spend did not keep pace with linear schedule, so expectedToDate caught up. Because variancePct is negative (-8.33%), tier naturally returns to normal. Alert resolves."
+    },
+    {
+      "day": 100,
+      "category": "labour",
+      "expectedToDate": 100000,
+      "actualToDate": 98000,
+      "variancePct": -0.02,
+      "tier": "normal",
+      "proposalBaselineAlert": false,
+      "derivation": "Hand calculation: Day 100 linear phase is 1.00. expectedToDate = 100,000. actual = 98,000. variancePct = (98,000 - 100,000) / 100,000 = -2,000 / 100,000 = -0.0200 (-2.00%). Negative variance yields normal tier in both tiered and baseline modes."
+    }
+  ]
+}

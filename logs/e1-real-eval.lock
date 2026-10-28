@@ -1,0 +1,9 @@
+{
+  "model_hash": "82fb07e7b6632e1b",
+  "timestamp": "2026-10-28T08:11:22.513875",
+  "forced": true,
+  "argv": [
+    "voice-learn\\eval_real.py",
+    "--force"
+  ]
+}

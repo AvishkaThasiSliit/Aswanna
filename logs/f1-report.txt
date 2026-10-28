@@ -1,0 +1,113 @@
+================================================================================
+ASWANNA TASK F1 EXECUTION REPORT
+================================================================================
+Timestamp: 2026-10-28T09:19:40
+Disk Guard: 3.40 GB free on D: (threshold >= 1.0 GB) - PASSED
+
+1. FREEZE V2
+- Source: shared\voice\*
+- Target: D:\Aswanna_freeze_voice_v2\shared_voice
+- Original freeze untouched: D:\Aswanna_freeze_voice
+- Hashes recorded: logs\freeze-v2-hashes.txt
+
+Hash comparison (v1 vs v2):
+- asrConfusions.json:
+  v1: 9e72e2ea1ad3efbc99c9dfd0094cad4ff57c3260097a6b91d7acaf282070da02
+  v2: 9e72e2ea1ad3efbc99c9dfd0094cad4ff57c3260097a6b91d7acaf282070da02 (identical)
+- extractExpenses.js:
+  v1: 3361ce20f8eb33a9bb7f17be2d3795aa7e4e0ae848f0814f9d4e5f0dff33575b
+  v2: fe6aae993b2c87e22db1bf1f4b4e9a9367e5eb88c13bf44417d9aac6e3e28177 (MODIFIED)
+- keywordMap.json:
+  v1: 7fb17bc093952ba53cb8242d8d85f5e55e092106725dc012a6df7a0fbead73ef
+  v2: b71678a7a69b3aa2b50cb706ade1a04c27a3dee518d6ced68991d5eb89df36f7 (MODIFIED)
+- parseCommand.js:
+  v1: 27b38e6df9b64ccadfe7c01b313e0b55fe9716b4e80073ff8e5222660f5ee02d
+  v2: 27b38e6df9b64ccadfe7c01b313e0b55fe9716b4e80073ff8e5222660f5ee02d (identical)
+- sinhalaNumberWords.json:
+  v1: e99da5635f118ae26cbfd7f70bfa0ef9929230559ebfd0ff6b87640c30656a89
+  v2: 6486201b80e801dbb72436236eeb22e67a631e5c7fd9cc62361b7aa6b9ed7687 (MODIFIED)
+- sinhalaNumbers.js:
+  v1: 3ff490db0281b37dd19d93616238bfeea9c77cb365ee396b29efbbf5a7fffa01
+  v2: ebf1dbdace5f1f350afc8d2b6ebcc13588d5617d9d3a3c772e37439ab3033d38 (MODIFIED)
+
+2. UNIT_PRICE_FRACTIONAL EFFECT ON DEV.JSON
+- Dataset: server/eval/fixtures/voice/dev.json (38 phrases, 49 items)
+- Items flagged with unit_price_fractional under v2: 0
+- Items flagged with unit_price_fractional under v1: 0
+- Flagged where amount was right (false alarm): 0
+- Flagged where amount was wrong (catch): 0
+- Per-item status differences (v1 vs v2): 0
+
+3. KEYWORD ADDITIONS AUDIT
+Terms added to keywordMap.json since v1:
+- traktor:
+    real-asr.captured.json: VP-CAP-014
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- tractor ekak:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- ට්‍රැක්ටර:
+    real-asr.captured.json: VP-CAP-014, VP-CAP-016
+    real-asr.repeat1.captured.json: VP-CAP-014, VP-CAP-016
+    real-asr.take3.clean.json: none
+- water bowser:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- bowser:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- බවුසර්:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- බවුසරය:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- බවුසරයක්:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- planks:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- timber:
+    real-asr.captured.json: none
+    real-asr.repeat1.captured.json: none
+    real-asr.take3.clean.json: none
+- ලෑලි:
+    real-asr.captured.json: VP-CAP-024
+    real-asr.repeat1.captured.json: VP-CAP-024
+    real-asr.take3.clean.json: none
+
+4. DATASET COLLECTION DEFAULTS
+- Routes active without env flags:
+  Server: app.use('/api/dataset-collection', datasetCollectionRoutes) in server/src/app.js (unconditional)
+  Client: /dataset-collection and /dataset-collection/review in client/src/App.jsx (unconditional)
+- .gitignore status:
+  Root .gitignore: none
+  private_dataset_storage/.gitignore: present (ignores '*' except '!.gitignore')
+- Files in private_dataset_storage:
+  886 files total (1 .gitignore + 885 .wav files)
+  (server/private_dataset_storage contains 2 .wav files)
+- Default secrets in config:
+  server/src/config/env.js:
+    VOICE_PSEUDONYMIZATION_KEY: 'aswanna-voice-pseudo-salt-secret-key-2026'
+    JWT_SECRET: 'dev-jwt-secret-change-in-prod'
+    VOICE_INTERNAL_TOKEN: 'aswanna-internal-voice-secret-token'
+  server/.env.example:
+    VOICE_PSEUDONYMIZATION_KEY=change-in-prod-high-entropy-pseudo-key-32chars-min
+    JWT_SECRET=dev-jwt-secret-change-in-prod
+    VOICE_INTERNAL_TOKEN=aswanna-internal-voice-secret-token
+    DATASET_STORAGE_DIR=private_dataset_storage
+
+5. RUN NOTHING ELSE
+- No training executed.
+- No eval_real.py executed.
+- Lock file logs/e1-real-eval.lock intact.
+================================================================================

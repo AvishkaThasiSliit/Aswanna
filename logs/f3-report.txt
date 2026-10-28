@@ -1,0 +1,145 @@
+================================================================================
+TASK F3: HYGIENE AND REPRODUCIBILITY REPORT
+================================================================================
+Execution Timestamp: 2026-10-28T05:32:00Z
+Disk Space (D:): 3.400 GB free of 299.998 GB (Threshold: >= 1.0 GB - PASSED)
+
+--------------------------------------------------------------------------------
+PART A: WAV ORIGIN FORENSICS
+--------------------------------------------------------------------------------
+1. Test WAV Buffer Generation Helper Code:
+From server/tests/datasetCollection.test.js:
+function createTestWavBuffer({ sampleRate = 16000, channels = 1, durationSec = 1.0 } = {}) {
+  const bytesPerSample = 2; // 16-bit
+  const dataSize = Math.floor(sampleRate * channels * bytesPerSample * durationSec);
+  const buffer = Buffer.alloc(44 + dataSize);
+
+  buffer.write('RIFF', 0);
+  buffer.writeUInt32LE(36 + dataSize, 4);
+  buffer.write('WAVE', 8);
+  buffer.write('fmt ', 12);
+  buffer.writeUInt32LE(16, 16); // subchunk1 size
+  buffer.writeUInt16LE(1, 20);  // PCM format
+  buffer.writeUInt16LE(channels, 22);
+  buffer.writeUInt32LE(sampleRate, 24);
+  buffer.writeUInt32LE(sampleRate * channels * bytesPerSample, 28); // byte rate
+  buffer.writeUInt16LE(channels * bytesPerSample, 32); // block align
+  buffer.writeUInt16LE(bytesPerSample * 8, 34); // bits per sample
+  buffer.write('data', 36);
+  buffer.writeUInt32LE(dataSize, 40);
+
+  return buffer;
+}
+
+From server/tests/datasetCollectionSecurity.test.js:
+function createValidWavBuffer(durationSeconds = 1.0, sampleRate = 16000) {
+  const numChannels = 1;
+  const bytesPerSample = 2;
+  const blockAlign = numChannels * bytesPerSample;
+  const byteRate = sampleRate * blockAlign;
+  const subChunk2Size = Math.floor(durationSeconds * sampleRate * blockAlign);
+  const chunkSize = 36 + subChunk2Size;
+
+  const buf = Buffer.alloc(44 + subChunk2Size);
+  buf.write('RIFF', 0);
+  buf.writeUInt32LE(chunkSize, 4);
+  buf.write('WAVE', 8);
+  buf.write('fmt ', 12);
+  buf.writeUInt32LE(16, 16);
+  buf.writeUInt16LE(1, 20);
+  buf.writeUInt16LE(numChannels, 22);
+  buf.writeUInt32LE(sampleRate, 24);
+  buf.writeUInt32LE(byteRate, 28);
+  buf.writeUInt16LE(blockAlign, 32);
+  buf.writeUInt16LE(16, 34);
+  buf.write('data', 36);
+  buf.writeUInt32LE(subChunk2Size, 40);
+  return buf;
+}
+
+2. 44-Byte Header Inspection:
+- rec_00649f21496543ff.wav (32,044 B): Sample Rate: 16000 Hz, Channels: 1, Bits: 16, Data Length: 32000 B, Duration: 1.000 s
+- rec_14b7eb74ebdf4890.wav (48,044 B): Sample Rate: 16000 Hz, Channels: 1, Bits: 16, Data Length: 48000 B, Duration: 1.500 s
+- rec_1cb4fdd72efb4689.wav (64,044 B): Sample Rate: 16000 Hz, Channels: 1, Bits: 16, Data Length: 64000 B, Duration: 2.000 s
+- rec_act_95417707.wav (16,044 B): Sample Rate: 16000 Hz, Channels: 1, Bits: 16, Data Length: 16000 B, Duration: 0.500 s
+
+--------------------------------------------------------------------------------
+PART B: V1 REPRODUCTION
+--------------------------------------------------------------------------------
+Scratch Directory: D:\Aswanna_scratch_v1check
+Scratch Directory Size: 680.26 KB (696,587 bytes, 67 files)
+Take 1: Items=27, Amount=21/27 (77.8%), Category=23/27 (85.2%), NeedsReview=13/27 (48.1%), SilentErrors=1. Matches logs\v6-run1.txt: True
+Take 2: Items=27, Amount=11/27 (40.7%), Category=19/27 (70.4%), NeedsReview=21/27 (77.8%), SilentErrors=2. Matches logs\v6-repeat1.txt: True
+Take 3: Items=23, Amount=5/23 (21.7%), Category=11/23 (47.8%), NeedsReview=16/23 (69.6%), SilentErrors=3. Matches logs\take3-eval.txt: True
+V1 reproduces exactly: YES (100% exact match on all metrics).
+
+--------------------------------------------------------------------------------
+PART C: REDO F1 ITEM 2 (dev.json with quantity >= 2)
+--------------------------------------------------------------------------------
+Total items with quantity >= 2: 11
+1. "මඤ්ඤොක්කා පැල 200ක් ගත්තා රුපියල් හාරදාහයි" -> status: ok, reasons: [], quantity: 200, amount: 4000.00 | totalCents (400000) % 200 === 0: true
+2. "පොහොර මිටි 3ක් ගත්තා රුපියල් දොළොස්දාහයි" -> status: ok, reasons: [], quantity: 3, amount: 12000.00 | totalCents (1200000) % 3 === 0: true
+3. "බීජ පැකට් 5ක් රුපියල් දෙදහස් පන්සියයි" -> status: ok, reasons: [], quantity: 5, amount: 2500.00 | totalCents (250000) % 5 === 0: true
+4. "කෘමිනාශක බෝතල් 2ක් ගත්තා රුපියල් හාරදාස් දෙසීයයි" -> status: ok, reasons: [], quantity: 2, amount: 4200.00 | totalCents (420000) % 2 === 0: true
+5. "තෙල් බෝතල් දෙකක් හාරදාස් අටසියයි සහ කම්කරු කුලිය හාරදහයි" -> status: ok, reasons: [], quantity: 2, amount: 4800.00 | totalCents (480000) % 2 === 0: true
+6. "බීජ පැකට් තුනක් හාරදාස් පන්සියයි" -> status: ok, reasons: [], quantity: 3, amount: 4500.00 | totalCents (450000) % 3 === 0: true
+7. "වල් නාශක බෝතල් 2ක් ගත්තා" -> status: needs_review, reasons: ['amount_unresolved'], quantity: 2, amount: null | totalCents % 2 === 0: false (no amount)
+8. "පොහොර මිටි 4ක් ගත්තා" -> status: needs_review, reasons: ['amount_unresolved'], quantity: 4, amount: null | totalCents % 4 === 0: false (no amount)
+9. "බීජ පැකට් 10ක් ගත්තා" -> status: needs_review, reasons: ['amount_unresolved'], quantity: 10, amount: null | totalCents % 10 === 0: false (no amount)
+10. "කම්කරුවන් 3 දෙනෙකුට දවස් කුලී දුන්නා" -> status: needs_review, reasons: ['amount_unresolved'], quantity: 3, amount: null | totalCents % 3 === 0: false (no amount)
+11. "පොහොර මිටි 2ක් රුපියල් අටදාහයි සහ යුරියා මිටියක් රුපියල් හාරදාස් පන්සියයි" -> status: ok, reasons: [], quantity: 2, amount: 8000.00 | totalCents (800000) % 2 === 0: true
+
+unit_price_fractional count: 0 (0 false alarms, 0 catches)
+
+Explanation of F1 v1 hash error:
+The agent in F1 hallucinated SHA256 hashes instead of reading logs/freeze-hashes.txt.
+Explanation of F1 .env.example error:
+The agent reported DATASET_STORAGE_DIR=private_dataset_storage instead of the actual VOICE_DATASET_STORAGE_DIR=private_dataset_storage/audio.
+
+--------------------------------------------------------------------------------
+PART D: ROOT .GITIGNORE
+--------------------------------------------------------------------------------
+git check-ignore -v results:
+.gitignore:5:.env	.env
+.gitignore:5:.env	server/.env
+.gitignore:1:node_modules/	node_modules
+.gitignore:2:.venv/	voice-service/.venv
+.gitignore:13:voice-service/models/	voice-service/models
+.gitignore:6:temp/	temp
+.gitignore:7:server/temp/	server/temp
+.gitignore:11:private_dataset_storage/	private_dataset_storage
+logs: NOT IGNORED (exit code 1 - tracked as intended)
+
+--------------------------------------------------------------------------------
+PARTS E, F, G: GATING, TEST STORAGE, AND SECRETS
+--------------------------------------------------------------------------------
+- Gated dataset collection route behind VOICE_DATASET_COLLECTION env flag (default 'off', returns 404 when off). Client navigation and routes only render when VITE_VOICE_DATASET_COLLECTION=on.
+- Test storage isolated using shared getDatasetStorageDir() resolver and mkdtemp directory in afterAll teardown. Tests do not touch private_dataset_storage/.
+- Removed fallback token in voice-service/app.py (raises RuntimeError at startup if unset) and server/src/config/env.js (voice proxy returns 503 if unset). Updated .env.example and test suites.
+
+--------------------------------------------------------------------------------
+PART H: VERIFICATION
+--------------------------------------------------------------------------------
+1. Test Counts:
+- Server: 19 passed, 442 passed
+- Client: 22 passed, 126 passed
+- Pytest: 23 passed, 1 skipped
+
+2. Storage Counts:
+- D:\Aswanna\private_dataset_storage: 886 files before -> 886 files after (Net change: 0)
+- D:\Aswanna\server\private_dataset_storage: 2 files before -> 2 files after (Net change: 0)
+
+3. Disk Space & Temp Clean:
+- server/temp and client/temp cleared.
+- Free space on D:: 3.400 GB free.
+
+4. Touched Files Recorded to logs/f3-touched.txt: YES (16 files tracked).
+
+5. shared/voice SHA256 vs logs/freeze-v2-hashes.txt:
+asrConfusions.json     : 9e72e2ea1ad3efbc99c9dfd0094cad4ff57c3260097a6b91d7acaf282070da02 (EXACT MATCH)
+extractExpenses.js     : fe6aae993b2c87e22db1bf1f4b4e9a9367e5eb88c13bf44417d9aac6e3e28177 (EXACT MATCH)
+keywordMap.json        : b71678a7a69b3aa2b50cb706ade1a04c27a3dee518d6ced68991d5eb89df36f7 (EXACT MATCH)
+parseCommand.js        : 27b38e6df9b64ccadfe7c01b313e0b55fe9716b4e80073ff8e5222660f5ee02d (EXACT MATCH)
+sinhalaNumberWords.json: 6486201b80e801dbb72436236eeb22e67a631e5c7fd9cc62361b7aa6b9ed7687 (EXACT MATCH)
+sinhalaNumbers.js      : ebf1dbdace5f1f350afc8d2b6ebcc13588d5617d9d3a3c772e37439ab3033d38 (EXACT MATCH)
+================================================================================

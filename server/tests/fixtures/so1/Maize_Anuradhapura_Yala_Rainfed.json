@@ -1,0 +1,67 @@
+{
+  "request_id": "56c183ee-4232-45e0-9664-2e63d7627a7f",
+  "timestamp": "2026-10-20T09:43:32.290637+00:00",
+  "predicted_cost": 132983.1,
+  "interval_low": 110140.2,
+  "interval_high": 160563.7,
+  "low_confidence": false,
+  "low_confidence_reason": null,
+  "reference_note": "Model reference year is 2025 (latest available data). Predictions will refresh when 2026 data is ingested.",
+  "top_drivers": [
+    {
+      "feature": "Crop",
+      "contribution_pct": 78.1,
+      "direction": "+"
+    },
+    {
+      "feature": "District",
+      "contribution_pct": 15.2,
+      "direction": "+"
+    },
+    {
+      "feature": "USD_LKR_Rate",
+      "contribution_pct": 2.8,
+      "direction": "+"
+    }
+  ],
+  "model_version": "extratrees_champion_v2",
+  "reference_year": 2025,
+  "prediction_target": "next_available_season",
+  "warning": null,
+  "cost_breakdown": {
+    "Cultivation Labour": {
+      "percent": 49.0,
+      "estimated_cost": 65162
+    },
+    "Fertilizer": {
+      "percent": 23.8,
+      "estimated_cost": 31650
+    },
+    "Land Preparation": {
+      "percent": 7.9,
+      "estimated_cost": 10506
+    },
+    "Fuel & Machinery": {
+      "percent": 5.9,
+      "estimated_cost": 7846
+    },
+    "Seeds": {
+      "percent": 6.4,
+      "estimated_cost": 8511
+    },
+    "Mechanized Irrigation": {
+      "percent": 3.6,
+      "estimated_cost": 4787
+    },
+    "Agrochemicals & Other": {
+      "percent": 3.4,
+      "estimated_cost": 4521
+    }
+  },
+  "breakdown_source": "historical_district_crop_ratio",
+  "breakdown_note": "Component breakdown estimated from historical district-crop ratios. The total is the model's prediction; the split is illustrative.",
+  "breakdown_alias_note": null,
+  "lag_saturation_detected": false,
+  "lag_saturation_threshold": null,
+  "lag_saturation_note": null
+}

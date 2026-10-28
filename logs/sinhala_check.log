@@ -1,0 +1,5 @@
+
+> aswanna@1.0.0 check:sinhala
+> node shared/scripts/checkSinhala.js
+
+✅ All Sinhala label & locale key parity checks passed successfully.

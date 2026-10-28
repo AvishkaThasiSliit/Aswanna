@@ -1,0 +1,455 @@
+[
+  {
+    "id": "VP-CAP-001",
+    "language": "en",
+    "text": "Bought 2 bags of urea fertilizer for 14000 rupees",
+    "review_status": "DRAFT",
+    "notes": "English single item with quantity and currency",
+    "expected": {
+      "items": [
+        {
+          "description": "urea fertilizer",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "bags",
+          "totalAmount": 14000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-002",
+    "language": "en",
+    "text": "Paid 8500 rupees for tractor plowing yesterday",
+    "review_status": "DRAFT",
+    "notes": "English machinery expense",
+    "expected": {
+      "items": [
+        {
+          "description": "tractor plowing",
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 8500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-003",
+    "language": "en",
+    "text": "Bought 30 kilos of seed paddy for 7500",
+    "review_status": "DRAFT",
+    "notes": "English seed expense with kg",
+    "expected": {
+      "items": [
+        {
+          "description": "seed paddy",
+          "category": "seed",
+          "quantity": 30,
+          "unit": "kg",
+          "totalAmount": 7500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-004",
+    "language": "en",
+    "text": "Paid 12000 for combine harvester hire for 2 hours",
+    "review_status": "DRAFT",
+    "notes": "English amount safety - duration 2 hours vs amount 12000",
+    "expected": {
+      "items": [
+        {
+          "description": "combine harvester hire",
+          "category": "machinery",
+          "quantity": 2,
+          "unit": "hours",
+          "totalAmount": 12000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-005",
+    "language": "en",
+    "text": "Spent 1500 on seed paddy and 6000 on 2 bags of urea",
+    "review_status": "DRAFT",
+    "notes": "English multi-item with quantities",
+    "expected": {
+      "items": [
+        {
+          "description": "seed paddy",
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 1500
+        },
+        {
+          "description": "urea",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "bags",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-006",
+    "language": "en",
+    "text": "Bought 1 bottle of weedicide for 3200 rupees",
+    "review_status": "DRAFT",
+    "notes": "English agrochemical expense",
+    "expected": {
+      "items": [
+        {
+          "description": "weedicide",
+          "category": "agrochemical",
+          "quantity": 1,
+          "unit": "bottle",
+          "totalAmount": 3200
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-007",
+    "language": "en",
+    "text": "Paid 6000 rupees for 2 laborers for weeding",
+    "review_status": "DRAFT",
+    "notes": "English labour expense",
+    "expected": {
+      "items": [
+        {
+          "description": "laborers for weeding",
+          "category": "labour",
+          "quantity": 2,
+          "unit": "laborers",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-008",
+    "language": "en",
+    "text": "Bought 20 litres of diesel for water pump for 6800 rupees",
+    "review_status": "DRAFT",
+    "notes": "English fuel expense with litres",
+    "expected": {
+      "items": [
+        {
+          "description": "diesel for water pump",
+          "category": "fuel",
+          "quantity": 20,
+          "unit": "litres",
+          "totalAmount": 6800
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-009",
+    "language": "en",
+    "text": "Paid 4500 for water bowser irrigation",
+    "review_status": "DRAFT",
+    "notes": "English irrigation expense",
+    "expected": {
+      "items": [
+        {
+          "description": "water bowser irrigation",
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 4500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-010",
+    "language": "en",
+    "text": "Spent 2500 for transport bags and binding ropes",
+    "review_status": "DRAFT",
+    "notes": "English other expense",
+    "expected": {
+      "items": [
+        {
+          "description": "transport bags and binding ropes",
+          "category": "other",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 2500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-011",
+    "language": "en",
+    "text": "Paid 5000 for 5 days of canal cleaning",
+    "review_status": "DRAFT",
+    "notes": "English duration with days",
+    "expected": {
+      "items": [
+        {
+          "description": "canal cleaning",
+          "category": "irrigation",
+          "quantity": 5,
+          "unit": "days",
+          "totalAmount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-012",
+    "language": "en",
+    "text": "Bought 5 bags of compost for 7500 and 1 spray bottle for 1200",
+    "review_status": "DRAFT",
+    "notes": "English multi-item fertilizer and agrochemical",
+    "expected": {
+      "items": [
+        {
+          "description": "compost",
+          "category": "fertilizer",
+          "quantity": 5,
+          "unit": "bags",
+          "totalAmount": 7500
+        },
+        {
+          "description": "spray bottle",
+          "category": "other",
+          "quantity": 1,
+          "unit": "bottle",
+          "totalAmount": 1200
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-013",
+    "language": "si",
+    "text": "යූරියා මිටි 2 ක් රුපියල් 14000 කට ගත්තා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala fertilizer with digits and quantity",
+    "expected": {
+      "items": [
+        {
+          "description": "යූරියා",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "මිටි",
+          "totalAmount": 14000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-014",
+    "language": "si",
+    "text": "ට්‍රැක්ටර් කුලියට රුපියල් 8500 ක් ගෙව්වා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala machinery expense",
+    "expected": {
+      "items": [
+        {
+          "description": "ට්‍රැක්ටර් කුලියට",
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 8500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-015",
+    "language": "si",
+    "text": "බීජ වී කිලෝ 30 ක් රුපියල් 7500 කට ගත්තා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala seed expense with kilo",
+    "expected": {
+      "items": [
+        {
+          "description": "බීජ වී",
+          "category": "seed",
+          "quantity": 30,
+          "unit": "කිලෝ",
+          "totalAmount": 7500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-016",
+    "language": "si",
+    "text": "පැය 2 ක් ට්‍රැක්ටරය සඳහා රුපියල් 12000 ක් ගෙව්වා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala duration vs amount",
+    "expected": {
+      "items": [
+        {
+          "description": "ට්‍රැක්ටරය සඳහා",
+          "category": "machinery",
+          "quantity": 2,
+          "unit": "පැය",
+          "totalAmount": 12000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-017",
+    "language": "si",
+    "text": "වල් නාශක බෝතල් 1 ක් රුපියල් 3200 කට ගත්තා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala weedicide with bottle unit",
+    "expected": {
+      "items": [
+        {
+          "description": "වල් නාශක",
+          "category": "agrochemical",
+          "quantity": 1,
+          "unit": "බෝතල්",
+          "totalAmount": 3200
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-018",
+    "language": "si",
+    "text": "වල් නෙලීමට කම්කරුවන් 2 කට රුපියල් 6000 ක් ගෙව්වා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala labour expense",
+    "expected": {
+      "items": [
+        {
+          "description": "වල් නෙලීමට කම්කරුවන්",
+          "category": "labour",
+          "quantity": 2,
+          "unit": "කම්කරුවන්",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-019",
+    "language": "si",
+    "text": "ඩීසල් ලීටර් 20 ක් රුපියල් 6800 කට ගත්තා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala fuel with litres",
+    "expected": {
+      "items": [
+        {
+          "description": "ඩීසල්",
+          "category": "fuel",
+          "quantity": 20,
+          "unit": "ලීටර්",
+          "totalAmount": 6800
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-020",
+    "language": "si",
+    "text": "ජල සම්පාදනය සඳහා රුපියල් 4500 ක් ගෙව්වා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala irrigation expense",
+    "expected": {
+      "items": [
+        {
+          "description": "ජල සම්පාදනය සඳහා",
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 4500
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-021",
+    "language": "si",
+    "text": "බීජ සඳහා 1500 ක් සහ යූරියා මිටි 2 සඳහා 6000 ක් වියදම් කළා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala multi-item seed and fertilizer",
+    "expected": {
+      "items": [
+        {
+          "description": "බීජ සඳහා",
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 1500
+        },
+        {
+          "description": "යූරියා",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "මිටි",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-022",
+    "language": "si",
+    "text": "කොම්පෝස්ට් පොහොර මිටි 5 ක් රුපියල් 5000 යි",
+    "review_status": "DRAFT",
+    "notes": "Sinhala compost bags with digits",
+    "expected": {
+      "items": [
+        {
+          "description": "කොම්පෝස්ට් පොහොර",
+          "category": "fertilizer",
+          "quantity": 5,
+          "unit": "මිටි",
+          "totalAmount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-023",
+    "language": "si",
+    "text": "කෘමිනාශක බෝතල් 2 ක් රුපියල් 4800 කට ගත්තා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala insecticide with bottles",
+    "expected": {
+      "items": [
+        {
+          "description": "කෘමිනාශක",
+          "category": "agrochemical",
+          "quantity": 2,
+          "unit": "බෝතල්",
+          "totalAmount": 4800
+        }
+      ]
+    }
+  },
+  {
+    "id": "VP-CAP-024",
+    "language": "si",
+    "text": "ලෑලි සහ කම්බි සඳහා රුපියල් 3500 ක් ගෙව්වා",
+    "review_status": "DRAFT",
+    "notes": "Sinhala other expense",
+    "expected": {
+      "items": [
+        {
+          "description": "ලෑලි සහ කම්බි සඳහා",
+          "category": "other",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 3500
+        }
+      ]
+    }
+  }
+]

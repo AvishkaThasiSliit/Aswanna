@@ -1,0 +1,115 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "on_track",
+  "description": "Synthetic 100-day cycle where expenditures strictly adhere to planned baseline phasing within +/- 3%. All categories remain in normal tier.",
+  "cycle": {
+    "crop": "Paddy",
+    "district": "Polonnaruwa",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 15000, "low": 13500, "high": 16500 },
+    "fertilizer": { "expected": 40000, "low": 36000, "high": 44000 },
+    "agrochemical": { "expected": 25000, "low": 22500, "high": 27500 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 70000, "low": 63000, "high": 77000 },
+    "machinery": { "expected": 50000, "low": 45000, "high": 55000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-ot-1", "day": 10, "category": "seed", "amount": 10500, "notes": "Seed paddy purchase" },
+    { "id": "exp-ot-2", "day": 15, "category": "labour", "amount": 10200, "notes": "Land preparation labour" },
+    { "id": "exp-ot-3", "day": 35, "category": "fertilizer", "amount": 36500, "notes": "Basal and first top dressing" },
+    { "id": "exp-ot-4", "day": 40, "category": "machinery", "amount": 20000, "notes": "Tractor plowing hire" },
+    { "id": "exp-ot-5", "day": 65, "category": "agrochemical", "amount": 24000, "notes": "Standard weedicide application" },
+    { "id": "exp-ot-6", "day": 70, "category": "fuel", "amount": 14200, "notes": "Water pump fuel" },
+    { "id": "exp-ot-7", "day": 95, "category": "labour", "amount": 61300, "notes": "Harvesting and threshing labour" },
+    { "id": "exp-ot-8", "day": 100, "category": "other", "amount": 9800, "notes": "Gunny bags and transport" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 15,
+      "category": "seed",
+      "expectedToDate": 10500,
+      "actualToDate": 10500,
+      "variancePct": 0.0,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: seed phase at day 15 is 0.70. expectedToDate = 15000 * 0.70 = 10500. Actual = 10500. Variance = 0.0% -> normal."
+    },
+    {
+      "day": 15,
+      "category": "labour",
+      "expectedToDate": 10500,
+      "actualToDate": 10200,
+      "variancePct": -0.0286,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: labour linear phase at day 15 is 0.15. expectedToDate = 70000 * 0.15 = 10500. Actual = 10200. Variance = -2.86% -> normal."
+    },
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 36000,
+      "actualToDate": 36500,
+      "variancePct": 0.0139,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: fertilizer phase at day 40 is 0.90. expectedToDate = 40000 * 0.90 = 36000. Actual = 36500. Variance = +1.39% <= 7% -> normal."
+    },
+    {
+      "day": 40,
+      "category": "machinery",
+      "expectedToDate": 20000,
+      "actualToDate": 20000,
+      "variancePct": 0.0,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: machinery phase at day 40 is 0.40. expectedToDate = 50000 * 0.40 = 20000. Actual = 20000. Variance = 0.0% -> normal."
+    },
+    {
+      "day": 70,
+      "category": "agrochemical",
+      "expectedToDate": 23750,
+      "actualToDate": 24000,
+      "variancePct": 0.0105,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: agrochemical phase at day 70 is 0.95. expectedToDate = 25000 * 0.95 = 23750. Actual = 24000. Variance = +1.05% <= 7% -> normal."
+    },
+    {
+      "day": 70,
+      "category": "fuel",
+      "expectedToDate": 14000,
+      "actualToDate": 14200,
+      "variancePct": 0.0143,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: fuel linear phase at day 70 is 0.70. expectedToDate = 20000 * 0.70 = 14000. Actual = 14200. Variance = +1.43% <= 7% -> normal."
+    },
+    {
+      "day": 100,
+      "category": "labour",
+      "expectedToDate": 70000,
+      "actualToDate": 71500,
+      "variancePct": 0.0214,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: labour phase at day 100 is 1.00. expectedToDate = 70000. Actual = 71500. Variance = +2.14% <= 10% -> normal."
+    },
+    {
+      "day": 100,
+      "category": "other",
+      "expectedToDate": 10000,
+      "actualToDate": 9800,
+      "variancePct": -0.02,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: other phase at day 100 is 1.00. expectedToDate = 10000. Actual = 9800. Variance = -2.0% -> normal."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "caseId": "VP-AUD-001",
+    "audioPath": "en/vp_aud_001.wav",
+    "language": "en",
+    "referenceTranscript": "Bought 2 bags of urea fertilizer for 14000 rupees",
+    "expectedItems": [
+      {
+        "category": "fertilizer",
+        "totalAmount": 14000,
+        "quantity": 2,
+        "unit": "bags"
+      }
+    ],
+    "capturedTranscript": "go to bags of Urea fertilizer 14000",
+    "speaker": {
+      "id": "farmer_01",
+      "accent": "Sri Lankan English",
+      "noiseLevel": "field_moderate"
+    }
+  },
+  {
+    "caseId": "VP-AUD-013",
+    "audioPath": "si/vp_aud_013.wav",
+    "language": "si",
+    "referenceTranscript": "යූරියා මිටි 2 ක් රුපියල් 14000 කට ගත්තා",
+    "expectedItems": [
+      {
+        "category": "fertilizer",
+        "totalAmount": 14000,
+        "quantity": 2,
+        "unit": "මිටි"
+      }
+    ],
+    "capturedTranscript": "යුරියා මිටි දෙකක් රුපියල් දාහතර දහසකට ගත්තා",
+    "speaker": {
+      "id": "farmer_02",
+      "accent": "Southern Sinhala",
+      "noiseLevel": "field_ambient"
+    }
+  }
+]

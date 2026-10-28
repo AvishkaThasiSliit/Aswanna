@@ -1,0 +1,143 @@
+crop,category,knot_t,survey_p50,placeholder,divergence,direction
+Paddy,seed,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Paddy,seed,0.2,1.0,0.74,0.26,SURVEY_EARLIER
+Paddy,seed,0.3,1.0,0.82,0.18,SURVEY_EARLIER
+Paddy,seed,0.4,1.0,0.9,0.1,SURVEY_EARLIER
+Paddy,fertilizer,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Paddy,fertilizer,0.2,0.264,0.74,0.476,SURVEY_LATER
+Paddy,fertilizer,0.3,0.264,0.82,0.556,SURVEY_LATER
+Paddy,fertilizer,0.4,0.4349,0.9,0.4651,SURVEY_LATER
+Paddy,fertilizer,0.5,0.6824,0.9167,0.2343,SURVEY_LATER
+Paddy,agrochemical,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Paddy,agrochemical,0.2,0.0,0.74,0.74,SURVEY_LATER
+Paddy,agrochemical,0.3,0.0,0.82,0.82,SURVEY_LATER
+Paddy,agrochemical,0.4,0.2322,0.9,0.6678,SURVEY_LATER
+Paddy,agrochemical,0.5,0.5685,0.9167,0.3482,SURVEY_LATER
+Paddy,labour,0.2,0.4437,0.2,0.2437,SURVEY_EARLIER
+Paddy,labour,0.3,0.4936,0.3,0.1936,SURVEY_EARLIER
+Paddy,labour,0.4,0.5312,0.4,0.1312,SURVEY_EARLIER
+Paddy,labour,0.8,0.6854,0.8,0.1146,SURVEY_LATER
+Paddy,machinery,0.1,0.2201,0.1,0.1201,SURVEY_EARLIER
+Paddy,machinery,0.2,0.4673,0.2,0.2673,SURVEY_EARLIER
+Paddy,machinery,0.3,0.4902,0.3,0.1902,SURVEY_EARLIER
+Paddy,machinery,0.4,0.5154,0.4,0.1154,SURVEY_EARLIER
+Paddy,machinery,0.8,0.6235,0.8,0.1765,SURVEY_LATER
+Paddy,fuel,0.1,0.2201,0.1,0.1201,SURVEY_EARLIER
+Paddy,fuel,0.2,0.4673,0.2,0.2673,SURVEY_EARLIER
+Paddy,fuel,0.3,0.4902,0.3,0.1902,SURVEY_EARLIER
+Paddy,fuel,0.4,0.5154,0.4,0.1154,SURVEY_EARLIER
+Paddy,fuel,0.8,0.6235,0.8,0.1765,SURVEY_LATER
+Paddy,irrigation,0.2,0.0,0.2,0.2,SURVEY_LATER
+Paddy,irrigation,0.7,0.9324,0.7,0.2324,SURVEY_EARLIER
+Paddy,irrigation,0.8,1.0,0.8,0.2,SURVEY_EARLIER
+Paddy,other,0.2,0.0,0.2,0.2,SURVEY_LATER
+Paddy,other,0.3,0.0,0.3,0.3,SURVEY_LATER
+Paddy,other,0.4,0.0,0.4,0.4,SURVEY_LATER
+Paddy,other,0.5,0.0,0.5,0.5,SURVEY_LATER
+Paddy,other,0.6,0.0,0.6,0.6,SURVEY_LATER
+Paddy,other,0.7,0.0,0.7,0.7,SURVEY_LATER
+Paddy,other,0.8,0.0,0.8,0.8,SURVEY_LATER
+Paddy,other,0.9,0.5145,0.9,0.3855,SURVEY_LATER
+Maize,seed,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Maize,seed,0.2,1.0,0.74,0.26,SURVEY_EARLIER
+Maize,seed,0.3,1.0,0.82,0.18,SURVEY_EARLIER
+Maize,seed,0.4,1.0,0.9,0.1,SURVEY_EARLIER
+Maize,fertilizer,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Maize,fertilizer,0.2,0.154,0.74,0.586,SURVEY_LATER
+Maize,fertilizer,0.3,0.154,0.82,0.666,SURVEY_LATER
+Maize,fertilizer,0.4,0.3655,0.9,0.5345,SURVEY_LATER
+Maize,fertilizer,0.5,0.6444,0.9167,0.2723,SURVEY_LATER
+Maize,agrochemical,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Maize,agrochemical,0.2,0.0,0.74,0.74,SURVEY_LATER
+Maize,agrochemical,0.3,0.0,0.82,0.82,SURVEY_LATER
+Maize,agrochemical,0.4,0.2499,0.9,0.6501,SURVEY_LATER
+Maize,agrochemical,0.5,0.5797,0.9167,0.337,SURVEY_LATER
+Maize,machinery,0.1,0.2776,0.1,0.1776,SURVEY_EARLIER
+Maize,machinery,0.2,0.5874,0.2,0.3874,SURVEY_EARLIER
+Maize,machinery,0.3,0.6146,0.3,0.3146,SURVEY_EARLIER
+Maize,machinery,0.4,0.6487,0.4,0.2487,SURVEY_EARLIER
+Maize,machinery,0.5,0.6986,0.5,0.1986,SURVEY_EARLIER
+Maize,machinery,0.6,0.7421,0.6,0.1421,SURVEY_EARLIER
+Maize,fuel,0.1,0.2776,0.1,0.1776,SURVEY_EARLIER
+Maize,fuel,0.2,0.5874,0.2,0.3874,SURVEY_EARLIER
+Maize,fuel,0.3,0.6146,0.3,0.3146,SURVEY_EARLIER
+Maize,fuel,0.4,0.6487,0.4,0.2487,SURVEY_EARLIER
+Maize,fuel,0.5,0.6986,0.5,0.1986,SURVEY_EARLIER
+Maize,fuel,0.6,0.7421,0.6,0.1421,SURVEY_EARLIER
+Maize,irrigation,0.2,0.0,0.2,0.2,SURVEY_LATER
+Maize,irrigation,0.7,0.9371,0.7,0.2371,SURVEY_EARLIER
+Maize,irrigation,0.8,1.0,0.8,0.2,SURVEY_EARLIER
+Maize,other,0.2,0.0,0.2,0.2,SURVEY_LATER
+Maize,other,0.3,0.0,0.3,0.3,SURVEY_LATER
+Maize,other,0.4,0.0,0.4,0.4,SURVEY_LATER
+Maize,other,0.5,0.0,0.5,0.5,SURVEY_LATER
+Maize,other,0.6,0.0,0.6,0.6,SURVEY_LATER
+Maize,other,0.7,0.0,0.7,0.7,SURVEY_LATER
+Maize,other,0.8,0.0,0.8,0.8,SURVEY_LATER
+Maize,other,0.9,0.5122,0.9,0.3878,SURVEY_LATER
+Tomato,seed,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Tomato,seed,0.3,1.0,0.82,0.18,SURVEY_EARLIER
+Tomato,seed,0.4,1.0,0.9,0.1,SURVEY_EARLIER
+Tomato,fertilizer,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Tomato,fertilizer,0.2,0.2126,0.74,0.5274,SURVEY_LATER
+Tomato,fertilizer,0.3,0.3,0.82,0.52,SURVEY_LATER
+Tomato,fertilizer,0.4,0.4062,0.9,0.4938,SURVEY_LATER
+Tomato,fertilizer,0.5,0.6716,0.9167,0.2451,SURVEY_LATER
+Tomato,agrochemical,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Tomato,agrochemical,0.2,0.0,0.74,0.74,SURVEY_LATER
+Tomato,agrochemical,0.3,0.0,0.82,0.82,SURVEY_LATER
+Tomato,agrochemical,0.4,0.1518,0.9,0.7482,SURVEY_LATER
+Tomato,agrochemical,0.5,0.5308,0.9167,0.3859,SURVEY_LATER
+Tomato,labour,0.6,0.7435,0.6,0.1435,SURVEY_EARLIER
+Tomato,machinery,0.2,0.4824,0.2,0.2824,SURVEY_EARLIER
+Tomato,machinery,0.3,0.543,0.3,0.243,SURVEY_EARLIER
+Tomato,machinery,0.4,0.5977,0.4,0.1977,SURVEY_EARLIER
+Tomato,machinery,0.5,0.6903,0.5,0.1903,SURVEY_EARLIER
+Tomato,machinery,0.6,0.7819,0.6,0.1819,SURVEY_EARLIER
+Tomato,machinery,0.7,0.8101,0.7,0.1101,SURVEY_EARLIER
+Tomato,fuel,0.2,0.4824,0.2,0.2824,SURVEY_EARLIER
+Tomato,fuel,0.3,0.543,0.3,0.243,SURVEY_EARLIER
+Tomato,fuel,0.4,0.5977,0.4,0.1977,SURVEY_EARLIER
+Tomato,fuel,0.5,0.6903,0.5,0.1903,SURVEY_EARLIER
+Tomato,fuel,0.6,0.7819,0.6,0.1819,SURVEY_EARLIER
+Tomato,fuel,0.7,0.8101,0.7,0.1101,SURVEY_EARLIER
+Tomato,other,0.2,0.0,0.2,0.2,SURVEY_LATER
+Tomato,other,0.3,0.0,0.3,0.3,SURVEY_LATER
+Tomato,other,0.4,0.0,0.4,0.4,SURVEY_LATER
+Tomato,other,0.5,0.0,0.5,0.5,SURVEY_LATER
+Tomato,other,0.6,0.0,0.6,0.6,SURVEY_LATER
+Tomato,other,0.7,0.0,0.7,0.7,SURVEY_LATER
+Tomato,other,0.8,0.4369,0.8,0.3631,SURVEY_LATER
+Green Chilli,seed,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Green Chilli,seed,0.3,1.0,0.82,0.18,SURVEY_EARLIER
+Green Chilli,seed,0.4,1.0,0.9,0.1,SURVEY_EARLIER
+Green Chilli,fertilizer,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Green Chilli,fertilizer,0.2,0.1796,0.74,0.5604,SURVEY_LATER
+Green Chilli,fertilizer,0.3,0.25,0.82,0.57,SURVEY_LATER
+Green Chilli,fertilizer,0.4,0.3768,0.9,0.5232,SURVEY_LATER
+Green Chilli,fertilizer,0.5,0.6434,0.9167,0.2733,SURVEY_LATER
+Green Chilli,agrochemical,0.1,0.0,0.4667,0.4667,SURVEY_LATER
+Green Chilli,agrochemical,0.2,0.0,0.74,0.74,SURVEY_LATER
+Green Chilli,agrochemical,0.3,0.0,0.82,0.82,SURVEY_LATER
+Green Chilli,agrochemical,0.4,0.1691,0.9,0.7309,SURVEY_LATER
+Green Chilli,agrochemical,0.5,0.5245,0.9167,0.3922,SURVEY_LATER
+Green Chilli,machinery,0.2,0.3704,0.2,0.1704,SURVEY_EARLIER
+Green Chilli,machinery,0.3,0.4362,0.3,0.1362,SURVEY_EARLIER
+Green Chilli,machinery,0.5,0.6171,0.5,0.1171,SURVEY_EARLIER
+Green Chilli,machinery,0.6,0.7275,0.6,0.1275,SURVEY_EARLIER
+Green Chilli,machinery,0.8,0.9091,0.8,0.1091,SURVEY_EARLIER
+Green Chilli,fuel,0.2,0.3704,0.2,0.1704,SURVEY_EARLIER
+Green Chilli,fuel,0.3,0.4362,0.3,0.1362,SURVEY_EARLIER
+Green Chilli,fuel,0.5,0.6171,0.5,0.1171,SURVEY_EARLIER
+Green Chilli,fuel,0.6,0.7275,0.6,0.1275,SURVEY_EARLIER
+Green Chilli,fuel,0.8,0.9091,0.8,0.1091,SURVEY_EARLIER
+Green Chilli,irrigation,0.2,0.0,0.2,0.2,SURVEY_LATER
+Green Chilli,irrigation,0.3,0.1435,0.3,0.1565,SURVEY_LATER
+Green Chilli,irrigation,0.7,0.9178,0.7,0.2178,SURVEY_EARLIER
+Green Chilli,irrigation,0.8,1.0,0.8,0.2,SURVEY_EARLIER
+Green Chilli,other,0.2,0.0,0.2,0.2,SURVEY_LATER
+Green Chilli,other,0.3,0.0,0.3,0.3,SURVEY_LATER
+Green Chilli,other,0.4,0.0,0.4,0.4,SURVEY_LATER
+Green Chilli,other,0.5,0.0,0.5,0.5,SURVEY_LATER
+Green Chilli,other,0.6,0.0,0.6,0.6,SURVEY_LATER
+Green Chilli,other,0.7,0.249,0.7,0.451,SURVEY_LATER

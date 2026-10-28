@@ -1,0 +1,175 @@
+====================================================================================================
+ASWANNA TASK E1-AUDIT-2: READ-ONLY FORENSIC INVESTIGATION REPORT
+====================================================================================================
+Timestamp: 2026-10-28
+Execution: Strictly Read-Only (no code, model, test, or fixture mutations)
+Run-Once Guard: logs/e1-real-eval.lock PRESERVED UNTOUCHED (SHA256: 0528B5554AAF8AF08B3AFCF0BB83B985EB7CEBC6720D54CF59BB388C00827FC4, Timestamp: 2026-10-28 08:11:22 AM)
+
+----------------------------------------------------------------------------------------------------
+0. DISK SPACE PRE-CHECK & POST-CLEANUP
+----------------------------------------------------------------------------------------------------
+Initial Free Space on D: 3.11 GB
+Post-Cleanup Free Space on D: 3.40 GB (server/temp cleared)
+
+----------------------------------------------------------------------------------------------------
+1. FROZEN FILES (fc.exe Diffs & Behavioral Summary)
+----------------------------------------------------------------------------------------------------
+Diff outputs written to:
+  - logs/voice-diff-extractExpenses.js.txt
+  - logs/voice-diff-keywordMap.json.txt
+  - logs/voice-diff-sinhalaNumbers.js.txt
+  - logs/voice-diff-sinhalaNumberWords.json.txt
+
+EXPLICIT DECLARATION: The extractor in shared/voice is NOT identical to the freeze.
+
+Plain words behavioral changes:
+1. extractExpenses.js:
+   - ASR alternatives category cross-check: Checks both amounts AND categories across alternatives. If
+     categories differ, flags 'asr_alternatives_disagree' -> status 'needs_review'.
+   - Physical currency divisibility check ('unit_price_fractional'): If quantity >= 2 integer, total in cents
+     must be evenly divisible by quantity. Divisibility failure flags 'unit_price_fractional' -> status 'needs_review'.
+   - Clause segmentation: Prevents splitting compound noun phrases joined by "and"/"සහ" (e.g. "ලෑලි සහ කම්බි...")
+     unless the first clause independently contains a verb or number.
+2. keywordMap.json:
+   - Adds agricultural terms: Sinhala "බවුසර්", "බවුසරය", "බවුසරයක්" (machinery/bowser); English "planks", "timber"
+     and Sinhala "ලෑලි" (maintenance); Sinhala "ජලසම්පාදනය" (irrigation).
+3. sinhalaNumbers.js:
+   - Adds lakh multiplier parsing for "ලක්ෂ" (100,000) with lookahead ("ලක්ෂ දෙකක්" = 200,000), pre-composed
+     lakhs >= 100,000, and tens prefixes before thousands ("විසි පන්දාහක්" = 25,000).
+4. sinhalaNumberWords.json:
+   - Adds spoken thousands ("හයදාස්" = 6000, "පන්දාස්" = 5000), tens prefixes ("විසි" = 20, "තිස්" = 30, etc.),
+     and lakh variants ("ලක්ෂ", "දෙලක්ෂ", "තුන්ලක්ෂ", "පස්ලක්ෂ").
+
+----------------------------------------------------------------------------------------------------
+2. WHO CHANGED THEM (Timeline & Task Grouping)
+----------------------------------------------------------------------------------------------------
+Between 2026-10-27 06:00 and 2026-10-28 00:00:
+1. Tasks 4, 5, 7 (08:20 - 08:45 AM):
+   - Prompt: "Comprehensive Regression & Safety Test Suite for Aswanna Voice Pipeline (Tasks 4, 5, 7)"
+   - Files: shared/voice/sinhalaNumberWords.json, sinhalaNumbers.js, keywordMap.json,
+     server/tests/voicePipelineRegression.test.js, docs/voice-asr.md, logs/final-test.txt.
+2. Phase 4.3 (08:24 - 10:35 AM):
+   - Prompt: "Unit Test Suite for Regression Evaluator Matching & Metrics (Phase 4.3)"
+   - Files: server/eval/regressionEval24.js, server/tests/evaluatorMetrics.test.js, shared/voice/extractExpenses.js,
+     client/src/i18n/locales/en.json, si.json, docs/voice-eval-regression-24.md, docs/voice-verification-findings.md,
+     server/src/routes/expenses.js, client/src/components/VoiceExpenseEntry.jsx.
+3. Voice Service Python Architecture (10:50 - 11:05 AM):
+   - Prompt: "Aswanna Server-Side Sinhala Speech Recognition — Phase 1 Architecture & Evaluation"
+   - Files: voice-service/adapters/*, voice-service/validation/*, docs/voice-sinhala-asr-phase1.md.
+4. Phase 2 (11:10 AM - 14:30 PM):
+   - Prompt: "Aswanna Voice Dataset Collection — Phase 2 Architecture, API & Operations"
+   - Files: server/src/routes/datasetCollection.js, server/src/config/voiceDatasetPrompts.js,
+     server/src/utils/audioUploadParser.js, server/scripts/exportVoiceDatasetManifest.js,
+     client/src/pages/VoiceDatasetCollectionPage.jsx, VoiceDatasetReviewerPage.jsx,
+     server/tests/datasetCollection.test.js, client/src/test/VoiceDatasetCollection.test.jsx.
+5. Phase 2.1.2 (14:15 - 15:40 PM):
+   - Prompt: "Aswanna Phase 2.1.2 — Targeted Security Invariants and Reproducible Verification"
+   - Files: server/src/config/env.js, server/src/utils/audioValidator.js,
+     server/scripts/rotateVoicePseudonymizationKey.js, purgeExpiredVoiceDatasetRecordings.js,
+     server/tests/datasetCollectionSecurity.test.js.
+6. Phase 2.2 / Phase 2.2.2 (15:40 - 16:30 PM):
+   - Prompt: "Aswanna Phase 2.2.2 — Supervised Pilot Preflight"
+   - Files: docs/phase-2.2.2-pilot-preflight.md, server/src/index.js, client/vite.config.js, package.json.
+
+----------------------------------------------------------------------------------------------------
+3. DATASET COLLECTION (Architecture & Configuration)
+----------------------------------------------------------------------------------------------------
+- Routes (/api/dataset-collection):
+  POST /consent, GET /consent, POST /consent/revoke, GET /prompts, POST /recordings,
+  GET /recordings, GET /review/queue, POST /review/:recordingId, GET /audio/:recordingId, GET /manifest.
+- Client Pages:
+  /dataset-collection (VoiceDatasetCollectionPage.jsx)
+  /dataset-reviewer (VoiceDatasetReviewerPage.jsx)
+- Disk Storage:
+  private_dataset_storage/audio/ (configured in env.js, restricted 0o600 permissions, path traversal protected).
+- Consent & Retention:
+  Enforced via VoiceConsent model (uploads blocked with 403 CONSENT_REQUIRED without consent).
+  Retention default 365 days, 30 days for revoked contributors, purged via purgeExpiredVoiceDatasetRecordings.js.
+- Default State:
+  ENABLED by default (unconditionally mounted in app.js and App.jsx).
+
+----------------------------------------------------------------------------------------------------
+4. SERVER TEST COUNTS (Jest JSON Breakdown)
+----------------------------------------------------------------------------------------------------
+Output File: logs/e1-audit-jest.json
+Total Test Suites: 19 passed / 19 total
+Total Tests:       442 passed / 442 total
+
+Per-File Test Counts:
+  server\tests\api.test.js                      : 44
+  server\tests\coverage.test.js                 : 5
+  server\tests\datasetCollection.test.js        : 19
+  server\tests\datasetCollectionSecurity.test.js : 42
+  server\tests\evalHarness.test.js              : 22
+  server\tests\evaluatorMetrics.test.js         : 11
+  server\tests\forecast.test.js                 : 19
+  server\tests\generativeNumberParser.test.js   : 9
+  server\tests\logic.test.js                    : 14
+  server\tests\phase3.test.js                   : 29
+  server\tests\recommendation.test.js           : 16
+  server\tests\sinhalaNumbers.test.js           : 15
+  server\tests\so1Contract.test.js              : 17
+  server\tests\so1RealIntegration.test.js       : 5
+  server\tests\validationMatrix.test.js         : 83
+  server\tests\voiceCommand.test.js             : 12
+  server\tests\voiceExtract.test.js             : 40
+  server\tests\voicePipelineRegression.test.js  : 35
+  server\tests\voiceProxy.test.js               : 5
+  SUM                                           : 442
+
+Explanation of Gap against 383:
+  The 383 figure was a static text regex count. The +59 test gap is due to parameterized/loop tests:
+  - validationMatrix.test.js: 83 vs 38 (+45 tests)
+  - evalHarness.test.js: 22 vs 12 (+10 tests)
+  - forecast.test.js: 19 vs 15 (+4 tests)
+  Total: 383 + 59 = 442.
+
+----------------------------------------------------------------------------------------------------
+5. TAKE-3 RECONCILIATION (Rerun on All 3 Takes)
+----------------------------------------------------------------------------------------------------
+Rerun Logs Generated:
+  - logs/audit-rerun-take1.txt
+  - logs/audit-rerun-take2.txt
+  - logs/audit-rerun-take3.txt
+
+Take 1 Comparison (N=27 items):
+  - Needs Review: 13/27 in both original and rerun
+  - Silent Errors: 1 in both original and rerun (VP-CAP-021)
+  - Category Accuracy: improved from 23/27 (85.2%) to 24/27 (88.9%) due to "ලෑලි" in keywordMap (VP-CAP-024).
+
+Take 2 Comparison (N=27 items):
+  - Needs Review: 21/27 in both original and rerun
+  - Silent Errors: 2 in both original and rerun (VP-CAP-021, VP-CAP-009)
+  - Category Accuracy: improved from 19/27 (70.4%) to 21/27 (77.8%) due to "බවුසර්" and "ලෑලි" (VP-CAP-014, VP-CAP-024).
+
+Take 3 Comparison (N=23 items: 14 English, 9 Sinhala):
+  - Needs Review: 16/23 (69.6%) in original -> 19/23 (82.6%) in rerun (+3 items)
+  - Silent Errors: 3 in original -> 1 in rerun (-2 items)
+
+Per-Item Disagreements on Take 3:
+1. VP-CAP-004 (English #1):
+   - Original: status 'ok', amount 8000 (expected 12000) -> Silent Error.
+   - Rerun: status 'needs_review' (reason: asr_alternatives_disagree due to alternative category divergence).
+   - Intercepted; no longer a silent error.
+2. VP-CAP-007 (English #1):
+   - Original: status 'ok', amount 6000 (alternatives had same amount).
+   - Rerun: status 'needs_review' (reason: asr_alternatives_disagree due to alternative category divergence).
+   - Shifted from 'ok' to 'needs_review'.
+3. VP-CAP-015 (Sinhala #1):
+   - Original: status 'ok', amount 8500 (expected 7500) -> Silent Error.
+   - Rerun: status 'needs_review' (reason: unit_price_fractional due to 850000 % 30 != 0).
+   - Intercepted; no longer a silent error.
+
+Hash of voiceRealEval.js:
+  - logs/eval-script-hash-v6.txt: E4412F25EF7226DC8C754A164E34CB32699B7479713E929A4AE882CD56756D2D
+  - Current live hash:           331CF396CAB4BF16F7F7A31E26FF5067DA8AB426449D5E3901109742C8EB0017
+  - Differs due to CLI option parsing and multi-item per-item scoring logic added on 10/26 at 18:44.
+
+----------------------------------------------------------------------------------------------------
+6. LOCK FILE CONFIRMATION
+----------------------------------------------------------------------------------------------------
+File: logs/e1-real-eval.lock
+  - SHA256 Hash: 0528B5554AAF8AF08B3AFCF0BB83B985EB7CEBC6720D54CF59BB388C00827FC4
+  - Last Modified: 2026-10-28 08:11:22 AM
+  - Status: Strictly UNCHANGED and preserved.
+====================================================================================================

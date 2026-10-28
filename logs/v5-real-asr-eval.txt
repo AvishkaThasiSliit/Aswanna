@@ -1,0 +1,27 @@
+
+======================================================
+REAL SPEECH ASR EVALUATION (Task V5)
+Evaluating 24 captured transcripts from: D:\Aswanna\server\eval\fixtures\voice\real-asr.captured.json
+======================================================
+
+### Per-Language Evaluation Breakdown
+------------------------------------------------------------------------------------------------------
+| Lang    | Items | Amount Correct   | Category Correct | Needs Review     | SILENT ERRORS (Target 0) |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| en      | 14    |  9/12 ( 75.0%) |  8/12 ( 66.7%) |  4/12 ( 33.3%) | 0                        |
+| si      | 13    | 10/12 ( 83.3%) | 10/12 ( 83.3%) |  3/12 ( 25.0%) | 1                        |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| Overall | 27    | 19/24 ( 79.2%) | 18/24 ( 75.0%) |  7/24 ( 29.2%) | 1                        |
+------------------------------------------------------------------------------------------------------
+
+### SILENT ERRORS AUDIT LOG
+NOTE: Irreducible ASR transcription errors where spoken audio was misrecognized into valid digits
+cannot be detected purely from text and must be explicitly recorded.
+
+- Prompt ID: [VP-CAP-021] (Lang: si)
+  Transcript: "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා"
+  Extracted:  Category='seed', Amount=1900, Status='ok'
+  Expected:   Category='seed', Amount=1500
+  Discrepancy: amount mismatch: extracted 1900 vs expected 1500
+  Diagnosis:  Spoken phrase said 1500, but Chrome ASR transcribed digits '1900ක්'. Since 1900 is a valid amount,
+              it parsed cleanly with status 'ok'. This is an irreducible silent error from ASR recognition.

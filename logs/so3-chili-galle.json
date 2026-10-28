@@ -1,0 +1,203 @@
+{
+  "cycle": {
+    "_id": "6ad9b1f924cfa4f63f896866",
+    "farmerId": "6ad9b1e424cfa4f63f8967d3",
+    "crop": "Chili",
+    "season": "Maha",
+    "district": "Galle",
+    "startDate": "2026-10-15T00:00:00.000Z",
+    "extentValue": 1,
+    "extentUnit": "acre",
+    "status": "active",
+    "baselineStatus": "ready",
+    "so1Metadata": {
+      "model_version": "extratrees_champion_v2",
+      "request_id": "67264a26-8efb-4a84-b7da-f78158624b73",
+      "reference_year": 2025,
+      "low_confidence": true,
+      "low_confidence_reason": "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate.",
+      "breakdown_source": "national_crop_fallback",
+      "district_policy_used": "extrapolated",
+      "derived": true,
+      "acreage_scaled": false,
+      "lag_saturation_detected": false,
+      "lag_saturation_note": null,
+      "warnings": [
+        "Exact district 'Galle' returned 422: [object Object]",
+        "Whole Island fallback returned 422: No historical data available for Green Chilli in Whole Island. Enable extrapolation or select a different crop.",
+        "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate.",
+        "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate."
+      ],
+      "totalPredictedCost": 417189,
+      "intervalLow": 345527,
+      "intervalHigh": 503713,
+      "rawPerAcreCost": 417189,
+      "acres": 1
+    },
+    "deletedAt": null,
+    "createdBy": "6ad9b1e424cfa4f63f8967cf",
+    "createdAt": "2026-10-22T06:49:29.119Z",
+    "updatedAt": "2026-10-22T06:49:29.398Z",
+    "__v": 0,
+    "baselineSource": "SO1"
+  },
+  "variance": {
+    "categories": {
+      "seed": {
+        "expected": 29620,
+        "low": 24532,
+        "high": 35763,
+        "actual": 0,
+        "expectedToDate": 9215.111111111111,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": false,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "fertilizer": {
+        "expected": 103463,
+        "low": 85691,
+        "high": 124921,
+        "actual": 0,
+        "expectedToDate": 32188.48888888889,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": false,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "agrochemical": {
+        "expected": 12412,
+        "low": 10280,
+        "high": 14986,
+        "actual": 0,
+        "expectedToDate": 3861.511111111111,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": true,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "labour": {
+        "expected": 227368,
+        "low": 188312,
+        "high": 274524,
+        "actual": 0,
+        "expectedToDate": 15157.866666666667,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": false,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "machinery": {
+        "expected": 23363,
+        "low": 19350,
+        "high": 28208,
+        "actual": 0,
+        "expectedToDate": 1557.5333333333333,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": true,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "fuel": {
+        "expected": 10012,
+        "low": 8292,
+        "high": 12088,
+        "actual": 0,
+        "expectedToDate": 667.4666666666667,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": true,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "irrigation": {
+        "expected": 8761,
+        "low": 7256,
+        "high": 10578,
+        "actual": 0,
+        "expectedToDate": 584.0666666666666,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": false,
+        "derived": true,
+        "withinPredictionInterval": false
+      },
+      "other": {
+        "expected": 2190,
+        "low": 1814,
+        "high": 2644,
+        "actual": 0,
+        "expectedToDate": 146,
+        "variancePct": -1,
+        "budgetUsedPct": 0,
+        "tier": "normal",
+        "reason": null,
+        "is_estimated_split": true,
+        "derived": true,
+        "withinPredictionInterval": false
+      }
+    },
+    "total": {
+      "expected": 417189,
+      "actual": 0,
+      "expectedToDate": 63378.044444444444,
+      "variancePct": -1,
+      "budgetUsedPct": 0,
+      "intervalLow": 345527,
+      "intervalHigh": 503713,
+      "withinPredictionInterval": false
+    },
+    "intervalLow": 345527,
+    "intervalHigh": 503713,
+    "withinPredictionInterval": false,
+    "so1Metadata": {
+      "model_version": "extratrees_champion_v2",
+      "request_id": "67264a26-8efb-4a84-b7da-f78158624b73",
+      "reference_year": 2025,
+      "low_confidence": true,
+      "low_confidence_reason": "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate.",
+      "breakdown_source": "national_crop_fallback",
+      "district_policy_used": "extrapolated",
+      "derived": true,
+      "acreage_scaled": false,
+      "lag_saturation_detected": false,
+      "lag_saturation_note": null,
+      "warnings": [
+        "Exact district 'Galle' returned 422: [object Object]",
+        "Whole Island fallback returned 422: No historical data available for Green Chilli in Whole Island. Enable extrapolation or select a different crop.",
+        "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate.",
+        "No historical data for Green Chilli in Whole Island. Prediction will use national Green Chilli averages and may be less accurate."
+      ],
+      "totalPredictedCost": 417189,
+      "intervalLow": 345527,
+      "intervalHigh": 503713,
+      "rawPerAcreCost": 417189,
+      "acres": 1
+    }
+  },
+  "baselines": {
+    "error": {
+      "code": "NOT_FOUND",
+      "message": "Route not found"
+    }
+  }
+}

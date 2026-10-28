@@ -1,0 +1,91 @@
+====================================================================================================
+ASWANNA TASK E1-AUDIT: INDEPENDENT VERIFICATION & RECONCILIATION REPORT
+====================================================================================================
+Timestamp: 2026-10-28
+Execution: Strictly Read-Only (no code, model, test, or fixture mutations)
+Run-Once Guard: logs/e1-real-eval.lock PRESERVED UNTOUCHED
+
+----------------------------------------------------------------------------------------------------
+1. TEST COUNTS RECONCILIATION & DIFF
+----------------------------------------------------------------------------------------------------
+Baseline in logs/w1-test.txt (2026-10-27 05:22:43 AM):
+  - Server Jest:  15 suites passed (335 tests passed)
+  - Client Vitest: 21 files passed (121 tests passed)
+
+Current in logs/e1-test.txt (2026-10-28 08:17:03 AM):
+  - Server Jest:  19 suites passed (442 tests passed) -> +4 suites, +107 tests
+  - Client Vitest: 22 files passed (126 tests passed) -> +1 file, +5 tests
+
+NEW TEST SUITES & FILES INVENTORIED:
+1. server/tests/voicePipelineRegression.test.js (35 tests)
+   - Created: 2026-10-27 08:38:05 | Modified: 2026-10-27 10:33:40
+   - Origin: Tasks 4, 5, 7 (Voice Pipeline Regression & Financial Safety Suite)
+2. server/tests/evaluatorMetrics.test.js (11 tests)
+   - Created: 2026-10-27 09:16:05 | Modified: 2026-10-27 09:16:05
+   - Origin: Phase 4.3 (Unit Test Suite for Regression Evaluator Matching & Metrics)
+3. server/tests/datasetCollection.test.js (19 tests)
+   - Created: 2026-10-27 11:14:58 | Modified: 2026-10-27 15:07:01
+   - Origin: Phase 2 (Audio Dataset Collection routes, audio validator, reviewer queue)
+4. server/tests/datasetCollectionSecurity.test.js (42 tests)
+   - Created: 2026-10-27 14:16:03 | Modified: 2026-10-27 15:34:39
+   - Origin: Phase 2.1.2 (Targeted Security Invariants: quota, idempotency, disk, HMAC rotation)
+5. client/src/test/VoiceDatasetCollection.test.jsx (5 tests)
+   - Created: 2026-10-27 11:19:16 | Modified: 2026-10-27 15:23:00
+   - Origin: Phase 2 (Voice Dataset Collection React UI)
+
+Sum of new tests:
+  - Server: 35 + 11 + 19 + 42 = 107 tests (335 + 107 = 442)
+  - Client: 5 tests (121 + 5 = 126)
+Explanation: logs/w1-test.txt recorded test execution before Tasks 4, 5, 7, Phase 4.3, Phase 2, and
+Phase 2.1.2 were implemented on 10/27. When Task E1 ran npm test on 10/28, all 19 server suites and
+22 client files executed.
+
+----------------------------------------------------------------------------------------------------
+2. HARNESS CONSISTENCY: TAKE 3 COMPARISON
+----------------------------------------------------------------------------------------------------
+Harness Call Differences:
+- voice-learn/rule_bridge.mjs calls extractExpenses(transcript, { alternatives: item.alternatives || [] }).
+  It does NOT pass 'lang' (defaults to undefined/auto), 'today' (defaults to Date.now), or baselines.
+- server/eval/voiceRealEval.js explicitly passes { lang, today, alternatives, ... }.
+- Dataset Scoping: voiceRealEval.js evaluates both English and Sinhala (20 recordings, 23 scored items:
+  14 English + 9 Sinhala). voice-learn/eval_real.py evaluates English only (12 recordings, 14 items).
+
+Take 3 English Slice Comparison (14 items):
+  - Amount Correct: 3/14 (21.4%) in both harnesses
+  - Category Correct: 6/14 (42.9%) in both harnesses
+  - Needs Review: 9/14 (64.3%) in voiceRealEval.js vs 11/14 (78.6%) in eval_real.py (+2 items)
+  - Silent Errors: 2 in voiceRealEval.js vs 1 in eval_real.py (-1 item)
+
+Per-Item Disagreements on Take 3:
+- VP-CAP-004 ("8000 for combined harvester airport 2 months"):
+  In voiceRealEval.js (logs/take3-eval.txt): parsed status was 'ok', classified as SILENT ERROR (8000 != 12000).
+  In eval_real.py: parsed status was 'needs_review' with reason 'asr_alternatives_disagree' (due to
+  divergent alternative "8000 for combined August airport 2 months"). Because status was 'needs_review',
+  it was guarded from silent execution and not counted as a silent error.
+- VP-CAP-015 ("බීජ වී කිලෝ 30ක් රුපියල් 8500කට ගත්තා"):
+  Sinhala utterance. In voiceRealEval.js, it appeared as a silent error (seed 8500 'ok' vs expected 7500).
+  In eval_real.py, it was omitted because E1 evaluated English only.
+
+----------------------------------------------------------------------------------------------------
+3. PER-ITEM CROSS-TABULATION STATUS
+----------------------------------------------------------------------------------------------------
+Per-item results for the 42 individual items were NOT saved to disk by the E1 evaluation script.
+Inspection of voice-learn/eval_real.py confirms lines 360-366 format summary tables directly to
+logs/e1-real-eval.txt without writing a per-item JSON/CSV record dump.
+Per instructions: per-item results were not saved; this item is stopped without re-running evaluation.
+
+----------------------------------------------------------------------------------------------------
+4. HASH VERIFICATION: SHARED/VOICE
+----------------------------------------------------------------------------------------------------
+Comparison against logs/live-hashes-before.txt (recorded 2026-10-26 16:20:38):
+- asrConfusions.json:       9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02 (MATCH)
+- parseCommand.js:          27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D (MATCH)
+- extractExpenses.js:       FE6AAE993B2C87E22DB1BF1F4B4E9A9367E5EB88C13BF44417D9AAC6E3E28177 (MODIFIED 10/27 09:17)
+- keywordMap.json:          B71678A7A69B3AA2B50CB706ADE1A04C27A3DEE518D6CED68991D5EB89DF36F7 (MODIFIED 10/27 08:35)
+- sinhalaNumbers.js:        EBF1DBDACE5F1F350AFC8D2B6EBCC13588D5617D9D3A3C772E37439AB3033D38 (MODIFIED 10/27 08:34)
+- sinhalaNumberWords.json:  6486201B80E801DBB72436236EEB22E67A631E5C7FD9CC62361B7AA6B9ED7687 (MODIFIED 10/27 08:34)
+
+Note: Task E1 was initiated on 2026-10-28 07:58 AM and did NOT edit or touch any file in shared/voice/*.
+The modifications occurred on 10/27 during Tasks 4, 5, 7.
+Original frozen files matching live-hashes-before.txt remain intact in D:\Aswanna_freeze_voice\shared_voice.
+====================================================================================================

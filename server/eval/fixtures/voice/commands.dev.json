@@ -1,0 +1,466 @@
+[
+  {
+    "id": "cmd-01",
+    "text": "Change urea to 5000",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "2 bags of urea", "category": "fertilizer", "totalAmount": 6000, "quantity": 2, "unit": "bags", "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "seed paddy", "category": "seed", "totalAmount": 1500, "quantity": null, "unit": null, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "amount",
+      "newValue": 5000,
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-02",
+    "text": "Change tractor quantity to 6 hours",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "tractor hire 4 hours", "category": "machinery", "totalAmount": 4000, "quantity": 4, "unit": "hours", "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "urea", "category": "fertilizer", "totalAmount": 2000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "quantity",
+      "newValue": 6,
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-03",
+    "text": "Change unit of diesel to litres",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "diesel", "category": "fuel", "totalAmount": 2500, "quantity": 10, "unit": "bottle", "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "unit",
+      "newValue": "litres",
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-04",
+    "text": "Change category of transport to other",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "lorry transport", "category": "machinery", "totalAmount": 3000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "category",
+      "newValue": "other",
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-05",
+    "text": "යූරියා 5000 කරන්න",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "බීජ වී", "category": "seed", "totalAmount": 1500, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "amount",
+      "newValue": 5000,
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-06",
+    "text": "Change seed paddy to 1800",
+    "language": "mixed",
+    "pendingRows": [
+      { "id": "row-1", "description": "seed paddy", "category": "seed", "totalAmount": 1500, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "amount",
+      "newValue": 1800,
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-07",
+    "text": "Change urea to 5000",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea for paddy", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "extra urea", "category": "fertilizer", "totalAmount": 4000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1", "row-2"],
+      "field": "amount",
+      "newValue": 5000,
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - two urea rows ambiguity"
+  },
+  {
+    "id": "cmd-08",
+    "text": "Remove urea",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea morning", "category": "fertilizer", "totalAmount": 3000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "urea evening", "category": "fertilizer", "totalAmount": 3000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": ["row-1", "row-2"],
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - two urea rows remove ambiguity"
+  },
+  {
+    "id": "cmd-09",
+    "text": "පොහොර අයින් කරන්න",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 3000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "mop පොහොර", "category": "fertilizer", "totalAmount": 4000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": ["row-1", "row-2"],
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - two fertilizer rows Sinhala ambiguity"
+  },
+  {
+    "id": "cmd-10",
+    "text": "Change the quantity to 25",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "quantity": 20, "unit": "kg", "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "diesel", "category": "fuel", "totalAmount": 3000, "quantity": 10, "unit": "l", "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1", "row-2"],
+      "field": "quantity",
+      "newValue": 25,
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - no-target correction"
+  },
+  {
+    "id": "cmd-11",
+    "text": "Make it 5000",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "diesel", "category": "fuel", "totalAmount": 3000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1", "row-2"],
+      "field": "amount",
+      "newValue": 5000,
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - no-target amount correction"
+  },
+  {
+    "id": "cmd-12",
+    "text": "ප්‍රමාණය 25 කරන්න",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "බීජ", "category": "seed", "totalAmount": 3000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1", "row-2"],
+      "field": "quantity",
+      "newValue": 25,
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - no-target Sinhala correction"
+  },
+  {
+    "id": "cmd-13",
+    "text": "Remove urea",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "diesel", "category": "fuel", "totalAmount": 3000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": ["row-1"],
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-14",
+    "text": "ට්‍රැක්ටර් ඉවත් කරන්න",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "ට්‍රැක්ටර් කුලිය", "category": "machinery", "totalAmount": 8000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": ["row-1"],
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-15",
+    "text": "Remove pesticide",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "seed paddy", "category": "seed", "totalAmount": 1500, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": [],
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - non-existent item removal"
+  },
+  {
+    "id": "cmd-16",
+    "text": "Remove weedicide",
+    "language": "mixed",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": [],
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - non-existent weedicide"
+  },
+  {
+    "id": "cmd-17",
+    "text": "Delete row",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "fuel", "category": "fuel", "totalAmount": 2000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "remove",
+      "targetCandidates": ["row-1", "row-2"],
+      "status": "needs_choice"
+    },
+    "notes": "DRAFT: needs native-speaker review - remove without target"
+  },
+  {
+    "id": "cmd-18",
+    "text": "What is the total?",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "fuel", "category": "fuel", "totalAmount": 2000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "total"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-19",
+    "text": "How much so far?",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "total"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-20",
+    "text": "මුළු එකතුව කීයද?",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "total"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-21",
+    "text": "How much on fertilizer?",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "fuel", "category": "fuel", "totalAmount": 2000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "category_total",
+      "category": "fertilizer"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-22",
+    "text": "What did I spend on seed?",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "seed paddy", "category": "seed", "totalAmount": 3500, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "category_total",
+      "category": "seed"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-23",
+    "text": "පොහොර වලට කීයද?",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "category_total",
+      "category": "fertilizer"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-24",
+    "text": "How many expenses?",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" },
+      { "id": "row-2", "description": "fuel", "category": "fuel", "totalAmount": 2000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "count"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-25",
+    "text": "වියදම් කීයක් තියෙනවද?",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "query",
+      "kind": "count"
+    },
+    "notes": "DRAFT: needs native-speaker review"
+  },
+  {
+    "id": "cmd-26",
+    "text": "Add 2000 for fuel",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "add"
+    },
+    "notes": "DRAFT: needs native-speaker review - add with amount"
+  },
+  {
+    "id": "cmd-27",
+    "text": "Add urea",
+    "language": "en",
+    "pendingRows": [],
+    "expected": {
+      "intent": "add"
+    },
+    "notes": "DRAFT: needs native-speaker review - add without amount"
+  },
+  {
+    "id": "cmd-28",
+    "text": "Add 2 bags of urea for 6000",
+    "language": "en",
+    "pendingRows": [],
+    "expected": {
+      "intent": "add"
+    },
+    "notes": "DRAFT: needs native-speaker review - add with qty and amount"
+  },
+  {
+    "id": "cmd-29",
+    "text": "තව ඩීසල් වලට 1500 එකතු කරන්න",
+    "language": "si",
+    "pendingRows": [],
+    "expected": {
+      "intent": "add"
+    },
+    "notes": "DRAFT: needs native-speaker review - Sinhala add"
+  },
+  {
+    "id": "cmd-30",
+    "text": "Change urea to 5000",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "correct",
+      "targetCandidates": ["row-1"],
+      "field": "amount",
+      "newValue": 5000,
+      "status": "ready"
+    },
+    "notes": "DRAFT: needs native-speaker review - repeated command"
+  },
+  {
+    "id": "cmd-31",
+    "text": "Edit yesterday's saved expense in tracker",
+    "language": "en",
+    "pendingRows": [
+      { "id": "row-1", "description": "urea", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "unknown",
+      "reason": "saved_record_reference"
+    },
+    "notes": "DRAFT: needs native-speaker review - saved record reference"
+  },
+  {
+    "id": "cmd-32",
+    "text": "දැනටමත් සේව් කරපු එක වෙනස් කරන්න",
+    "language": "si",
+    "pendingRows": [
+      { "id": "row-1", "description": "යූරියා", "category": "fertilizer", "totalAmount": 6000, "dateISO": "2026-10-25" }
+    ],
+    "expected": {
+      "intent": "unknown",
+      "reason": "saved_record_reference"
+    },
+    "notes": "DRAFT: needs native-speaker review - Sinhala saved record reference"
+  }
+]

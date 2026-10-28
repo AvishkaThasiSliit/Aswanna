@@ -66,11 +66,43 @@ for (const file of schemaFiles) {
   }
 }
 
+// ── Check Locale JSON Key Parity (en.json vs si.json) ──────────────────────────
+const enPath = path.resolve(__dirname, '../../client/src/i18n/locales/en.json');
+const siPath = path.resolve(__dirname, '../../client/src/i18n/locales/si.json');
+
+if (fs.existsSync(enPath) && fs.existsSync(siPath)) {
+  const enObj = JSON.parse(fs.readFileSync(enPath, 'utf8'));
+  const siObj = JSON.parse(fs.readFileSync(siPath, 'utf8'));
+
+  function getLeafKeys(obj, prefix = '') {
+    return Object.keys(obj).flatMap((k) => {
+      const fullKey = prefix ? `${prefix}.${k}` : k;
+      if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {
+        return getLeafKeys(obj[k], fullKey);
+      }
+      return [fullKey];
+    });
+  }
+
+  const enKeys = getLeafKeys(enObj).sort();
+  const siKeys = getLeafKeys(siObj).sort();
+
+  const missingInSi = enKeys.filter(k => !siKeys.includes(k));
+  const missingInEn = siKeys.filter(k => !enKeys.includes(k));
+
+  if (missingInSi.length > 0) {
+    errors.push(`Keys missing in si.json: ${missingInSi.join(', ')}`);
+  }
+  if (missingInEn.length > 0) {
+    errors.push(`Keys missing in en.json: ${missingInEn.join(', ')}`);
+  }
+}
+
 if (errors.length > 0) {
-  console.error('❌ Sinhala validation failed with errors:');
+  console.error('❌ Sinhala & Locale validation failed with errors:');
   errors.forEach(e => console.error('  - ' + e));
   process.exit(1);
 } else {
-  console.log('✅ All Sinhala label checks passed successfully.');
+  console.log('✅ All Sinhala label & locale key parity checks passed successfully.');
   process.exit(0);
 }

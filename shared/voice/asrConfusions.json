@@ -1,0 +1,16 @@
+[
+  { "misrecognition": "seat paddy", "intended": "seed paddy", "source": "observed-asr-error" },
+  { "misrecognition": "feet paddy", "intended": "seed paddy", "source": "observed-asr-error" },
+  { "misrecognition": "water browser", "intended": "water bowser", "source": "observed-asr-error" },
+  { "misrecognition": "browser", "intended": "bowser", "source": "observed-asr-error" },
+  { "misrecognition": "wedding", "intended": "weeding", "source": "observed-asr-error" },
+  { "misrecognition": "provin", "intended": "plowing", "source": "observed-asr-error" },
+  { "misrecognition": "higher", "intended": "hire", "source": "observed-asr-error" },
+  { "misrecognition": "to labourers", "intended": "two labourers", "source": "observed-asr-error" },
+  { "misrecognition": "traktor", "intended": "ට්‍රැක්ටර්", "source": "observed-asr-error" },
+  { "misrecognition": "යුරියා", "intended": "යූරියා", "source": "observed-asr-error" },
+  { "misrecognition": "කොම්පෝස් කෝරමිටි", "intended": "කොම්පෝස්ට් පොහොර මිටි", "source": "observed-asr-error" },
+  { "misrecognition": "කොම්පෝස් කොහොර", "intended": "කොම්පෝස්ට් පොහොර", "source": "observed-asr-error" },
+  { "misrecognition": "කෘමි නාශක", "intended": "කෘමිනාශක", "source": "observed-asr-error" },
+  { "misrecognition": "වල් නෙළීමට", "intended": "වල් නෙලීමට", "source": "observed-asr-error" }
+]

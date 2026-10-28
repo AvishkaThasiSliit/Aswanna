@@ -1,0 +1,64 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "drift_volatile",
+  "description": "Synthetic 100-day cycle where volatile categories (fertilizer and fuel) drift 8% to 11% above expected-to-date. In tiered mode this triggers attention tier, under proposal baseline (variance > 0) it triggers alert, but a flat 10% rule misses 9% drift as normal.",
+  "cycle": {
+    "crop": "Tomato",
+    "district": "Badulla",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "agrochemical": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fuel": { "expected": 30000, "low": 27000, "high": 33000 },
+    "labour": { "expected": 70000, "low": 63000, "high": 77000 },
+    "machinery": { "expected": 40000, "low": 36000, "high": 44000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-dv-1", "day": 10, "category": "seed", "amount": 14000, "notes": "Seedlings" },
+    { "id": "exp-dv-2", "day": 38, "category": "fertilizer", "amount": 49050, "notes": "Fertilizer purchased with 9% cost drift" },
+    { "id": "exp-dv-3", "day": 50, "category": "fuel", "amount": 16350, "notes": "Pump fuel with 9% drift" },
+    { "id": "exp-dv-4", "day": 70, "category": "fuel", "amount": 6900, "notes": "Additional pumping fuel bringing total to 23250 (10.71% drift)" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 45000,
+      "actualToDate": 49050,
+      "variancePct": 0.09,
+      "tier": "attention",
+      "proposalBaselineAlert": true,
+      "flat10Rule": "normal",
+      "derivation": "Hand calculation: Day 40 front_loaded phase is 0.90. expectedToDate = 50,000 * 0.90 = 45,000. actual = 49,050. variancePct = (49,050 - 45,000) / 45,000 = +4,050 / 45,000 = +0.0900 (+9.00%). Tiered rule (volatile category): 7% < 9.0% <= 12% -> attention tier. Proposal baseline (variance > 0): triggers alert. Flat 10% rule (v > 10%): 9.0% <= 10.0% -> miss (normal)."
+    },
+    {
+      "day": 50,
+      "category": "fuel",
+      "expectedToDate": 15000,
+      "actualToDate": 16350,
+      "variancePct": 0.09,
+      "tier": "attention",
+      "proposalBaselineAlert": true,
+      "flat10Rule": "normal",
+      "derivation": "Hand calculation: Day 50 linear phase is 0.50. expectedToDate = 30,000 * 0.50 = 15,000. actual = 16,350. variancePct = (16,350 - 15,000) / 15,000 = +1,350 / 15,000 = +0.0900 (+9.00%). Tiered rule (volatile category): 7% < 9.0% <= 12% -> attention tier. Proposal baseline (v > 0): triggers alert. Flat 10% rule: 9.0% <= 10.0% -> miss (normal)."
+    },
+    {
+      "day": 70,
+      "category": "fuel",
+      "expectedToDate": 21000,
+      "actualToDate": 23250,
+      "variancePct": 0.1071,
+      "tier": "attention",
+      "proposalBaselineAlert": true,
+      "flat10Rule": "significant",
+      "derivation": "Hand calculation: Day 70 linear phase is 0.70. expectedToDate = 30,000 * 0.70 = 21,000. actual = 23,250. variancePct = (23,250 - 21,000) / 21,000 = +2,250 / 21,000 = +0.1071 (+10.71%). Tiered rule (volatile category): 7% < 10.71% <= 12% -> attention tier. Proposal baseline: alert. Flat 10% rule: 10.71% > 10.0% -> escalates to significant."
+    }
+  ]
+}

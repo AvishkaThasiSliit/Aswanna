@@ -1,0 +1,61 @@
+
+> aswanna@1.0.0 test
+> node -e "const { spawnSync } = require('child_process'); spawnSync('npm', ['run', 'test', '--workspace=server'], { stdio: 'inherit', shell: true }); spawnSync('npm', ['run', 'test', '--workspace=client'], { stdio: 'inherit', shell: true });"
+
+
+> server@1.0.0 test
+> cross-env NODE_ENV=test TMP=d:/Aswanna/temp TEMP=d:/Aswanna/temp NODE_OPTIONS=--experimental-vm-modules jest --runInBand
+
+
+> client@1.0.0 test
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/Aswanna/client[39m
+
+ [32m✓[39m src/test/deleteUndo.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 322[2mms[22m[39m
+ [32m✓[39m src/test/validation.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1032[2mms[22m[39m
+ [32m✓[39m src/test/BudgetOverview.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1861[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders category variance table with status badges and estimated split badge [33m649[2mms[22m[39m
+ [32m✓[39m src/test/CropRecommendation.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 1569[2mms[22m[39m
+   [33m[2m✓[22m[39m CropRecommendation Page Component[2m > [22mrenders recommendation header and all numbered sections [33m504[2mms[22m[39m
+   [33m[2m✓[22m[39m CropRecommendation Page Component[2m > [22mrenders district, season, and irrigation filter dropdown selectors [33m353[2mms[22m[39m
+ [32m✓[39m src/test/ActivityCalendar.test.jsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1256[2mms[22m[39m
+   [33m[2m✓[22m[39m ActivityCalendarPage Component[2m > [22mrenders 13-month grid with activity codes and greys out invalid days [33m837[2mms[22m[39m
+   [33m[2m✓[22m[39m ActivityCalendarPage Component[2m > [22mopens day details modal when clicking on a day with expenses [33m415[2mms[22m[39m
+ [32m✓[39m src/test/SetupWizard.test.jsx [2m([22m[2m10 tests[22m[2m)[22m[33m 3942[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates required name field [33m1083[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mrejects future date of birth [33m500[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates NIC format (9 digits + V/X or 12 digits) [33m478[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates phone format (10 digits starting with 0) [33m377[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 2: Machinery Owned[2m > [22msupports adding repeatable machinery rows and validates required purchase year if filled [33m358[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 3: Land Details[2m > [22mdetects duplicate landCode in repeatable land rows [33m432[2mms[22m[39m
+ [32m✓[39m src/test/ExpenseForm.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 2015[2mms[22m[39m
+   [33m[2m✓[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mtoggles no_work dayStatus hiding cost sections [33m1182[2mms[22m[39m
+   [33m[2m✓[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mdisplays mapped server field error next to activity select on submission failure [33m574[2mms[22m[39m
+ [32m✓[39m src/test/ForecastCard.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 377[2mms[22m[39m
+ [32m✓[39m src/test/FilterBar.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 458[2mms[22m[39m
+ [32m✓[39m src/test/CycleSummary.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1062[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleSummaryPage Component[2m > [22mrenders summary tiles and shows profit when sales exist [33m394[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleSummaryPage Component[2m > [22mhandles Close Cycle with confirmation dialog [33m624[2mms[22m[39m
+ [32m✓[39m src/test/CycleNotes.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1091[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleNotesPage Component[2m > [22mrenders notes form generated from schema with existing notes [33m340[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleNotesPage Component[2m > [22msubmits updated notes successfully [33m643[2mms[22m[39m
+ [32m✓[39m src/test/CostImpactCard.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 930[2mms[22m[39m
+   [33m[2m✓[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mrenders Cost Impact Summary section [33m313[2mms[22m[39m
+   [33m[2m✓[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mrenders category expected-to-date and dynamic inline warning above +15% [33m326[2mms[22m[39m
+ [32m✓[39m src/test/HarvestSales.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1341[2mms[22m[39m
+   [33m[2m✓[22m[39m HarvestSales Component[2m > [22mrenders harvest and sales sections with computed totals [33m386[2mms[22m[39m
+   [33m[2m✓[22m[39m HarvestSales Component[2m > [22msubmits a new harvest round [33m556[2mms[22m[39m
+   [33m[2m✓[22m[39m HarvestSales Component[2m > [22mtriggers soft delete and toast undo callback on harvest delete [33m395[2mms[22m[39m
+ [32m✓[39m src/test/DailyCostTrackerHub.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 620[2mms[22m[39m
+ [32m✓[39m src/test/formatters.test.js [2m([22m[2m11 tests[22m[2m)[22m[90m 56[2mms[22m[39m
+ [32m✓[39m src/test/i18n.test.js [2m([22m[2m3 tests[22m[2m)[22m[90m 41[2mms[22m[39m
+ [32m✓[39m src/test/AlertsPage.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 565[2mms[22m[39m
+ [32m✓[39m src/test/StatusBadge.test.jsx [2m([22m[2m8 tests[22m[2m)[22m[90m 56[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+[2m      Tests [22m [1m[32m96 passed[39m[22m[90m (96)[39m
+[2m   Start at [22m 18:32:19
+[2m   Duration [22m 29.63s[2m (transform 5.87s, setup 10.56s, collect 38.93s, tests 18.59s, environment 40.20s, prepare 10.61s)[22m
+

@@ -1,0 +1,736 @@
+{
+  "app": {
+    "title": "Aswanna",
+    "subtitle": "Daily Cost Tracker & Agricultural Expense Management",
+    "howItWorks": "How it works?",
+    "back": "Back",
+    "logout": "Log out",
+    "comingSoon": "Coming soon"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "costPrediction": "Cost Prediction",
+    "cropRecommendation": "Crop Recommendation",
+    "simulation": "Simulation",
+    "dailyCostTracker": "Daily Cost Tracker",
+    "harvestSales": "Harvest & Sales",
+    "notes": "Special Notes",
+    "summary": "Cycle Summary",
+    "calendar": "Activity Calendar",
+    "reports": "Reports",
+    "history": "History",
+    "alerts": "Alerts",
+    "settings": "Settings",
+    "helpSupport": "Help & Support"
+  },
+  "sections": {
+    "summary": "Financial Overview & Totals",
+    "records": "Daily Expense Records",
+    "quickActions": "Quick Actions"
+  },
+  "kpi": {
+    "entries": "Total Entries",
+    "totalSpending": "Total Spending",
+    "todayExpense": "Today's Expense",
+    "predictedCost": "Predicted Cost",
+    "noBaseline": "No baseline yet"
+  },
+  "categories": {
+    "all": "All Categories",
+    "seed": "Seed",
+    "fertilizer": "Fertilizer",
+    "labour": "Labour",
+    "machinery": "Machinery",
+    "fuel": "Fuel",
+    "irrigation": "Irrigation",
+    "other": "Other",
+    "inputs": "Inputs",
+    "agrochemical": "Agrochemical"
+  },
+  "statuses": {
+    "recorded": "Recorded",
+    "pending": "Pending",
+    "no_work": "No Work",
+    "attention": "Attention",
+    "significant": "Significant"
+  },
+  "table": {
+    "date": "Date",
+    "activity": "Activity",
+    "costTypes": "Cost Types",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "pagination": "Showing {{from}} to {{to}} of {{total}} entries",
+    "noRecords": "No expense records found",
+    "noRecordsDesc": "Try adjusting your search query or filters to find what you are looking for."
+  },
+  "filters": {
+    "search": "Search activity, input, description...",
+    "category": "Category",
+    "dateRange": "Date Range",
+    "minAmount": "Min Amount",
+    "maxAmount": "Max Amount",
+    "allDates": "All Dates",
+    "clear": "Clear Filters"
+  },
+  "actions": {
+    "addNewExpense": "Add New Expense",
+    "exportRecords": "Export Records"
+  },
+  "confirm": {
+    "deleteTitle": "Delete Expense Record",
+    "deleteMessage": "Are you sure you want to delete this expense record? This action can be undone within 10 seconds.",
+    "confirmDelete": "Delete Record",
+    "cancel": "Cancel"
+  },
+  "toast": {
+    "deleted": "Expense record deleted.",
+    "undo": "Undo",
+    "restored": "Expense record restored successfully.",
+    "cycleClosed": "This crop cycle is closed. Expenses cannot be added, modified or deleted.",
+    "error": "An error occurred while processing your request."
+  },
+  "auth": {
+    "loginTitle": "Welcome to Aswanna",
+    "loginSubtitle": "Sign in to access your daily cost tracker",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "loginButton": "Sign In",
+    "registerPrompt": "Don't have an account?",
+    "registerLink": "Register as a Farmer",
+    "registerTitle": "Register New Account",
+    "fullNameLabel": "Full Name",
+    "phoneLabel": "Phone Number",
+    "districtLabel": "District",
+    "registerButton": "Create Account",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Sign In"
+  },
+  "howItWorksModal": {
+    "title": "How Daily Cost Tracker Works",
+    "step1": "1. Record your daily field activities and expenses for seed, fertilizer, labour, machinery, fuel and irrigation.",
+    "step2": "2. Server automatically calculates accurate subtotals and totals in integer Sri Lankan Rupees.",
+    "step3": "3. Search, filter, and export your expense history at any time as a CSV file.",
+    "close": "Got it"
+  },
+  "form": {
+    "addTitle": "Add Daily Expense",
+    "addSubtitle": "Record daily field activities and cultivation costs",
+    "editTitle": "Edit Expense Record",
+    "editSubtitle": "Update cultivation cost record",
+    "farmer": "Farmer",
+    "district": "District",
+    "crop": "Crop & Season",
+    "extent": "Field Size",
+    "repeatLast": "Repeat Last Entry",
+    "offlineWarning": "You are currently offline. Please check your network connection before saving.",
+    "section1Title": "Cultivation Info",
+    "section1Subtitle": "Active crop cycle specifications",
+    "section2Title": "Date & Activity",
+    "section2Subtitle": "Specify entry date, day status and activity code",
+    "section3Title": "Inputs",
+    "section3Subtitle": "Seed, fertilizer, agrochemical, fuel and irrigation lines",
+    "section4Title": "Machinery",
+    "section4Subtitle": "Equipment rental, tractor or sprayer costs",
+    "section5Title": "Labour",
+    "section5Subtitle": "Family vs hired labour days and daily wage rate",
+    "section6Title": "Other",
+    "section6Subtitle": "Miscellaneous cultivation expenses",
+    "dayStatus": "Day Status",
+    "noWorkToggle": "No work done today",
+    "selectActivity": "-- Select Activity Code --",
+    "addInput": "+ Add Input Line",
+    "previewTitle": "Live Expense Preview",
+    "saveSuccess": "Expense record saved successfully.",
+    "updateSuccess": "Expense record updated.",
+    "repeatedSuccess": "Prefilled from last expense record.",
+    "noPreviousRecord": "No previous expense record found.",
+    "futureDateWarning": "Note: Future date selected",
+    "saveExpense": "Save Expense",
+    "saveAndAddAnother": "Save and Add Another",
+    "cancel": "Cancel",
+    "inputsSubtitle": "Seed, fertilizer, agrochemical, fuel and irrigation lines",
+    "machinerySubtitle": "Equipment rental, tractor or sprayer costs",
+    "labourSubtitle": "Family vs hired labour days and daily wage rate",
+    "otherSubtitle": "Miscellaneous cultivation expenses"
+  },
+  "validation": {
+    "activityRequired": "Activity code is required for worked days",
+    "atLeastOneCost": "A worked day must have at least one expense recorded",
+    "noNegatives": "Value cannot be negative",
+    "integerRupees": "Amount must be in whole rupees",
+    "errors": {
+      "nicFormat": "NIC must be 9 digits followed by V/X or 12 digits",
+      "nicDobMismatch": "NIC birth year does not match date of birth",
+      "nicDayRange": "NIC day component is invalid",
+      "phoneFormat": "Phone must be a 10-digit Sri Lankan number (e.g. 0712345678)",
+      "dateFormat": "Date must be in YYYY-MM-DD format",
+      "dateInvalidCalendar": "Invalid calendar date",
+      "dateInFuture": "Date cannot be in the future",
+      "dateOfBirthInFuture": "Date of birth cannot be in the future",
+      "dateBeforeCycle": "Date cannot be before cycle start date",
+      "dateAfterCycle": "Date cannot be after cycle end date",
+      "dateTooEarly": "Date is too early",
+      "dateTooLate": "Date is too late",
+      "required": "This field is required",
+      "integerRequired": "Value must be an integer",
+      "numericRequired": "Value must be a valid number",
+      "stringRequired": "Field must be text",
+      "minValue": "Value is below minimum allowed",
+      "maxValue": "Value exceeds maximum allowed",
+      "stepInvalid": "Value must be in increments of 0.5",
+      "maxLength": "Text exceeds maximum allowed length",
+      "minLength": "Text is below minimum required length",
+      "enumInvalid": "Selected option is not valid",
+      "landCodeFormat": "Land code must contain only letters, numbers, hyphens, and slashes",
+      "duplicateLandCode": "This Land Code is already in use by another of your lands",
+      "duplicateNic": "This NIC is already registered to another farmer",
+      "htmlDetected": "HTML tags and script elements are not allowed",
+      "unknownField": "Unknown field is not permitted",
+      "landActiveCycleExists": "This land already has an active cultivation cycle",
+      "workedStatusConflict": "Cannot record no-work day when worked expenses exist on this date",
+      "noWorkStatusConflict": "Cannot record worked expense when a no-work day is recorded on this date",
+      "areaExceedsLandExtent": "Area not harvested cannot exceed total land extent",
+      "invalid": "Field value is invalid"
+    },
+    "warnings": {
+      "soldExceedsHarvest": "Total sold quantity exceeds harvested quantity",
+      "saleBeforeFirstHarvest": "Sale date is earlier than first harvest date",
+      "pricePlausibility": "Machinery unit price is outside standard plausible range",
+      "wagePlausibility": "Daily wage is outside typical agricultural wage range",
+      "dailyCostHigh": "Daily expense exceeds standard single-day threshold",
+      "seasonStartMismatch": "Start date month is outside typical season window",
+      "exactDuplicateExpense": "An expense with identical date, activity code, and total amount already exists",
+      "machineryCostMismatch": "Machinery cost does not match unit price multiplied by quantity"
+    }
+  },
+  "alerts": {
+    "title": "Alerts",
+    "subtitle": "Tiered budget overspend alerts",
+    "refresh": "Refresh",
+    "allSeverities": "All Severities",
+    "significant": "Significant Overspend",
+    "attention": "Attention Required",
+    "normal": "Normal",
+    "active": "Active (Unresolved)",
+    "resolved": "Resolved",
+    "allAlerts": "All Alerts",
+    "severity": "Severity",
+    "status": "Status",
+    "resolve": "Resolve",
+    "noActiveCycle": "No Active Cycle",
+    "noActiveCycleDesc": "Activate a crop cycle to see budget alerts.",
+    "noAlerts": "No active overspend alerts for this cycle.",
+    "noAlertsDesc": "Spending is on track within allowed volatility thresholds.",
+    "resolvedSuccess": "Alert resolved.",
+    "resolveError": "Failed to resolve alert.",
+    "recommendedAction": "Recommended Action",
+    "recNormal": "Spending on track. Maintain current activity schedule.",
+    "recAttention": "Monitor spend closely. Review recent input quantities and wages.",
+    "recSignificant": "Immediate review required. Phased cost exceeds threshold by >12-15%. Audit inputs and adjust allocation."
+  },
+  "costImpact": {
+    "title": "Cost Impact Summary",
+    "predictedBudget": "Full Predicted Budget",
+    "expectedToDate": "Expected To Date (Phased)",
+    "categoryExpectedToDate": "Expected To Date",
+    "varianceVsPhase": "Variance % vs Phase",
+    "budgetUsed": "Budget Used %",
+    "currentSpent": "Current Cycle Spent",
+    "entryCost": "This Entry Cost",
+    "newTotal": "New Total Spent",
+    "warning15": "Significant Overspend Warning: Phased variance exceeds +15%. Immediate attention recommended."
+  },
+  "tracker": {
+    "title": "Daily Cost Tracker",
+    "hubTitle": "Daily Cost Tracker",
+    "hubSubtitle": "Real-time cultivation cost tracking, predictions, and expense summary",
+    "spentToday": "Spent Today",
+    "cultivationCost": "Current Cultivation Cost",
+    "predictedTotalCost": "Predicted Total Cost",
+    "remainingBudget": "Remaining Budget",
+    "spentWeek": "Spent This Week",
+    "spentMonth": "Spent 30 Days",
+    "avgDaily": "Avg Daily Spend",
+    "onTrack": "On Track",
+    "attentionRequired": "Attention Required",
+    "overBudget": "Over Budget",
+    "donutTitle": "Expense Breakdown (Donut)",
+    "recentTitle": "Recent Daily Records",
+    "noExpenses": "No expenses recorded yet.",
+    "noRecent": "No recent records.",
+    "predictedVsActualChart": "Predicted vs Actual Cost Trend",
+    "recentRecords": "Recent 4 Expense Records",
+    "addNewExpense": "Add New Expense",
+    "viewAllExpenses": "View All Expenses",
+    "spendingStatusPanel": "Spending Status Panel",
+    "statusNormal": "Normal Status",
+    "statusNormalDesc": "Spending is well within phased expected limits.",
+    "statusAttention": "Attention Required",
+    "statusAttentionDesc": "Category spending is exceeding phased budget by 7-10%.",
+    "statusSignificant": "Significant Overspend",
+    "statusSignificantDesc": "Severe overspend detected (>12-15%). Immediate action recommended."
+  },
+  "recommendation": {
+    "title": "Crop Recommendation",
+    "subtitle": "SO1 Phased Cost-Efficiency & Historical Accuracy Weighted Ranking",
+    "filterDistrict": "District",
+    "filterSeason": "Season",
+    "section1Title": "Accuracy-Weighted Crop Ranking",
+    "section2Title": "Baseline Comparison: SO1 Cost-Only vs Accuracy-Weighted Rank",
+    "costOnlyRank": "SO1 Cost-Only Rank",
+    "weightedRank": "Accuracy-Weighted Rank",
+    "reliability": "Reliability",
+    "sampleSize": "Past Seasons",
+    "coldStartBadge": "Cold-Start (No History)",
+    "costPerKg": "Cost per Yield Unit",
+    "expectedYield": "Expected Yield",
+    "predictedTotal": "Predicted Total Cost",
+    "filterIrrigation": "Irrigation",
+    "predictedRange": "Predicted Interval",
+    "sectionUnavailableTitle": "Unavailable Crops",
+    "sectionUnavailableSubtitle": "Crops where SO1 baseline data could not be determined for the selected criteria",
+    "noUnavailable": "All candidate crops successfully evaluated.",
+    "reasonUnavailable": "Reason",
+    "irrigationOptions": {
+      "Unspecified": "Unspecified",
+      "Irrigated": "Irrigated",
+      "Rainfed": "Rainfed"
+    },
+    "qualityBadges": {
+      "observed": "Observed Data",
+      "regionalFallback": "Regional Fallback",
+      "extrapolated": "Extrapolated",
+      "lowConfidence": "Low Confidence"
+    },
+    "qualityNotes": {
+      "observed": "Based on historical empirical DoA survey records for this district.",
+      "regionalFallback": "Based on whole-island / regional average data as local district records are limited.",
+      "extrapolated": "Extrapolated using national averages. Local survey data is unavailable for this region.",
+      "lowConfidence": "Prediction has higher uncertainty due to limited sample records or extreme feature values."
+    }
+  },
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next",
+    "page": "Page {{page}}"
+  },
+  "setup": {
+    "title": "Initial Setup Wizard",
+    "subtitle": "Complete your profile, machinery, lands, and start your cultivation cycle",
+    "steps": {
+      "farmer": "Farmer Profile",
+      "machinery": "Machinery Owned",
+      "lands": "Land Details",
+      "cycle": "Start Cultivation Cycle"
+    },
+    "stepHeadings": {
+      "farmer": "ගොවියාගේ තොරතුරු",
+      "machinery": "කෘෂි යන්ත්‍රෝපකරණ",
+      "lands": "වගා ඉඩම් විස්තර",
+      "cycle": "වගා කන්නය ආරම්භ කිරීම"
+    },
+    "stepSubtitles": {
+      "farmer": "Enter your personal and administrative division details",
+      "machinery": "Record agricultural machinery and equipment in your possession",
+      "lands": "Register at least one plot of cultivation land",
+      "cycle": "Select land and crop to initiate baseline tracking"
+    },
+    "buttons": {
+      "next": "Save & Next",
+      "prev": "Back",
+      "saving": "Saving...",
+      "startCycle": "Start Cycle",
+      "startingCycle": "Starting...",
+      "addRow": "Add Row",
+      "removeRow": "Remove Row",
+      "addLand": "Add Land",
+      "addMachinery": "Add Equipment",
+      "viewExpenses": "Go to Expense Form"
+    },
+    "fields": {
+      "name": {
+        "si": "නම",
+        "en": "Name"
+      },
+      "dateOfBirth": {
+        "si": "උපන් දිනය",
+        "en": "Date of Birth"
+      },
+      "nic": {
+        "si": "ජා.හැ.අංකය",
+        "en": "NIC"
+      },
+      "phone": {
+        "si": "දුරකථන අංකය",
+        "en": "Phone"
+      },
+      "address": {
+        "si": "ලිපිනය",
+        "en": "Address"
+      },
+      "district": {
+        "si": "දිස්ත්‍රික්කය",
+        "en": "District"
+      },
+      "divisionalSecretariat": {
+        "si": "ප්‍රා.ලේ කොට්ඨාශය",
+        "en": "DS Division"
+      },
+      "gnDivision": {
+        "si": "ග්‍රා.නි.වසම",
+        "en": "GN Division"
+      },
+      "equipment": {
+        "si": "උපකරණය",
+        "en": "Equipment"
+      },
+      "quantity": {
+        "si": "ප්‍රමාණය",
+        "en": "Quantity"
+      },
+      "purchasedOnYear": {
+        "si": "මිලදී ගත් වසර",
+        "en": "Purchase Year"
+      },
+      "purchasedOnMonth": {
+        "si": "මිලදී ගත් මාසය",
+        "en": "Purchase Month"
+      },
+      "purchasedOnDay": {
+        "si": "මිලදී ගත් දිනය",
+        "en": "Purchase Day"
+      },
+      "purchaseValue": {
+        "si": "මිලදී ගත් වටිනාකම (රු.)",
+        "en": "Purchase Value (Rs.)"
+      },
+      "annotationNote": {
+        "si": "සටහන",
+        "en": "Note"
+      },
+      "landType": {
+        "si": "ගොඩ / මඩ",
+        "en": "Land Type"
+      },
+      "agrarianServiceCentre": {
+        "si": "ගොවිජන සේවා මධ්‍යස්ථානය",
+        "en": "Agrarian Service Centre"
+      },
+      "tenure": {
+        "si": "අයිතිය",
+        "en": "Tenure"
+      },
+      "extentUnit": {
+        "si": "බිම් ප්‍රමාණය (ඒකකය)",
+        "en": "Extent Unit"
+      },
+      "extentValue": {
+        "si": "ඉඩම් ප්‍රමාණය",
+        "en": "Extent Amount"
+      },
+      "extentAcres": {
+        "si": "අක්කර (ගණනය කළ)",
+        "en": "Computed Acres"
+      },
+      "waterSourceType": {
+        "si": "ජල මූලාශ්‍රය",
+        "en": "Water Source"
+      },
+      "irrigationSource": {
+        "si": "වාරි ජල මූලාශ්‍රය",
+        "en": "Irrigation Source"
+      },
+      "landCode": {
+        "si": "ඉඩමේ කේතය / PLR අංකය",
+        "en": "Land Code / PLR No"
+      },
+      "cycleLand": {
+        "si": "වගා ඉඩම",
+        "en": "Cultivation Land"
+      },
+      "crop": {
+        "si": "බෝගය",
+        "en": "Crop"
+      },
+      "season": {
+        "si": "කන්නය",
+        "en": "Season"
+      },
+      "startDate": {
+        "si": "ආරම්භක දිනය",
+        "en": "Start Date"
+      }
+    },
+    "options": {
+      "upland": {
+        "si": "ගොඩ",
+        "en": "Upland"
+      },
+      "lowland": {
+        "si": "මඩ",
+        "en": "Lowland"
+      },
+      "freehold": {
+        "si": "සින්නක්කර",
+        "en": "Freehold"
+      },
+      "ande": {
+        "si": "අඳ",
+        "en": "Ande"
+      },
+      "bhaddha": {
+        "si": "බද්ද",
+        "en": "Lease (Bhaddha)"
+      },
+      "kuli": {
+        "si": "කුලී",
+        "en": "Rent (Kuli)"
+      },
+      "state": {
+        "si": "සම රජයේ",
+        "en": "State"
+      },
+      "private": {
+        "si": "පෞද්ගලික",
+        "en": "Private"
+      },
+      "hectare": {
+        "si": "හෙක්ටයාර",
+        "en": "Hectare"
+      },
+      "acre": {
+        "si": "අක්කර",
+        "en": "Acre"
+      },
+      "rood": {
+        "si": "රූඩ්",
+        "en": "Rood"
+      },
+      "perch": {
+        "si": "පර්චස්",
+        "en": "Perch"
+      },
+      "irrigated": {
+        "si": "වාරි",
+        "en": "Irrigated"
+      },
+      "rainfed": {
+        "si": "වර්ෂා පෝෂිත",
+        "en": "Rainfed"
+      },
+      "yala": {
+        "si": "යල",
+        "en": "Yala"
+      },
+      "maha": {
+        "si": "මහ",
+        "en": "Maha"
+      }
+    },
+    "helpers": {
+      "landCode": "Any easy number you choose, used on every page",
+      "irrigationOnly": "Required only when irrigated is selected",
+      "computedAcres": "Computed automatically from unit and amount",
+      "noMachinery": "No machinery recorded yet. You may add equipment or skip to the next step.",
+      "unsavedChanges": "You have unsaved changes. Are you sure you want to leave?",
+      "baselineReady": "Baseline loaded successfully from SO1",
+      "baselineMissing": "Baseline could not be fetched yet. You may retry later.",
+      "baselinePending": "Fetching SO1 baseline..."
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "dobFuture": "Date of birth cannot be in the future",
+      "nicInvalid": "NIC must be 9 digits followed by V/X or 12 digits",
+      "phoneInvalid": "Phone must be a 10-digit Sri Lankan number starting with 0",
+      "atLeastOneLand": "At least one land is required",
+      "duplicateLandCode": "This Land Code is already in use by another of your lands",
+      "landCodeRequired": "Land code is required",
+      "extentRequired": "Extent amount must be greater than 0",
+      "irrigationSourceRequired": "Irrigation source is required for irrigated land",
+      "cropRequired": "Crop is required",
+      "landSelectRequired": "Please select a land",
+      "seasonRequired": "Season is required",
+      "startDateRequired": "Start date is required",
+      "yearRequired": "Purchase year is required"
+    }
+  },
+  "harvestSales": {
+    "title": "Harvest & Sales",
+    "subtitle": "Record crop harvest rounds and sales income for the active cycle",
+    "section1Title": "Harvest Rounds",
+    "section2Title": "Sales & Income",
+    "totalYield": "Total Yield",
+    "totalIncome": "Total Income",
+    "totalSold": "Total Sold",
+    "addHarvest": "Add Harvest Round",
+    "addSale": "Add Sale Round",
+    "editHarvest": "Edit Harvest",
+    "editSale": "Edit Sale",
+    "saveHarvest": "Save Harvest",
+    "saveSale": "Save Sale",
+    "cancel": "Cancel",
+    "warningSoldExceedsHarvest": "Warning: Total quantity sold exceeds total quantity harvested",
+    "round": "Round",
+    "harvestDate": "Harvest Date",
+    "yield": "Yield (kg)",
+    "saleDate": "Sale Date",
+    "quantitySold": "Quantity Sold (kg)",
+    "income": "Income (Rs.)",
+    "soldTo": "Buyer",
+    "actions": "Actions",
+    "noHarvests": "No harvest rounds recorded yet.",
+    "noSales": "No sales rounds recorded yet.",
+    "deletedSuccess": "Item deleted",
+    "undo": "Undo",
+    "restoredSuccess": "Restored successfully",
+    "cycleClosedWarning": "This cultivation cycle is closed and read-only. Further edits cannot be saved."
+  },
+  "cycleNotes": {
+    "title": "Special Observations & Notes",
+    "subtitle": "Record crop damages, unharvested extent, pests and diseases",
+    "sectionTitle": "Special Notes",
+    "saveNotes": "Save Notes",
+    "savedSuccess": "Notes saved successfully",
+    "cycleClosedWarning": "This cultivation cycle is closed and read-only. Further edits cannot be saved."
+  },
+  "cycleSummary": {
+    "title": "Cultivation Cycle Summary",
+    "subtitle": "Consolidated financial and yield outcome of the cultivation cycle",
+    "section1Title": "Financial & Yield Overview",
+    "section2Title": "Cycle Lifecycle & Closure",
+    "totalCost": "Total Cost",
+    "totalHarvest": "Total Harvest",
+    "costPerKg": "Cost per Kg",
+    "totalIncome": "Total Income",
+    "profit": "Profit",
+    "closeCycle": "Close Cycle",
+    "closingCycle": "Closing...",
+    "cycleClosed": "Cycle Closed (Read-Only)",
+    "closeConfirmTitle": "Close Cultivation Cycle?",
+    "closeConfirmMessage": "Closing this cycle is permanent and forward-only. The cycle will become read-only and final accuracy metrics will be recorded.",
+    "cycleClosedWarning": "This cultivation cycle is closed and read-only.",
+    "noSalesNotice": "Sales have not been recorded yet. Profit will be shown once sales are recorded."
+  },
+  "activityCalendar": {
+    "title": "Activity Calendar",
+    "subtitle": "Month-by-day activity codes and worked status generated from daily expense records",
+    "sectionTitle": "Season Activity Calendar",
+    "dayExpensesTitle": "Expenses for",
+    "noExpensesOnDay": "No expenses recorded on this day.",
+    "noWorkDay": "No-Work Day",
+    "viewRecords": "View in Expense Records",
+    "month": "Month",
+    "day": "Day",
+    "legendWorked": "Activity Recorded",
+    "legendNoWork": "No Work",
+    "legendInvalid": "Invalid Day"
+  },
+  "so1": {
+    "estimatedSplit": "Estimated split",
+    "estimatedSplitTooltip": "Split between categories estimated via national Department of Agriculture proportions (pending SO1 lead confirmation)",
+    "withinInterval": "Within prediction interval",
+    "outsideInterval": "Outside prediction interval",
+    "predictionInterval": "SO1 Prediction Interval",
+    "lowConfidenceBanner": "Low confidence baseline: Model uncertainty is elevated for this agro-ecological combination.",
+    "extrapolatedBanner": "Extrapolated baseline: No direct Department of Agriculture district record; extrapolated national baseline applied.",
+    "lagSaturationBanner": "Lag saturation alert: Input feature values reached historical boundary saturation limits."
+  },
+  "forecast": {
+    "cardTitle": "Projected End-of-Season Cost",
+    "subtitle": "Knowledge-anchored spend projection with 80% conformal interval",
+    "projectedTotal": "Projected Total",
+    "spendToDate": "Spend to Date",
+    "predictionInterval": "80% Conformal Interval",
+    "projectedOverspend": "Projected Overspend",
+    "onTrack": "On Track",
+    "progress": "Cycle Progress",
+    "tooEarlyTitle": "Projection Unlocks Later in Cycle",
+    "tooEarlyDesc": "Current progress is {{tau}}%. Early-stage spending has high natural variance across farms. End-of-season projections unlock at {{minTau}}% progress.",
+    "insufficientDataTitle": "Insufficient Data for Projection",
+    "insufficientDataDesc": "A baseline prediction and recorded expenses are required to project end-of-season costs.",
+    "priorMethod": "Survey Prior Anchored",
+    "learnedMethod": "Empirical Shrinkage (Learned)",
+    "advisoryNotice": "Advisory projection only — not a financial guarantee.",
+    "conformalNotice": "Prediction interval calibrated at 80% coverage using simulation-derived conformal quantiles; field calibration pending.",
+    "estimatedSplitNotice": "Baseline category allocations use estimated regional splits.",
+    "derivedCurvesNotice": "Irrigation and fuel curves are placeholder/derived, not independently learned from survey data.",
+    "suddenShocksNotice": "Sudden lump-sum shocks are not predicted by any method."
+  },
+  "voice": {
+    "title": "Voice & Smart Text Expense Entry",
+    "subtitle": "Speak in English or Sinhala, or paste/type an expense phrase below",
+    "privacyNotice": "Speech is processed by your browser's speech recognition service and audio is sent to it. This application does not store your audio. Transcripts and pending expenses remain on your device until you confirm.",
+    "privacyDismiss": "Got it",
+    "unsupportedBrowser": "Voice input is not supported in this browser. You can type or paste your expense text below and click Extract.",
+    "selectLang": "Speech Language",
+    "langEn": "English",
+    "langSi": "Sinhala (සිංහල)",
+    "startRecording": "Speak Expense",
+    "stopRecording": "Stop",
+    "cancelRecording": "Cancel",
+    "recording": "Listening...",
+    "transcriptPlaceholder": "Speak or type your expenses here (e.g., '1000 on seeds, 2000 on fertilizer and 1500 on fuel' or 'යූරියා මිටි 2ක් 14000')...",
+    "extractButton": "Extract",
+    "extracting": "Extracting...",
+    "pendingTitle": "Extracted Expenses Pending Confirmation",
+    "pendingSubtitle": "Review and correct any details before saving. Nothing is saved to the database until confirmed.",
+    "addRow": "Add Row",
+    "clearAll": "Clear All",
+    "colDescription": "Description",
+    "colCategory": "Category",
+    "colQuantity": "Qty",
+    "colUnit": "Unit",
+    "colUnitPrice": "Unit Price (LKR)",
+    "colTotal": "Total (LKR)",
+    "colDate": "Date",
+    "colStatus": "Status",
+    "colActions": "Actions",
+    "statusOk": "Ready",
+    "statusNeedsReview": "Needs Review",
+    "confirmButton": "Confirm & Save ({{count}} items - {{total}})",
+    "saving": "Saving to database...",
+    "needsReviewWarning": "Items marked 'Needs Review' (missing category or amount) must be corrected or deleted before confirming.",
+    "saveSuccess": "Successfully saved {{count}} expenses to ledger.",
+    "partialFailure": "Failed to save {{failedCount}} out of {{totalCount}} expenses. Please review the remaining rows and try again.",
+    "errorPermissionDenied": "Microphone permission was denied. Please allow microphone permissions in your browser or type your expense text below.",
+    "errorNoSpeech": "No speech detected. Please speak closer to your microphone or type your expense text below.",
+    "errorNetwork": "Speech service network error. Please check your internet connection or use manual text entry.",
+    "errorUnsupportedLanguage": "The selected language is not supported by your browser's speech engine. Please try typing below.",
+    "errorGeneric": "Voice recognition error occurred. Please try again or type your expense text below.",
+    "categorySubtotals": "Category Subtotals",
+    "commandsHelp": "Commands you can say or type: 'Change urea to 5000', 'Remove tractor', 'How much on fertilizer?', 'What is the total?'",
+    "chooserTitle": "Select Row to Update",
+    "chooserPrompt": "Multiple or ambiguous rows match your command. Please choose which item to update:",
+    "chooserCancel": "Cancel",
+    "undo": "Undo Last Command",
+    "undoSuccess": "Last command undone.",
+    "savedRecordNotice": "Saved records can only be edited in the Daily Cost Tracker, not here.",
+    "queryResultTotal": "Total pending expenses: {{total}}",
+    "queryResultCategory": "Pending {{category}} total: {{total}}",
+    "queryResultCount": "You have {{count}} pending expense items.",
+    "commandUnknown": "Command not recognized. Type an expense phrase or command like 'Change urea to 5000' or 'Remove tractor'.",
+    "duplicateWarning": "An expense with the same description, amount, and date already exists in the pending list.",
+    "originalTranscript": "Original Transcript",
+    "acceptAmount": "Accept amount",
+    "totalLabel": "Total",
+    "reasons": {
+      "amount_unresolved": "Amount could not be determined",
+      "category_uncertain": "Category uncertain; please select from dropdown",
+      "amount_ambiguous": "Multiple amounts found without clear currency cue",
+      "amount_implausible": "Amount exceeds expected baseline (check for merged digits)",
+      "asr_alternatives_disagree": "Speech recognition alternatives have conflicting amounts; please verify",
+      "quantity_unresolved": "Quantity unresolved",
+      "possible_duplicate": "Possible duplicate entry",
+      "currency_assumed": "Currency assumed as LKR from single standalone amount",
+      "amount_from_words_verify": "Amount parsed from Sinhala number words; please confirm or tap Accept",
+      "asr_low_confidence": "Speech recognition confidence is low; please verify",
+      "unit_price_fractional": "Calculated unit price has fractional cents; please verify amount or quantity",
+      "sibling_clause_unresolved": "Another item in this statement requires review; please check all amounts"
+    }
+  }
+}

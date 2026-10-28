@@ -1,0 +1,15 @@
+economic_centre_id,economic_centre_name,district,primary_role,major_crops_traded,notes
+dambulla_ec,Dambulla Dedicated Economic Centre,Matale,National Mega Terminal,"Vegetables, fruits, onions, big onion, all regional crops",Central wholesale clearing hub of Sri Lanka (open 24/7)
+keppetipola_ec,Keppetipola Economic Centre,Badulla,Regional Upcountry Hub,"Up-country vegetables, beans, cabbage, carrot, tomato",Primary collector terminal for Uva basin and Welimada plateau
+nuwara_eliya_ec,Nuwara Eliya Economic Centre,Nuwara Eliya,Regional Highland Hub,"Up-country vegetables, potatoes, carrot, leeks, cabbage",Highland cool-climate vegetable specialized market
+thambuttegama_ec,Thambuttegama Economic Centre,Anuradhapura,Regional Dry Zone Hub,"Lowland vegetables, green chilli, brinjal, pumpkin, paddy",Key collection center for Mahaweli System H and Rajarata
+embilipitiya_ec,Embilipitiya Economic Centre,Ratnapura,Regional Southern Hub,"Lowland vegetables, fruits, banana, pumpkin, brinjal",Primary trading hub for Walawe basin and Hambantota farmers
+meegoda_ec,Meegoda Economic Centre,Colombo,Major Consumer Wholesale Hub,"Vegetables, fruits, highland & lowland produce",High-volume terminal serving Greater Colombo retail markets
+narahenpita_ec,Narahenpita Economic Centre,Colombo,Urban Consumer Hub,"Vegetables, fruits, food products, retail packs",Direct consumer and urban retail distribution
+rathmalana_ec,Rathmalana Economic Centre,Colombo,Urban Consumer Hub,"Vegetables, fruits, fresh produce",Southern Colombo suburban distribution center
+piliyandala_ec,Piliyandala / Bokundara Economic Centre,Colombo,Urban Consumer Hub,"Vegetables, fruits, peri-urban greens",Piliyandala / Kesbewa consumer trading center
+veyangoda_ec,Veyangoda Economic Centre,Gampaha,Western Intermediate Hub,"Vegetables, fruits, lowland vegetables",Railway junction distribution point for Western / North-Western produce
+welisara_ec,Welisara Economic Centre,Gampaha,Western Consumer Hub,"Agricultural produce, vegetables, fish",Northern Colombo and Gampaha wholesale distribution
+ampara_ec,Ampara Economic Centre,Ampara,Eastern Regional Hub,"Paddy-region produce, vegetables, pulses",Eastern province agricultural trading hub
+kandehandiya_ec,Kandehandiya Economic Centre,Kandy,Central Regional Hub,"Midcountry vegetables, spices, fresh produce",Central province distribution center
+kurunduwatta_ec,Kurunduwatta Economic Centre,Kandy,Central Sub-Regional Hub,"Agricultural produce, vegetables, fruits",Gampola / Pasbage Korale produce market

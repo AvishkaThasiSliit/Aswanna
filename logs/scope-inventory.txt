@@ -1,0 +1,72 @@
+# SO3 Scope Inventory: Forecast References & Relabeling Targets
+
+cat << 'EOF'
+=== SO3 SCOPE INVENTORY: FORECAST REFERENCES & FREEZE TARGETS ===
+Generated: 2026-10-22
+Scope Policy: End-of-season cost prediction belongs to SO1 (cost prediction).
+SO3 retains expense CRUD, predicted-vs-actual comparison engine, overrun alerts, crop ranking from SO1 model outputs, template forms, dashboards, and Best Crop display.
+The ML phasing curves feed SO3's expected-to-date variance and alerts as "phasing & variance baseline".
+
+1. SERVER SERVICES & LOGIC:
+   - server/src/services/forecastService.js
+     * Ratio estimator (\hat{Y} = max(S, S / F(tau)))
+     * Monotonicity enforcement (PAVA isotonic regression)
+     * Conformal quantile evaluation
+     * Status: FROZEN. Top comment added. Disabled by default.
+
+2. API ROUTES & MIDDLEWARE:
+   - server/src/routes/forecast.js
+     * Route: GET /api/cycles/:id/forecast
+     * Feature gate: FORECAST_MODE (defaults to 'off')
+     * Returns HTTP 404 when FORECAST_MODE === 'off' ({ error: { code: 'NOT_FOUND', message: 'Forecasting feature is disabled' } })
+     * Status: Read-only advisory endpoint, disabled by default.
+
+3. SERVER CONFIGURATION & SCRIPTS:
+   - server/src/config/env.js
+     * FORECAST_MODE: process.env.FORECAST_MODE || 'off'
+   - server/.env.example
+     * FORECAST_MODE=off
+   - server/scripts/exportCycles.js
+     * Exports closed cycles for offline curve calibration.
+
+4. CLIENT UI COMPONENTS & PAGES:
+   - client/src/components/ForecastCard.jsx
+     * Renders null if forecast is disabled, null, or error.
+     * Status: FROZEN. Top comment added.
+   - client/src/pages/BudgetOverview.jsx
+     * Mounts <ForecastCard forecast={forecast} isLoading={forecastLoading} />
+     * When endpoint returns 404/disabled, ForecastCard renders nothing.
+
+5. I18N LOCALIZATION KEYS:
+   - client/src/i18n/locales/en.json (keys under "forecast")
+   - client/src/i18n/locales/si.json (keys under "forecast")
+   - Kept intact to avoid breaking any downstream language loading.
+
+6. SHARED CONFIGURATION & ML ARTIFACTS:
+   - shared/config/conformalQuantiles.json (Quantile lookup table per tau)
+   - shared/config/phasingPriors.json (Knot tables used by variance baseline)
+   - ml/artifacts/phasing_priors_v0.json (Knowledge-anchored phasing prior curves)
+
+7. ML EVALUATION & SIMULATOR HARNESS:
+   - ml/src/simulator/generator.py (Daily spend generator)
+   - ml/src/evaluate.py (Evaluates phasing curves & variance baseline)
+   - ml/src/models/conformal.py
+   - ml/src/models/shrinkage_prior.py
+   - ml/src/models/survey_prior.py
+   - ml/src/models/linear_extrap.py
+   - ml/tests/test_forecast_models.py
+   - ml/tests/test_phasing_priors.py
+   - ml/tests/test_simulator.py
+
+8. DOCUMENTATION:
+   - docs/forecast.md (Add scope banner: Out of SO3 scope; candidate for SO1)
+   - docs/ml-forecast-evaluation.md (Add scope banner: Out of SO3 scope)
+   - docs/ml-phasing-prior.md (Relabel: learned expected-spend phasing curve for variance baseline)
+   - docs/ml-simulator.md (Relabel: synthetic simulation harness for phasing & variance baseline)
+   - docs/evaluation-report.md (Relabel ML section: phasing & variance baseline)
+   - docs/api.md (Document FORECAST_MODE=off default and 404 disabled response)
+
+9. TEST SUITES:
+   - server/tests/forecast.test.js (API disabled test, parity tests)
+   - client/src/test/ForecastCard.test.jsx (Component render null when disabled)
+EOF

@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "description": "Normalized cycle progress timing windows [start_fraction, end_fraction] for 5 cultivation stages across focus crops.",
+    "note": "Fraction t in [0.0, 1.0] representing normalized cycle progress (Days After Sowing / Total Cycle Days).",
+    "citation_status": "All stage windows are marked 'assumption' with widened ranges; no institute homepage citations."
+  },
+  "crops": {
+    "Paddy": {
+      "cycle_length_days": 105,
+      "variety_benchmark": "Standard 3.5-month improved lowland variety (Bg 352, Bg 358)",
+      "stages": {
+        "land_preparation": {
+          "window": [
+            0.0,
+            0.2
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Initial 1st/2nd plowing, bund plastering, and puddling prior to seeding."
+        },
+        "planting": {
+          "window": [
+            0.05,
+            0.25
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Direct broadcasting or transplanting."
+        },
+        "fertilizer_basal": {
+          "window": [
+            0.05,
+            0.25
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Basal fertilizer incorporated during final leveling or within first 14 DAS."
+        },
+        "crop_care": {
+          "window": [
+            0.15,
+            0.8
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Early weed control, 1st & 2nd top dressings, water management through reproductive phase."
+        },
+        "harvest": {
+          "window": [
+            0.8,
+            1.0
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Combine harvesting, threshing, drying, and field transport."
+        }
+      }
+    },
+    "Maize": {
+      "cycle_length_days": 115,
+      "variety_benchmark": "Hybrid / Open-pollinated field maize (Bhadra, Pacific 984)",
+      "stages": {
+        "land_preparation": {
+          "window": [
+            0.0,
+            0.2
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Plowing, harrowing, and ridge/furrow formation prior to planting."
+        },
+        "planting": {
+          "window": [
+            0.05,
+            0.25
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Direct seed dibbling at 2 seeds per hill, thinning, and gap filling."
+        },
+        "fertilizer_basal": {
+          "window": [
+            0.05,
+            0.25
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Basal fertilizer applied in planting furrows at sowing."
+        },
+        "crop_care": {
+          "window": [
+            0.15,
+            0.8
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Critical weed-free period and split top-dressings up to tasseling/silking."
+        },
+        "harvest": {
+          "window": [
+            0.8,
+            1.0
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Cob picking, de-husking, sun drying, and mechanical shelling."
+        }
+      }
+    },
+    "Tomato": {
+      "cycle_length_days": 110,
+      "variety_benchmark": "Semi-determinate table tomato (Thilina, Lanka Sour)",
+      "stages": {
+        "land_preparation": {
+          "window": [
+            0.0,
+            0.22
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Deep plowing, bed preparation, and basal organic manure incorporation."
+        },
+        "planting": {
+          "window": [
+            0.08,
+            0.28
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Transplanting nursery seedlings into field with establishment watering."
+        },
+        "fertilizer_basal": {
+          "window": [
+            0.08,
+            0.28
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Basal fertilizer applied before or at transplanting."
+        },
+        "crop_care": {
+          "window": [
+            0.18,
+            0.8
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Staking, split top dressings, and spray rounds."
+        },
+        "harvest": {
+          "window": [
+            0.65,
+            1.0
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Multiple staggered pickings commencing from 70 DAS through 110 DAS."
+        }
+      }
+    },
+    "Green Chilli": {
+      "cycle_length_days": 140,
+      "variety_benchmark": "Open-pollinated green chilli (MI-2, MICH-1, MICH-2)",
+      "stages": {
+        "land_preparation": {
+          "window": [
+            0.0,
+            0.22
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Primary tillage, ridge and furrow formation, nursery beds."
+        },
+        "planting": {
+          "window": [
+            0.08,
+            0.28
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Field transplanting 21-day nursery seedlings."
+        },
+        "fertilizer_basal": {
+          "window": [
+            0.08,
+            0.28
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Basal fertilizer incorporated into ridges before transplanting."
+        },
+        "crop_care": {
+          "window": [
+            0.18,
+            0.8
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Weeding, earthing up, split top dressings, and intensive insect pest sprays."
+        },
+        "harvest": {
+          "window": [
+            0.6,
+            1.0
+          ],
+          "status": "assumption",
+          "source": "ASSUMPTION",
+          "notes": "Continuous weekly pod pickings from 85 DAS through final harvest at 140 DAS."
+        }
+      }
+    }
+  }
+}

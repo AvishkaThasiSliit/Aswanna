@@ -1,0 +1,134 @@
+================================================================================
+TASK R1: HELDOUT ENGLISH TEST PREPARATION REPORT
+================================================================================
+Execution Timestamp: 2026-10-28T05:52:00Z
+Disk Space (D:): 3.37 GB free of 296.62 GB (Threshold: >= 1.0 GB - PASSED)
+shared/voice SHA256 matches freeze-v2: True
+
+--------------------------------------------------------------------------------
+0. PYTEST COUNT (READ-ONLY)
+--------------------------------------------------------------------------------
+Command: pytest -v voice-service voice-learn
+
+voice-service/tests/test_adapters.py::test_factory_resolves_faster_whisper PASSED [  2%]
+voice-service/tests/test_adapters.py::test_factory_resolves_hf_sinhala_whisper PASSED [  5%]
+voice-service/tests/test_adapters.py::test_factory_rejects_unknown_engine PASSED [  8%]
+voice-service/tests/test_adapters.py::test_hf_adapter_metadata PASSED    [ 11%]
+voice-service/tests/test_adapters.py::test_hf_adapter_startup_failure_reports_informative_error PASSED [ 14%]
+voice-service/tests/test_adapters.py::test_hf_adapter_transcription_with_mocked_pipeline PASSED [ 17%]
+voice-service/tests/test_audio_decodability.py::test_decoder_backed_valid_wav_decodes_frames PASSED [ 20%]
+voice-service/tests/test_audio_decodability.py::test_decoder_backed_rejects_corrupted_bitstream PASSED [ 23%]
+voice-service/tests/test_audio_decodability.py::test_decoder_backed_rejects_truncated_magic PASSED [ 26%]
+voice-service/tests/test_service.py::test_health_check_returns_model_and_status PASSED [ 29%]
+voice-service/tests/test_service.py::test_transcribe_rejects_missing_or_invalid_internal_token PASSED [ 32%]
+voice-service/tests/test_service.py::test_transcribe_rejects_empty_audio PASSED [ 35%]
+voice-service/tests/test_service.py::test_transcribe_rejects_invalid_audio_content PASSED [ 38%]
+voice-service/tests/test_service.py::test_transcribe_rejects_oversized_audio PASSED [ 41%]
+voice-service/tests/test_service.py::test_transcribe_plumbing_and_temp_file_cleanup PASSED [ 44%]
+voice-service/tests/test_transcribe_audio.py::test_real_developer_audio_transcription SKIPPED [ 47%]
+voice-service/tests/test_validation.py::test_manifest_validation_passes_valid_cases PASSED [ 50%]
+voice-service/tests/test_validation.py::test_manifest_validation_rejects_missing_audio_or_transcript PASSED [ 52%]
+voice-service/tests/test_validation.py::test_manifest_validation_rejects_unsupported_language PASSED [ 55%]
+voice-service/tests/test_validation.py::test_manifest_validation_rejects_pii_in_speaker_id PASSED [ 58%]
+voice-service/tests/test_validation.py::test_manifest_validation_rejects_invalid_review_status PASSED [ 61%]
+voice-service/tests/test_split_validator_passes_speaker_disjoint_splits PASSED [ 64%]
+voice-service/tests/test_split_validator_catches_speaker_leakage_between_train_and_test PASSED [ 67%]
+voice-service/tests/test_split_validator_catches_leakage_in_unified_manifest PASSED [ 70%]
+voice-learn/tests/test_learned.py::test_generator_determinism PASSED     [ 73%]
+voice-learn/tests/test_learned.py::test_leakage_guard_forbidden_amounts PASSED [ 76%]
+voice-learn/tests/test_learned.py::test_leakage_guard_real_sentences PASSED [ 79%]
+voice-learn/tests/test_learned.py::test_parser_digits_with_commas PASSED [ 82%]
+voice-learn/tests/test_learned.py::test_parser_english_number_words_generative PASSED [ 85%]
+voice-learn/tests/test_learned.py::test_parser_near_miss_returns_none_never_truncated PASSED [ 88%]
+voice-learn/tests/test_learned.py::test_wrapper_literal_presence_check PASSED [ 91%]
+voice-learn/tests/test_learned.py::test_wrapper_rejects_hallucinated_number PASSED [ 94%]
+voice-learn/tests/test_learned.py::test_gating_never_promotes_l_over_r PASSED [ 97%]
+voice-learn/tests/test_learned.py::test_run_once_guard PASSED            [100%]
+
+================== 33 passed, 1 skipped, 1 warning in 36.78s ==================
+
+Counts per file:
+- voice-service/tests/test_adapters.py: 6 passed
+- voice-service/tests/test_audio_decodability.py: 3 passed
+- voice-service/tests/test_service.py: 6 passed
+- voice-service/tests/test_transcribe_audio.py: 1 skipped
+- voice-service/tests/test_validation.py: 8 passed
+- Subtotal voice-service: 23 passed, 1 skipped
+- voice-learn/tests/test_learned.py: 10 passed
+- Total combined: 33 passed, 1 skipped
+
+Reason for 1 skipped test:
+test_real_developer_audio_transcription skipped with:
+"BLOCKED: No physical speech audio recordings supplied by developer. To execute this test, provide a real field recording in 'voice-service/recordings/'. Fabricated or synthetic audio is strictly forbidden."
+
+Explanation for 10 -> 23 passed:
+In Task E1, pytest targeted voice-learn/tests/test_learned.py (10 tests, 10 passed).
+In Task F3, pytest targeted voice-service/tests (24 tests: 23 passed, 1 skipped).
+
+--------------------------------------------------------------------------------
+1. PHRASES: server/eval/fixtures/voice/heldout-en.json
+--------------------------------------------------------------------------------
+30 new phrases generated.
+Categories covered (8/8): agrochemical, fertilizer, fuel, irrigation, labour, machinery, other, seed
+Magnitudes: hundreds (6), thousands (8), 10k+ (9), 100k+ (4)
+Fractional unit price phrases (amount*100 % quantity != 0): 8 phrases (HE-01, HE-04, HE-08, HE-12, HE-16, HE-20, HE-23, HE-26)
+Follow-up commands: 3 (HE-CMD-01, HE-CMD-02, HE-CMD-03)
+
+Automatic Rejection Filter Results:
+Tested against 186 phrases from 7 historical files.
+Rejections caught:
+1. "Bought 2 bags of urea fertilizer for 14000 rupees" -> Matched dev.json (Exact string equality)
+2. "Bought 2 bags of urea fertilizer for 14500 rupees" -> Matched dev.json (Jaccard similarity >= 0.8: 0.800)
+
+SHA256: 69e1dd17272ae1abc25a0653e2ee32bb505a0745530b405b3279427e32081166
+Written to logs\heldout-en-hash.txt
+Created logs\heldout-en.lock
+
+--------------------------------------------------------------------------------
+2. CAPTURE PIPELINE: /dev/voice-capture
+--------------------------------------------------------------------------------
+- Added voice-capture-audio/ to root .gitignore
+- Verification: git check-ignore -v voice-capture-audio/dummy.wav returned .gitignore:14:voice-capture-audio/
+- Created backend dev route server/src/routes/devVoiceCapture.js mounted at /api/dev/voice-capture:
+  GET /prompts: serves heldout-en.json
+  POST /save: writes audio into voice-capture-audio/<promptId>.<ext>
+- Updated client/src/dev/VoiceCapturePage.jsx to load heldout-en.json by default, auto-save audio, and export paired JSON.
+
+--------------------------------------------------------------------------------
+3. ONE-SHOT EVAL SCRIPT: voice-learn/eval_heldout_en.py
+--------------------------------------------------------------------------------
+- Runs Whisper (raw and vocab-prompted)
+- Runs Extractor v2 on Chrome transcripts and Whisper transcripts
+- Scores value_status as: correct value / wrong value shown (silent) / wrong value shown (flagged) / no value
+- Writes per-item results to logs/heldout-en-eval-results.json
+- Enforces run-once lock logs/heldout-en-eval.lock unless --force-new-run is passed
+
+--------------------------------------------------------------------------------
+4. RUNBOOK: docs/runbook-heldout-en.md
+--------------------------------------------------------------------------------
+Runbook written with:
+- Quiet-room recording checklist
+- Single shared VOICE_INTERNAL_TOKEN configuration
+- PowerShell commands for Whisper service, backend server, frontend client, and evaluation script
+
+--------------------------------------------------------------------------------
+5. SYNTHETIC DRY RUN
+--------------------------------------------------------------------------------
+Command: & 'voice-service\.venv\Scripts\python.exe' voice-learn\eval_heldout_en.py --synthetic-dry-run d:\Aswanna\temp\synthetic_3s.wav
+
+Output:
+======================================================================
+SYNTHETIC DRY RUN — END-TO-END PLUMBING & LATENCY CHECK
+NOTE: Tested on synthetic audio. Says nothing about accuracy.
+======================================================================
+Audio File            : synthetic_3s.wav (96044 bytes)
+Audio Duration        : 3.00 s
+Whisper Model Load    : 1343 ms
+Whisper Transcription : 1131 ms
+Extractor v2 Execution: 741 ms
+End-to-End Latency    : 1872 ms
+Transcript Output     : ""
+Extractor Result      : {"type": "expense", "result": {"items": [], "warnings": []}}
+
+Dry run completed successfully. Plumbing verified.
+================================================================================

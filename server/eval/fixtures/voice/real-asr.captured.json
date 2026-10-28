@@ -1,0 +1,899 @@
+[
+  {
+    "promptId": "VP-CAP-001",
+    "promptText": "Bought 2 bags of urea fertilizer for 14000 rupees",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "go to banks of Urea fertilizer 14000",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "go to banks of Urea fertilizer 14000",
+        "confidence": null
+      },
+      {
+        "transcript": "go to banks of Urea fertilizer for 14000",
+        "confidence": null
+      },
+      {
+        "transcript": "go to banks of Urea fertilizer 14000 rupees",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "quiet",
+    "timestamp": "2026-10-26T06:20:03.626Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "urea fertilizer",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "bags",
+          "totalAmount": 14000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-002",
+    "promptText": "Paid 8500 rupees for tractor plowing yesterday",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "paid 8500 for tractor provin yesterday",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "paid 8500 for tractor provin yesterday",
+        "confidence": null
+      },
+      {
+        "transcript": "paid 8500 for tractor province yesterday",
+        "confidence": null
+      },
+      {
+        "transcript": "paid 8500 for tractor provincial yesterday",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "quiet",
+    "timestamp": "2026-10-26T06:21:25.513Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "tractor plowing",
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 8500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-003",
+    "promptText": "Bought 30 kilos of seed paddy for 7500",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "about 30 kilos of seat paddy for 7500",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "about 30 kilos of seat paddy for 7500",
+        "confidence": null
+      },
+      {
+        "transcript": "about 30 kilos of seed paddy for 7500",
+        "confidence": null
+      },
+      {
+        "transcript": "about 30 kg of seat paddy for 7500",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:23:07.081Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "seed paddy",
+          "category": "seed",
+          "quantity": 30,
+          "unit": "kg",
+          "totalAmount": 7500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-004",
+    "promptText": "Paid 12000 for combine harvester hire for 2 hours",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "pet 12000 combine harvester higher for 2 hours",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "pet 12000 combine harvester higher for 2 hours",
+        "confidence": null
+      },
+      {
+        "transcript": "pet 12000 to combine harvester higher for 2 hours",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:23:29.185Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "combine harvester hire",
+          "category": "machinery",
+          "quantity": 2,
+          "unit": "hours",
+          "totalAmount": 12000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-005",
+    "promptText": "Spent 1500 on seed paddy and 6000 on 2 bags of urea",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "spent 1500 on feet paddy and 6000 on two bags of urea",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "spent 1500 on feet paddy and 6000 on two bags of urea",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:25:52.941Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "seed paddy",
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 1500
+        },
+        {
+          "description": "urea",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "bags",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-006",
+    "promptText": "Bought 1 bottle of weedicide for 3200 rupees",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "boat one bottle of weedicides for 3200",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "boat one bottle of weedicides for 3200",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:26:15.570Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "weedicide",
+          "category": "agrochemical",
+          "quantity": 1,
+          "unit": "bottle",
+          "totalAmount": 3200
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-007",
+    "promptText": "Paid 6000 rupees for 2 laborers for weeding",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "paid Rs 6000 for to labourers for wedding",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "paid Rs 6000 for to labourers for wedding",
+        "confidence": null
+      },
+      {
+        "transcript": "paid Rs 6000 for to Laboratories for wedding",
+        "confidence": null
+      },
+      {
+        "transcript": "paid Rs 6000 for to labourers for video",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:29:30.440Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "laborers for weeding",
+          "category": "labour",
+          "quantity": 2,
+          "unit": "laborers",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-008",
+    "promptText": "Bought 20 litres of diesel for water pump for 6800 rupees",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "boat 20 l of diesel for water pump 6800",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "boat 20 l of diesel for water pump 6800",
+        "confidence": null
+      },
+      {
+        "transcript": "boat 20 litres of diesel for water pump 6800",
+        "confidence": null
+      },
+      {
+        "transcript": "boat 20 l of geyser for water pump 6800",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:29:47.830Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "diesel for water pump",
+          "category": "fuel",
+          "quantity": 20,
+          "unit": "litres",
+          "totalAmount": 6800
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-009",
+    "promptText": "Paid 4500 for water bowser irrigation",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "pet 4500 water browser irrigation",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "pet 4500 water browser irrigation",
+        "confidence": null
+      },
+      {
+        "transcript": "pet 4500 vote irrigation",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:31:11.690Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "water bowser irrigation",
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 4500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-010",
+    "promptText": "Spent 2500 for transport bags and binding ropes",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "spend 2500 transport bags and binding jobs",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "spend 2500 transport bags and binding jobs",
+        "confidence": null
+      },
+      {
+        "transcript": "spend 2500 transport bags and binding groups",
+        "confidence": null
+      },
+      {
+        "transcript": "spend 2500 transport bags and binding drops",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:32:07.845Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "transport bags and binding ropes",
+          "category": "other",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 2500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-011",
+    "promptText": "Paid 5000 for 5 days of canal cleaning",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "80005 days of canal cleaning",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "80005 days of canal cleaning",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:48:34.294Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "canal cleaning",
+          "category": "irrigation",
+          "quantity": 5,
+          "unit": "days",
+          "totalAmount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-012",
+    "promptText": "Bought 5 bags of compost for 7500 and 1 spray bottle for 1200",
+    "language": "en",
+    "asrLang": "en-US",
+    "rawTranscript": "boat 5 bags of compost for 750001 spray bottle for 1200",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "boat 5 bags of compost for 750001 spray bottle for 1200",
+        "confidence": null
+      },
+      {
+        "transcript": "boat 5 bags of compost for 750001 spray bottle for 12",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:53:45.157Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "compost",
+          "category": "fertilizer",
+          "quantity": 5,
+          "unit": "bags",
+          "totalAmount": 7500
+        },
+        {
+          "description": "spray bottle",
+          "category": "other",
+          "quantity": 1,
+          "unit": "bottle",
+          "totalAmount": 1200
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-013",
+    "promptText": "යූරියා මිටි 2 ක් රුපියල් 14000 කට ගත්තා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "යුරියා මිටි දෙකක් රුපියල් දාහතර දහසකට ගත්තා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "යුරියා මිටි දෙකක් රුපියල් දාහතර දහසකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "යුරියා මිටි දෙකක් රුපියල් 14කට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "යුරියාමිටි දෙකක් රුපියල් දාහතර දහසකට ගත්තා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:54:39.436Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "යූරියා",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "මිටි",
+          "totalAmount": 14000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-014",
+    "promptText": "ට්‍රැක්ටර් කුලියට රුපියල් 8500 ක් ගෙව්වා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "traktor කුලියට රුපියල් 8500ක් ගෙව්වා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "traktor කුලියට රුපියල් 8500ක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "ට්‍රැක්ටර් කුලියට රුපියල් 8500ක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "traktor කුලියට රුපියල් 8500 ගෙව්වා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:54:54.690Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "ට්‍රැක්ටර් කුලියට",
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 8500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-015",
+    "promptText": "බීජ වී කිලෝ 30 ක් රුපියල් 7500 කට ගත්තා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "බීජ වී කිලෝ 30ක් රුපියල් හත්දහස් පන්සීයකට ගත්තා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "බීජ වී කිලෝ 30ක් රුපියල් හත්දහස් පන්සීයකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "බීජ වී කිලෝ 30ක් රුපියල් හත්දහස් පන්සීයකට ගත්ත",
+        "confidence": null
+      },
+      {
+        "transcript": "බීජ වී කිලෝ 30ක් රුපියල් හත්දාස් පන්සීයකට ගත්තා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:56:10.426Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "බීජ වී",
+          "category": "seed",
+          "quantity": 30,
+          "unit": "කිලෝ",
+          "totalAmount": 7500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-016",
+    "promptText": "පැය 2 ක් ට්‍රැක්ටරය සඳහා රුපියල් 12000 ක් ගෙව්වා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "පැය දෙකක් ට්‍රැක්ටරේ සඳහා රුපියල් දොළොස් දහසක් ගෙව්වා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "පැය දෙකක් ට්‍රැක්ටරේ සඳහා රුපියල් දොළොස් දහසක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "පැය දෙකක් ට්‍රැක්ටරේ සඳහා රුපියල් දොළොස්දහසක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "පැය දෙකක් ට්‍රැක්ටරේ සඳහා රුපියල් දොළොස් දහසක් ගෙව්ව",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:56:26.644Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "ට්‍රැක්ටරය සඳහා",
+          "category": "machinery",
+          "quantity": 2,
+          "unit": "පැය",
+          "totalAmount": 12000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-017",
+    "promptText": "වල් නාශක බෝතල් 1 ක් රුපියල් 3200 කට ගත්තා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "වල් නාශක බෝතල් එකක් රුපියල් තුන්දාස් දෙසීයකට ගත්තා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "වල් නාශක බෝතල් එකක් රුපියල් තුන්දාස් දෙසීයකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "වල්නාශක බෝතල් එකක් රුපියල් තුන්දාස් දෙසීයකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "වල් නාශක බෝතල් එකක් රුපියල් තුන්දාස් දෙසීයකට ගත්ත",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:56:53.959Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "වල් නාශක",
+          "category": "agrochemical",
+          "quantity": 1,
+          "unit": "බෝතල්",
+          "totalAmount": 3200
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-018",
+    "promptText": "වල් නෙලීමට කම්කරුවන් 2 කට රුපියල් 6000 ක් ගෙව්වා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "වල් නෙළීමට කම්කරුවන් දෙකකට රුපියල් හය දාහක් ගෙව්වා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "වල් නෙළීමට කම්කරුවන් දෙකකට රුපියල් හය දාහක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "වල් නෙළීමට කම්කරුවන් දෙකකට රුපියල් හයදාහක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "වල් නෙළීමට කම්කරුවන් දෙකකට රුපියල් හය දාහක් ගිව්වා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:57:04.490Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "වල් නෙලීමට කම්කරුවන්",
+          "category": "labour",
+          "quantity": 2,
+          "unit": "කම්කරුවන්",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-019",
+    "promptText": "ඩීසල් ලීටර් 20 ක් රුපියල් 6800 කට ගත්තා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "ඩීසල් ලීටර් 20ක් රුපියල් 6800ට ගත්තා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "ඩීසල් ලීටර් 20ක් රුපියල් 6800ට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "ඩීසල් ලීටර් 20ක් රුපියල් 6800 ට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "ඩීසල් ලීටර් විස්සක් රුපියල් 6800 ට ගත්තා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:57:15.958Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "ඩීසල්",
+          "category": "fuel",
+          "quantity": 20,
+          "unit": "ලීටර්",
+          "totalAmount": 6800
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-020",
+    "promptText": "ජල සම්පාදනය සඳහා රුපියල් 4500 ක් ගෙව්වා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "ජල සම්පාදනය සඳහා රුපියල් 4500ක් ගෙව්වා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "ජල සම්පාදනය සඳහා රුපියල් 4500ක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "ජල සම්පාදනය සඳහා රුපියල් 4500 ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "ජල සම්පාදනය සඳහා රුපියල් හාරදාස් පන්සීයක් ගෙව්වා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T06:57:27.428Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "ජල සම්පාදනය සඳහා",
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 4500
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-021",
+    "promptText": "බීජ සඳහා 1500 ක් සහ යූරියා මිටි 2 සඳහා 6000 ක් වියදම් කළා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා",
+        "confidence": null
+      },
+      {
+        "transcript": "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අය දහක් වියදම් කළා",
+        "confidence": null
+      },
+      {
+        "transcript": "බීජ සඳහා 1900ක් සහ යූරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T07:02:35.813Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "බීජ සඳහා",
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 1500
+        },
+        {
+          "description": "යූරියා",
+          "category": "fertilizer",
+          "quantity": 2,
+          "unit": "මිටි",
+          "totalAmount": 6000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-022",
+    "promptText": "කොම්පෝස්ට් පොහොර මිටි 5 ක් රුපියල් 5000 යි",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "කොම්පෝස් කෝරමිටි පහක් රුපියල් පන්දාහයි",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "කොම්පෝස් කෝරමිටි පහක් රුපියල් පන්දාහයි",
+        "confidence": null
+      },
+      {
+        "transcript": "කොම්පෝස් කොහොර මිටි පහක් රුපියල් පන්දාහයි",
+        "confidence": null
+      },
+      {
+        "transcript": "කොම්පෝස් කොහොර මිටි පහක් රුපියල් 5000යි",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T07:02:52.355Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "කොම්පෝස්ට් පොහොර",
+          "category": "fertilizer",
+          "quantity": 5,
+          "unit": "මිටි",
+          "totalAmount": 5000
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-023",
+    "promptText": "කෘමිනාශක බෝතල් 2 ක් රුපියල් 4800 කට ගත්තා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "කෘමි නාශක බෝතල් දෙකක් රුපියල් හාරදහස් අටසීයකට ගත්තා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "කෘමි නාශක බෝතල් දෙකක් රුපියල් හාරදහස් අටසීයකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "කෘමි නාශක බෝතල් දෙකක් රුපියල් හාරදහස් අට සියයකට ගත්තා",
+        "confidence": null
+      },
+      {
+        "transcript": "කෘමි නාශක බෝතල් දෙකක් රුපියල් හාරදහස් අට සීයකට ගත්තා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T07:03:20.394Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "කෘමිනාශක",
+          "category": "agrochemical",
+          "quantity": 2,
+          "unit": "බෝතල්",
+          "totalAmount": 4800
+        }
+      ]
+    }
+  },
+  {
+    "promptId": "VP-CAP-024",
+    "promptText": "ලෑලි සහ කම්බි සඳහා රුපියල් 3500 ක් ගෙව්වා",
+    "language": "si",
+    "asrLang": "si-LK",
+    "rawTranscript": "ලෑලි සහ කම්බි සඳහා රුපියල් ඉන්ගාස් පන්සීයක් ගෙව්වා",
+    "confidence": null,
+    "alternatives": [
+      {
+        "transcript": "ලෑලි සහ කම්බි සඳහා රුපියල් ඉන්ගාස් පන්සීයක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "ලෑලි සහ කම්බි සඳහා රුපියල් හිඟාස් පන්සීයක් ගෙව්වා",
+        "confidence": null
+      },
+      {
+        "transcript": "ලෑලි සහ කම්බි සඳහා රුපියල් හින්දාස් පන්සීයක් ගෙව්වා",
+        "confidence": null
+      }
+    ],
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "deviceType": "desktop",
+    "noiseCondition": "moderate",
+    "timestamp": "2026-10-26T07:03:32.223Z",
+    "notAnExpense": false,
+    "expected": {
+      "items": [
+        {
+          "description": "ලෑලි සහ කම්බි සඳහා",
+          "category": "other",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 3500
+        }
+      ]
+    }
+  }
+]

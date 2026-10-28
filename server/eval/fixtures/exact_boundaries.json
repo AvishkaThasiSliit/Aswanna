@@ -1,0 +1,71 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "exact_boundaries",
+  "description": "Synthetic 100-day cycle verifying inclusive mathematical boundary conditions exactly at 7.0%, 10.0%, 12.0%, and 15.0%. Verifies threshold inequality rules: Normal <= 7% (volatile), Normal <= 10% (stable), Attention <= 12% (volatile), and Attention <= 15% (stable).",
+  "cycle": {
+    "crop": "Maize",
+    "district": "Anuradhapura",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 80000, "low": 72000, "high": 88000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "machinery": { "expected": 60000, "low": 54000, "high": 66000 },
+    "agrochemical": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-eb-1", "day": 12, "category": "seed", "amount": 14980, "notes": "Seed at exact 7.00% variance" },
+    { "id": "exp-eb-2", "day": 40, "category": "fertilizer", "amount": 50400, "notes": "Fertilizer at exact 12.00% variance" },
+    { "id": "exp-eb-3", "day": 48, "category": "labour", "amount": 44000, "notes": "Labour at exact 10.00% variance" },
+    { "id": "exp-eb-4", "day": 50, "category": "machinery", "amount": 34500, "notes": "Machinery at exact 15.00% variance" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 15,
+      "category": "seed",
+      "expectedToDate": 14000,
+      "actualToDate": 14980,
+      "variancePct": 0.07,
+      "tier": "normal",
+      "proposalBaselineAlert": true,
+      "derivation": "Hand calculation: Day 15 front_loaded phase is 0.70. expectedToDate = 20,000 * 0.70 = 14,000. actual = 14,980. variancePct = (14,980 - 14,000) / 14,000 = +980 / 14,000 = +0.0700 (+7.00%). Boundary specification: Volatile Normal is variancePct <= 0.07. Since +0.0700 <= 0.07, tier is normal."
+    },
+    {
+      "day": 50,
+      "category": "labour",
+      "expectedToDate": 40000,
+      "actualToDate": 44000,
+      "variancePct": 0.10,
+      "tier": "normal",
+      "proposalBaselineAlert": true,
+      "derivation": "Hand calculation: Day 50 linear phase is 0.50. expectedToDate = 80,000 * 0.50 = 40,000. actual = 44,000. variancePct = (44,000 - 40,000) / 40,000 = +4,000 / 40,000 = +0.1000 (+10.00%). Boundary specification: Stable Normal is variancePct <= 0.10. Since +0.1000 <= 0.10, tier is normal."
+    },
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 45000,
+      "actualToDate": 50400,
+      "variancePct": 0.12,
+      "tier": "attention",
+      "proposalBaselineAlert": true,
+      "derivation": "Hand calculation: Day 40 front_loaded phase is 0.90. expectedToDate = 50,000 * 0.90 = 45,000. actual = 50,400. variancePct = (50,400 - 45,000) / 45,000 = +5,400 / 45,000 = +0.1200 (+12.00%). Boundary specification: Volatile Attention is 0.07 < variancePct <= 0.12. Since +0.1200 <= 0.12, tier remains attention (inclusive threshold does not escalate to significant until > 12%)."
+    },
+    {
+      "day": 50,
+      "category": "machinery",
+      "expectedToDate": 30000,
+      "actualToDate": 34500,
+      "variancePct": 0.15,
+      "tier": "attention",
+      "proposalBaselineAlert": true,
+      "derivation": "Hand calculation: Day 50 linear phase is 0.50. expectedToDate = 60,000 * 0.50 = 30,000. actual = 34,500. variancePct = (34,500 - 30,000) / 30,000 = +4,500 / 30,000 = +0.1500 (+15.00%). Boundary specification: Stable Attention is 0.10 < variancePct <= 0.15. Since +0.1500 <= 0.15, tier remains attention (inclusive threshold does not escalate to significant until > 15%)."
+    }
+  ]
+}

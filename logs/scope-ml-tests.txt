@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.1.1, pluggy-1.7.0 -- D:\Aswanna\ml\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Aswanna
+plugins: anyio-4.15.1
+collecting ... collected 28 items
+
+ml/tests/test_forecast_models.py::test_simulator_determinism PASSED      [  3%]
+ml/tests/test_forecast_models.py::test_python_method_a_matches_js_phasing PASSED [  7%]
+ml/tests/test_forecast_models.py::test_shrinkage_limits PASSED           [ 10%]
+ml/tests/test_forecast_models.py::test_monotonicity_of_fitted_curves PASSED [ 14%]
+ml/tests/test_forecast_models.py::test_conformal_coverage_within_tolerance PASSED [ 17%]
+ml/tests/test_forecast_models.py::test_noiseless_curve_recovery PASSED   [ 21%]
+ml/tests/test_forecast_models.py::test_misspecified_prior_recovery PASSED [ 25%]
+ml/tests/test_forecast_models.py::test_cv_kappa_selection_for_each_n PASSED [ 28%]
+ml/tests/test_forecast_models.py::test_regime_shift_conformal_drop PASSED [ 32%]
+ml/tests/test_forecast_models.py::test_per_knot_conformal_calibration PASSED [ 35%]
+ml/tests/test_forecast_models.py::test_lead_time_definition_and_handling PASSED [ 39%]
+ml/tests/test_forecast_models.py::test_simulator_s1_vs_s2_divergence PASSED [ 42%]
+ml/tests/test_forecast_models.py::test_per_scenario_kappa_tuning_prefers_zero_on_s3 PASSED [ 46%]
+ml/tests/test_forecast_models.py::test_identical_validation_sets_loss_monotonicity PASSED [ 50%]
+ml/tests/test_forecast_models.py::test_equivalence_margin_labeling PASSED [ 53%]
+ml/tests/test_forecast_models.py::test_mid_cycle_shock_variant PASSED    [ 57%]
+ml/tests/test_forecast_models.py::test_cv_val_calibration_test_disjointness PASSED [ 60%]
+ml/tests/test_forecast_models.py::test_gradual_shock_variant PASSED      [ 64%]
+ml/tests/test_forecast_models.py::test_seed_streams_and_farm_identities_disjoint PASSED [ 67%]
+ml/tests/test_phasing_priors.py::test_hand_checked_workbook_1_ofc_maha PASSED [ 71%]
+ml/tests/test_phasing_priors.py::test_hand_checked_workbook_2_paddy_yala PASSED [ 75%]
+ml/tests/test_phasing_priors.py::test_prior_curves_monotonicity_and_boundaries PASSED [ 78%]
+ml/tests/test_phasing_priors.py::test_unresolved_bucket_and_metadata_flags PASSED [ 82%]
+ml/tests/test_phasing_priors.py::test_monte_carlo_determinism PASSED     [ 85%]
+ml/tests/test_phasing_priors.py::test_knot_monotonicity PASSED           [ 89%]
+ml/tests/test_phasing_priors.py::test_known_ratios PASSED                [ 92%]
+ml/tests/test_phasing_priors.py::test_no_negative_values PASSED          [ 96%]
+ml/tests/test_phasing_priors.py::test_golden_workbook_counts PASSED      [100%]
+
+============================= 28 passed in 13.94s =============================

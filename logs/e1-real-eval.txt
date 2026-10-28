@@ -1,0 +1,85 @@
+==============================================================================================================
+ASWANNA TASK E1: REAL AUDIO EXTRACTOR COMPARISON REPORT (R vs L vs G)
+==============================================================================================================
+Timestamp:  2026-10-28T08:11:22.516882
+Model Hash: 82fb07e7b6632e1b
+Systems:
+  R: Frozen rule extractor (extractExpenses via Node bridge)
+  L: Learned extractor alone (CRF BIO tagger + char-ngram classifier)
+  G: Gated extractor (uses R's items, marks needs_review when L disagrees)
+==============================================================================================================
+| System   | Take                    | Items  | Amount Correct         | Category Correct       | Needs Review           | Silent Errors |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+| R        | Take 1 (Session 1)      | 14     | 11/14 ( 78.6%)         | 11/14 ( 78.6%)         | 4/14 ( 28.6%)          | 0             |
+| L        | Take 1 (Session 1)      | 14     | 11/14 ( 78.6%)         | 9/14 ( 64.3%)          | 14/14 (100.0%)         | 0             |
+| G        | Take 1 (Session 1)      | 14     | 11/14 ( 78.6%)         | 11/14 ( 78.6%)         | 9/14 ( 64.3%)          | 0             |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+| R        | Take 2 (Repeat 1)       | 14     | 7/14 ( 50.0%)          | 11/14 ( 78.6%)         | 10/14 ( 71.4%)         | 1             |
+| L        | Take 2 (Repeat 1)       | 14     | 11/14 ( 78.6%)         | 12/14 ( 85.7%)         | 14/14 (100.0%)         | 0             |
+| G        | Take 2 (Repeat 1)       | 14     | 7/14 ( 50.0%)          | 11/14 ( 78.6%)         | 10/14 ( 71.4%)         | 1             |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+| R        | Take 3 (Take 3 Clean)   | 14     | 3/14 ( 21.4%)          | 6/14 ( 42.9%)          | 11/14 ( 78.6%)         | 1             |
+| L        | Take 3 (Take 3 Clean)   | 14     | 5/14 ( 35.7%)          | 7/14 ( 50.0%)          | 13/14 ( 92.9%)         | 0             |
+| G        | Take 3 (Take 3 Clean)   | 14     | 3/14 ( 21.4%)          | 6/14 ( 42.9%)          | 11/14 ( 78.6%)         | 1             |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+==============================================================================================================
+OVERALL AGGREGATE EVALUATION (All 3 Real Takes, N=36 recordings, 36 items):
+==============================================================================================================
+| System   | Take                    | Items  | Amount Correct         | Category Correct       | Needs Review           | Silent Errors |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+| R        | ALL TAKES (COMBINED)    | 42     | 21/42 ( 50.0%)         | 28/42 ( 66.7%)         | 25/42 ( 59.5%)         | 2             |
+| L        | ALL TAKES (COMBINED)    | 42     | 27/42 ( 64.3%)         | 28/42 ( 66.7%)         | 41/42 ( 97.6%)         | 0             |
+| G        | ALL TAKES (COMBINED)    | 42     | 21/42 ( 50.0%)         | 28/42 ( 66.7%)         | 30/42 ( 71.4%)         | 2             |
+==============================================================================================================
+
+### SILENT ERRORS DETAILED BREAKDOWN (Status 'ok' but amount or category wrong):
+
+>> System R: 2 silent error(s)
+   [1] Prompt ID: VP-CAP-009
+       Transcript: "405000 irrigation"
+       Expected:   Amount=4500, Category='irrigation'
+       Extracted:  Amount=405000, Category='irrigation', Status='ok'
+       Issues:     amount extracted=405000 vs expected=4500
+   [2] Prompt ID: VP-CAP-002
+       Transcript: "88500 tractor flowing yesterday"
+       Expected:   Amount=8500, Category='machinery'
+       Extracted:  Amount=88500, Category='machinery', Status='ok'
+       Issues:     amount extracted=88500 vs expected=8500
+
+>> System L: 0 silent error(s)
+   (None)
+
+>> System G: 2 silent error(s)
+   [1] Prompt ID: VP-CAP-009
+       Transcript: "405000 irrigation"
+       Expected:   Amount=4500, Category='irrigation'
+       Extracted:  Amount=405000, Category='irrigation', Status='ok'
+       Issues:     amount extracted=405000 vs expected=4500
+   [2] Prompt ID: VP-CAP-002
+       Transcript: "88500 tractor flowing yesterday"
+       Expected:   Amount=8500, Category='machinery'
+       Extracted:  Amount=88500, Category='machinery', Status='ok'
+       Issues:     amount extracted=88500 vs expected=8500
+
+==============================================================================================================
+PHRASE-LEVEL BOOTSTRAP ANALYSIS (Difference G vs R across distinct phrases):
+==============================================================================================================
+Distinct Spoken Phrases:           12 phrases (repeated across 3 takes = 36 total speech samples)
+Mean Difference in Silent Errors:  +0.0000 (95% CI: [+0.0000, +0.0000])
+Mean Difference in Needs Review:   +0.4167 (95% CI: [+0.1667, +0.6667])
+
+NOTE ON STATISTICAL VALIDITY:
+  There are only 12 distinct phrases (spoken 3 times), recorded from a single speaker.
+  Consequently, these bootstrap results are descriptive of this specific sample,
+  not statistically confirmatory across diverse real-world agricultural field settings.
+==============================================================================================================
+
+==============================================================================================================
+SYNTHETIC VALIDATION SET GAP ANALYSIS (Showing synthetic vs real performance gap):
+==============================================================================================================
+| System   | Dataset                 | Items  | Amount Correct         | Category Correct       | Needs Review           | Silent Errors |
+|----------|-------------------------|--------|------------------------|------------------------|------------------------|---------------|
+| R        | Synthetic Validation    | 596    | 252/596 ( 42.3%)       | 367/596 ( 61.6%)       | 211/596 ( 35.4%)       | 70            |
+| L        | Synthetic Validation    | 596    | 516/596 ( 86.6%)       | 593/596 ( 99.5%)       | 80/596 ( 13.4%)        | 1             |
+| G        | Synthetic Validation    | 596    | 252/596 ( 42.3%)       | 367/596 ( 61.6%)       | 302/596 ( 50.7%)       | 0             |
+==============================================================================================================

@@ -1,0 +1,82 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "significant_overspend",
+  "description": "Synthetic 100-day cycle with severe expenditure overrun across both volatile and stable category groups exceeding 12% and 15% thresholds respectively.",
+  "cycle": {
+    "crop": "Tomato",
+    "district": "Badulla",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "agrochemical": { "expected": 30000, "low": 27000, "high": 33000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 80000, "low": 72000, "high": 88000 },
+    "machinery": { "expected": 60000, "low": 54000, "high": 66000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-so-1", "day": 12, "category": "seed", "amount": 16500, "notes": "Premium nursery seedling trays purchased due to open-pollinated seed failure" },
+    { "id": "exp-so-2", "day": 38, "category": "fertilizer", "amount": 52000, "notes": "Specialized soluble fertigation blends purchased at spot premium" },
+    { "id": "exp-so-3", "day": 46, "category": "machinery", "amount": 36000, "notes": "Emergency deep subsoiling tractor rental" },
+    { "id": "exp-so-4", "day": 48, "category": "labour", "amount": 47200, "notes": "Additional trellising and staking labour gangs" },
+    { "id": "exp-so-5", "day": 50, "category": "fuel", "amount": 10200, "notes": "Generator fuel for night spraying" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 15,
+      "category": "seed",
+      "expectedToDate": 14000,
+      "actualToDate": 16500,
+      "variancePct": 0.1786,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: seed phase at day 15 is 0.70. expectedToDate = 20000 * 0.70 = 14000. Actual = 16500. Variance = +17.86% > 12% volatile threshold -> significant tier in both modes."
+    },
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 45000,
+      "actualToDate": 52000,
+      "variancePct": 0.1556,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: fertilizer phase at day 40 is 0.90. expectedToDate = 50000 * 0.90 = 45000. Actual = 52000. Variance = +15.56% > 12% volatile threshold -> significant tier in both modes."
+    },
+    {
+      "day": 50,
+      "category": "machinery",
+      "expectedToDate": 30000,
+      "actualToDate": 36000,
+      "variancePct": 0.20,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: machinery linear phase at day 50 is 0.50. expectedToDate = 60000 * 0.50 = 30000. Actual = 36000. Variance = +20.00% > 15% stable threshold -> significant tier in both modes."
+    },
+    {
+      "day": 50,
+      "category": "labour",
+      "expectedToDate": 40000,
+      "actualToDate": 47200,
+      "variancePct": 0.18,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: labour linear phase at day 50 is 0.50. expectedToDate = 80000 * 0.50 = 40000. Actual = 47200. Variance = +18.00% > 15% stable threshold -> significant tier in both modes."
+    },
+    {
+      "day": 50,
+      "category": "fuel",
+      "expectedToDate": 10000,
+      "actualToDate": 10200,
+      "variancePct": 0.02,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: fuel linear phase at day 50 is 0.50. expectedToDate = 20000 * 0.50 = 10000. Actual = 10200. Variance = +2.00% <= 7% -> normal tier in both modes."
+    }
+  ]
+}

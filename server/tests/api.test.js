@@ -699,3 +699,551 @@ describe('Malformed IDs → 400 INVALID_ID', () => {
   });
 });
 
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe('Setup Wizard Endpoints, Validation & Ownership', () => {
+  test('Farmer Profile: validates DOB, NIC, phone format', async () => {
+    const { token } = await registerAndLogin({ email: 'setup-prof@example.com' });
+
+    // Invalid future DOB
+    const resFuture = await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ name: 'Saman', dateOfBirth: '2099-01-01' });
+    expect(resFuture.status).toBe(422);
+    expect(resFuture.body.error.fields.dateOfBirth).toBeDefined();
+
+    // Invalid NIC
+    const resNic = await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ name: 'Saman', nic: 'invalid-nic' });
+    expect(resNic.status).toBe(422);
+    expect(resNic.body.error.fields.nic).toBeDefined();
+
+    // Invalid phone
+    const resPhone = await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ name: 'Saman', phone: '12345' });
+    expect(resPhone.status).toBe(422);
+    expect(resPhone.body.error.fields.phone).toBeDefined();
+
+    // Valid profile creation
+    const resOk = await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        name: 'Saman Kumara',
+        nic: '199012345678',
+        phone: '0771234567',
+        district: 'Kurunegala',
+        address: 'No 12\nMain St',
+      });
+    expect(resOk.status).toBe(201);
+    expect(resOk.body.name).toBe('Saman Kumara');
+  });
+
+  test('Machinery Owned: batch sync and ownership policy', async () => {
+    const { token: tokenA } = await registerAndLogin({ email: 'mach-a@example.com' });
+    const { token: tokenB } = await registerAndLogin({ email: 'mach-b@example.com' });
+
+    // Create profile A
+    const profA = await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({ name: 'Farmer A' });
+
+    // Farmer A saves batch machinery
+    const batchRes = await request(app)
+      .post('/api/machinery-owned/batch')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({
+        items: [
+          {
+            equipment: 'Two-wheel Tractor',
+            quantity: 1,
+            purchasedOn: { year: 2021, month: 5 },
+            purchaseValue: 350000,
+            annotationNote: 'Bought second-hand',
+          }
+        ]
+      });
+    expect(batchRes.status).toBe(200);
+    expect(batchRes.body.items).toHaveLength(1);
+    const machId = batchRes.body.items[0]._id;
+
+    // Farmer B cannot access Farmer A's machinery
+    const getResB = await request(app)
+      .get(`/api/machinery-owned/${machId}`)
+      .set('Authorization', `Bearer ${tokenB}`);
+    expect([403, 404]).toContain(getResB.status);
+  });
+
+  test('Lands: batch sync, duplicate landCode returns 409 with fields, and ownership policy', async () => {
+    const { token: tokenA } = await registerAndLogin({ email: 'land-a@example.com' });
+    const { token: tokenB } = await registerAndLogin({ email: 'land-b@example.com' });
+
+    // Create profile A
+    await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({ name: 'Farmer A' });
+
+    // Batch with duplicate landCode within same submission
+    const dupBatchRes = await request(app)
+      .post('/api/lands/batch')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({
+        items: [
+          { landCode: 'L-1', landType: 'upland', extentValue: 1, extentUnit: 'acre' },
+          { landCode: 'L-1', landType: 'lowland', extentValue: 2, extentUnit: 'acre' },
+        ]
+      });
+    expect(dupBatchRes.status).toBe(409);
+    expect(dupBatchRes.body.error.fields.landCode).toBeDefined();
+
+    // Valid batch creation
+    const okBatchRes = await request(app)
+      .post('/api/lands/batch')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({
+        items: [
+          { landCode: 'L-1', landType: 'upland', extentValue: 1, extentUnit: 'acre', tenure: 'freehold', waterSourceType: 'rainfed' },
+          { landCode: 'L-2', landType: 'lowland', extentValue: 2, extentUnit: 'hectare', tenure: 'ande', waterSourceType: 'irrigated', irrigationSource: 'Tank' },
+        ]
+      });
+    expect(okBatchRes.status).toBe(200);
+    expect(okBatchRes.body.items).toHaveLength(2);
+    const land1 = okBatchRes.body.items[0];
+
+    // Single create with duplicate landCode against existing land
+    const singleDupRes = await request(app)
+      .post('/api/lands')
+      .set('Authorization', `Bearer ${tokenA}`)
+      .send({ landCode: 'L-1', landType: 'upland', extentValue: 1, extentUnit: 'acre' });
+    expect(singleDupRes.status).toBe(409);
+    expect(singleDupRes.body.error.fields.landCode).toBeDefined();
+
+    // Farmer B cannot access Farmer A's land
+    const getLandB = await request(app)
+      .get(`/api/lands/${land1._id}`)
+      .set('Authorization', `Bearer ${tokenB}`);
+    expect([403, 404]).toContain(getLandB.status);
+  });
+
+  test('Start Cycle: creates active cycle, links land, and sets baselineStatus', async () => {
+    const { token } = await registerAndLogin({ email: 'cycle-setup@example.com' });
+
+    // Profile & land
+    await request(app)
+      .post('/api/farmer-profiles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ name: 'Cycle Farmer' });
+
+    const landRes = await request(app)
+      .post('/api/lands/batch')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        items: [{ landCode: 'L-1', landType: 'lowland', district: 'Kurunegala', extentValue: 1.5, extentUnit: 'acre' }]
+      });
+    const landId = landRes.body.items[0]._id;
+
+    // Start cycle
+    const cycleRes = await request(app)
+      .post('/api/cycles')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        landId,
+        crop: 'Tomato',
+        season: 'Yala',
+        district: 'Kurunegala',
+        status: 'active',
+      });
+    expect(cycleRes.status).toBe(201);
+    expect(cycleRes.body.status).toBe('active');
+    expect(cycleRes.body.landCode).toBe('L-1');
+    expect(cycleRes.body.extentValue).toBe(1.5);
+    expect(['ready', 'missing']).toContain(cycleRes.body.baselineStatus);
+  });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+
+describe('Harvest, Sales, Notes, Summary and Calendar Endpoints', () => {
+  test('Hand fixture: harvest 500+300kg, sales 40k+22k, cost 17k -> income 62k, profit 45k, costPerKg 21.25', async () => {
+    const { token } = await registerAndLogin({ email: 'handfixture@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // 1. Add expense with cost 17000
+    const acId = await ensureActivityCode();
+    const expRes = await request(app)
+      .post('/api/expenses')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        cycleId: cycle._id,
+        entryDate: '2026-04-10',
+        activityCode: acId,
+        dayStatus: 'worked',
+        inputs: [{ inputType: 'fertilizer', categoryTag: 'fertilizer', cost: 17000 }],
+        machinery: {},
+        labour: {},
+        other: {},
+      });
+    expect(expRes.status).toBe(201);
+
+    // 2. Add harvests: 500 kg and 300 kg (total 800 kg)
+    const h1 = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        cycleId: cycle._id,
+        harvestDate: '2026-05-01',
+        yield: 500,
+      });
+    expect(h1.status).toBe(201);
+    expect(h1.body.round).toBe(1);
+
+    const h2 = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        cycleId: cycle._id,
+        harvestDate: '2026-05-10',
+        yield: 300,
+      });
+    expect(h2.status).toBe(201);
+    expect(h2.body.round).toBe(2);
+
+    // 3. Add sales: 40000 rupees and 22000 rupees (total 62000 rupees)
+    const s1 = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        cycleId: cycle._id,
+        saleDate: '2026-05-02',
+        quantitySold: 400,
+        income: 40000,
+        soldTo: 'Wholesale Market',
+      });
+    expect(s1.status).toBe(201);
+    expect(s1.body.round).toBe(1);
+
+    const s2 = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        cycleId: cycle._id,
+        saleDate: '2026-05-12',
+        quantitySold: 250,
+        income: 22000,
+        soldTo: 'Retail Shop',
+      });
+    expect(s2.status).toBe(201);
+    expect(s2.body.round).toBe(2);
+
+    // 4. Verify summary calculation
+    const summaryRes = await request(app)
+      .get(`/api/cycles/${cycle._id}/summary`)
+      .set('Authorization', `Bearer ${token}`);
+
+    expect(summaryRes.status).toBe(200);
+    expect(summaryRes.body.totalCost).toBe(17000);
+    expect(summaryRes.body.totalHarvest).toBe(800);
+    expect(summaryRes.body.totalIncome).toBe(62000);
+    expect(summaryRes.body.profit).toBe(45000);
+    expect(summaryRes.body.costPerKg).toBe(21.25);
+    expect(summaryRes.body.hasSales).toBe(true);
+  });
+
+  test('Warning flag when total sold > total harvested', async () => {
+    const { token } = await registerAndLogin({ email: 'warnflag@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // Harvest: 100 kg
+    await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, yield: 100 });
+
+    // Sale: 150 kg (sold > harvested)
+    const saleRes = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, quantitySold: 150, income: 15000 });
+
+    expect(saleRes.status).toBe(201);
+    expect(saleRes.body.warningFlag).toBe(true);
+    expect(saleRes.body.soldExceedsHarvest).toBe(true);
+
+    // Summary also reflects warningFlag
+    const summaryRes = await request(app)
+      .get(`/api/cycles/${cycle._id}/summary`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(summaryRes.body.soldExceedsHarvest).toBe(true);
+    expect(summaryRes.body.warningFlag).toBe(true);
+  });
+
+  test('Ownership isolation: farmer A cannot touch farmer B harvests, sales, or notes', async () => {
+    const userA = await registerAndLogin({ email: 'own-farmerA@example.com' });
+    const userB = await registerAndLogin({ email: 'own-farmerB@example.com' });
+
+    const profA = await createFarmerProfile(userA.token);
+    const cycleA = await createCycle(userA.token, profA._id, { status: 'active', startDate: '2026-04-01' });
+
+    const hA = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${userA.token}`)
+      .send({ cycleId: cycleA._id, yield: 200 });
+    expect(hA.status).toBe(201);
+
+    const sA = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${userA.token}`)
+      .send({ cycleId: cycleA._id, quantitySold: 100, income: 10000 });
+    expect(sA.status).toBe(201);
+
+    const nA = await request(app)
+      .post('/api/cycle-notes')
+      .set('Authorization', `Bearer ${userA.token}`)
+      .send({ cycleId: cycleA._id, pestsAndDiseases: 'Leaf curl' });
+    expect(nA.status).toBe(201);
+
+    // Farmer B cannot GET or DELETE farmer A's harvest
+    const getHB = await request(app)
+      .get(`/api/harvests/${hA.body._id}`)
+      .set('Authorization', `Bearer ${userB.token}`);
+    expect([403, 404]).toContain(getHB.status);
+
+    const delHB = await request(app)
+      .delete(`/api/harvests/${hA.body._id}`)
+      .set('Authorization', `Bearer ${userB.token}`);
+    expect([403, 404]).toContain(delHB.status);
+
+    // Farmer B cannot GET farmer A's sale or notes
+    const getSB = await request(app)
+      .get(`/api/sales/${sA.body._id}`)
+      .set('Authorization', `Bearer ${userB.token}`);
+    expect([403, 404]).toContain(getSB.status);
+
+    const getNB = await request(app)
+      .get(`/api/cycle-notes/${nA.body._id}`)
+      .set('Authorization', `Bearer ${userB.token}`);
+    expect([403, 404]).toContain(getNB.status);
+  });
+
+  test('Idempotent POST with clientRequestId on harvest, sales, and notes', async () => {
+    const { token } = await registerAndLogin({ email: 'idemp@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // Harvest idempotent
+    const hReqId = 'req-harvest-123';
+    const h1 = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, yield: 250, clientRequestId: hReqId });
+    expect(h1.status).toBe(201);
+
+    const h2 = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, yield: 250, clientRequestId: hReqId });
+    expect(h2.status).toBe(200);
+    expect(h2.body._id).toBe(h1.body._id);
+
+    // Sale idempotent
+    const sReqId = 'req-sale-456';
+    const s1 = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, quantitySold: 200, income: 20000, clientRequestId: sReqId });
+    expect(s1.status).toBe(201);
+
+    const s2 = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, quantitySold: 200, income: 20000, clientRequestId: sReqId });
+    expect(s2.status).toBe(200);
+    expect(s2.body._id).toBe(s1.body._id);
+
+    // Notes idempotent
+    const nReqId = 'req-note-789';
+    const n1 = await request(app)
+      .post('/api/cycle-notes')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, other: 'Initial note', clientRequestId: nReqId });
+    expect(n1.status).toBe(201);
+
+    const n2 = await request(app)
+      .post('/api/cycle-notes')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, other: 'Initial note', clientRequestId: nReqId });
+    expect(n2.status).toBe(200);
+    expect(n2.body._id).toBe(n1.body._id);
+  });
+
+  test('Soft delete + restore on harvests and sales', async () => {
+    const { token } = await registerAndLogin({ email: 'softdel@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // Create harvest & sale
+    const h = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, yield: 300 });
+    const s = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, quantitySold: 200, income: 25000 });
+
+    // Soft delete harvest
+    const delH = await request(app)
+      .delete(`/api/harvests/${h.body._id}`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(delH.status).toBe(200);
+
+    // Deleted harvest not in active list
+    const listH = await request(app)
+      .get(`/api/harvests?cycleId=${cycle._id}`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(listH.body.items.some(item => item._id === h.body._id)).toBe(false);
+
+    // Restore harvest
+    const restH = await request(app)
+      .post(`/api/harvests/${h.body._id}/restore`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(restH.status).toBe(200);
+    expect(restH.body.deletedAt).toBeNull();
+
+    // Soft delete sale
+    const delS = await request(app)
+      .delete(`/api/sales/${s.body._id}`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(delS.status).toBe(200);
+
+    // Restore sale
+    const restS = await request(app)
+      .post(`/api/sales/${s.body._id}/restore`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(restS.status).toBe(200);
+    expect(restS.body.deletedAt).toBeNull();
+  });
+
+  test('Closed-cycle rejection on harvest, sale, notes, and expenses', async () => {
+    const { token } = await registerAndLogin({ email: 'closedrej@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // Transition cycle: active -> harvesting -> closed
+    await request(app)
+      .post(`/api/cycles/${cycle._id}/transition`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ toStatus: 'harvesting' });
+    await request(app)
+      .post(`/api/cycles/${cycle._id}/transition`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ toStatus: 'closed' });
+
+    // Harvest write rejected
+    const hRes = await request(app)
+      .post('/api/harvests')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, yield: 100 });
+    expect(hRes.status).toBe(409);
+    expect(hRes.body.error.code).toBe('CYCLE_CLOSED');
+
+    // Sale write rejected
+    const sRes = await request(app)
+      .post('/api/sales')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, quantitySold: 50, income: 5000 });
+    expect(sRes.status).toBe(409);
+    expect(sRes.body.error.code).toBe('CYCLE_CLOSED');
+
+    // Notes write rejected
+    const nRes = await request(app)
+      .post('/api/cycle-notes')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, pestsAndDiseases: 'None' });
+    expect(nRes.status).toBe(409);
+    expect(nRes.body.error.code).toBe('CYCLE_CLOSED');
+
+    // Expense write rejected
+    const acId = await ensureActivityCode();
+    const expRes = await request(app)
+      .post('/api/expenses')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ cycleId: cycle._id, entryDate: '2026-04-10', activityCode: acId, inputs: [] });
+    expect(expRes.status).toBe(409);
+    expect(expRes.body.error.code).toBe('CYCLE_CLOSED');
+  });
+
+  test('Calendar returns months with invalid days (e.g. June day 31 greyed)', async () => {
+    const { token } = await registerAndLogin({ email: 'cal-test@example.com' });
+    const profile = await createFarmerProfile(token);
+    // Cycle starts on 2026-04-01 (April 2026)
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    const calRes = await request(app)
+      .get(`/api/cycles/${cycle._id}/calendar`)
+      .set('Authorization', `Bearer ${token}`);
+
+    expect(calRes.status).toBe(200);
+    expect(calRes.body.months).toBeDefined();
+    expect(calRes.body.months.length).toBe(13); // max 13 months as on paper form
+
+    // April has 30 days -> day 31 is invalid
+    const april = calRes.body.months.find(m => m.month === 4);
+    expect(april).toBeDefined();
+    expect(april.invalidDays).toContain(31);
+
+    // June has 30 days -> day 31 is invalid
+    const june = calRes.body.months.find(m => m.month === 6);
+    expect(june).toBeDefined();
+    expect(june.invalidDays).toContain(31);
+
+    // February 2027 has 28 days -> days 29, 30, 31 are invalid
+    const feb = calRes.body.months.find(m => m.month === 2);
+    expect(feb).toBeDefined();
+    expect(feb.invalidDays).toContain(29);
+    expect(feb.invalidDays).toContain(30);
+    expect(feb.invalidDays).toContain(31);
+  });
+
+  test('Double close is idempotent and creates exactly one CropAccuracyHistory', async () => {
+    const { token } = await registerAndLogin({ email: 'doubleclose@example.com' });
+    const profile = await createFarmerProfile(token);
+    const cycle = await createCycle(token, profile._id, { status: 'active', startDate: '2026-04-01' });
+
+    // Transition to harvesting, then closed
+    await request(app)
+      .post(`/api/cycles/${cycle._id}/transition`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ toStatus: 'harvesting' });
+
+    const close1 = await request(app)
+      .post(`/api/cycles/${cycle._id}/transition`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ toStatus: 'closed' });
+    expect(close1.status).toBe(200);
+    expect(close1.body.status).toBe('closed');
+
+    // Second close attempt
+    const close2 = await request(app)
+      .post(`/api/cycles/${cycle._id}/transition`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({ toStatus: 'closed' });
+    expect([200, 422]).toContain(close2.status);
+
+    // Verify exactly one CropAccuracyHistory document exists for this cycleId
+    const { CropAccuracyHistory } = await import('../src/models/CropAccuracyHistory.js');
+    const historyDocs = await CropAccuracyHistory.find({ cycleId: cycle._id });
+    expect(historyDocs).toHaveLength(1);
+  });
+});
+
+

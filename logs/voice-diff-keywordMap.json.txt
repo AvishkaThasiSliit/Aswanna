@@ -1,0 +1,63 @@
+Comparing files D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json and SHARED\VOICE\KEYWORDMAP.JSON
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "ploughing", "lang": "en", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation (DoA COC)" },
+    { "term": "ට්‍රැක්ටරේ", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+***** SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "ploughing", "lang": "en", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation (DoA COC)" },
+    { "term": "traktor", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "tractor ekak", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "ට්‍රැක්ටරේ", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+vation (DoA COC)" },
+    { "term": "ට්‍රැක්ටර්", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+***** SHARED\VOICE\KEYWORDMAP.JSON
+vation (DoA COC)" },
+    { "term": "ට්‍රැක්ටර", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation
+ (DoA COC)" },
+    { "term": "ට්‍රැක්ටර්", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "irrigation", "lang": "en", "source": "shared/config/so1Mapping.js" },
+    { "term": "water board", "lang": "en", "source": "author-assumption" },
+***** SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "irrigation", "lang": "en", "source": "shared/config/so1Mapping.js" },
+    { "term": "water bowser", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "bowser", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "water board", "lang": "en", "source": "author-assumption" },
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "ජලසම්පාදනය", "lang": "si", "source": "author-assumption" },
+    { "term": "ජල සම්පාදන", "lang": "si", "source": "author-assumption" }
+  ],
+***** SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "ජලසම්පාදනය", "lang": "si", "source": "author-assumption" },
+    { "term": "ජල සම්පාදන", "lang": "si", "source": "author-assumption" },
+    { "term": "බවුසර්", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "බවුසරය", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "බවුසරයක්", "lang": "si", "source": "observed-in-captured-data" }
+  ],
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "fence", "lang": "en", "source": "author-assumption" },
+    { "term": "sprayer repair", "lang": "en", "source": "author-assumption" },
+***** SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "fence", "lang": "en", "source": "author-assumption" },
+    { "term": "planks", "lang": "en", "source": "author-assumption" },
+    { "term": "timber", "lang": "en", "source": "author-assumption" },
+    { "term": "sprayer repair", "lang": "en", "source": "author-assumption" },
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "කම්බි", "lang": "si", "source": "author-assumption" },
+    { "term": "වැට", "lang": "si", "source": "author-assumption" },
+***** SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "කම්බි", "lang": "si", "source": "author-assumption" },
+    { "term": "ලෑලි", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "වැට", "lang": "si", "source": "author-assumption" },
+*****
+

@@ -31,7 +31,7 @@ export function makeCrudController({ Model, label, createSchema, updateSchema, f
   });
 
   const create = asyncHandler(async (req, res) => {
-    let data = createSchema.parse(req.body);
+    let data = createSchema && typeof createSchema.parse === 'function' ? createSchema.parse(req.body) : { ...req.body };
     if (beforeCreate) data = await beforeCreate(data, req);
     data.createdBy = req.user._id.toString();
     const doc = new Model(data);
@@ -46,7 +46,8 @@ export function makeCrudController({ Model, label, createSchema, updateSchema, f
     assertExists(doc, label);
     if (ownershipFn) await ownershipFn(req.user, doc, req);
     const before = doc.toObject();
-    const data = updateSchema.parse(req.body);
+    let data = updateSchema && typeof updateSchema.parse === 'function' ? updateSchema.parse(req.body) : { ...req.body };
+    if (beforeUpdate) data = await beforeUpdate(doc, data, req);
     Object.assign(doc, data);
     await doc.save();
     await audit({ entity: label, entityId: doc._id, action: 'update', userId: req.user._id, before, after: doc.toObject() });

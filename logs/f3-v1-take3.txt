@@ -1,0 +1,101 @@
+
+======================================================
+REAL SPEECH ASR EVALUATION (Task V6)
+Evaluating captured transcripts from: D:\Aswanna_scratch_v1check\server\eval\fixtures\voice\real-asr.take3.clean.json
+Dataset Note: This dataset consists of TUNING / REPEAT speech data, NOT a held-out test set.
+ASR Alternatives Cross-Check: ENABLED (default)
+Baseline Profile: None (unconstrained)
+Mode: Report-Only (strictly read-only; rules and fixtures are not modified)
+======================================================
+
+### Per-Language Evaluation Breakdown (Scored Per Item, N=23 items)
+------------------------------------------------------------------------------------------------------
+| Lang    | Items | Amount Correct   | Category Correct | Needs Review     | SILENT ERRORS (Target 0) |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| en      | 14    |  3/14 ( 21.4%) |  6/14 ( 42.9%) |  9/14 ( 64.3%) | 2                        |
+| si      | 9     |  2/9  ( 22.2%) |  5/9  ( 55.6%) |  7/9  ( 77.8%) | 1                        |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| Overall | 23    |  5/23 ( 21.7%) | 11/23 ( 47.8%) | 16/23 ( 69.6%) | 3                        |
+------------------------------------------------------------------------------------------------------
+
+### CATEGORY MISSES AUDIT LOG (Total Misses: 12)
+- Prompt ID: [VP-CAP-005] (Item #1, Lang: en)
+  Transcript: "sprint 1550 and 64200"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'seed'
+  Values: Extracted={"description":"sprint 1550","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"seed paddy","category":"seed","quantity":null,"unit":null,"totalAmount":1500}
+- Prompt ID: [VP-CAP-005] (Item #2, Lang: en)
+  Transcript: "sprint 1550 and 64200"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'fertilizer'
+  Values: Extracted={"description":"64200","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"urea","category":"fertilizer","quantity":2,"unit":"bags","totalAmount":6000}
+- Prompt ID: [VP-CAP-006] (Item #1, Lang: en)
+  Transcript: "one bottle inside 3200"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'agrochemical'
+  Values: Extracted={"description":"one bottle inside 3200","category":null,"quantity":1,"unit":"bottle","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"weedicide","category":"agrochemical","quantity":1,"unit":"bottle","totalAmount":3200}
+- Prompt ID: [VP-CAP-011] (Item #1, Lang: en)
+  Transcript: "pet 545 days currency"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'irrigation'
+  Values: Extracted={"description":"pet 545 days currency","category":null,"quantity":545,"unit":"days","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"canal cleaning","category":"irrigation","quantity":5,"unit":"days","totalAmount":5000}
+- Prompt ID: [VP-CAP-012] (Item #1, Lang: en)
+  Transcript: "what five bags of compass for 75011"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'fertilizer'
+  Values: Extracted={"description":"what five bags of compass for 75011","category":null,"quantity":5,"unit":"bags","unitPrice":15002.2,"totalAmount":75011,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","asr_alternatives_disagree"]} vs Expected={"description":"compost","category":"fertilizer","quantity":5,"unit":"bags","totalAmount":7500}
+- Prompt ID: [VP-CAP-012] (Item #2, Lang: en)
+  Transcript: "what five bags of compass for 75011"
+  Extracted Category: 'null' (Status: missing_item)
+  Expected Category:  'other'
+  Values: Extracted=null vs Expected={"description":"spray bottle","category":"other","quantity":1,"unit":"bottle","totalAmount":1200}
+- Prompt ID: [VP-CAP-020] (Item #1, Lang: si)
+  Transcript: "ජනසම්පන්න සම්පාදනය සඳහා"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'irrigation'
+  Values: Extracted={"description":"ජනසම්පන්න සම්පාදනය සඳහා","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"ජල සම්පාදනය සඳහා","category":"irrigation","quantity":null,"unit":null,"totalAmount":4500}
+- Prompt ID: [VP-CAP-021] (Item #1, Lang: si)
+  Transcript: "1500ක් සහ ජීරියා මෙන් 2019"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'seed'
+  Values: Extracted={"description":"1500ක්","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":1500,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","asr_alternatives_disagree"]} vs Expected={"description":"බීජ සඳහා","category":"seed","quantity":null,"unit":null,"totalAmount":1500}
+- Prompt ID: [VP-CAP-021] (Item #2, Lang: si)
+  Transcript: "1500ක් සහ ජීරියා මෙන් 2019"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'fertilizer'
+  Values: Extracted={"description":"ජීරියා මෙන් 2019","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":2019,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","asr_alternatives_disagree"]} vs Expected={"description":"යූරියා","category":"fertilizer","quantity":2,"unit":"මිටි","totalAmount":6000}
+- Prompt ID: [VP-CAP-023] (Item #1, Lang: si)
+  Transcript: "විනාශක බෝතල් දෙකක් ගැන සීයකට ගත්තා"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'agrochemical'
+  Values: Extracted={"description":"විනාශක බෝතල් දෙකක් ගැන සීයකට ගත්තා","category":null,"quantity":2,"unit":"bottle","unitPrice":50,"totalAmount":100,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_from_words_verify","asr_alternatives_disagree"]} vs Expected={"description":"කෘමිනාශක","category":"agrochemical","quantity":2,"unit":"බෝතල්","totalAmount":4800}
+- Prompt ID: [VP-CAP-003] (Item #1, Lang: en)
+  Transcript: "both 13 kg 7500"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'seed'
+  Values: Extracted={"description":"both 13 kg 7500","category":null,"quantity":13,"unit":"kg","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"seed paddy","category":"seed","quantity":30,"unit":"kg","totalAmount":7500}
+- Prompt ID: [VP-CAP-008] (Item #1, Lang: en)
+  Transcript: "weight leadership of water park for 6000800"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'fuel'
+  Values: Extracted={"description":"weight leadership of water park for 6000800","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":6000800,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_implausible","asr_alternatives_disagree"]} vs Expected={"description":"diesel for water pump","category":"fuel","quantity":20,"unit":"litres","totalAmount":6800}
+
+### SILENT ERRORS AUDIT LOG
+NOTE: Irreducible ASR transcription errors where spoken audio was misrecognized into valid digits
+cannot be detected purely from text and must be explicitly recorded.
+
+- Prompt ID: [VP-CAP-015] (Item #1, Lang: si)
+  Transcript: "බීජ වී කිලෝ 30ක් රුපියල් 8500කට ගත්තා"
+  Extracted:  Category='seed', Amount=8500, Status='ok'
+  Expected:   Category='seed', Amount=7500
+  Diagnosis:  Spoken phrase expected 'seed' / amount 7500, but ASR transcribed text yielding 'seed' / amount 8500. Since it formed valid syntax, it parsed with status 'ok'. This is an irreducible silent error from ASR recognition.
+- Prompt ID: [VP-CAP-002] (Item #1, Lang: en)
+  Transcript: "88500 tractor flowing yesterday"
+  Extracted:  Category='machinery', Amount=88500, Status='ok'
+  Expected:   Category='machinery', Amount=8500
+  Diagnosis:  Spoken phrase expected 'machinery' / amount 8500, but ASR transcribed text yielding 'machinery' / amount 88500. Since it formed valid syntax, it parsed with status 'ok'. This is an irreducible silent error from ASR recognition.
+- Prompt ID: [VP-CAP-004] (Item #1, Lang: en)
+  Transcript: "8000 for combined harvester airport 2 months"
+  Extracted:  Category='machinery', Amount=8000, Status='ok'
+  Expected:   Category='machinery', Amount=12000
+  Diagnosis:  Spoken phrase expected 'machinery' / amount 12000, but ASR transcribed text yielding 'machinery' / amount 8000. Since it formed valid syntax, it parsed with status 'ok'. This is an irreducible silent error from ASR recognition.

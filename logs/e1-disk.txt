@@ -1,0 +1,6 @@
+﻿
+Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation
+----           ---------     --------- --------      ----                                               ---------------
+D                 296.40          3.60 FileSystem    D:\                                                        Aswanna
+
+

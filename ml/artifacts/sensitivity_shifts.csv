@@ -1,0 +1,33 @@
+crop,category,max_knot_change,worst_scenario
+Paddy,seed,0.2981,shift_plus_20
+Paddy,fertilizer,0.3176,shift_minus_20
+Paddy,agrochemical,0.4315,shift_minus_20
+Paddy,labour,0.3146,shift_minus_20
+Paddy,machinery,0.3765,shift_minus_20
+Paddy,fuel,0.3765,shift_minus_20
+Paddy,irrigation,0.4,shift_minus_20
+Paddy,other,1.0,shift_minus_20
+Maize,seed,0.3373,shift_plus_20
+Maize,fertilizer,0.3556,shift_minus_20
+Maize,agrochemical,0.4203,shift_minus_20
+Maize,labour,0.2767,shift_minus_20
+Maize,machinery,0.2405,shift_minus_20
+Maize,fuel,0.2405,shift_minus_20
+Maize,irrigation,0.4,shift_minus_20
+Maize,other,1.0,shift_minus_20
+Tomato,seed,0.3473,shift_plus_20
+Tomato,fertilizer,0.3284,shift_minus_20
+Tomato,agrochemical,0.4692,shift_minus_20
+Tomato,labour,0.1997,shift_minus_20
+Tomato,machinery,0.1643,shift_minus_20
+Tomato,fuel,0.1643,shift_minus_20
+Tomato,irrigation,0.0,shift_minus_20
+Tomato,other,0.7328,shift_minus_20
+Green Chilli,seed,0.3793,shift_plus_20
+Green Chilli,fertilizer,0.3566,shift_minus_20
+Green Chilli,agrochemical,0.4755,shift_minus_20
+Green Chilli,labour,0.2809,shift_minus_20
+Green Chilli,machinery,0.1933,shift_minus_20
+Green Chilli,fuel,0.1933,shift_minus_20
+Green Chilli,irrigation,0.4,shift_minus_20
+Green Chilli,other,0.5397,shift_minus_20

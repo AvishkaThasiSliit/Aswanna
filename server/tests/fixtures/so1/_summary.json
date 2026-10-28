@@ -1,0 +1,861 @@
+{
+  "summary": {
+    "total": 64,
+    "success_200": 28,
+    "error_422": 36,
+    "pairs_422": [
+      [
+        "Green Chilli",
+        "Ampara"
+      ],
+      [
+        "Green Chilli",
+        "Galle"
+      ],
+      [
+        "Green Chilli",
+        "Kandy"
+      ],
+      [
+        "Maize",
+        "Galle"
+      ],
+      [
+        "Maize",
+        "Kandy"
+      ],
+      [
+        "Paddy",
+        "Galle"
+      ],
+      [
+        "Tomato",
+        "Ampara"
+      ],
+      [
+        "Tomato",
+        "Anuradhapura"
+      ],
+      [
+        "Tomato",
+        "Galle"
+      ]
+    ],
+    "pairs_200": [
+      [
+        "Green Chilli",
+        "Anuradhapura"
+      ],
+      [
+        "Maize",
+        "Ampara"
+      ],
+      [
+        "Maize",
+        "Anuradhapura"
+      ],
+      [
+        "Paddy",
+        "Ampara"
+      ],
+      [
+        "Paddy",
+        "Anuradhapura"
+      ],
+      [
+        "Paddy",
+        "Kandy"
+      ],
+      [
+        "Tomato",
+        "Kandy"
+      ]
+    ]
+  },
+  "results": [
+    {
+      "crop": "Paddy",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Kandy_Maha_Irrigated.json",
+      "predicted_cost": 145763.3
+    },
+    {
+      "crop": "Paddy",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Kandy_Maha_Rainfed.json",
+      "predicted_cost": 138212.7
+    },
+    {
+      "crop": "Paddy",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Kandy_Yala_Irrigated.json",
+      "predicted_cost": 143474.4
+    },
+    {
+      "crop": "Paddy",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Kandy_Yala_Rainfed.json",
+      "predicted_cost": 137277.0
+    },
+    {
+      "crop": "Paddy",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Anuradhapura_Maha_Irrigated.json",
+      "predicted_cost": 143523.1
+    },
+    {
+      "crop": "Paddy",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Anuradhapura_Maha_Rainfed.json",
+      "predicted_cost": 134807.6
+    },
+    {
+      "crop": "Paddy",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Anuradhapura_Yala_Irrigated.json",
+      "predicted_cost": 140617.2
+    },
+    {
+      "crop": "Paddy",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Anuradhapura_Yala_Rainfed.json",
+      "predicted_cost": 132399.9
+    },
+    {
+      "crop": "Paddy",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Paddy_Galle_Maha_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Paddy",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Paddy_Galle_Maha_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Paddy",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Paddy_Galle_Yala_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Paddy",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Paddy_Galle_Yala_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Paddy",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Ampara_Maha_Irrigated.json",
+      "predicted_cost": 142583.1
+    },
+    {
+      "crop": "Paddy",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Ampara_Maha_Rainfed.json",
+      "predicted_cost": 135247.0
+    },
+    {
+      "crop": "Paddy",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Paddy_Ampara_Yala_Irrigated.json",
+      "predicted_cost": 139306.2
+    },
+    {
+      "crop": "Paddy",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Paddy_Ampara_Yala_Rainfed.json",
+      "predicted_cost": 132659.4
+    },
+    {
+      "crop": "Maize",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Maize_Kandy_Maha_Irrigated_422.json",
+      "detail": "No historical data available for Maize in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Maize",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Maize_Kandy_Maha_Rainfed_422.json",
+      "detail": "No historical data available for Maize in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Maize",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Maize_Kandy_Yala_Irrigated_422.json",
+      "detail": "No historical data available for Maize in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Maize",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Maize_Kandy_Yala_Rainfed_422.json",
+      "detail": "No historical data available for Maize in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Maize",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Maize_Anuradhapura_Maha_Irrigated.json",
+      "predicted_cost": 148223.2
+    },
+    {
+      "crop": "Maize",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Maize_Anuradhapura_Maha_Rainfed.json",
+      "predicted_cost": 134776.6
+    },
+    {
+      "crop": "Maize",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Maize_Anuradhapura_Yala_Irrigated.json",
+      "predicted_cost": 149196.7
+    },
+    {
+      "crop": "Maize",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Maize_Anuradhapura_Yala_Rainfed.json",
+      "predicted_cost": 132983.1
+    },
+    {
+      "crop": "Maize",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Maize_Galle_Maha_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Maize",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Maize_Galle_Maha_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Maize",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Maize_Galle_Yala_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Maize",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Maize_Galle_Yala_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Maize",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Maize_Ampara_Maha_Irrigated.json",
+      "predicted_cost": 146518.3
+    },
+    {
+      "crop": "Maize",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Maize_Ampara_Maha_Rainfed.json",
+      "predicted_cost": 134773.0
+    },
+    {
+      "crop": "Maize",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Maize_Ampara_Yala_Irrigated.json",
+      "predicted_cost": 147148.9
+    },
+    {
+      "crop": "Maize",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Maize_Ampara_Yala_Rainfed.json",
+      "predicted_cost": 133657.2
+    },
+    {
+      "crop": "Tomato",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Tomato_Kandy_Maha_Irrigated.json",
+      "predicted_cost": 486633.1
+    },
+    {
+      "crop": "Tomato",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Tomato_Kandy_Maha_Rainfed.json",
+      "predicted_cost": 377691.6
+    },
+    {
+      "crop": "Tomato",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Tomato_Kandy_Yala_Irrigated.json",
+      "predicted_cost": 541116.9
+    },
+    {
+      "crop": "Tomato",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Tomato_Kandy_Yala_Rainfed.json",
+      "predicted_cost": 400966.2
+    },
+    {
+      "crop": "Tomato",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Anuradhapura_Maha_Irrigated_422.json",
+      "detail": "No historical data available for Tomato in Anuradhapura. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Anuradhapura_Maha_Rainfed_422.json",
+      "detail": "No historical data available for Tomato in Anuradhapura. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Anuradhapura_Yala_Irrigated_422.json",
+      "detail": "No historical data available for Tomato in Anuradhapura. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Anuradhapura_Yala_Rainfed_422.json",
+      "detail": "No historical data available for Tomato in Anuradhapura. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Galle_Maha_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Tomato",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Galle_Maha_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Tomato",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Galle_Yala_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Tomato",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Galle_Yala_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Tomato",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Ampara_Maha_Irrigated_422.json",
+      "detail": "No historical data available for Tomato in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Ampara_Maha_Rainfed_422.json",
+      "detail": "No historical data available for Tomato in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Tomato_Ampara_Yala_Irrigated_422.json",
+      "detail": "No historical data available for Tomato in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Tomato",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Tomato_Ampara_Yala_Rainfed_422.json",
+      "detail": "No historical data available for Tomato in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Kandy_Maha_Irrigated_422.json",
+      "detail": "No historical data available for Green Chilli in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Kandy",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Kandy_Maha_Rainfed_422.json",
+      "detail": "No historical data available for Green Chilli in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Kandy_Yala_Irrigated_422.json",
+      "detail": "No historical data available for Green Chilli in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Kandy",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Kandy_Yala_Rainfed_422.json",
+      "detail": "No historical data available for Green Chilli in Kandy. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Green_Chilli_Anuradhapura_Maha_Irrigated.json",
+      "predicted_cost": 428806.5
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Anuradhapura",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Green_Chilli_Anuradhapura_Maha_Rainfed.json",
+      "predicted_cost": 352196.3
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 200,
+      "file": "Green_Chilli_Anuradhapura_Yala_Irrigated.json",
+      "predicted_cost": 513850.7
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Anuradhapura",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 200,
+      "file": "Green_Chilli_Anuradhapura_Yala_Rainfed.json",
+      "predicted_cost": 388113.9
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Galle_Maha_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Galle",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Galle_Maha_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Galle_Yala_Irrigated_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Galle",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Galle_Yala_Rainfed_422.json",
+      "detail": [
+        {
+          "type": "value_error",
+          "loc": [
+            "body",
+            "district"
+          ],
+          "msg": "Value error, District 'Galle' is not supported. Supported districts (26): ['Ampara', 'Ampara (East)', 'Ampara (West)', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kurunegala', 'Mahaweli System B', 'Mahaweli System C', 'Mahaweli System H', 'Mannar', 'Matale', 'Monaragala', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Trincomalee', 'Udawalawa', 'Vavuniya', 'Whole Island']",
+          "input": "Galle",
+          "ctx": {
+            "error": {}
+          }
+        }
+      ]
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Ampara_Maha_Irrigated_422.json",
+      "detail": "No historical data available for Green Chilli in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Ampara",
+      "season": "Maha",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Ampara_Maha_Rainfed_422.json",
+      "detail": "No historical data available for Green Chilli in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Irrigated",
+      "status": 422,
+      "file": "Green_Chilli_Ampara_Yala_Irrigated_422.json",
+      "detail": "No historical data available for Green Chilli in Ampara. Enable extrapolation or select a different crop."
+    },
+    {
+      "crop": "Green Chilli",
+      "district": "Ampara",
+      "season": "Yala",
+      "irrigation": "Rainfed",
+      "status": 422,
+      "file": "Green_Chilli_Ampara_Yala_Rainfed_422.json",
+      "detail": "No historical data available for Green Chilli in Ampara. Enable extrapolation or select a different crop."
+    }
+  ]
+}

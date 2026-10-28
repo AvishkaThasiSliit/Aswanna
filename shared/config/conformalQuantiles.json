@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "label": "simulator-calibrated, not field-calibrated",
+    "target_coverage": 0.80,
+    "score_type": "normalized_relative_nonconformity",
+    "description": "Finite-sample split conformal relative-error quantiles per tau knot at 80% target coverage."
+  },
+  "quantiles": {
+    "prior": {
+      "0.10": 0.4803,
+      "0.20": 0.267,
+      "0.30": 0.1307,
+      "0.40": 0.116,
+      "0.50": 0.0674,
+      "0.60": 0.1712,
+      "0.70": 0.1471,
+      "0.80": 0.0913,
+      "0.90": 0.0844
+    },
+    "learned": {
+      "0.10": 0.3566,
+      "0.20": 0.1496,
+      "0.30": 0.1015,
+      "0.40": 0.0749,
+      "0.50": 0.0619,
+      "0.60": 0.0623,
+      "0.70": 0.0462,
+      "0.80": 0.0373,
+      "0.90": 0.0288
+    }
+  }
+}

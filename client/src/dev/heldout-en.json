@@ -1,0 +1,523 @@
+[
+  {
+    "id": "HE-01",
+    "language": "en",
+    "type": "expense",
+    "text": "Purchased 7 packets of chilli seeds for 5000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "seed",
+          "quantity": 7,
+          "unit": "packets",
+          "totalAmount": 5000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (5000/7)"
+  },
+  {
+    "id": "HE-02",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 850 rupees for vegetable seed seedlings",
+    "expected": {
+      "items": [
+        {
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 850
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-03",
+    "language": "en",
+    "type": "expense",
+    "text": "Bought certified seed paddy bags for 24000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "seed",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 24000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 10k+"
+  },
+  {
+    "id": "HE-04",
+    "language": "en",
+    "type": "expense",
+    "text": "Bought 3 bags of compost fertilizer for 1000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "fertilizer",
+          "quantity": 3,
+          "unit": "bags",
+          "totalAmount": 1000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (1000/3)"
+  },
+  {
+    "id": "HE-05",
+    "language": "en",
+    "type": "expense",
+    "text": "Spent 600 rupees on organic manure",
+    "expected": {
+      "items": [
+        {
+          "category": "fertilizer",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 600
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-06",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 18500 rupees for mop fertilizer sacks",
+    "expected": {
+      "items": [
+        {
+          "category": "fertilizer",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 18500
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 10k+"
+  },
+  {
+    "id": "HE-07",
+    "language": "en",
+    "type": "expense",
+    "text": "Ordered bulk npk fertilizer for 115000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "fertilizer",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 115000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 100k+"
+  },
+  {
+    "id": "HE-08",
+    "language": "en",
+    "type": "expense",
+    "text": "Purchased 3 bottles of pesticide chemical for 2500 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "agrochemical",
+          "quantity": 3,
+          "unit": "bottles",
+          "totalAmount": 2500
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (2500/3)"
+  },
+  {
+    "id": "HE-09",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 450 rupees for spray bottle insecticide",
+    "expected": {
+      "items": [
+        {
+          "category": "agrochemical",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 450
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-10",
+    "language": "en",
+    "type": "expense",
+    "text": "Spent 7200 rupees on paddy weedicide",
+    "expected": {
+      "items": [
+        {
+          "category": "agrochemical",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 7200
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude thousands"
+  },
+  {
+    "id": "HE-11",
+    "language": "en",
+    "type": "expense",
+    "text": "Purchased wholesale fungicide chemicals for 125000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "agrochemical",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 125000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 100k+"
+  },
+  {
+    "id": "HE-12",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 6 laborers daily wage for 25000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "labour",
+          "quantity": 6,
+          "unit": "laborers",
+          "totalAmount": 25000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (25000/6)"
+  },
+  {
+    "id": "HE-13",
+    "language": "en",
+    "type": "expense",
+    "text": "Spent 950 rupees for casual laborer tea and meals",
+    "expected": {
+      "items": [
+        {
+          "category": "labour",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 950
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-14",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 8000 rupees daily wage for field weeding",
+    "expected": {
+      "items": [
+        {
+          "category": "labour",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 8000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude thousands"
+  },
+  {
+    "id": "HE-15",
+    "language": "en",
+    "type": "expense",
+    "text": "Settled harvest workers seasonal contract for 180000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "labour",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 180000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 100k+"
+  },
+  {
+    "id": "HE-16",
+    "language": "en",
+    "type": "expense",
+    "text": "Hired combine harvester 7 hours for 50000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "machinery",
+          "quantity": 7,
+          "unit": "hours",
+          "totalAmount": 50000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (50000/7)"
+  },
+  {
+    "id": "HE-17",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 4500 rupees for rotavator machinery service",
+    "expected": {
+      "items": [
+        {
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 4500
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude thousands"
+  },
+  {
+    "id": "HE-18",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 35000 rupees for full day tractor ploughing",
+    "expected": {
+      "items": [
+        {
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 35000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 10k+"
+  },
+  {
+    "id": "HE-19",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 220000 rupees for seasonal harvester machinery hire",
+    "expected": {
+      "items": [
+        {
+          "category": "machinery",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 220000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 100k+"
+  },
+  {
+    "id": "HE-20",
+    "language": "en",
+    "type": "expense",
+    "text": "Bought 3 cans of diesel fuel for 10000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "fuel",
+          "quantity": 3,
+          "unit": "cans",
+          "totalAmount": 10000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (10000/3)"
+  },
+  {
+    "id": "HE-21",
+    "language": "en",
+    "type": "expense",
+    "text": "Spent 350 rupees for two stroke engine petrol",
+    "expected": {
+      "items": [
+        {
+          "category": "fuel",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 350
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-22",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 6500 rupees for machinery engine oil",
+    "expected": {
+      "items": [
+        {
+          "category": "fuel",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 6500
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude thousands"
+  },
+  {
+    "id": "HE-23",
+    "language": "en",
+    "type": "expense",
+    "text": "Purchased 7 coils of irrigation pipe for 45000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "irrigation",
+          "quantity": 7,
+          "unit": "coils",
+          "totalAmount": 45000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (45000/7)"
+  },
+  {
+    "id": "HE-24",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 3200 rupees for emergency water bowser",
+    "expected": {
+      "items": [
+        {
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 3200
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude thousands"
+  },
+  {
+    "id": "HE-25",
+    "language": "en",
+    "type": "expense",
+    "text": "Settled community irrigation canal water fee for 15000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "irrigation",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 15000
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude 10k+"
+  },
+  {
+    "id": "HE-26",
+    "language": "en",
+    "type": "expense",
+    "text": "Bought 3 rolls of fencing wire for 10000 rupees",
+    "expected": {
+      "items": [
+        {
+          "category": "other",
+          "quantity": 3,
+          "unit": "rolls",
+          "totalAmount": 10000
+        }
+      ]
+    },
+    "fractional_unit_price": true,
+    "notes": "Fractional unit price (10000/3)"
+  },
+  {
+    "id": "HE-27",
+    "language": "en",
+    "type": "expense",
+    "text": "Paid 750 rupees for repair glue and pvc pipe joint fittings",
+    "expected": {
+      "items": [
+        {
+          "category": "other",
+          "quantity": null,
+          "unit": null,
+          "totalAmount": 750
+        }
+      ]
+    },
+    "fractional_unit_price": false,
+    "notes": "Magnitude hundreds"
+  },
+  {
+    "id": "HE-CMD-01",
+    "language": "en",
+    "type": "command",
+    "text": "Change fertilizer amount to 15000",
+    "expected_command": {
+      "intent": "correct",
+      "field": "amount",
+      "target": "fertilizer",
+      "newValue": 15000
+    },
+    "notes": "Follow-up command: correct"
+  },
+  {
+    "id": "HE-CMD-02",
+    "language": "en",
+    "type": "command",
+    "text": "Remove the tractor plowing expense",
+    "expected_command": {
+      "intent": "remove",
+      "target": "tractor plowing"
+    },
+    "notes": "Follow-up command: remove"
+  },
+  {
+    "id": "HE-CMD-03",
+    "language": "en",
+    "type": "command",
+    "text": "What is the total expense amount",
+    "expected_command": {
+      "intent": "query",
+      "kind": "total"
+    },
+    "notes": "Follow-up command: query"
+  }
+]

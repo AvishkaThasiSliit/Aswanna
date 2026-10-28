@@ -1,0 +1,93 @@
+Comparing files D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js and SHARED\VOICE\SINHALANUMBERS.JS
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+
+  for (const rawToken of tokens) {
+    const token = rawToken.trim();
+***** SHARED\VOICE\SINHALANUMBERS.JS
+
+  for (let i = 0; i < tokens.length; i++) {
+    const rawToken = tokens[i];
+    const token = rawToken.trim();
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+
+    // Thousands multipliers: දහස, දහස්, දහසක්, දාහ, දාහක්, දාහයි, දාස�
+***** SHARED\VOICE\SINHALANUMBERS.JS
+
+    // Lakhs multiplier: ලක්ෂ, ලක්ෂය, ලක්ෂයක්, ලක්ෂේ
+    const isLakhMultiplier = (val === 100000 && token.includes('ලක්ෂ'));
+
+    // Thousands multipliers: දහස, දහස්, දහසක්, දාහ, දාහක්, දාහයි, දාස�
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+
+    if (isThousandMultiplier) {
+      current = (current === 0 ? 1 : current) * 1000;
+      total += current;
+***** SHARED\VOICE\SINHALANUMBERS.JS
+
+    if (isLakhMultiplier) {
+      if (current === 0 && i + 1 < tokens.length) {
+        // e.g. "ලක්ෂ දෙකක්", "ලක්ෂ පහක්"
+        const nextRaw = tokens[i + 1].trim();
+        let nextVal = WORD_DICT.get(nextRaw);
+        if (nextVal === undefined) {
+          nextVal = WORD_DICT.get(stripClitic(nextRaw));
+        }
+        if (nextVal !== undefined && nextVal >= 1 && nextVal < 100) {
+          total += nextVal * 100000;
+          i++;
+          continue;
+        }
+      }
+      current = (current === 0 ? 1 : current) * 100000;
+      total += current;
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+      current = 0;
+    } else if (isHundredMultiplier) {
+      current = (current === 0 ? 1 : current) * 100;
+      total += current;
+***** SHARED\VOICE\SINHALANUMBERS.JS
+      current = 0;
+    } else if (isThousandMultiplier) {
+      current = (current === 0 ? 1 : current) * 1000;
+      total += current;
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+      current = 0;
+    } else if (val >= 1000) {
+***** SHARED\VOICE\SINHALANUMBERS.JS
+      current = 0;
+    } else if (isHundredMultiplier) {
+      current = (current === 0 ? 1 : current) * 100;
+      total += current;
+      current = 0;
+    } else if (val >= 100000) {
+      // Pre-composed compound lakh (e.g. දෙලක්ෂයක්, තුන්ලක්ෂයක්)
+      total += val;
+    } else if (val >= 1000) {
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumbers.js
+      // Pre-composed compound thousand (e.g. හත්දහස්, හාරදහස්, තුන්දාස්, පන්
+දාහ, හයදාහ)
+      total += val;
+    } else if (val >= 100) {
+***** SHARED\VOICE\SINHALANUMBERS.JS
+      // Pre-composed compound thousand (e.g. හත්දහස්, හාරදහස්, තුන්දාස්, පන්
+දාහ, හයදාහ, හයදාස්)
+      if (current >= 10 && current < 100) {
+        // Spoken compound: e.g. විසි (20) + පන්දාහක් (5000) = 25,000
+        total += (current * 1000) + val;
+        current = 0;
+      } else {
+        total += val;
+      }
+    } else if (val >= 100) {
+*****
+

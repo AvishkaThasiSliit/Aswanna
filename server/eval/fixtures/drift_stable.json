@@ -1,0 +1,52 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "drift_stable",
+  "description": "Synthetic 100-day cycle where stable categories (labour and machinery) drift 8% above expected-to-date. In tiered mode this is correctly classified as normal (within the 10% stable allowance), whereas a flat 7% rule raises a false alarm and proposal baseline (variance > 0) flags as alert.",
+  "cycle": {
+    "crop": "Paddy",
+    "district": "Polonnaruwa",
+    "season": "Maha",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 40000, "low": 36000, "high": 44000 },
+    "agrochemical": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 100000, "low": 90000, "high": 110000 },
+    "machinery": { "expected": 50000, "low": 45000, "high": 55000 },
+    "irrigation": { "expected": 15000, "low": 13500, "high": 16500 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-ds-1", "day": 10, "category": "seed", "amount": 14000, "notes": "Seed paddy" },
+    { "id": "exp-ds-2", "day": 45, "category": "labour", "amount": 54000, "notes": "Weeding labour with 8% seasonal wage fluctuation" },
+    { "id": "exp-ds-3", "day": 58, "category": "machinery", "amount": 32400, "notes": "Thresher hire with 8% diesel surcharge" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 50,
+      "category": "labour",
+      "expectedToDate": 50000,
+      "actualToDate": 54000,
+      "variancePct": 0.08,
+      "tier": "normal",
+      "proposalBaselineAlert": true,
+      "flat7Rule": "attention",
+      "derivation": "Hand calculation: Day 50 linear phase is 0.50. expectedToDate = 100,000 * 0.50 = 50,000. actual = 54,000. variancePct = (54,000 - 50,000) / 50,000 = +4,000 / 50,000 = +0.0800 (+8.00%). Tiered rule (stable category): Normal allowance is <= 10.0%. Since 8.00% <= 10.0%, tier is normal. Proposal baseline (v > 0): triggers alert (false positive). A hypothetical flat 7% rule would trigger an unwanted false alarm."
+    },
+    {
+      "day": 60,
+      "category": "machinery",
+      "expectedToDate": 30000,
+      "actualToDate": 32400,
+      "variancePct": 0.08,
+      "tier": "normal",
+      "proposalBaselineAlert": true,
+      "flat7Rule": "attention",
+      "derivation": "Hand calculation: Day 60 linear phase is 0.60. expectedToDate = 50,000 * 0.60 = 30,000. actual = 32,400. variancePct = (32,400 - 30,000) / 30,000 = +2,400 / 30,000 = +0.0800 (+8.00%). Tiered rule (stable category): Normal allowance is <= 10.0%. Since 8.00% <= 10.0%, tier is normal. Proposal baseline (v > 0): triggers alert (false alarm). Flat 7% rule triggers false alarm."
+    }
+  ]
+}

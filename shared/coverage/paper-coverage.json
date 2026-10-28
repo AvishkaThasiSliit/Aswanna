@@ -14,6 +14,7 @@
   { "paperSection": "MachineryOwned", "paperLabelSi": "මිලදී ගත් මාසය", "modelPath": "MachineryOwned.purchasedOn.month", "formSchemaKey": "machinery.purchasedOn.month", "entryStyle": "entered" },
   { "paperSection": "MachineryOwned", "paperLabelSi": "මිලදී ගත් දිනය", "modelPath": "MachineryOwned.purchasedOn.day", "formSchemaKey": "machinery.purchasedOn.day", "entryStyle": "entered" },
   { "paperSection": "MachineryOwned", "paperLabelSi": "මිලදී ගත් වටිනාකම", "modelPath": "MachineryOwned.purchaseValue", "formSchemaKey": "machinery.purchaseValue", "entryStyle": "entered" },
+  { "paperSection": "MachineryOwned", "paperLabelSi": "සටහන", "modelPath": "MachineryOwned.annotationNote", "formSchemaKey": "machinery.annotationNote", "entryStyle": "entered" },
 
   { "paperSection": "Land", "paperLabelSi": "ගොඩ / මඩ", "modelPath": "Land.landType", "formSchemaKey": "land.landType", "entryStyle": "entered" },
   { "paperSection": "Land", "paperLabelSi": "දිස්ත්‍රික්කය", "modelPath": "Land.district", "formSchemaKey": "land.district", "entryStyle": "entered" },

@@ -1,0 +1,52 @@
+======================================================================
+ASWANNA TASK E1: LEARNED EXTRACTOR TRAINING LOG
+======================================================================
+Training Samples:   2000
+Validation Samples: 400
+Tagger Model:       CRF (L-BFGS, c1=0.1, c2=0.1, max_iter=100)
+Category Model:     Char-WB TF-IDF (2-4 ngrams) + LogisticRegression(C=5.0)
+----------------------------------------------------------------------
+Tagger Training Time:     2.84 seconds
+Classifier Training Time: 0.15 seconds
+Total Training Time:      3.34 seconds
+----------------------------------------------------------------------
+Tagger Model Size:        29.3 KB (tagger.joblib)
+Category Model Size:      22.8 KB (category_clf.joblib)
+======================================================================
+
+### TAGGER VALIDATION EVALUATION (PER-LABEL BIO METRICS):
+Micro F1: 1.0000 | Macro F1: 1.0000
+
+              precision    recall  f1-score   support
+
+    B-AMOUNT     1.0000    1.0000    1.0000       596
+    I-AMOUNT     1.0000    1.0000    1.0000       567
+      B-ITEM     1.0000    1.0000    1.0000       596
+      I-ITEM     1.0000    1.0000    1.0000       224
+       B-QTY     1.0000    1.0000    1.0000       294
+      B-UNIT     1.0000    1.0000    1.0000       294
+
+   micro avg     1.0000    1.0000    1.0000      2571
+   macro avg     1.0000    1.0000    1.0000      2571
+weighted avg     1.0000    1.0000    1.0000      2571
+
+
+### CATEGORY CLASSIFIER VALIDATION EVALUATION:
+Accuracy: 100.00%
+
+              precision    recall  f1-score   support
+
+agrochemical     1.0000    1.0000    1.0000        67
+  fertilizer     1.0000    1.0000    1.0000        67
+        fuel     1.0000    1.0000    1.0000        85
+  irrigation     1.0000    1.0000    1.0000        79
+      labour     1.0000    1.0000    1.0000        75
+   machinery     1.0000    1.0000    1.0000        89
+       other     1.0000    1.0000    1.0000        76
+        seed     1.0000    1.0000    1.0000        58
+
+    accuracy                         1.0000       596
+   macro avg     1.0000    1.0000    1.0000       596
+weighted avg     1.0000    1.0000    1.0000       596
+
+======================================================================

@@ -1,0 +1,206 @@
+================================================================================
+ASWANNA TASK F2 EXECUTION REPORT
+================================================================================
+Timestamp: 2026-10-28T09:53:30
+Disk Guard: 3.40 GB free on D: (threshold >= 1.0 GB) - PASSED
+
+1. BASELINE TRUTH
+Hashes table:
+- asrConfusions.json:
+  (a) logs\live-hashes-before.txt: 9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02
+  (b) logs\freeze-hashes.txt:      9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02
+  (c) fresh freeze_v1 hash:        9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02
+  (d) current live hash:           9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02
+  (e) freeze_v2 hash:              9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02
+  LastWriteTime freeze_v1:         2026-10-26T14:33:09
+- extractExpenses.js:
+  (a) logs\live-hashes-before.txt: 0481832CD3BDA05A9DD657A806BF7FA9AE46D9525465CB131214177B0E687AFB
+  (b) logs\freeze-hashes.txt:      0481832CD3BDA05A9DD657A806BF7FA9AE46D9525465CB131214177B0E687AFB
+  (c) fresh freeze_v1 hash:        0481832CD3BDA05A9DD657A806BF7FA9AE46D9525465CB131214177B0E687AFB
+  (d) current live hash:           FE6AAE993B2C87E22DB1BF1F4B4E9A9367E5EB88C13BF44417D9AAC6E3E28177
+  (e) freeze_v2 hash:              FE6AAE993B2C87E22DB1BF1F4B4E9A9367E5EB88C13BF44417D9AAC6E3E28177
+  LastWriteTime freeze_v1:         2026-10-26T15:26:46
+- keywordMap.json:
+  (a) logs\live-hashes-before.txt: 6C276A6DC21740C748A7D1C9C3766DEEBB5C9417EB1C7B3A29096C35C2D777E5
+  (b) logs\freeze-hashes.txt:      6C276A6DC21740C748A7D1C9C3766DEEBB5C9417EB1C7B3A29096C35C2D777E5
+  (c) fresh freeze_v1 hash:        6C276A6DC21740C748A7D1C9C3766DEEBB5C9417EB1C7B3A29096C35C2D777E5
+  (d) current live hash:           B71678A7A69B3AA2B50CB706ADE1A04C27A3DEE518D6CED68991D5EB89DF36F7
+  (e) freeze_v2 hash:              B71678A7A69B3AA2B50CB706ADE1A04C27A3DEE518D6CED68991D5EB89DF36F7
+  LastWriteTime freeze_v1:         2026-10-26T14:45:04
+- parseCommand.js:
+  (a) logs\live-hashes-before.txt: 27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D
+  (b) logs\freeze-hashes.txt:      27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D
+  (c) fresh freeze_v1 hash:        27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D
+  (d) current live hash:           27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D
+  (e) freeze_v2 hash:              27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D
+  LastWriteTime freeze_v1:         2026-10-26T13:08:31
+- sinhalaNumbers.js:
+  (a) logs\live-hashes-before.txt: 6DBEBBAD4DCCCA785060B4F14D905760EBB78D8A738761BA48F191DF5582EBC7
+  (b) logs\freeze-hashes.txt:      6DBEBBAD4DCCCA785060B4F14D905760EBB78D8A738761BA48F191DF5582EBC7
+  (c) fresh freeze_v1 hash:        6DBEBBAD4DCCCA785060B4F14D905760EBB78D8A738761BA48F191DF5582EBC7
+  (d) current live hash:           EBF1DBDACE5F1F350AFC8D2B6EBCC13588D5617D9D3A3C772E37439AB3033D38
+  (e) freeze_v2 hash:              EBF1DBDACE5F1F350AFC8D2B6EBCC13588D5617D9D3A3C772E37439AB3033D38
+  LastWriteTime freeze_v1:         2026-10-26T15:09:04
+- sinhalaNumberWords.json:
+  (a) logs\live-hashes-before.txt: 327EE9522F6EE037262D055463755703F98CD409F46F0C844BAACFC4D70DFCDC
+  (b) logs\freeze-hashes.txt:      327EE9522F6EE037262D055463755703F98CD409F46F0C844BAACFC4D70DFCDC
+  (c) fresh freeze_v1 hash:        327EE9522F6EE037262D055463755703F98CD409F46F0C844BAACFC4D70DFCDC
+  (d) current live hash:           6486201B80E801DBB72436236EEB22E67A631E5C7FD9CC62361B7AA6B9ED7687
+  (e) freeze_v2 hash:              6486201B80E801DBB72436236EEB22E67A631E5C7FD9CC62361B7AA6B9ED7687
+  LastWriteTime freeze_v1:         2026-10-26T15:07:29
+
+Statement: Columns (a), (b), and (c) agree across all six files, and columns (d) and (e) agree across all six files; columns (b) and (c) are completely identical, confirming the freeze folder was not altered after it was recorded.
+
+2. KEYWORDMAP RAW DIFF
+Raw fc.exe output:
+--------------------------------------------------------------------------------
+Comparing files D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json and D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "ploughing", "lang": "en", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation (DoA COC)" },
+    { "term": "ට්‍රැක්ටරේ", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "ploughing", "lang": "en", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation (DoA COC)" },
+    { "term": "traktor", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "tractor ekak", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "ට්‍රැක්ටරේ", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+vation (DoA COC)" },
+    { "term": "ට්‍රැක්ටර්", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+vation (DoA COC)" },
+    { "term": "ට්‍රැක්ටර", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivation
+ (DoA COC)" },
+    { "term": "ට්‍රැක්ටර්", "lang": "si", "source": "Department of Agriculture Sri Lanka - Cost of Cultivat
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "irrigation", "lang": "en", "source": "shared/config/so1Mapping.js" },
+    { "term": "water board", "lang": "en", "source": "author-assumption" },
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "irrigation", "lang": "en", "source": "shared/config/so1Mapping.js" },
+    { "term": "water bowser", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "bowser", "lang": "en", "source": "observed-in-captured-data" },
+    { "term": "water board", "lang": "en", "source": "author-assumption" },
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "ජලසම්පාදනය", "lang": "si", "source": "author-assumption" },
+    { "term": "ජල සම්පාදන", "lang": "si", "source": "author-assumption" }
+  ],
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "ජලසම්පාදනය", "lang": "si", "source": "author-assumption" },
+    { "term": "ජල සම්පාදන", "lang": "si", "source": "author-assumption" },
+    { "term": "බවුසර්", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "බවුසරය", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "බවුසරයක්", "lang": "si", "source": "observed-in-captured-data" }
+  ],
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "fence", "lang": "en", "source": "author-assumption" },
+    { "term": "sprayer repair", "lang": "en", "source": "author-assumption" },
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "fence", "lang": "en", "source": "author-assumption" },
+    { "term": "planks", "lang": "en", "source": "author-assumption" },
+    { "term": "timber", "lang": "en", "source": "author-assumption" },
+    { "term": "sprayer repair", "lang": "en", "source": "author-assumption" },
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\keywordMap.json
+    { "term": "කම්බි", "lang": "si", "source": "author-assumption" },
+    { "term": "වැට", "lang": "si", "source": "author-assumption" },
+***** D:\ASWANNA\SHARED\VOICE\KEYWORDMAP.JSON
+    { "term": "කම්බි", "lang": "si", "source": "author-assumption" },
+    { "term": "ලෑලි", "lang": "si", "source": "observed-in-captured-data" },
+    { "term": "වැට", "lang": "si", "source": "author-assumption" },
+*****
+--------------------------------------------------------------------------------
+
+Term presence:
+- "ජලසම්පාදනය": exists in (a) freeze folder copy: YES; exists in (b) live: YES
+- "traktor": exists in (a) freeze folder copy: NO; exists in (b) live: YES
+- "ට්රැක්ටර" (exact prompt codepoints without ZWJ): exists in (a) freeze folder copy: NO; exists in (b) live: NO
+- "ට්‍රැක්ටර" (with ZWJ rakaransaya): exists in (a) freeze folder copy: NO; exists in (b) live: YES
+- "ලෑලි": exists in (a) freeze folder copy: NO; exists in (b) live: YES
+
+3. DATASET STORAGE FORENSICS
+Directory 1: D:\Aswanna\private_dataset_storage
+- File count: 886 (885 audio files in audio/, 1 .gitignore at root)
+- Total MB: 28.0981 MB (29462992 bytes)
+- Min file size: 52 bytes (.gitignore) / 32044 bytes (audio only)
+- Median file size: 32044 bytes
+- Max file size: 64044 bytes
+- Distinct file sizes: 4 (52 B: 1 file, 32044 B: 836 files, 48044 B: 29 files, 64044 B: 20 files)
+- Earliest LastWriteTime: 2026-10-27T11:15:23
+- Latest LastWriteTime: 2026-10-28T08:47:57
+- Files per day:
+  2026-10-27: 718
+  2026-10-28: 168
+
+Directory 2: D:\Aswanna\server\private_dataset_storage
+- File count: 2 (both in audio/)
+- Total MB: 0.0306 MB (32088 bytes)
+- Min file size: 16044 bytes
+- Median file size: 16044 bytes
+- Max file size: 16044 bytes
+- Distinct file sizes: 1 (16044 B: 2 files)
+- Earliest LastWriteTime: 2026-10-27T15:33:37
+- Latest LastWriteTime: 2026-10-27T15:33:37
+- Files per day:
+  2026-10-27: 2
+
+Test storage directory analysis:
+- Config: server/src/config/env.js sets VOICE_DATASET_STORAGE_DIR to 'private_dataset_storage/audio'.
+- Routes: server/src/routes/datasetCollection.js resolves storage directory relative to repo root: D:\Aswanna\private_dataset_storage\audio.
+- Tests: server/tests/datasetCollectionSecurity.test.js lines 434-436 & 731-733 resolve relative to process.cwd(), writing to D:\Aswanna\server\private_dataset_storage\audio.
+- Temp override: Neither server/tests/datasetCollection.test.js nor datasetCollectionSecurity.test.js overrides the storage directory to a temporary folder.
+- Deletion afterwards: server/tests/datasetCollection.test.js performs zero unlinks/deletions of uploaded test audio. Only 3 specific tests in datasetCollectionSecurity.test.js delete specific test files. All other uploaded test recordings remain permanently on disk.
+- Database: server\.env does not exist. No real database configured in server\.env. Local MongoDB on port 27017 timed out (not reachable).
+
+4. GITIGNORE
+.gitignore files under D:\Aswanna (excluding node_modules):
+1. .pytest_cache\.gitignore
+2. ml\.venv\.gitignore
+3. private_dataset_storage\.gitignore
+4. Profit Folder\COC folder\frontend\.gitignore
+5. Profit Folder\Price folder\veg_price_forecasting\frontend\.gitignore
+6. Profit Folder\profit_engine\frontend\.gitignore
+7. so1-service\.venv\.gitignore
+8. voice-service\.venv\.gitignore
+
+Git repo status:
+- D:\Aswanna\.git exists: True
+- Command: git check-ignore -v server/.env node_modules voice-service/.venv voice-service/models logs temp server/temp private_dataset_storage
+- Exit code: 1
+- Output: "" (None of the targets are ignored by git; no root .gitignore exists)
+
+5. TOKENS & STORAGE REFERENCES
+voice-service\app.py token and host:
+- Token read: line 27: INTERNAL_TOKEN = os.getenv("VOICE_INTERNAL_TOKEN", "aswanna-internal-voice-secret-token")
+- Token default: "aswanna-internal-voice-secret-token"
+- Host bound in app.py: None (no uvicorn.run() or host binding inside app.py; docs/voice-asr.md instructs "uvicorn app:app --host 127.0.0.1 --port 8000")
+- Starts without a token: Yes (starts normally without error, falling back to default token)
+
+Grep hits across server\:
+- DATASET_STORAGE_DIR (standalone word, not preceded by VOICE_): 0 hits
+- VOICE_DATASET_STORAGE_DIR: 17 hits across 5 files:
+  1. server\.env.example:18: VOICE_DATASET_STORAGE_DIR=private_dataset_storage/audio
+  2. server\scripts\purgeExpiredVoiceDatasetRecordings.js:29: return path.isAbsolute(ENV.VOICE_DATASET_STORAGE_DIR)
+  3. server\scripts\purgeExpiredVoiceDatasetRecordings.js:30: ? ENV.VOICE_DATASET_STORAGE_DIR
+  4. server\scripts\purgeExpiredVoiceDatasetRecordings.js:31: : path.join(REPO_ROOT, ENV.VOICE_DATASET_STORAGE_DIR);
+  5. server\src\config\env.js:14: VOICE_DATASET_STORAGE_DIR: process.env.VOICE_DATASET_STORAGE_DIR || 'private_dataset_storage/audio',
+  6. server\src\routes\datasetCollection.js:25: const dirPath = path.isAbsolute(ENV.VOICE_DATASET_STORAGE_DIR)
+  7. server\src\routes\datasetCollection.js:26: ? ENV.VOICE_DATASET_STORAGE_DIR
+  8. server\src\routes\datasetCollection.js:27: : path.join(__dirname, '../../../', ENV.VOICE_DATASET_STORAGE_DIR);
+  9. server\tests\datasetCollectionSecurity.test.js:434: const storageDir = path.isAbsolute(ENV.VOICE_DATASET_STORAGE_DIR)
+  10. server\tests\datasetCollectionSecurity.test.js:435: ? ENV.VOICE_DATASET_STORAGE_DIR
+  11. server\tests\datasetCollectionSecurity.test.js:436: : path.join(process.cwd(), ENV.VOICE_DATASET_STORAGE_DIR);
+  12. server\tests\datasetCollectionSecurity.test.js:731: const storageDir = path.isAbsolute(ENV.VOICE_DATASET_STORAGE_DIR)
+  13. server\tests\datasetCollectionSecurity.test.js:732: ? ENV.VOICE_DATASET_STORAGE_DIR
+  14. server\tests\datasetCollectionSecurity.test.js:733: : path.join(process.cwd(), ENV.VOICE_DATASET_STORAGE_DIR);
+  15. server\tests\datasetCollectionSecurity.test.js:1330: const storageDir = path.isAbsolute(ENV.VOICE_DATASET_STORAGE_DIR)
+  16. server\tests\datasetCollectionSecurity.test.js:1331: ? ENV.VOICE_DATASET_STORAGE_DIR
+  17. server\tests\datasetCollectionSecurity.test.js:1332: : path.resolve(process.cwd(), '../', ENV.VOICE_DATASET_STORAGE_DIR);
+================================================================================

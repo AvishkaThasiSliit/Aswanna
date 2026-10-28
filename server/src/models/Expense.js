@@ -17,7 +17,7 @@ const quantityField = {
 };
 
 const inputSchema = new mongoose.Schema({
-  inputType: { type: String, enum: ['seed', 'fertilizer', 'agrochemical', 'other'] },
+  inputType: { type: String },
   categoryTag: { type: String, enum: CATEGORY_TAGS, required: true },
   quantity: quantityField,
   unit: String,
@@ -65,6 +65,8 @@ const expenseSchema = new mongoose.Schema({
   dayStatus: { type: String, enum: ['worked', 'no_work'], default: 'worked' },
   syncStatus: { type: String, enum: ['synced', 'pending'], default: 'synced' },
   clientRequestId: { type: String },
+  source: { type: String, enum: ['manual', 'voice'], default: 'manual' },
+  reviewConfirmed: { type: Boolean, default: false },
   deletedAt: { type: Date, default: null },
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, { timestamps: true });

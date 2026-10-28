@@ -1,0 +1,54 @@
+farm_district,target_economic_centre,one_way_distance_km,route_type,default_primary_choice
+Badulla,Keppetipola Economic Centre,22.0,Local District Hub,True
+Badulla,Nuwara Eliya Economic Centre,45.0,Adjacent Upcountry Hub,False
+Badulla,Dambulla Dedicated Economic Centre,135.0,National Terminal,False
+Badulla,Meegoda Economic Centre,195.0,Colombo Consumer Terminal,False
+Nuwara Eliya,Nuwara Eliya Economic Centre,12.0,Local District Hub,True
+Nuwara Eliya,Keppetipola Economic Centre,28.0,Adjacent Upcountry Hub,False
+Nuwara Eliya,Dambulla Dedicated Economic Centre,138.0,National Terminal,False
+Nuwara Eliya,Meegoda Economic Centre,165.0,Colombo Consumer Terminal,False
+Anuradhapura,Thambuttegama Economic Centre,26.0,Local District Hub,True
+Anuradhapura,Dambulla Dedicated Economic Centre,64.0,National Terminal,False
+Anuradhapura,Veyangoda Economic Centre,172.0,Western Intermediate Hub,False
+Anuradhapura,Meegoda Economic Centre,205.0,Colombo Consumer Terminal,False
+Matale,Dambulla Dedicated Economic Centre,30.0,Local / National Terminal,True
+Matale,Kandehandiya Economic Centre,32.0,Central Regional Hub,False
+Matale,Meegoda Economic Centre,145.0,Colombo Consumer Terminal,False
+Kandy,Kandehandiya Economic Centre,14.0,Local District Hub,True
+Kandy,Kurunduwatta Economic Centre,24.0,Central Sub-Regional Hub,False
+Kandy,Dambulla Dedicated Economic Centre,74.0,National Terminal,False
+Kandy,Meegoda Economic Centre,118.0,Colombo Consumer Terminal,False
+Hambantota,Embilipitiya Economic Centre,52.0,Regional Southern Hub,True
+Hambantota,Meegoda Economic Centre,210.0,Colombo Consumer Terminal,False
+Hambantota,Dambulla Dedicated Economic Centre,240.0,National Terminal,False
+Ratnapura,Embilipitiya Economic Centre,28.0,Local District Hub,True
+Ratnapura,Meegoda Economic Centre,95.0,Colombo Consumer Terminal,False
+Gampaha,Veyangoda Economic Centre,16.0,Local District Hub,True
+Gampaha,Welisara Economic Centre,18.0,Western Consumer Hub,False
+Gampaha,Meegoda Economic Centre,42.0,Greater Colombo Hub,False
+Gampaha,Dambulla Dedicated Economic Centre,128.0,National Terminal,False
+Colombo,Narahenpita Economic Centre,8.0,Urban Direct Terminal,True
+Colombo,Rathmalana Economic Centre,12.0,Suburban Terminal,False
+Colombo,Piliyandala / Bokundara Economic Centre,15.0,Suburban Terminal,False
+Colombo,Meegoda Economic Centre,22.0,Wholesale Terminal,False
+Ampara,Ampara Economic Centre,16.0,Local District Hub,True
+Ampara,Dambulla Dedicated Economic Centre,185.0,National Terminal,False
+Monaragala,Embilipitiya Economic Centre,68.0,Regional Southern Hub,True
+Monaragala,Keppetipola Economic Centre,75.0,Upcountry Hub,False
+Puttalam,Dambulla Dedicated Economic Centre,85.0,National Terminal,True
+Puttalam,Veyangoda Economic Centre,110.0,Western Intermediate Hub,False
+Kurunegala,Dambulla Dedicated Economic Centre,62.0,National Terminal,True
+Kurunegala,Veyangoda Economic Centre,68.0,Western Intermediate Hub,False
+Jaffna,Dambulla Dedicated Economic Centre,295.0,National Terminal,True
+Vavuniya,Dambulla Dedicated Economic Centre,105.0,National Terminal,True
+Vavuniya,Thambuttegama Economic Centre,85.0,Regional Dry Zone Hub,False
+Polonnaruwa,Dambulla Dedicated Economic Centre,65.0,National Terminal,True
+Kilinochchi,Dambulla Dedicated Economic Centre,225.0,National Terminal,True
+Mannar,Thambuttegama Economic Centre,110.0,Regional Dry Zone Hub,True
+Batticaloa,Ampara Economic Centre,48.0,Eastern Regional Hub,True
+Trincomalee,Dambulla Dedicated Economic Centre,108.0,National Terminal,True
+Kalutara,Meegoda Economic Centre,38.0,Major Wholesale Hub,True
+Galle,Meegoda Economic Centre,115.0,Colombo Consumer Terminal,True
+Matara,Embilipitiya Economic Centre,82.0,Regional Southern Hub,True
+Kegalle,Veyangoda Economic Centre,48.0,Western Intermediate Hub,True
+Kegalle,Kandehandiya Economic Centre,42.0,Central Regional Hub,False

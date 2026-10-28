@@ -1,0 +1,71 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "underspend",
+  "description": "Synthetic 100-day cycle with severe expenditure under-run (25% to 40% below baseline). Tests engine behavior on negative variance and highlights the domain limitation where input omission does not trigger overspend alerts.",
+  "cycle": {
+    "crop": "Paddy",
+    "district": "Kurunegala",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "agrochemical": { "expected": 25000, "low": 22500, "high": 27500 },
+    "fuel": { "expected": 30000, "low": 27000, "high": 33000 },
+    "labour": { "expected": 80000, "low": 72000, "high": 88000 },
+    "machinery": { "expected": 50000, "low": 45000, "high": 55000 },
+    "irrigation": { "expected": 20000, "low": 18000, "high": 22000 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-us-1", "day": 12, "category": "seed", "amount": 13000, "notes": "Used farm-saved seed instead of certified seed" },
+    { "id": "exp-us-2", "day": 35, "category": "fertilizer", "amount": 30000, "notes": "Applied only 1 bag of urea due to localized shortage" },
+    { "id": "exp-us-3", "day": 45, "category": "labour", "amount": 28000, "notes": "Reduced hired labour relying heavily on unpaid family labour" },
+    { "id": "exp-us-4", "day": 48, "category": "fuel", "amount": 9000, "notes": "Favorable rainfall reduced irrigation pumping fuel needs" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 40,
+      "category": "seed",
+      "expectedToDate": 18000,
+      "actualToDate": 13000,
+      "variancePct": -0.2778,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: seed at day 40 phase 0.90. expectedToDate = 20000 * 0.90 = 18000. Actual = 13000. Variance = -27.78%. Negative variance yields normal tier in both tiered and single modes."
+    },
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 45000,
+      "actualToDate": 30000,
+      "variancePct": -0.3333,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: fertilizer at day 40 phase 0.90. expectedToDate = 50000 * 0.90 = 45000. Actual = 30000. Variance = -33.33%. Negative variance yields normal tier in both modes."
+    },
+    {
+      "day": 50,
+      "category": "labour",
+      "expectedToDate": 40000,
+      "actualToDate": 28000,
+      "variancePct": -0.30,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: labour linear phase at day 50 is 0.50. expectedToDate = 80000 * 0.50 = 40000. Actual = 28000. Variance = -30.00%. Underspend evaluates to normal tier in both modes."
+    },
+    {
+      "day": 50,
+      "category": "fuel",
+      "expectedToDate": 15000,
+      "actualToDate": 9000,
+      "variancePct": -0.40,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: fuel linear phase at day 50 is 0.50. expectedToDate = 30000 * 0.50 = 15000. Actual = 9000. Variance = -40.00%. Underspend evaluates to normal tier in both modes."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "description": "Mapping from DoA survey raw operation names to 5 canonical cultivation stages and SO3 cost categories.",
+    "status": "ASSUMPTION - confirm with DoA",
+    "stages": [
+      "land_preparation",
+      "planting",
+      "fertilizer_basal",
+      "crop_care",
+      "harvest"
+    ],
+    "fertilizer_splits": {
+      "Paddy": {
+        "basal_share": 0.264,
+        "top_dress_share": 0.736,
+        "status": "measured from coc_model_ready.csv"
+      },
+      "Maize": {
+        "basal_share": 0.154,
+        "top_dress_share": 0.846,
+        "status": "measured from coc_model_ready.csv",
+        "flag": "weak: N=5"
+      },
+      "Tomato": {
+        "basal_share": 0.3,
+        "top_dress_share": 0.7,
+        "status": "assumption"
+      },
+      "Green Chilli": {
+        "basal_share": 0.25,
+        "top_dress_share": 0.75,
+        "status": "assumption"
+      }
+    },
+    "machinery_fuel_split": {
+      "machinery_share": 0.7,
+      "fuel_share": 0.3,
+      "notes": "Derived from machinery via 70/30 split from SO1 integration; not independently learned."
+    },
+    "unresolved_bucket": {
+      "name": "unresolved",
+      "description": "Separate tracking bucket for unclassified materials and ambiguous operations. Excluded from canonical 8-category spend curves."
+    }
+  },
+  "patterns": [
+    {
+      "pattern": "(sowing|transplant|broadcast|seeding|planting|nursery|seedling)",
+      "stage": "planting",
+      "material_category": "seed",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Crop establishment, nursery management, and seed paddy/seedlings."
+    },
+    {
+      "pattern": "(basal|manure|compost)",
+      "stage": "fertilizer_basal",
+      "material_category": "fertilizer",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Explicit basal nutrient and organic matter application at planting."
+    },
+    {
+      "pattern": "(fertilizer|urea|tsp|mop)",
+      "stage": "fertilizer",
+      "material_category": "fertilizer",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "General fertilizer application representing full-season aggregate (split into basal and top-dressing)."
+    },
+    {
+      "pattern": "(weed|pest|disease|spray|weedicide|pesticide|fungicide|insecticide)",
+      "stage": "crop_care",
+      "material_category": "agrochemical",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Mid-cycle chemical protection, weed control, and pest spraying."
+    },
+    {
+      "pattern": "(watermanage|water manage|irrigation|watering)",
+      "stage": "crop_care",
+      "material_category": "irrigation",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Water issuing and canal/tube-well irrigation."
+    },
+    {
+      "pattern": "(harvest|thresh|drying|dry|processing|transport|store|bagging|winnowing)",
+      "stage": "harvest",
+      "material_category": "other",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Reaping, threshing, packaging gunny bags, transport to mill/store."
+    },
+    {
+      "pattern": "(land prep|plough|plow|rotavat|bund|ridg|bed|harrow|level|tillage|digging hole)",
+      "stage": "land_preparation",
+      "material_category": "UNRESOLVED_MATERIAL_SPLIT",
+      "status": "ASSUMPTION - confirm with DoA",
+      "notes": "Primary tillage, plowing, and bund plastering."
+    }
+  ]
+}

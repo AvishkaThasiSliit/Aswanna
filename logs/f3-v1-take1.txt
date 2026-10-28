@@ -1,0 +1,51 @@
+
+======================================================
+REAL SPEECH ASR EVALUATION (Task V6)
+Evaluating captured transcripts from: D:\Aswanna_scratch_v1check\server\eval\fixtures\voice\real-asr.captured.json
+Dataset Note: This dataset consists of TUNING / REPEAT speech data, NOT a held-out test set.
+ASR Alternatives Cross-Check: ENABLED (default)
+Baseline Profile: None (unconstrained)
+Mode: Report-Only (strictly read-only; rules and fixtures are not modified)
+======================================================
+
+### Per-Language Evaluation Breakdown (Scored Per Item, N=27 items)
+------------------------------------------------------------------------------------------------------
+| Lang    | Items | Amount Correct   | Category Correct | Needs Review     | SILENT ERRORS (Target 0) |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| en      | 14    | 11/14 ( 78.6%) | 11/14 ( 78.6%) |  4/14 ( 28.6%) | 0                        |
+| si      | 13    | 10/13 ( 76.9%) | 12/13 ( 92.3%) |  9/13 ( 69.2%) | 1                        |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| Overall | 27    | 21/27 ( 77.8%) | 23/27 ( 85.2%) | 13/27 ( 48.1%) | 1                        |
+------------------------------------------------------------------------------------------------------
+
+### CATEGORY MISSES AUDIT LOG (Total Misses: 4)
+- Prompt ID: [VP-CAP-011] (Item #1, Lang: en)
+  Transcript: "80005 days of canal cleaning"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'irrigation'
+  Values: Extracted={"description":"80005 days of canal cleaning","category":null,"quantity":80005,"unit":"days","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"canal cleaning","category":"irrigation","quantity":5,"unit":"days","totalAmount":5000}
+- Prompt ID: [VP-CAP-012] (Item #1, Lang: en)
+  Transcript: "boat 5 bags of compost for 750001 spray bottle for 1200"
+  Extracted Category: 'agrochemical' (Status: needs_review)
+  Expected Category:  'fertilizer'
+  Values: Extracted={"description":"boat 5 bags of compost for 750001 spray bottle for 1200","category":"agrochemical","quantity":5,"unit":"bags","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["amount_ambiguous"]} vs Expected={"description":"compost","category":"fertilizer","quantity":5,"unit":"bags","totalAmount":7500}
+- Prompt ID: [VP-CAP-012] (Item #2, Lang: en)
+  Transcript: "boat 5 bags of compost for 750001 spray bottle for 1200"
+  Extracted Category: 'null' (Status: missing_item)
+  Expected Category:  'other'
+  Values: Extracted=null vs Expected={"description":"spray bottle","category":"other","quantity":1,"unit":"bottle","totalAmount":1200}
+- Prompt ID: [VP-CAP-024] (Item #1, Lang: si)
+  Transcript: "ලෑලි සහ කම්බි සඳහා රුපියල් ඉන්ගාස් පන්සීයක් ගෙව්වා"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'other'
+  Values: Extracted={"description":"ලෑලි","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"ලෑලි සහ කම්බි සඳහා","category":"other","quantity":null,"unit":null,"totalAmount":3500}
+
+### SILENT ERRORS AUDIT LOG
+NOTE: Irreducible ASR transcription errors where spoken audio was misrecognized into valid digits
+cannot be detected purely from text and must be explicitly recorded.
+
+- Prompt ID: [VP-CAP-021] (Item #1, Lang: si)
+  Transcript: "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා"
+  Extracted:  Category='seed', Amount=1900, Status='ok'
+  Expected:   Category='seed', Amount=1500
+  Diagnosis:  Spoken phrase expected 'seed' / amount 1500, but ASR transcribed text yielding 'seed' / amount 1900. Since it formed valid syntax, it parsed with status 'ok'. This is an irreducible silent error from ASR recognition.

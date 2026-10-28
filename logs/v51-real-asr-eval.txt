@@ -1,0 +1,64 @@
+
+======================================================
+REAL SPEECH ASR EVALUATION (Task V5.1)
+Evaluating captured transcripts from: D:\Aswanna\server\eval\fixtures\voice\real-asr.captured.json
+======================================================
+
+### Per-Language Evaluation Breakdown (Scored Per Item, N=27 items)
+------------------------------------------------------------------------------------------------------
+| Lang    | Items | Amount Correct   | Category Correct | Needs Review     | SILENT ERRORS (Target 0) |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| en      | 14    | 10/14 ( 71.4%) |  9/14 ( 64.3%) |  4/14 ( 28.6%) | 0                        |
+| si      | 13    | 10/13 ( 76.9%) | 11/13 ( 84.6%) |  3/13 ( 23.1%) | 1                        |
+|---------|-------|------------------|------------------|------------------|--------------------------|
+| Overall | 27    | 20/27 ( 74.1%) | 20/27 ( 74.1%) |  7/27 ( 25.9%) | 1                        |
+------------------------------------------------------------------------------------------------------
+
+### CATEGORY MISSES AUDIT LOG (Total Misses: 7)
+- Prompt ID: [VP-CAP-006] (Item #1, Lang: en)
+  Transcript: "boat one bottle of weedicides for 3200"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'agrochemical'
+  Values: Extracted={"description":"boat one bottle of weedicides for 3200","category":null,"quantity":1,"unit":"bottle","unitPrice":3200,"totalAmount":3200,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain"]} vs Expected={"description":"weedicide","category":"agrochemical","quantity":1,"unit":"bottle","totalAmount":3200}
+- Prompt ID: [VP-CAP-010] (Item #1, Lang: en)
+  Transcript: "spend 2500 transport bags and binding jobs"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'other'
+  Values: Extracted={"description":"spend 2500 transport bags and binding jobs","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"transport bags and binding ropes","category":"other","quantity":null,"unit":null,"totalAmount":2500}
+- Prompt ID: [VP-CAP-011] (Item #1, Lang: en)
+  Transcript: "80005 days of canal cleaning"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'irrigation'
+  Values: Extracted={"description":"80005 days of canal cleaning","category":null,"quantity":80005,"unit":"days","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"canal cleaning","category":"irrigation","quantity":5,"unit":"days","totalAmount":5000}
+- Prompt ID: [VP-CAP-012] (Item #1, Lang: en)
+  Transcript: "boat 5 bags of compost for 750001 spray bottle for 1200"
+  Extracted Category: 'agrochemical' (Status: needs_review)
+  Expected Category:  'fertilizer'
+  Values: Extracted={"description":"boat 5 bags of compost for 750001 spray bottle for 1200","category":"agrochemical","quantity":5,"unit":"bags","unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["amount_ambiguous"]} vs Expected={"description":"compost","category":"fertilizer","quantity":5,"unit":"bags","totalAmount":7500}
+- Prompt ID: [VP-CAP-012] (Item #2, Lang: en)
+  Transcript: "boat 5 bags of compost for 750001 spray bottle for 1200"
+  Extracted Category: 'null' (Status: missing_item)
+  Expected Category:  'other'
+  Values: Extracted=null vs Expected={"description":"spray bottle","category":"other","quantity":1,"unit":"bottle","totalAmount":1200}
+- Prompt ID: [VP-CAP-020] (Item #1, Lang: si)
+  Transcript: "ජල සම්පාදනය සඳහා රුපියල් 4500ක් ගෙව්වා"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'irrigation'
+  Values: Extracted={"description":"ජල සම්පාදනය සඳහා රුපියල් 4500ක් ගෙව්වා","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":4500,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain"]} vs Expected={"description":"ජල සම්පාදනය සඳහා","category":"irrigation","quantity":null,"unit":null,"totalAmount":4500}
+- Prompt ID: [VP-CAP-024] (Item #1, Lang: si)
+  Transcript: "ලෑලි සහ කම්බි සඳහා රුපියල් ඉන්ගාස් පන්සීයක් ගෙව්වා"
+  Extracted Category: 'null' (Status: needs_review)
+  Expected Category:  'other'
+  Values: Extracted={"description":"ලෑලි","category":null,"quantity":null,"unit":null,"unitPrice":null,"totalAmount":null,"currency":"LKR","dateISO":null,"status":"needs_review","reasons":["category_uncertain","amount_unresolved"]} vs Expected={"description":"ලෑලි සහ කම්බි සඳහා","category":"other","quantity":null,"unit":null,"totalAmount":3500}
+
+### SILENT ERRORS AUDIT LOG
+NOTE: Irreducible ASR transcription errors where spoken audio was misrecognized into valid digits
+cannot be detected purely from text and must be explicitly recorded.
+
+- Prompt ID: [VP-CAP-021] (Item #1, Lang: si)
+  Transcript: "බීජ සඳහා 1900ක් සහ යුරියා මිටි දෙකක් සඳහා අයදහස් වියදම් කළා"
+  Extracted:  Category='seed', Amount=1900, Status='ok'
+  Expected:   Category='seed', Amount=1500
+  Discrepancy: amount mismatch: extracted 1900 vs expected 1500
+  Diagnosis:  Spoken phrase said 1500, but Chrome ASR transcribed digits '1900ක්'. Since 1900 is a valid amount,
+              it parsed cleanly with status 'ok'. This is an irreducible silent error from ASR recognition.

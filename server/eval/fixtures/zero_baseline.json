@@ -1,0 +1,73 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "zero_baseline",
+  "description": "Synthetic 100-day cycle testing zero baseline handling. When expected spend for a category is 0 but expenses occur, the engine triggers an attention tier alert with reason 'no_baseline'.",
+  "cycle": {
+    "crop": "Paddy",
+    "district": "Hambantota",
+    "season": "Yala",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 40000, "low": 36000, "high": 44000 },
+    "agrochemical": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 70000, "low": 63000, "high": 77000 },
+    "machinery": { "expected": 40000, "low": 36000, "high": 44000 },
+    "irrigation": { "expected": 0, "low": 0, "high": 0 },
+    "other": { "expected": 0, "low": 0, "high": 0 }
+  },
+  "expenses": [
+    { "id": "exp-zb-1", "day": 10, "category": "seed", "amount": 14000, "notes": "Seed purchase" },
+    { "id": "exp-zb-2", "day": 28, "category": "irrigation", "amount": 12000, "notes": "Emergency water bowser hire for rainfed plot during dry spell" },
+    { "id": "exp-zb-3", "day": 30, "category": "labour", "amount": 21000, "notes": "Inter-row weeding" },
+    { "id": "exp-zb-4", "day": 58, "category": "other", "amount": 5000, "notes": "Unanticipated pest trap supplies" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 30,
+      "category": "irrigation",
+      "expectedToDate": 0,
+      "actualToDate": 12000,
+      "variancePct": 0.0,
+      "tier": "attention",
+      "singleTier": "attention",
+      "reason": "no_baseline",
+      "notes": "Hand-check: baseline expected is 0, expectedToDate is 0, but actual spend is 12000 > 0. Engine triggers attention tier with reason 'no_baseline'."
+    },
+    {
+      "day": 30,
+      "category": "other",
+      "expectedToDate": 0,
+      "actualToDate": 0,
+      "variancePct": 0.0,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: baseline expected is 0 and actual is 0. Normal tier with no alert."
+    },
+    {
+      "day": 30,
+      "category": "labour",
+      "expectedToDate": 21000,
+      "actualToDate": 21000,
+      "variancePct": 0.0,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: labour linear phase at day 30 is 0.30. expectedToDate = 70000 * 0.30 = 21000. Actual = 21000. Variance = 0.0% -> normal."
+    },
+    {
+      "day": 60,
+      "category": "other",
+      "expectedToDate": 0,
+      "actualToDate": 5000,
+      "variancePct": 0.0,
+      "tier": "attention",
+      "singleTier": "attention",
+      "reason": "no_baseline",
+      "notes": "Hand-check: baseline expected is 0, but actual spend is 5000 > 0. Engine triggers attention tier with reason 'no_baseline'."
+    }
+  ]
+}

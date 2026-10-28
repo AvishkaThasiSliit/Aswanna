@@ -230,7 +230,7 @@ describe('Logic Tests', () => {
     });
 
     test('listExpenses: search matches activity code/name and inputs.inputType; totals computed via aggregation', async () => {
-      const cycle = await Cycle.create({ farmerId: new mongoose.Types.ObjectId(), landId: new mongoose.Types.ObjectId(), startDate: new Date(), status: 'active' });
+      const cycle = await Cycle.create({ farmerId: new mongoose.Types.ObjectId(), landId: new mongoose.Types.ObjectId(), startDate: new Date('2024-01-01'), status: 'active' });
       const actCode = await ActivityCode.create({ code: 'WEED_101', nameEn: 'Special Weeding' });
 
       await createExpense(cycle._id.toString(), {
@@ -268,7 +268,7 @@ describe('Logic Tests', () => {
     });
 
     test('updateExpense: removing an input line and clearing labour update totals correctly', async () => {
-      const cycle = await Cycle.create({ farmerId: new mongoose.Types.ObjectId(), landId: new mongoose.Types.ObjectId(), startDate: new Date(), status: 'active' });
+      const cycle = await Cycle.create({ farmerId: new mongoose.Types.ObjectId(), landId: new mongoose.Types.ObjectId(), startDate: new Date('2024-01-01'), status: 'active' });
       const actCode = await ActivityCode.create({ code: 'UPD_1', nameEn: 'Update Test' });
 
       const { expense: initialExp } = await createExpense(cycle._id.toString(), {
@@ -277,13 +277,13 @@ describe('Logic Tests', () => {
         activityCode: actCode._id.toString(),
         inputs: [{ categoryTag: 'seed', cost: 1000 }, { categoryTag: 'fertilizer', cost: 2000 }],
         labour: { familyLabour: 1, dailyWage: 1000 },
-        other: { amount: 500 }
+        other: { description: 'Initial other', amount: 500 }
       }, testUserId);
 
       expect(initialExp.totalAmount).toBe(4500);
 
       // Remove one input line and clear labour
-      const updated = await updateExpense(initialExp._id.toString(), {
+      const { expense: updated } = await updateExpense(initialExp._id.toString(), {
         inputs: [{ categoryTag: 'seed', cost: 1000 }],
         labour: { familyLabour: 0, hiredLabour: 0, dailyWage: 0, cost: 0 }
       }, testUserId);

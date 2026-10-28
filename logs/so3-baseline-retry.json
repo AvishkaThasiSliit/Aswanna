@@ -1,0 +1,87 @@
+{
+  "retryResponse": {
+    "success": true,
+    "baselineStatus": "ready",
+    "rows": 8,
+    "cycle": {
+      "_id": "6ad9b113b0a7ecca4557f35a",
+      "farmerId": "6ad9b0dcb0a7ecca4557f2be",
+      "crop": "Paddy",
+      "season": "Maha",
+      "district": "Anuradhapura",
+      "startDate": "2026-10-15T00:00:00.000Z",
+      "extentValue": 1,
+      "extentUnit": "acre",
+      "status": "active",
+      "baselineStatus": "ready",
+      "so1Metadata": {
+        "model_version": "extratrees_champion_v2",
+        "request_id": "a395916e-533f-44ff-b711-94d335fa638c",
+        "reference_year": 2025,
+        "low_confidence": false,
+        "low_confidence_reason": null,
+        "breakdown_source": "historical_district_crop_ratio",
+        "district_policy_used": "exact",
+        "derived": true,
+        "acreage_scaled": false,
+        "lag_saturation_detected": false,
+        "lag_saturation_note": null,
+        "warnings": [],
+        "totalPredictedCost": 143523,
+        "intervalLow": 118870,
+        "intervalHigh": 173290,
+        "rawPerAcreCost": 143523.1,
+        "acres": 1
+      },
+      "deletedAt": null,
+      "createdBy": "6ad9b0dcb0a7ecca4557f2ba",
+      "createdAt": "2026-10-22T06:45:39.362Z",
+      "updatedAt": "2026-10-22T06:46:22.964Z",
+      "__v": 0,
+      "baselineSource": "SO1"
+    }
+  },
+  "cycle": {
+    "_id": "6ad9b113b0a7ecca4557f35a",
+    "farmerId": "6ad9b0dcb0a7ecca4557f2be",
+    "crop": "Paddy",
+    "season": "Maha",
+    "district": "Anuradhapura",
+    "startDate": "2026-10-15T00:00:00.000Z",
+    "extentValue": 1,
+    "extentUnit": "acre",
+    "status": "active",
+    "baselineStatus": "ready",
+    "so1Metadata": {
+      "model_version": "extratrees_champion_v2",
+      "request_id": "a395916e-533f-44ff-b711-94d335fa638c",
+      "reference_year": 2025,
+      "low_confidence": false,
+      "low_confidence_reason": null,
+      "breakdown_source": "historical_district_crop_ratio",
+      "district_policy_used": "exact",
+      "derived": true,
+      "acreage_scaled": false,
+      "lag_saturation_detected": false,
+      "lag_saturation_note": null,
+      "warnings": [],
+      "totalPredictedCost": 143523,
+      "intervalLow": 118870,
+      "intervalHigh": 173290,
+      "rawPerAcreCost": 143523.1,
+      "acres": 1
+    },
+    "deletedAt": null,
+    "createdBy": "6ad9b0dcb0a7ecca4557f2ba",
+    "createdAt": "2026-10-22T06:45:39.362Z",
+    "updatedAt": "2026-10-22T06:46:22.964Z",
+    "__v": 0,
+    "baselineSource": "SO1"
+  },
+  "variance": {
+    "error": {
+      "code": "NOT_FOUND",
+      "message": "Route not found"
+    }
+  }
+}

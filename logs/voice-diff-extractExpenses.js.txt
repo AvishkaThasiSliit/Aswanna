@@ -1,0 +1,99 @@
+Comparing files D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js and SHARED\VOICE\EXTRACTEXPENSES.JS
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+  'asr_alternatives_disagree',
+  'possible_duplicate'
+]);
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+  'asr_alternatives_disagree',
+  'possible_duplicate',
+  'unit_price_fractional'
+]);
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+
+      // 2. If 1 part has numbers, split only if another subsequent part has an independent purchase verb
+      if (partsWithNumbers.length === 1) {
+        const laterParts = parts.slice(1);
+        const hasIndependentVerb = laterParts.some(p => /(?:bought|paid|spent|purchased|also|more|ගත්තා|ගෙව්�
+��ා|දුන්නා)/i.test(p));
+        if (hasIndependentVerb) {
+          clauses.push(...parts);
+          continue;
+        }
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+
+      // 2. If 1 part has numbers, split only if the first part has an independent expense/verb/number
+      // AND a subsequent part has an independent purchase verb (prevent splitting compound nouns like "ලෑලි සහ ක
+ම්බි...")
+      if (partsWithNumbers.length === 1) {
+        const firstPartHasVerb = /(?:bought|paid|spent|purchased|ගත්තා|ගෙව්වා|දුන්නා)/i.test(
+parts[0]);
+        const firstPartHasNumber = /\d+|දහස්|දාහ|දාස්|සීය|පන්සිය|පන්දාහ|ද
+ෙකක්|පහක්/.test(parts[0]);
+        if (firstPartHasVerb || firstPartHasNumber) {
+          const laterParts = parts.slice(1);
+          const hasIndependentVerb = laterParts.some(p => /(?:bought|paid|spent|purchased|also|more|ගත්තා|ගෙව�
+�වා|දුන්නා)/i.test(p));
+          if (hasIndependentVerb) {
+            clauses.push(...parts);
+            continue;
+          }
+        }
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+      unitPrice = Number((totalAmount / quantity).toFixed(2));
+    }
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+      unitPrice = Number((totalAmount / quantity).toFixed(2));
+      // Mathematical physical currency integrity check:
+      // If quantity is an integer >= 2, the total in cents must be divisible by quantity.
+      // E.g., 30 kg for 8500 LKR -> 850000 % 30 = 10 != 0 (283.333... LKR/kg is impossible in physical currency cents)
+      if (Number.isInteger(quantity) && quantity >= 2) {
+        const totalCents = Math.round(totalAmount * 100);
+        if (totalCents % quantity !== 0) {
+          reasons.push('unit_price_fractional');
+        }
+      }
+    }
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+    const altAmountSets = [];
+    for (const alt of options.alternatives) {
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+    const altAmountSets = [];
+    const altCategorySets = [];
+    for (const alt of options.alternatives) {
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+      altAmountSets.push(amounts);
+    }
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+      altAmountSets.push(amounts);
+
+      const categories = altRes.items
+        .map(i => i.category)
+        .filter(Boolean)
+        .sort();
+      altCategorySets.push(categories);
+    }
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\extractExpenses.js
+      const firstSetJson = JSON.stringify(altAmountSets[0]);
+      const anyMismatch = altAmountSets.some(set => JSON.stringify(set) !== firstSetJson);
+      if (anyMismatch) {
+        for (const item of items) {
+***** SHARED\VOICE\EXTRACTEXPENSES.JS
+      const firstSetJson = JSON.stringify(altAmountSets[0]);
+      const anyAmountMismatch = altAmountSets.some(set => JSON.stringify(set) !== firstSetJson);
+      const firstCatJson = JSON.stringify(altCategorySets[0]);
+      const anyCatMismatch = altCategorySets.some(set => JSON.stringify(set) !== firstCatJson);
+
+      if (anyAmountMismatch || anyCatMismatch) {
+        for (const item of items) {
+*****
+

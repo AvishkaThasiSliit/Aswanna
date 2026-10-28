@@ -1,0 +1,1353 @@
+================================================================================
+ASWANNA SO3 READ-ONLY CLEANUP INVENTORY LOG
+Generated: 2026-10-26T22:47:00.326Z
+Total Targets Evaluated: 72
+================================================================================
+
+--------------------------------------------------------------------------------
+[ITEM 1/72] shared/voice/extractExpenses.js
+Classification: KEEP-LIVE
+Size: 30.1 KB (30,792 bytes)
+Description: Deterministic expense extractor: pure regex & word parsing for typed/speech expenses into structured rows
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "extractExpenses"
+Search Output (76 matches):
+  client/src/components/VoiceExpenseEntry.jsx:12: extractExpenses,
+  client/src/components/VoiceExpenseEntry.jsx:15: } from '../../../shared/voice/extractExpenses.js';
+  shared/voice/parseCommand.js:8: * - 'add': adds new expense item(s) (reusing extractExpenses)
+  shared/voice/parseCommand.js:16: import { extractExpenses, CANONICAL_CATEGORIES, sumTotals } from './extractExpenses.js';
+  shared/voice/parseCommand.js:313: const result = extractExpenses(addCleaned, {
+  shared/voice/parseCommand.js:427: const result = extractExpenses(trimmed, {
+  shared/voice/parseCommand.js:468: // If extractExpenses fails, fall through to unknown
+  shared/voice/sinhalaNumbers.js:5: * Used by extractExpenses when lang is 'si' or text contains Sinhala script.
+  server/tests/generativeNumberParser.test.js:23: extractExpenses
+  server/tests/generativeNumberParser.test.js:24: } from '../../shared/voice/extractExpenses.js';
+  server/tests/generativeNumberParser.test.js:110: test('extractExpenses returns amount_unresolved and never a truncated value when unknown token is inserted', () => {
+  server/tests/generativeNumberParser.test.js:111: const res = extractExpenses('කුඹුර හාලා දෙන්න ට්‍රැක්ටරේට අටදාස් නොදන්නා පන්සියයක් දුන්නා', { lang: 'si' });
+  server/tests/generativeNumberParser.test.js:118: test('extractExpenses returns amount_unresolved with explicit currency and corrupted number word', () => {
+  server/tests/generativeNumberParser.test.js:119: const res = extractExpenses('රුපියල් අටදාස් බ්ලා පන්සියයක් දුන්නා', { lang: 'si' });
+  server/tests/generativeNumberParser.test.js:146: // Also verify via extractExpenses with currency cue
+  server/tests/generativeNumberParser.test.js:148: const extracted = extractExpenses(fullText);
+  server/tests/generativeNumberParser.test.js:167: test('extractExpenses returns amount_unresolved and never a truncated amount on near-miss', () => {
+  server/tests/generativeNumberParser.test.js:169: const res1 = extractExpenses('tractor fee of two thousand blarg five hundred rupees');
+  server/tests/generativeNumberParser.test.js:176: const res2 = extractExpenses('paid two thousand blarg rupees for weeding');
+  server/tests/generativeNumberParser.test.js:185: const res = extractExpenses('bought two bags of fertilizer for five hundred rupees');
+  server/tests/voiceExtract.test.js:3: * shared/voice/extractExpenses.js
+  server/tests/voiceExtract.test.js:6: import { extractExpenses, sumTotals, CANONICAL_CATEGORIES, extractedItemSchema } from '../../shared/voice/extractExpenses.js';
+  server/tests/voiceExtract.test.js:9: describe('Deterministic Voice/Text Expense Extractor (extractExpenses)', () => {
+  server/tests/voiceExtract.test.js:13: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:37: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:53: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:67: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:103: extractExpenses('Bought seeds for -500 rupees');
+  server/tests/voiceExtract.test.js:108: expect(extractExpenses('')).toEqual({ items: [], warnings: [] });
+  server/tests/voiceExtract.test.js:109: expect(extractExpenses('   ')).toEqual({ items: [], warnings: [] });
+  server/tests/voiceExtract.test.js:110: expect(extractExpenses(null)).toEqual({ items: [], warnings: [] });
+  server/tests/voiceExtract.test.js:111: expect(extractExpenses(undefined)).toEqual({ items: [], warnings: [] });
+  server/tests/voiceExtract.test.js:116: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:129: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:138: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:151: const result = extractExpenses(text, { today: '2026-05-15' });
+  server/tests/voiceExtract.test.js:159: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:171: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:185: const result = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:196: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:214: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:228: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:240: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:255: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:267: const result = extractExpenses(text, { categoryBaselines: { fertilizer: 31200 } });
+  server/tests/voiceExtract.test.js:274: const result = extractExpenses(text, { totalBaseline: 150000 });
+  server/tests/voiceExtract.test.js:281: const result = extractExpenses(text);
+  server/tests/voiceExtract.test.js:294: const result = extractExpenses(text, { lang: 'si', alternatives });
+  server/tests/voiceExtract.test.js:305: const result = extractExpenses(text, { lang: 'en', alternatives });
+  server/tests/voiceExtract.test.js:327: const res1 = extractExpenses('Paid 3200 for weedicides');
+  server/tests/voiceExtract.test.js:332: const res2 = extractExpenses('Spent 4500 on herbicides');
+  server/tests/voiceExtract.test.js:337: const res3 = extractExpenses('Paid 6000 to hired labourers');
+  server/tests/voiceExtract.test.js:342: const res4 = extractExpenses('Bought gunny bags for 1500');
+  server/tests/voiceExtract.test.js:349: const resBaggage = extractExpenses('Paid 5000 for baggage');
+  server/tests/voiceExtract.test.js:354: const resBagel = extractExpenses('Spent 500 on bagel');
+  server/tests/voiceExtract.test.js:359: const resLaborious = extractExpenses('Paid 5000 for laborious activity');
+  server/tests/voiceExtract.test.js:364: const resWeed = extractExpenses('Paid 3000 for weed');
+  server/tests/voiceExtract.test.js:370: const res = extractExpenses('spend 2500 transport bags and binding jobs', { lang: 'en' });
+  server/tests/voiceExtract.test.js:380: const res = extractExpenses('ජල සම්පාදනය සඳහා රුපියල් 4500ක් ගෙව්වා', { lang: 'si' });
+  server/tests/voiceExtract.test.js:392: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:403: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:414: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:425: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:436: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:446: const res = extractExpenses(text, { lang: 'si' });
+  server/tests/voiceExtract.test.js:463: const res = extractExpenses(text, { lang: 'si', alternatives });
+  server/tests/voiceExtract.test.js:479: const res = extractExpenses(text, { lang: 'si', alternatives });
+  server/tests/voiceExtract.test.js:495: const res = extractExpenses(text, { lang: 'en', alternatives });
+  server/tests/voiceExtract.test.js:511: const res = extractExpenses(text, { lang: 'en', alternatives });
+  server/tests/voiceExtract.test.js:526: const res = extractExpenses(text, { lang: 'si', alternatives });
+  server/eval/voiceEval.js:3: * Evaluates extractExpenses on dev.json fixtures.
+  server/eval/voiceEval.js:19: import { extractExpenses } from '../../shared/voice/extractExpenses.js';
+  server/eval/voiceEval.js:76: const res = extractExpenses(phrase.transcript, {
+  server/eval/voiceRealEval.js:3: * Evaluates extractExpenses against real captured speech transcripts.
+  server/eval/voiceRealEval.js:16: import { extractExpenses } from '../../shared/voice/extractExpenses.js';
+  server/eval/voiceRealEval.js:136: const result = extractExpenses(transcript, extractOptions);
+Referenced By:
+  Code: client/src/components/VoiceExpenseEntry.jsx, shared/voice/parseCommand.js, shared/voice/sinhalaNumbers.js, server/eval/voiceEval.js, server/eval/voiceRealEval.js | Tests: server/tests/generativeNumberParser.test.js, server/tests/voiceExtract.test.js
+Tests Failing If Removed:
+  server/tests/generativeNumberParser.test.js, server/tests/voiceExtract.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 2/72] shared/voice/sinhalaNumbers.js
+Classification: KEEP-LIVE
+Size: 6.6 KB (6,709 bytes)
+Description: Deterministic Sinhala number parser: parses Sinhala number words & suffixed digits
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "sinhalaNumbers"
+Search Output (4 matches):
+  shared/voice/extractExpenses.js:24: } from './sinhalaNumbers.js';
+  server/tests/generativeNumberParser.test.js:20: } from '../../shared/voice/sinhalaNumbers.js';
+  server/tests/sinhalaNumbers.test.js:3: * shared/voice/sinhalaNumbers.js
+  server/tests/sinhalaNumbers.test.js:10: } from '../../shared/voice/sinhalaNumbers.js';
+Referenced By:
+  Code: shared/voice/extractExpenses.js | Tests: server/tests/generativeNumberParser.test.js, server/tests/sinhalaNumbers.test.js
+Tests Failing If Removed:
+  server/tests/generativeNumberParser.test.js, server/tests/sinhalaNumbers.test.js, server/tests/voiceExtract.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 3/72] shared/voice/sinhalaNumberWords.json
+Classification: KEEP-LIVE
+Size: 11.1 KB (11,353 bytes)
+Description: Lookup table of 135 Sinhala numeral word-to-value mappings with citation sources
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "sinhalaNumberWords"
+Search Output (7 matches):
+  shared/voice/extractExpenses.js:10: * Until shared/voice/sinhalaNumberWords.json is reviewed by a native speaker,
+  shared/voice/sinhalaNumbers.js:8: * Until shared/voice/sinhalaNumberWords.json is reviewed by a native speaker,
+  shared/voice/sinhalaNumbers.js:17: import sinhalaWordsData from './sinhalaNumberWords.json' with { type: 'json' };
+  server/tests/generativeNumberParser.test.js:5: *    Generates every combination of thousands (1-9, 10-14 where present in sinhalaNumberWords.json)
+  server/tests/generativeNumberParser.test.js:6: *    and hundreds (0-9) across every spelling variant in sinhalaNumberWords.json, and asserts exact values.
+  server/tests/generativeNumberParser.test.js:28: fs.readFileSync(new URL('../../shared/voice/sinhalaNumberWords.json', import.meta.url), 'utf8')
+  docs/voice-discovery.md:200: Until `shared/voice/sinhalaNumberWords.json` is reviewed and verified by a native Sinhala speaker:
+Referenced By:
+  Code: shared/voice/extractExpenses.js, shared/voice/sinhalaNumbers.js | Tests: server/tests/generativeNumberParser.test.js | Docs: docs/voice-discovery.md
+Tests Failing If Removed:
+  server/tests/generativeNumberParser.test.js, server/tests/sinhalaNumbers.test.js, server/tests/voiceExtract.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 4/72] shared/voice/keywordMap.json
+Classification: KEEP-LIVE
+Size: 13.1 KB (13,447 bytes)
+Description: Keyword dictionary mapping Sinhala and English agricultural terms to 8 canonical categories
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "keywordMap"
+Search Output (5 matches):
+  shared/voice/extractExpenses.js:18: import keywordMap from './keywordMap.json' with { type: 'json' };
+  shared/voice/extractExpenses.js:238: function identifyCategory(text, customKeywordMap = keywordMap) {
+  shared/voice/parseCommand.js:17: import keywordMap from './keywordMap.json' with { type: 'json' };
+  shared/voice/parseCommand.js:52: // Build fast term-to-category lookup from keywordMap.json
+  shared/voice/parseCommand.js:54: for (const [category, termList] of Object.entries(keywordMap)) {
+Referenced By:
+  Code: shared/voice/extractExpenses.js, shared/voice/parseCommand.js
+Tests Failing If Removed:
+  server/tests/voiceExtract.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 5/72] shared/voice/asrConfusions.json
+Classification: KEEP-LIVE
+Size: 1.5 KB (1,576 bytes)
+Description: ASR misrecognition normalization map for acoustic speech errors
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "asrConfusions"
+Search Output (2 matches):
+  shared/voice/extractExpenses.js:19: import asrConfusions from './asrConfusions.json' with { type: 'json' };
+  shared/voice/extractExpenses.js:146: for (const item of asrConfusions) {
+Referenced By:
+  Code: shared/voice/extractExpenses.js
+Tests Failing If Removed:
+  server/tests/voiceExtract.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 6/72] shared/voice/parseCommand.js
+Classification: KEEP-LIVE
+Size: 15.6 KB (15,941 bytes)
+Description: Follow-up voice/text command parser for pending expenses (add, correct, remove, query)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "parseCommand"
+Search Output (23 matches):
+  client/src/components/VoiceExpenseEntry.jsx:16: import { parseCommand } from '../../../shared/voice/parseCommand.js';
+  client/src/components/VoiceExpenseEntry.jsx:28: * - Follow-up command interpreter via parseCommand (add, correct, remove, query)
+  client/src/components/VoiceExpenseEntry.jsx:359: const command = parseCommand(transcript, pendingItems, {
+  server/tests/voiceCommand.test.js:3: * shared/voice/parseCommand.js
+  server/tests/voiceCommand.test.js:6: import { parseCommand, commandResultSchema } from '../../shared/voice/parseCommand.js';
+  server/tests/voiceCommand.test.js:8: describe('Deterministic Command Parser (parseCommand)', () => {
+  server/tests/voiceCommand.test.js:21: const result = parseCommand('Change urea to 5000', twoUreaRows);
+  server/tests/voiceCommand.test.js:30: const result = parseCommand('Change the quantity to 25', sampleRows);
+  server/tests/voiceCommand.test.js:40: const result = parseCommand('Remove pesticide', sampleRows);
+  server/tests/voiceCommand.test.js:48: const result = parseCommand('Change tractor to 5500', sampleRows);
+  server/tests/voiceCommand.test.js:58: const result = parseCommand('Change tractor quantity to 6', sampleRows);
+  server/tests/voiceCommand.test.js:68: const result = parseCommand('Change category of tractor to other', sampleRows);
+  server/tests/voiceCommand.test.js:78: const totalQuery = parseCommand('What is the total?', sampleRows);
+  server/tests/voiceCommand.test.js:82: const catQuery = parseCommand('How much on fertilizer?', sampleRows);
+  server/tests/voiceCommand.test.js:87: const countQuery = parseCommand('How many expenses?', sampleRows);
+  server/tests/voiceCommand.test.js:93: const result = parseCommand('Add 1200 for diesel', sampleRows);
+  server/tests/voiceCommand.test.js:103: const result = parseCommand('Add weedicide', sampleRows);
+  server/tests/voiceCommand.test.js:115: const result = parseCommand('1500 on seed paddy', sampleRows, { today: '2026-10-25' });
+  server/tests/voiceCommand.test.js:125: const result = parseCommand('Edit yesterday\'s saved expense in tracker', sampleRows);
+  server/tests/voiceCommand.test.js:133: const res = parseCommand('Total spend?', sampleRows);
+  server/eval/voiceCommandEval.js:3: * Evaluates parseCommand on fixtures/voice/commands.dev.json.
+  server/eval/voiceCommandEval.js:17: import { parseCommand } from '../../shared/voice/parseCommand.js';
+  server/eval/voiceCommandEval.js:50: const actual = parseCommand(cmd.text, cmd.pendingRows, { lang: cmd.language });
+Referenced By:
+  Code: client/src/components/VoiceExpenseEntry.jsx, server/eval/voiceCommandEval.js | Tests: server/tests/voiceCommand.test.js
+Tests Failing If Removed:
+  server/tests/voiceCommand.test.js, client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 7/72] client/src/components/VoiceExpenseEntry.jsx
+Classification: KEEP-LIVE
+Size: 46.5 KB (47,604 bytes)
+Description: Voice entry UI component with SpeechRecognition mic capture, transcript editing, and pending table
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "VoiceExpenseEntry"
+Search Output (10 matches):
+  client/src/pages/ExpenseForm.jsx:17: import VoiceExpenseEntry from '../components/VoiceExpenseEntry.jsx';
+  client/src/pages/ExpenseForm.jsx:584: <VoiceExpenseEntry
+  client/src/test/VoiceExpenseEntry.test.jsx:7: import VoiceExpenseEntry from '../components/VoiceExpenseEntry.jsx';
+  client/src/test/VoiceExpenseEntry.test.jsx:42: describe('VoiceExpenseEntry Component Tests (TASK V2)', () => {
+  client/src/test/VoiceExpenseEntry.test.jsx:62: <VoiceExpenseEntry
+  client/src/test/VoiceExpenseEntry.test.jsx:77: <VoiceExpenseEntry
+  client/src/test/VoiceExpenseEntry.test.jsx:7: import VoiceExpenseEntry from '../components/VoiceExpenseEntry.jsx';
+  client/src/test/VoiceExpenseEntry.test.jsx:42: describe('VoiceExpenseEntry Component Tests (TASK V2)', () => {
+  client/src/test/VoiceExpenseEntry.test.jsx:62: <VoiceExpenseEntry
+  client/src/test/VoiceExpenseEntry.test.jsx:77: <VoiceExpenseEntry
+Referenced By:
+  Code: client/src/pages/ExpenseForm.jsx | Tests: client/src/test/VoiceExpenseEntry.test.jsx
+Tests Failing If Removed:
+  client/src/test/VoiceExpenseEntry.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 8/72] client/src/test/VoiceExpenseEntry.test.jsx
+Classification: KEEP-LIVE
+Size: 20.6 KB (21,139 bytes)
+Description: Client Vitest test suite (17 tests) covering voice capture, fallback, review, and follow-up commands
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "VoiceExpenseEntry.test"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: client/src/test/VoiceExpenseEntry.test.jsx (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 9/72] server/tests/voiceExtract.test.js
+Classification: KEEP-LIVE
+Size: 23.8 KB (24,399 bytes)
+Description: Server test suite covering deterministic extractor logic, safety rules, and real ASR alternatives
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "voiceExtract.test"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: server/tests/voiceExtract.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 10/72] server/tests/voiceCommand.test.js
+Classification: KEEP-LIVE
+Size: 5.6 KB (5,698 bytes)
+Description: Server test suite covering parseCommand pure function across all follow-up command intents
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "voiceCommand.test"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: server/tests/voiceCommand.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 11/72] server/tests/sinhalaNumbers.test.js
+Classification: KEEP-LIVE
+Size: 5.4 KB (5,506 bytes)
+Description: Server unit test suite covering Sinhala number parsing, clitics, and invalid phrases
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "sinhalaNumbers.test"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: server/tests/sinhalaNumbers.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 12/72] server/tests/generativeNumberParser.test.js
+Classification: KEEP-LIVE
+Size: 8.2 KB (8,399 bytes)
+Description: Generative and near-miss test suite covering 13,570 Sinhala and 140 English number combinations
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "generativeNumberParser"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: server/tests/generativeNumberParser.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 13/72] docs/voice-discovery.md
+Classification: EVIDENCE
+Size: 18.8 KB (19,232 bytes)
+Description: Technical discovery, architecture, native speaker audit plan, and Task V5.4 changelog for voice entry
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "voice-discovery.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 14/72] server/eval/evaluate.js
+Classification: EVIDENCE
+Size: 47.4 KB (48,533 bytes)
+Description: Core evaluation harness benchmarking variance calculation, alert precision/recall, and latency
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "evaluate.js"
+Search Output (2 matches):
+  server/package.json:11: "evaluate": "node eval/evaluate.js"
+  docs/ml-feasibility.md:173: 5. [`server/eval/evaluate.js`](file:///d:/Aswanna/server/eval/evaluate.js#L42): Evaluates agreement between production and reference engines across all test scenarios.
+Referenced By:
+  Docs: docs/ml-feasibility.md | Package: server/package.json
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 15/72] server/eval/voiceEval.js
+Classification: EVIDENCE
+Size: 13.0 KB (13,263 bytes)
+Description: Voice evaluation harness running against synthetic/draft dev and heldout voice fixtures
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "voiceEval.js"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 16/72] server/eval/voiceRealEval.js
+Classification: EVIDENCE
+Size: 11.4 KB (11,639 bytes)
+Description: Evaluation harness scoring extractExpenses against real speech captured transcripts with alternatives
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "voiceRealEval.js"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 17/72] server/eval/evaluation-results.json
+Classification: EVIDENCE
+Size: 26.2 KB (26,791 bytes)
+Description: Machine-readable output report of evaluate.js run
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "evaluation-results.json"
+Search Output (2 matches):
+  server/eval/evaluate.js:7: *   2. JSON output at server/eval/evaluation-results.json
+  server/eval/evaluate.js:50: const JSON_RESULTS_PATH = path.join(__dirname, 'evaluation-results.json');
+Referenced By:
+  Code: server/eval/evaluate.js
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 18/72] docs/evaluation-report.md
+Classification: EVIDENCE
+Size: 14.1 KB (14,444 bytes)
+Description: Markdown report documenting SO3.6 offline evaluation results and benchmark metrics
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "evaluation-report.md"
+Search Output (2 matches):
+  server/eval/evaluate.js:8: *   3. Markdown report at docs/evaluation-report.md
+  server/eval/evaluate.js:49: const DOCS_REPORT_PATH = path.resolve(__dirname, '../../docs/evaluation-report.md');
+Referenced By:
+  Code: server/eval/evaluate.js
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 19/72] server/eval/fixtures/voice/dev.json
+Classification: EVIDENCE
+Size: 23.9 KB (24,500 bytes)
+Description: 38 dev set draft voice evaluation phrases with expected structured outputs
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "dev.json"
+Search Output (6 matches):
+  server/eval/voiceCommandEval.js:3: * Evaluates parseCommand on fixtures/voice/commands.dev.json.
+  server/eval/voiceCommandEval.js:23: const DEV_FILE = path.join(FIXTURES_DIR, 'commands.dev.json');
+  server/eval/voiceEval.js:3: * Evaluates extractExpenses on dev.json fixtures.
+  server/eval/voiceEval.js:250: const devPath = path.join(FIXTURES_DIR, 'dev.json');
+  server/eval/voiceEval.js:258: const devEval = evaluateDataset('Development Set (dev.json)', devPhrases);
+  docs/voice-discovery.md:231: - **2026-10-26 (Task V5.4)**: Owner decision on draft fixtures: corrected expected `quantity` and `unit` to `null` for `VP-SI-012`, `VP-SI-014`, `VP-SI-017`, and `VP-SI-022` in `server/eval/fixtures/voice/dev.json`. These four were label errors found when a silent error was diagnosed where the spoken text contained no count or unit word. No other labels were changed.
+Referenced By:
+  Code: server/eval/voiceCommandEval.js, server/eval/voiceEval.js | Docs: docs/voice-discovery.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 20/72] server/eval/fixtures/voice/heldout.json
+Classification: EVIDENCE
+Size: 93 B (93 bytes)
+Description: Placeholder fixture file reserved for native speaker / owner held-out evaluation phrases
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "heldout.json"
+Search Output (2 matches):
+  server/eval/voiceCommandEval.js:24: const HELDOUT_FILE = path.join(FIXTURES_DIR, 'commands.heldout.json');
+  server/eval/voiceEval.js:251: const heldoutPath = path.join(FIXTURES_DIR, 'heldout.json');
+Referenced By:
+  Code: server/eval/voiceCommandEval.js, server/eval/voiceEval.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 21/72] server/eval/fixtures/voice/real-asr.captured.json
+Classification: EVIDENCE
+Size: 30.1 KB (30,786 bytes)
+Description: Session 1 real captured speech dataset (24 recordings, single speaker, desktop Chrome)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "real-asr.captured.json"
+Search Output (3 matches):
+  client/src/dev/VoiceCapturePage.jsx:185: a.download = 'real-asr.captured.json';
+  server/eval/voiceRealEval.js:9: *   --file <path>    Specify custom fixture file (default: server/eval/fixtures/voice/real-asr.captured.json)
+  server/eval/voiceRealEval.js:21: const DEFAULT_CAPTURED_FILE = path.join(__dirname, 'fixtures', 'voice', 'real-asr.captured.json');
+Referenced By:
+  Code: client/src/dev/VoiceCapturePage.jsx, server/eval/voiceRealEval.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 22/72] server/eval/fixtures/voice/real-asr.repeat1.captured.json
+Classification: EVIDENCE
+Size: 30.3 KB (31,054 bytes)
+Description: Session 2 / Repeat 1 real captured speech dataset with alternatives
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "real-asr.repeat1.captured.json"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 23/72] server/eval/fixtures/voice/real-asr.take3.captured.json
+Classification: EVIDENCE
+Size: 28.9 KB (29,577 bytes)
+Description: Raw capture file from Session 3 before timestamp filtering (24 records)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "real-asr.take3.captured.json"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 24/72] server/eval/fixtures/voice/real-asr.take3.clean.json
+Classification: EVIDENCE
+Size: 23.1 KB (23,616 bytes)
+Description: Session 3 clean captured dataset filtered for timestamp > 2026-10-26T12:00:00Z (20 records)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "real-asr.take3.clean.json"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 25/72] server/eval/fixtures/voice/commands.dev.json
+Classification: EVIDENCE
+Size: 15.0 KB (15,382 bytes)
+Description: Dev set fixtures for follow-up voice command testing
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "commands.dev.json"
+Search Output (2 matches):
+  server/eval/voiceCommandEval.js:3: * Evaluates parseCommand on fixtures/voice/commands.dev.json.
+  server/eval/voiceCommandEval.js:23: const DEV_FILE = path.join(FIXTURES_DIR, 'commands.dev.json');
+Referenced By:
+  Code: server/eval/voiceCommandEval.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 26/72] server/eval/fixtures/voice/commands.heldout.json
+Classification: EVIDENCE
+Size: 95 B (95 bytes)
+Description: Held-out set placeholder for follow-up voice command evaluation
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "commands.heldout.json"
+Search Output (1 matches):
+  server/eval/voiceCommandEval.js:24: const HELDOUT_FILE = path.join(FIXTURES_DIR, 'commands.heldout.json');
+Referenced By:
+  Code: server/eval/voiceCommandEval.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 27/72] server/eval/fixtures/voice/phrases.draft.json
+Classification: EVIDENCE
+Size: 24.7 KB (25,271 bytes)
+Description: Initial draft pool of synthesized voice phrases before categorization
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "phrases.draft.json"
+Search Output (1 matches):
+  docs/voice-discovery.md:190: [`server/eval/fixtures/voice/phrases.draft.json`](file:///d:/Aswanna/server/eval/fixtures/voice/phrases.draft.json).
+Referenced By:
+  Docs: docs/voice-discovery.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 28/72] server/eval/fixtures/on_track.json
+Classification: EVIDENCE
+Size: 4.6 KB (4,727 bytes)
+Description: Ground truth synthetic cycle fixture for on-track spending scenario in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "on_track.json"
+Search Output (20 matches):
+  server/tests/evalHarness.test.js:168: 'on_track.json',
+  server/eval/evaluate.js:74: 'on_track.json',
+  server/eval/evaluation-results.json:153: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:162: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:171: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:180: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:410: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:420: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:430: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:440: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:450: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:460: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:470: "fixture": "on_track.json",
+  server/eval/evaluation-results.json:480: "fixture": "on_track.json",
+  docs/evaluation-report.md:96: - [on_track.json] Day 40 fertilizer: variance 1.39%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:97: - [on_track.json] Day 70 agrochemical: variance 1.05%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:98: - [on_track.json] Day 70 fuel: variance 1.43%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:99: - [on_track.json] Day 100 labour: variance 2.14%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/ml-feasibility.md:141: * **Synthetic evaluation fixtures**: **10** ([`server/eval/fixtures/*.json`](file:///d:/Aswanna/server/eval/fixtures/on_track.json#L1-L4), 100-day cycles with 8–10 expenses each).
+  docs/ml-feasibility.md:174: 6. [`server/eval/fixtures/*.json`](file:///d:/Aswanna/server/eval/fixtures/on_track.json#L33-L113): All 10 evaluation fixtures contain hand-computed `expectedToDate` values derived directly from the `0.70` and `0.90` breakpoints.
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md, docs/ml-feasibility.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 29/72] server/eval/fixtures/mild_overspend.json
+Classification: EVIDENCE
+Size: 3.8 KB (3,873 bytes)
+Description: Ground truth synthetic cycle fixture for mild overspending scenario in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "mild_overspend.json"
+Search Output (25 matches):
+  server/tests/evalHarness.test.js:169: 'mild_overspend.json',
+  server/eval/evaluate.js:75: 'mild_overspend.json',
+  server/eval/evaluation-results.json:189: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:198: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:207: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:216: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:225: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:326: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:335: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:344: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:353: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:490: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:500: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:510: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:520: "fixture": "mild_overspend.json",
+  server/eval/evaluation-results.json:530: "fixture": "mild_overspend.json",
+  docs/evaluation-report.md:100: - [mild_overspend.json] Day 15 seed: variance 1.43%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:101: - [mild_overspend.json] Day 40 fertilizer: variance 8.89%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:102: - [mild_overspend.json] Day 50 labour: variance 11.25%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:103: - [mild_overspend.json] Day 50 machinery: variance 12.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:104: - [mild_overspend.json] Day 60 fuel: variance 10.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:117: - [mild_overspend.json] Day 40 fertilizer: variance 8.89%, expected attention, got normal (Missed alert: variance <= 10% ignored)
+  docs/evaluation-report.md:118: - [mild_overspend.json] Day 50 labour: variance 11.25%, expected attention, got significant (Tier mismatch: flat-10 cannot differentiate attention vs significant)
+  docs/evaluation-report.md:119: - [mild_overspend.json] Day 50 machinery: variance 12.00%, expected attention, got significant (Tier mismatch: flat-10 cannot differentiate attention vs significant)
+  docs/evaluation-report.md:120: - [mild_overspend.json] Day 60 fuel: variance 10.00%, expected attention, got normal (Missed alert: variance <= 10% ignored)
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 30/72] server/eval/fixtures/significant_overspend.json
+Classification: EVIDENCE
+Size: 3.7 KB (3,773 bytes)
+Description: Ground truth synthetic cycle fixture for significant overspending scenario in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "significant_overspend.json"
+Search Output (9 matches):
+  server/tests/evalHarness.test.js:170: 'significant_overspend.json',
+  server/eval/evaluate.js:76: 'significant_overspend.json',
+  server/eval/evaluation-results.json:234: "fixture": "significant_overspend.json",
+  server/eval/evaluation-results.json:540: "fixture": "significant_overspend.json",
+  server/eval/evaluation-results.json:550: "fixture": "significant_overspend.json",
+  server/eval/evaluation-results.json:560: "fixture": "significant_overspend.json",
+  server/eval/evaluation-results.json:570: "fixture": "significant_overspend.json",
+  server/eval/evaluation-results.json:580: "fixture": "significant_overspend.json",
+  docs/evaluation-report.md:105: - [significant_overspend.json] Day 50 fuel: variance 2.00%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 31/72] server/eval/fixtures/late_season_spike.json
+Classification: EVIDENCE
+Size: 3.5 KB (3,570 bytes)
+Description: Ground truth synthetic cycle fixture for late-season expenditure spike in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "late_season_spike.json"
+Search Output (6 matches):
+  server/tests/evalHarness.test.js:171: 'late_season_spike.json',
+  server/eval/evaluate.js:77: 'late_season_spike.json',
+  server/eval/evaluation-results.json:590: "fixture": "late_season_spike.json",
+  server/eval/evaluation-results.json:600: "fixture": "late_season_spike.json",
+  server/eval/evaluation-results.json:610: "fixture": "late_season_spike.json",
+  server/eval/evaluation-results.json:620: "fixture": "late_season_spike.json",
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 32/72] server/eval/fixtures/underspend.json
+Classification: EVIDENCE
+Size: 3.2 KB (3,264 bytes)
+Description: Ground truth synthetic cycle fixture for underspending scenario in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "underspend.json"
+Search Output (6 matches):
+  server/tests/evalHarness.test.js:172: 'underspend.json',
+  server/eval/evaluate.js:78: 'underspend.json',
+  server/eval/evaluation-results.json:630: "fixture": "underspend.json",
+  server/eval/evaluation-results.json:640: "fixture": "underspend.json",
+  server/eval/evaluation-results.json:650: "fixture": "underspend.json",
+  server/eval/evaluation-results.json:660: "fixture": "underspend.json",
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 33/72] server/eval/fixtures/zero_baseline.json
+Classification: EVIDENCE
+Size: 2.9 KB (2,941 bytes)
+Description: Ground truth synthetic cycle fixture for zero baseline scenario in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "zero_baseline.json"
+Search Output (6 matches):
+  server/tests/evalHarness.test.js:173: 'zero_baseline.json',
+  server/eval/evaluate.js:79: 'zero_baseline.json',
+  server/eval/evaluation-results.json:670: "fixture": "zero_baseline.json",
+  server/eval/evaluation-results.json:680: "fixture": "zero_baseline.json",
+  server/eval/evaluation-results.json:690: "fixture": "zero_baseline.json",
+  server/eval/evaluation-results.json:700: "fixture": "zero_baseline.json",
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 34/72] server/eval/fixtures/drift_volatile.json
+Classification: EVIDENCE
+Size: 3.4 KB (3,484 bytes)
+Description: Ground truth synthetic cycle fixture for volatile spending drift in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "drift_volatile.json"
+Search Output (17 matches):
+  server/tests/evalHarness.test.js:174: 'drift_volatile.json',
+  server/eval/evaluate.js:80: 'drift_volatile.json',
+  server/eval/evaluation-results.json:243: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:252: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:261: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:362: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:371: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:380: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:710: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:720: "fixture": "drift_volatile.json",
+  server/eval/evaluation-results.json:730: "fixture": "drift_volatile.json",
+  docs/evaluation-report.md:106: - [drift_volatile.json] Day 40 fertilizer: variance 9.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:107: - [drift_volatile.json] Day 50 fuel: variance 9.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:108: - [drift_volatile.json] Day 70 fuel: variance 10.71%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:121: - [drift_volatile.json] Day 40 fertilizer: variance 9.00%, expected attention, got normal (Missed alert: variance <= 10% ignored)
+  docs/evaluation-report.md:122: - [drift_volatile.json] Day 50 fuel: variance 9.00%, expected attention, got normal (Missed alert: variance <= 10% ignored)
+  docs/evaluation-report.md:123: - [drift_volatile.json] Day 70 fuel: variance 10.71%, expected attention, got significant (Tier mismatch: flat-10 cannot differentiate attention vs significant)
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 35/72] server/eval/fixtures/drift_stable.json
+Classification: EVIDENCE
+Size: 2.8 KB (2,862 bytes)
+Description: Ground truth synthetic cycle fixture for stable spending drift in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "drift_stable.json"
+Search Output (8 matches):
+  server/tests/evalHarness.test.js:175: 'drift_stable.json',
+  server/eval/evaluate.js:81: 'drift_stable.json',
+  server/eval/evaluation-results.json:270: "fixture": "drift_stable.json",
+  server/eval/evaluation-results.json:279: "fixture": "drift_stable.json",
+  server/eval/evaluation-results.json:740: "fixture": "drift_stable.json",
+  server/eval/evaluation-results.json:750: "fixture": "drift_stable.json",
+  docs/evaluation-report.md:109: - [drift_stable.json] Day 50 labour: variance 8.00%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:110: - [drift_stable.json] Day 60 machinery: variance 8.00%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 36/72] server/eval/fixtures/exact_boundaries.json
+Classification: EVIDENCE
+Size: 3.8 KB (3,906 bytes)
+Description: Ground truth synthetic cycle fixture testing exact threshold boundaries in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "exact_boundaries.json"
+Search Output (18 matches):
+  server/tests/evalHarness.test.js:176: 'exact_boundaries.json',
+  server/eval/evaluate.js:82: 'exact_boundaries.json',
+  server/eval/evaluation-results.json:288: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:297: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:306: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:315: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:389: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:398: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:760: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:770: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:780: "fixture": "exact_boundaries.json",
+  server/eval/evaluation-results.json:790: "fixture": "exact_boundaries.json",
+  docs/evaluation-report.md:111: - [exact_boundaries.json] Day 15 seed: variance 7.00%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:112: - [exact_boundaries.json] Day 50 labour: variance 10.00%, expected normal, got significant (False alarm: alerted on minor/normal variance)
+  docs/evaluation-report.md:113: - [exact_boundaries.json] Day 40 fertilizer: variance 12.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:114: - [exact_boundaries.json] Day 50 machinery: variance 15.00%, expected attention, got significant (Tier mismatch: binary baseline cannot differentiate attention vs significant)
+  docs/evaluation-report.md:124: - [exact_boundaries.json] Day 40 fertilizer: variance 12.00%, expected attention, got significant (Tier mismatch: flat-10 cannot differentiate attention vs significant)
+  docs/evaluation-report.md:125: - [exact_boundaries.json] Day 50 machinery: variance 15.00%, expected attention, got significant (Tier mismatch: flat-10 cannot differentiate attention vs significant)
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 37/72] server/eval/fixtures/temporary_spike_resolving.json
+Classification: EVIDENCE
+Size: 3.3 KB (3,393 bytes)
+Description: Ground truth synthetic cycle fixture for transient expenditure spike in evaluate.js
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "temporary_spike_resolving.json"
+Search Output (5 matches):
+  server/tests/evalHarness.test.js:177: 'temporary_spike_resolving.json',
+  server/eval/evaluate.js:83: 'temporary_spike_resolving.json',
+  server/eval/evaluation-results.json:800: "fixture": "temporary_spike_resolving.json",
+  server/eval/evaluation-results.json:810: "fixture": "temporary_spike_resolving.json",
+  server/eval/evaluation-results.json:820: "fixture": "temporary_spike_resolving.json",
+Referenced By:
+  Code: server/eval/evaluate.js, server/eval/evaluation-results.json | Tests: server/tests/evalHarness.test.js
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 38/72] server/tests/evalHarness.test.js
+Classification: KEEP-LIVE
+Size: 11.8 KB (12,099 bytes)
+Description: Test verifying that offline evaluation harness runs and produces valid metric output
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "evalHarness.test"
+Search Output (1 matches):
+  docs/ml-feasibility.md:177: 8. [`server/tests/evalHarness.test.js`](file:///d:/Aswanna/server/tests/evalHarness.test.js#L240-L260): Tests monotonicity and bounds of `refPhasingFor`.
+Referenced By:
+  Docs: docs/ml-feasibility.md
+Tests Failing If Removed:
+  The test suite itself: server/tests/evalHarness.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 39/72] server/src/routes/forecast.js
+Classification: FROZEN-FEATURE
+Size: 1.3 KB (1,352 bytes)
+Description: Express route providing GET /api/cycles/:id/forecast (behind feature flag)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "routes/forecast"
+Search Output (1 matches):
+  server/src/app.js:25: import forecastRoutes from './routes/forecast.js';
+Referenced By:
+  Code: server/src/app.js
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 40/72] server/src/services/forecastService.js
+Classification: FROZEN-FEATURE
+Size: 13.2 KB (13,490 bytes)
+Description: Forecast computation service implementing Bayesian prior, conformal quantiles, and historical drift
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "forecastService"
+Search Output (4 matches):
+  server/src/routes/forecast.js:14: import { computeForecastForCycle } from '../services/forecastService.js';
+  server/tests/forecast.test.js:33: } from '../src/services/forecastService.js';
+  docs/forecast.md:61: 1. **Zero Python at Runtime**: The server forecasting service (`server/src/services/forecastService.js`) is written in 100% pure JavaScript. It evaluates piecewise-linear curve interpolation, share weighting, and conformal quantiles in sub-millisecond execution time without invoking Python subprocesses.
+  docs/forecast.md:75: C -->|FORECAST_MODE=learned| D[server/src/services/forecastService.js]
+Referenced By:
+  Code: server/src/routes/forecast.js | Tests: server/tests/forecast.test.js | Docs: docs/forecast.md
+Tests Failing If Removed:
+  server/tests/forecast.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 41/72] server/tests/forecast.test.js
+Classification: KEEP-LIVE
+Size: 21.4 KB (21,920 bytes)
+Description: Test suite for forecasting engine, prior blending, conformal intervals, and mock phasing
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "forecast.test"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  The test suite itself: server/tests/forecast.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 42/72] shared/phasing.js
+Classification: FROZEN-FEATURE
+Size: 3.0 KB (3,034 bytes)
+Description: Pure mathematical functions for Beta-PERT and S-curve cumulative phasing calculations
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "phasing.js"
+Search Output (15 matches):
+  shared/variance.js:20: import { phasingFor } from './phasing.js';
+  server/tests/phase3.test.js:20: import { phasingFor } from '../../shared/phasing.js';
+  server/eval/evaluate.js:854: Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data.
+  server/eval/evaluate.js:861: 2. **Placeholder Phasing Curves**: Phasing curves in \`shared/phasing.js\` are currently based on standard front-loaded and linear approximations. Official Department of Agriculture stage-wise cost distribution schedules should replace these curves prior to production deployment.
+  docs/evaluation-report.md:183: Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data.
+  docs/evaluation-report.md:190: 2. **Placeholder Phasing Curves**: Phasing curves in `shared/phasing.js` are currently based on standard front-loaded and linear approximations. Official Department of Agriculture stage-wise cost distribution schedules should replace these curves prior to production deployment.
+  docs/forecast.md:5: > Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data.
+  docs/ml-feasibility.md:22: * **Current Phasing Implementation**: Hard-coded piecewise-linear interpolation in [`shared/phasing.js`](file:///d:/Aswanna/shared/phasing.js#L21-L35). Tightly coupled to variance calculation, tiered alerts, and offline evaluation harnesses. Modifying these curves without updating fixtures and reference engines immediately breaks evaluation parity.
+  docs/ml-feasibility.md:158: Phasing curves are defined in [`shared/phasing.js`](file:///d:/Aswanna/shared/phasing.js#L21-L47):
+  docs/ml-feasibility.md:184: * **Reference Engine Desynchronization**: If `shared/phasing.js` is changed without synchronizing `server/eval/referenceEngine.js`, the verification harness flags regression errors.
+  docs/ml-feasibility.md:197: To develop learned curves and overspend forecasters prior to full field deployment, build a **discrete-event synthetic farm simulator** independent of `shared/phasing.js`:
+  docs/ml-phasing-prior.md:20: Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data. End-of-season cost prediction belongs to SO1 and is explicitly out of scope for SO3.
+  docs/ml-phasing-prior.md:22: The production SO3 engine currently tracks cumulative spend against normalized cycle progress $\tau = t / T \in [0, 1]$ using hardcoded piecewise-linear placeholder curves in [`shared/phasing.js`](file:///D:/Aswanna/shared/phasing.js). This document reports the audit, calibration, and sensitivity analysis of empirical phasing priors derived from **7,592 raw operation cost records** extracted from 33 Department of Agriculture (DoA) Cost of Cultivation (COC) survey workbooks (19 seasons, 2014–2025).
+  docs/ml-simulator.md:12: The purpose of [`DailySpendSimulator`](file:///D:/Aswanna/ml/src/simulator/generator.py) is to generate high-fidelity, daily-resolution financial cultivation streams. Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data. End-of-season cost prediction belongs to SO1 and is not an SO3 deliverable.
+  docs/open-questions.md:70: * **Current Implementation** (`shared/phasing.js`):
+Referenced By:
+  Code: shared/variance.js, server/eval/evaluate.js | Tests: server/tests/phase3.test.js | Docs: docs/evaluation-report.md, docs/forecast.md, docs/ml-feasibility.md, docs/ml-phasing-prior.md, docs/ml-simulator.md, docs/open-questions.md
+Tests Failing If Removed:
+  server/tests/phase3.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 43/72] shared/config/phasingPriors.json
+Classification: FROZEN-FEATURE
+Size: 41.8 KB (42,852 bytes)
+Description: Prior distribution parameters for S-curve phasing across crop types
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "phasingPriors"
+Search Output (6 matches):
+  server/src/services/forecastService.js:35: const phasingPriorsPath = path.join(sharedConfigDir, 'phasingPriors.json');
+  server/src/services/forecastService.js:39: let phasingPriorsData = null;
+  server/src/services/forecastService.js:43: if (!phasingPriorsData && fs.existsSync(phasingPriorsPath)) {
+  server/src/services/forecastService.js:44: phasingPriorsData = JSON.parse(fs.readFileSync(phasingPriorsPath, 'utf8'));
+  server/src/services/forecastService.js:46: return phasingPriorsData;
+  server/tests/forecast.test.js:46: const priorsConfig = JSON.parse(fs.readFileSync(path.join(sharedConfigDir, 'phasingPriors.json'), 'utf8'));
+Referenced By:
+  Code: server/src/services/forecastService.js | Tests: server/tests/forecast.test.js
+Tests Failing If Removed:
+  server/tests/forecast.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 44/72] shared/config/conformalQuantiles.json
+Classification: FROZEN-FEATURE
+Size: 739 B (739 bytes)
+Description: Calibrated nonconformity quantiles for prediction interval bands
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "conformalQuantiles"
+Search Output (6 matches):
+  server/src/services/forecastService.js:36: const conformalQuantilesPath = path.join(sharedConfigDir, 'conformalQuantiles.json');
+  server/src/services/forecastService.js:40: let conformalQuantilesData = null;
+  server/src/services/forecastService.js:50: if (!conformalQuantilesData && fs.existsSync(conformalQuantilesPath)) {
+  server/src/services/forecastService.js:51: conformalQuantilesData = JSON.parse(fs.readFileSync(conformalQuantilesPath, 'utf8'));
+  server/src/services/forecastService.js:53: return conformalQuantilesData;
+  server/tests/forecast.test.js:47: const conformalConfig = JSON.parse(fs.readFileSync(path.join(sharedConfigDir, 'conformalQuantiles.json'), 'utf8'));
+Referenced By:
+  Code: server/src/services/forecastService.js | Tests: server/tests/forecast.test.js
+Tests Failing If Removed:
+  server/tests/forecast.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 45/72] shared/config/so1Mapping.js
+Classification: KEEP-LIVE
+Size: 2.5 KB (2,572 bytes)
+Description: SO1 Cultivation Cost prediction configuration, crop aliases, and category mapping
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "so1Mapping"
+Search Output (21 matches):
+  server/src/services/forecastService.js:19: import { SO1_CROP_ALIASES } from '../../../shared/config/so1Mapping.js';
+  server/src/services/recommendationService.js:5: import { SO1_CONFIG } from '../../../shared/config/so1Mapping.js';
+  server/src/services/recommendationService.js:56: // Must NOT be cached for more than a short TTL (default 30s, configurable via shared/config/so1Mapping.js)
+  server/src/services/so1Adapter.js:15: } from '../../../shared/config/so1Mapping.js';
+  shared/voice/keywordMap.json:4: { "term": "seed", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:5: { "term": "seeds", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:16: { "term": "fertilizer", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:31: { "term": "agrochemical", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:32: { "term": "agrochemicals", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:51: { "term": "labour", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:52: { "term": "labor", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:79: { "term": "machinery", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:80: { "term": "machine", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:98: { "term": "fuel", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  shared/voice/keywordMap.json:106: { "term": "irrigation", "lang": "en", "source": "shared/config/so1Mapping.js" },
+  server/tests/so1Contract.test.js:10: import { SO3_CATEGORIES, SO1_CROP_ALIASES } from '../../shared/config/so1Mapping.js';
+  server/tests/so1RealIntegration.test.js:11: import { SO1_CONFIG } from '../../shared/config/so1Mapping.js';
+  docs/open-questions.md:85: * **Current Implementation** (`shared/config/so1Mapping.js`):
+  docs/open-questions.md:144: * **Current Implementation** (`shared/config/so1Mapping.js`):
+  docs/open-questions.md:152: * **Current Implementation** (`shared/config/so1Mapping.js`):
+  docs/voice-discovery.md:44: The SO3 variance engine (`shared/variance.js`), alert service (`server/src/services/alertService.js`), and SO1 baseline mapping (`shared/config/so1Mapping.js`) strictly operate on **8 canonical categories**:
+Referenced By:
+  Code: server/src/services/forecastService.js, server/src/services/recommendationService.js, server/src/services/so1Adapter.js, shared/voice/keywordMap.json | Tests: server/tests/so1Contract.test.js, server/tests/so1RealIntegration.test.js | Docs: docs/open-questions.md, docs/voice-discovery.md
+Tests Failing If Removed:
+  server/tests/so1Contract.test.js, server/tests/so1RealIntegration.test.js, server/tests/validationMatrix.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 46/72] docs/forecast.md
+Classification: EVIDENCE
+Size: 7.0 KB (7,149 bytes)
+Description: Specification and user manual for cycle expenditure forecasting
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "forecast.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 47/72] docs/ml-feasibility.md
+Classification: EVIDENCE
+Size: 20.5 KB (21,034 bytes)
+Description: Feasibility study on ML-based expenditure prediction and forecasting
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ml-feasibility.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 48/72] docs/ml-forecast-evaluation.md
+Classification: EVIDENCE
+Size: 29.9 KB (30,592 bytes)
+Description: Evaluation report on ML forecasting models against synthetic and historical data
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ml-forecast-evaluation.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 49/72] docs/ml-phasing-prior.md
+Classification: EVIDENCE
+Size: 18.3 KB (18,753 bytes)
+Description: Research and formulation documentation for phasing priors
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ml-phasing-prior.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 50/72] docs/ml-simulator.md
+Classification: EVIDENCE
+Size: 5.7 KB (5,793 bytes)
+Description: Documentation describing the ML simulator and synthetic cycle generator
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ml-simulator.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 51/72] ml
+Classification: FROZEN-FEATURE
+Size: 406.0 MB (15102 files)
+Description: Directory containing Python ML training scripts, data pipeline, models, and virtual environment
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ml/"
+Search Output (21 matches):
+  shared/config/phasingPriors.json:4: "generating_script": "ml/src/build_phasing_priors.py",
+  shared/validation/validators.js:19: const htmlRegex = /<\s*(\/)?\s*[a-zA-Z][^>]*>|<\s*script[\s\S]*?>|javascript:\s*|data:\s*text\/html/i;
+  server/tests/forecast.test.js:316: // Exact outputs generated by ml/src/models/survey_prior.py and shrinkage_prior.py
+  docs/api.md:470: Used to dump closed cycle histories for empirical shrinkage curve fitting (`ml/src/fit_from_export.py`).
+  docs/api.md:471: File location: `ml/data/derived/exported_cycles.json`.
+  docs/forecast.md:73: A[MongoDB Closed Cycles] -->|server/scripts/exportCycles.js| B[ml/data/derived/exported_cycles.json]
+  docs/forecast.md:74: B -->|ml/src/fit_from_export.py| C[shared/config/learnedPhasing.json]
+  docs/forecast.md:80: node server/scripts/exportCycles.js --out ml/data/derived/exported_cycles.json
+  docs/forecast.md:84: python ml/src/fit_from_export.py --input ml/data/derived/exported_cycles.json --output shared/config/learnedPhasing.json
+  docs/ml-forecast-evaluation.md:8: **Evaluation Script**: [`ml/src/evaluate.py`](file:///D:/Aswanna/ml/src/evaluate.py)
+  docs/ml-forecast-evaluation.md:82: Disjointness is formally verified by `test_cv_val_calibration_test_disjointness` in [`ml/tests/test_forecast_models.py`](file:///D:/Aswanna/ml/tests/test_forecast_models.py):
+  docs/ml-forecast-evaluation.md:178: ![Learning Curves Across S1, S2, S3](file:///D:/Aswanna/ml/artifacts/plots/learning_curve_rmse_mape.png)
+  docs/ml-forecast-evaluation.md:310: * **Reconciliation Audit (October 2026)**: Disclosed and resolved an earlier discrepancy where per-$\tau$ tables in appendix sections recorded values from an initial single-seed run (`seed_idx == 1`, reporting S1 average of $8.83\%$ and S2 average of $7.93\%$) while the headline learning curves reported the 30-seed aggregate mean ($7.67\%$ and $8.04\%$). The evaluation script (`ml/src/evaluate.py`) was updated to record the full 30-seed aggregate across all per-$\tau$ bins. All tables were regenerated from a unified 30-seed run with an automated verification assertion ensuring arithmetic per-$\tau$ means match the headline $n=300$ learning-curve values to within $0.0000$ percentage points.
+  docs/ml-phasing-prior.md:6: **Artifact Version**: `v0.2.0` ([`ml/artifacts/phasing_priors_v0.json`](file:///D:/Aswanna/ml/artifacts/phasing_priors_v0.json))
+  docs/ml-phasing-prior.md:7: **Generating Script**: [`ml/src/build_phasing_priors.py`](file:///D:/Aswanna/ml/src/build_phasing_priors.py)
+  docs/ml-phasing-prior.md:76: In [`ml/src/build_config.py`](file:///D:/Aswanna/ml/src/build_config.py) and [`ml/src/build_phasing_priors.py`](file:///D:/Aswanna/ml/src/build_phasing_priors.py):
+  docs/ml-phasing-prior.md:111: In accordance with Section 4 and Section 5 of the audit specification, every crop-category curve in [`ml/artifacts/phasing_priors_v0.json`](file:///D:/Aswanna/ml/artifacts/phasing_priors_v0.json) is explicitly tagged:
+  docs/ml-phasing-prior.md:220: The test suite in [`ml/tests/test_phasing_priors.py`](file:///D:/Aswanna/ml/tests/test_phasing_priors.py) verifies:
+  docs/ml-simulator.md:4: **Implementation**: [`ml/src/simulator/generator.py`](file:///D:/Aswanna/ml/src/simulator/generator.py)
+  docs/ml-simulator.md:12: The purpose of [`DailySpendSimulator`](file:///D:/Aswanna/ml/src/simulator/generator.py) is to generate high-fidelity, daily-resolution financial cultivation streams. Exploratory phasing-prior research track. Evaluated on simulated data only (0 real cycles). Not wired into the live variance engine, which uses shared/phasing.js. Candidate for future integration behind a flag after validation on real DoA cycle data. End-of-season cost prediction belongs to SO1 and is not an SO3 deliverable.
+  docs/ml-simulator.md:16: * The simulator **does not import** the survey prior generator ([`ml/src/build_phasing_priors.py`](file:///D:/Aswanna/ml/src/build_phasing_priors.py)).
+Referenced By:
+  Code: shared/config/phasingPriors.json, shared/validation/validators.js | Tests: server/tests/forecast.test.js | Docs: docs/api.md, docs/forecast.md, docs/ml-forecast-evaluation.md, docs/ml-phasing-prior.md, docs/ml-simulator.md
+Tests Failing If Removed:
+  server/tests/forecast.test.js
+
+--------------------------------------------------------------------------------
+[ITEM 52/72] docs/receipt-reader-design.md
+Classification: EVIDENCE
+Size: 14.6 KB (14,972 bytes)
+Description: Technical design document for optical/LLM receipt extraction pipeline
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "receipt-reader-design.md"
+Search Output (2 matches):
+  docs/ml-feasibility.md:131: * No receipt transaction streams exist; [`docs/receipt-reader-design.md`](file:///d:/Aswanna/docs/receipt-reader-design.md#L230-L233) describes an auxiliary OCR pipeline that auto-purges raw images after 7 days without creating persistent longitudinal datasets.
+  docs/open-questions.md:227: * **Current Implementation** (`docs/receipt-reader-design.md` & `shared/receipt/schema.js`):
+Referenced By:
+  Docs: docs/ml-feasibility.md, docs/open-questions.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 53/72] shared/receipt/schema.js
+Classification: FROZEN-FEATURE
+Size: 11.4 KB (11,702 bytes)
+Description: Zod schemas defining structured receipt extraction items and store metadata
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "receipt/schema"
+Search Output (4 matches):
+  docs/open-questions.md:227: * **Current Implementation** (`docs/receipt-reader-design.md` & `shared/receipt/schema.js`):
+  docs/receipt-reader-design.md:65: Adapter -->|"6. Sanitize against shared/receipt/schema.js"| NodeServer
+  docs/receipt-reader-design.md:79: ## 4. Extraction Output Contract (`shared/receipt/schema.js`)
+  docs/receipt-reader-design.md:185: * **Validation**: Passes raw AI output through `validateReceiptExtraction()` from `shared/receipt/schema.js`.
+Referenced By:
+  Docs: docs/open-questions.md, docs/receipt-reader-design.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 54/72] so1-service
+Classification: FROZEN-FEATURE
+Size: 384.9 MB (13599 files)
+Description: Stand-alone FastAPI service wrapping DoA Cost of Cultivation models
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "so1-service"
+Search Output (3 matches):
+  docs/open-questions.md:81: The application interfaces with the teammate's SO1 Cost Prediction Service (`D:\Aswanna\so1-service` / `Profit Folder\COC folder`, ExtraTrees champion model) to obtain baseline cost predictions per cultivation cycle. The integration adapter (`server/src/services/so1Adapter.js`) makes several critical assumptions that require confirmation with the SO1 lead and agronomy experts:
+  docs/ranking.md:106: - The SO1 machine learning service (`so1-service`) predicts solely the nominal cost of cultivation per acre (LKR/acre) and its 80% prediction interval.
+  docs/so1-integration.md:4: **Component:** SO1 Predictive Cost Estimator (`so1-service` on `http://127.0.0.1:8000`)
+Referenced By:
+  Docs: docs/open-questions.md, docs/ranking.md, docs/so1-integration.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 55/72] Profit Folder
+Classification: UNREFERENCED
+Size: 915.7 MB (45437 files)
+Description: Exploratory legacy profit estimation and price prediction scripts and models
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "Profit Folder"
+Search Output (12 matches):
+  docs/ml-feasibility.md:30: Located at [`Profit Folder/COC folder/data/processed`](file:///d:/Aswanna/Profit%20Folder/COC%20folder/data/processed):
+  docs/ml-feasibility.md:53: Located at [`Profit Folder/COC folder/data/raw_surveys`](file:///d:/Aswanna/Profit%20Folder/COC%20folder/data/raw_surveys):
+  docs/ml-feasibility.md:77: Located at [`Profit Folder/COC folder/research_experiments`](file:///d:/Aswanna/Profit%20Folder/COC%20folder/research_experiments):
+  docs/ml-forecast-evaluation.md:300: * **Paddy**: $26.40\%$ basal share calculated empirically from `Profit Folder/COC folder/coc_model_ready.csv`.
+  docs/ml-forecast-evaluation.md:301: * **Maize**: $15.40\%$ basal share calculated empirically from `Profit Folder/COC folder/coc_model_ready.csv` ($N=5$).
+  docs/ml-forecast-evaluation.md:304: * **Survey Workbook Operations**: Parsed operations in `operation_costs.csv` derive strictly from local Excel workbooks on disk (`Profit Folder/COC folder/data/raw_surveys/`).
+  docs/ml-phasing-prior.md:71: Empirical audit of the processed survey dataset ([`Profit Folder/COC folder/data/processed/coc_model_ready.csv`](file:///D:/Aswanna/Profit%20Folder/COC%20folder/data/processed/coc_model_ready.csv)) confirms the actual cost breakdown:
+  docs/open-questions.md:81: The application interfaces with the teammate's SO1 Cost Prediction Service (`D:\Aswanna\so1-service` / `Profit Folder\COC folder`, ExtraTrees champion model) to obtain baseline cost predictions per cultivation cycle. The integration adapter (`server/src/services/so1Adapter.js`) makes several critical assumptions that require confirmation with the SO1 lead and agronomy experts:
+  docs/so1-discovery.md:4: **Target Component:** Teammate SO1 Cost of Cultivation Engine (`D:\Aswanna\Profit Folder\COC folder\`)
+  docs/so1-discovery.md:6: **Note on Scope Boundaries:** Per path correction, the SO1 cost engine resides exclusively in `D:\Aswanna\Profit Folder\COC folder\`. Other directories in `Profit Folder` (`Price folder` for vegetable prices and `profit_engine` for multi-engine farmer advisory) are out-of-scope and strictly ignored.
+  docs/so1-discovery.md:29: | **How to Start** | Run via Uvicorn CLI or Python directly from `D:\Aswanna\Profit Folder\COC folder\`:<br>`uvicorn prediction_api:app --reload --port 8000`<br>Or:<br>`python prediction_api.py` | `COC folder\README_API.md:26`<br>`COC folder\prediction_api.py:850-852` |
+  docs/so1-discovery.md:38: As determined by filesystem scan of `D:\Aswanna\Profit Folder\COC folder\`:
+Referenced By:
+  Docs: docs/ml-feasibility.md, docs/ml-forecast-evaluation.md, docs/ml-phasing-prior.md, docs/open-questions.md, docs/so1-discovery.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 56/72] server/scripts/exportCycles.js
+Classification: UNREFERENCED
+Size: 4.6 KB (4,738 bytes)
+Description: One-off utility script to export cycle documents into JSON fixtures
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "exportCycles.js"
+Search Output (3 matches):
+  docs/api.md:468: ### ML Cycle Export Schema (`server/scripts/exportCycles.js`)
+  docs/forecast.md:73: A[MongoDB Closed Cycles] -->|server/scripts/exportCycles.js| B[ml/data/derived/exported_cycles.json]
+  docs/forecast.md:80: node server/scripts/exportCycles.js --out ml/data/derived/exported_cycles.json
+Referenced By:
+  Docs: docs/api.md, docs/forecast.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 57/72] server/test_output.txt
+Classification: UNREFERENCED
+Size: 1.8 KB (1,838 bytes)
+Description: Old scratch text file containing raw Jest test console output from Phase 3
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "test_output.txt"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 58/72] shared/ranking.js
+Classification: KEEP-LIVE
+Size: 3.0 KB (3,088 bytes)
+Description: Ranking algorithm implementation for recommendation scoring
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ranking.js"
+Search Output (8 matches):
+  server/src/services/recommendationService.js:2: import { computeCropRanking } from '../../../shared/ranking.js';
+  server/tests/evalHarness.test.js:18: import { computeCropRanking } from '../../shared/ranking.js';
+  server/tests/recommendation.test.js:8: import { computeCropRanking } from '../../shared/ranking.js';
+  server/tests/recommendation.test.js:53: describe('Pure Ranking Function (shared/ranking.js)', () => {
+  server/eval/evaluate.js:38: import { computeCropRanking } from '../../shared/ranking.js';
+  docs/open-questions.md:166: * **Current Implementation** (`server/src/services/recommendationService.js` & `shared/ranking.js`):
+  docs/open-questions.md:184: * **Current Implementation** (`recommendationService.js` & `shared/ranking.js`):
+  docs/ranking.md:3: This document details the multi-criteria ranking algorithm, configuration values, and the mathematical formula used in the **Aswanna Crop Recommendation System** (`shared/ranking.js` and `/crop-recommendation`).
+Referenced By:
+  Code: server/src/services/recommendationService.js, server/eval/evaluate.js | Tests: server/tests/evalHarness.test.js, server/tests/recommendation.test.js | Docs: docs/open-questions.md, docs/ranking.md
+Tests Failing If Removed:
+  server/tests/evalHarness.test.js, server/tests/recommendation.test.js, server/tests/phase3.test.js, client/src/test/CropRecommendation.test.jsx
+
+--------------------------------------------------------------------------------
+[ITEM 59/72] docs/ranking.md
+Classification: EVIDENCE
+Size: 5.9 KB (6,077 bytes)
+Description: Design documentation for ranking algorithm and multi-criteria scoring
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "ranking.md"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 60/72] docs/open-questions.md
+Classification: EVIDENCE
+Size: 20.5 KB (21,041 bytes)
+Description: Documentation of unresolved design questions and architectural trade-offs
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "open-questions.md"
+Search Output (1 matches):
+  docs/ml-feasibility.md:132: * In [`docs/open-questions.md`](file:///d:/Aswanna/docs/open-questions.md#L243), item **Q-03** (*"Handwritten annotation transcription"*) remains marked `In Review` with the field team.
+Referenced By:
+  Docs: docs/ml-feasibility.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 61/72] docs/sus-questionnaire.md
+Classification: EVIDENCE
+Size: 5.5 KB (5,624 bytes)
+Description: System Usability Scale (SUS) questionnaire for farmer usability evaluation
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "sus-questionnaire.md"
+Search Output (2 matches):
+  server/eval/evaluate.js:845: The formal usability evaluation template is documented in [docs/sus-questionnaire.md](file:///d:/Aswanna/docs/sus-questionnaire.md). It includes:
+  docs/evaluation-report.md:174: The formal usability evaluation template is documented in [docs/sus-questionnaire.md](file:///d:/Aswanna/docs/sus-questionnaire.md). It includes:
+Referenced By:
+  Code: server/eval/evaluate.js | Docs: docs/evaluation-report.md
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 62/72] server/tests/phase3.test.js
+Classification: KEEP-LIVE
+Size: 19.4 KB (19,901 bytes)
+Description: Phase 3 legacy test suite covering CRUD endpoints and mock baseline integration
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "phase3.test"
+Search Output (2 matches):
+  docs/ml-feasibility.md:175: 7. [`server/tests/phase3.test.js`](file:///d:/Aswanna/server/tests/phase3.test.js#L38-L42): Unit test asserting exact values:
+  docs/ml-feasibility.md:182: * **Unit Test Failures**: `server/tests/phase3.test.js` fails on lines 39–42.
+Referenced By:
+  Docs: docs/ml-feasibility.md
+Tests Failing If Removed:
+  The test suite itself: server/tests/phase3.test.js (all tests in file would not execute)
+
+--------------------------------------------------------------------------------
+[ITEM 63/72] D:/Aswanna_freeze_voice
+Classification: EVIDENCE
+Size: 171.8 KB (12 files)
+Description: Preserved snapshot of voice code and fixtures prior to Task V6 evaluation
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "Aswanna_freeze_voice"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 64/72] D:/Aswanna_backup_before_cleanup.zip
+Classification: EVIDENCE
+Size: 720.6 MB (755,646,160 bytes)
+Description: Full repository backup archive taken before cleanup inventory
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "Aswanna_backup_before_cleanup.zip"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 65/72] logs
+Classification: EVIDENCE
+Size: 1.5 MB (84 files)
+Description: Directory containing all execution verification logs, evaluation reports, and hash records
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "logs/"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 66/72] temp
+Classification: UNREFERENCED
+Size: 1.39 GB (3694 files)
+Description: Temporary scratch directory containing ephemeral test execution files and process locks
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "temp/"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 67/72] server/temp
+Classification: UNREFERENCED
+Size: 1.19 GB (204 files)
+Description: Server-side WiredTiger temporary MongoDB storage used during Jest memory database tests
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "server/temp"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 68/72] client/temp
+Classification: UNREFERENCED
+Size: 302.8 MB (92 files)
+Description: Client-side temporary dev-db storage
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "client/temp"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 69/72] test-results
+Classification: UNREFERENCED
+Size: 45 B (1 files)
+Description: Directory containing Playwright and test runner cache artifacts (.last-run.json)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "test-results"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 70/72] client/test-results
+Classification: UNREFERENCED
+Size: 45 B (1 files)
+Description: Client-side test results cache artifacts (.last-run.json)
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern "client/test-results"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+
+--------------------------------------------------------------------------------
+[ITEM 71/72] .mongo-cache
+Classification: KEEP-LIVE
+Size: 62.0 MB (4 files)
+Description: Cached downloaded MongoDB binaries used by mongodb-memory-server in tests
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern ".mongo-cache"
+Search Output (3 matches):
+  server/src/index.js:21: binary: { version: '7.0.14', downloadDir: 'd:/Aswanna/.mongo-cache' },
+  server/tests/setup.js:11: downloadDir: 'd:/Aswanna/.mongo-cache'
+  server/eval/evaluate.js:438: downloadDir: 'd:/Aswanna/.mongo-cache',
+Referenced By:
+  Code: server/src/index.js, server/eval/evaluate.js | Tests: server/tests/setup.js
+Tests Failing If Removed:
+  All server tests using mongodb-memory-server would fail if offline (cannot download mongod binary)
+
+--------------------------------------------------------------------------------
+[ITEM 72/72] .pytest_cache
+Classification: UNREFERENCED
+Size: 2.6 KB (5 files)
+Description: Pytest cache directory in workspace root from python test runs
+Search Command:
+  Get-ChildItem -Path server\src, client\src, shared, server\tests, client\src\test, server\eval, docs, package.json -Recurse -File | Select-String -Pattern ".pytest_cache"
+Search Output (0 matches):
+  (no matches found in codebase)
+Referenced By:
+  None (0 references found)
+Tests Failing If Removed:
+  None (not imported by any active test suite)
+

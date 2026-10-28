@@ -1,0 +1,82 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "mild_overspend",
+  "description": "Synthetic 100-day cycle with moderate overspending in both volatile and stable categories. Tests attention tier activation and single-threshold boundary divergences.",
+  "cycle": {
+    "crop": "Maize",
+    "district": "Anuradhapura",
+    "season": "Maha",
+    "cycleLength": 100,
+    "startDate": "2026-05-01",
+    "endDate": "2026-08-09"
+  },
+  "baselines": {
+    "seed": { "expected": 20000, "low": 18000, "high": 22000 },
+    "fertilizer": { "expected": 50000, "low": 45000, "high": 55000 },
+    "agrochemical": { "expected": 25000, "low": 22500, "high": 27500 },
+    "fuel": { "expected": 30000, "low": 27000, "high": 33000 },
+    "labour": { "expected": 80000, "low": 72000, "high": 88000 },
+    "machinery": { "expected": 60000, "low": 54000, "high": 66000 },
+    "irrigation": { "expected": 20000, "low": 18000, "high": 22000 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-mo-1", "day": 12, "category": "seed", "amount": 14200, "notes": "Certified hybrid seed purchase" },
+    { "id": "exp-mo-2", "day": 38, "category": "fertilizer", "amount": 49000, "notes": "Fertilizer purchase at higher local market rate" },
+    { "id": "exp-mo-3", "day": 48, "category": "labour", "amount": 44500, "notes": "Weeding and thinning labour" },
+    { "id": "exp-mo-4", "day": 50, "category": "machinery", "amount": 33600, "notes": "Inter-cultivation cultivator hire" },
+    { "id": "exp-mo-5", "day": 58, "category": "fuel", "amount": 19800, "notes": "Irrigation pump diesel" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 15,
+      "category": "seed",
+      "expectedToDate": 14000,
+      "actualToDate": 14200,
+      "variancePct": 0.0143,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: seed at day 15 phase 0.70. expectedToDate = 20000 * 0.70 = 14000. Actual = 14200. Variance = +1.43% <= 7% -> normal in both modes."
+    },
+    {
+      "day": 40,
+      "category": "fertilizer",
+      "expectedToDate": 45000,
+      "actualToDate": 49000,
+      "variancePct": 0.0889,
+      "tier": "attention",
+      "singleTier": "normal",
+      "notes": "Hand-check: fertilizer at day 40 phase 0.90. expectedToDate = 50000 * 0.90 = 45000. Actual = 49000. Variance = +8.89%. Volatile attention threshold (7% < v <= 12%) triggers attention. Single 10% threshold fails to alert (normal)."
+    },
+    {
+      "day": 50,
+      "category": "labour",
+      "expectedToDate": 40000,
+      "actualToDate": 44500,
+      "variancePct": 0.1125,
+      "tier": "attention",
+      "singleTier": "significant",
+      "notes": "Hand-check: labour linear phase at day 50 is 0.50. expectedToDate = 80000 * 0.50 = 40000. Actual = 44500. Variance = +11.25%. Stable attention threshold (10% < v <= 15%) triggers attention. Single 10% threshold flags as significant alarm."
+    },
+    {
+      "day": 50,
+      "category": "machinery",
+      "expectedToDate": 30000,
+      "actualToDate": 33600,
+      "variancePct": 0.12,
+      "tier": "attention",
+      "singleTier": "significant",
+      "notes": "Hand-check: machinery linear phase at day 50 is 0.50. expectedToDate = 60000 * 0.50 = 30000. Actual = 33600. Variance = +12.00%. Stable attention threshold (10% < v <= 15%) triggers attention. Single threshold flags as significant."
+    },
+    {
+      "day": 60,
+      "category": "fuel",
+      "expectedToDate": 18000,
+      "actualToDate": 19800,
+      "variancePct": 0.10,
+      "tier": "attention",
+      "singleTier": "normal",
+      "notes": "Hand-check: fuel linear phase at day 60 is 0.60. expectedToDate = 30000 * 0.60 = 18000. Actual = 19800. Variance = +10.00%. Volatile attention threshold (7% < v <= 12%) triggers attention. Single 10% threshold does not trigger (> 10% required)."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "status": "UNVALIDATED_SCAFFOLD",
+  "engine": "faster-whisper",
+  "modelId": null,
+  "totalCases": 2,
+  "availableAudioRecordings": 0,
+  "meanWER": null,
+  "meanCER": null,
+  "exactNumberMatchAccuracy": null,
+  "overallNumericalRecall": null,
+  "averageLatencyMs": null,
+  "realTimeFactorRTF": null,
+  "cases": [
+    {
+      "caseId": "VP-AUD-001",
+      "language": "en",
+      "speakerId": "farmer_01",
+      "audioAvailable": false,
+      "reference": "Bought 2 bags of urea fertilizer for 14000 rupees",
+      "hypothesis": "go to bags of Urea fertilizer 14000",
+      "wer": 0.5556,
+      "cer": 0.3673,
+      "numFidelity": {
+        "ref_count": 2,
+        "hyp_count": 1,
+        "matches": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "exact_number_match": false,
+        "missing_numbers": [
+          "2"
+        ],
+        "hallucinated_numbers": []
+      },
+      "latency_ms": null,
+      "status": "AUDIO_MISSING_USED_CAPTURED_TRANSCRIPT"
+    },
+    {
+      "caseId": "VP-AUD-013",
+      "language": "si",
+      "speakerId": "farmer_02",
+      "audioAvailable": false,
+      "reference": "යූරියා මිටි 2 ක් රුපියල් 14000 කට ගත්තා",
+      "hypothesis": "යුරියා මිටි දෙකක් රුපියල් දාහතර දහසකට ගත්තා",
+      "wer": 0.625,
+      "cer": 0.3077,
+      "numFidelity": {
+        "ref_count": 2,
+        "hyp_count": 0,
+        "matches": 0,
+        "precision": 1.0,
+        "recall": 0.0,
+        "exact_number_match": false,
+        "missing_numbers": [
+          "2",
+          "14000"
+        ],
+        "hallucinated_numbers": []
+      },
+      "latency_ms": null,
+      "status": "AUDIO_MISSING_USED_CAPTURED_TRANSCRIPT"
+    }
+  ]
+}

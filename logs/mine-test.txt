@@ -1,0 +1,125 @@
+
+> aswanna@1.0.0 test
+> node -e "const { spawnSync } = require('child_process'); spawnSync('npm', ['run', 'test', '--workspace=server'], { stdio: 'inherit', shell: true }); spawnSync('npm', ['run', 'test', '--workspace=client'], { stdio: 'inherit', shell: true });"
+
+
+> server@1.0.0 test
+> cross-env NODE_ENV=test TMP=d:/Aswanna/temp TEMP=d:/Aswanna/temp NODE_OPTIONS=--experimental-vm-modules jest --runInBand
+
+node.exe : (node:3436) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+At C:\Program Files\nodejs\npm.ps1:29 char:3
++   & $NODE_EXE $NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:3436) Exp...nge at any time:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/api.test.js (25.127 s)
+PASS tests/validationMatrix.test.js (11.44 s)
+PASS tests/recommendation.test.js (8.375 s)
+PASS tests/so1RealIntegration.test.js (8.233 s)
+PASS tests/phase3.test.js (6.416 s)
+PASS tests/forecast.test.js (6.017 s)
+PASS tests/logic.test.js
+PASS tests/coverage.test.js
+PASS tests/evalHarness.test.js
+PASS tests/so1Contract.test.js
+
+Test Suites: 10 passed, 10 total
+Tests:       254 passed, 254 total
+Snapshots:   0 total
+Time:        72.549 s, estimated 93 s
+Ran all test suites.
+
+> client@1.0.0 test
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/Aswanna/client[39m
+
+[90mstderr[2m | src/test/ActivityCalendar.test.jsx[2m > [22m[2mActivityCalendarPage Component[2m > 
+[22m[2mrenders 13-month grid with activity codes and greys out invalid days
+[22m[39mΓÜá∩╕Å React Router Future Flag Warning: React Router will begin wrapping state updates in 
+`React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, 
+see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+ΓÜá∩╕Å React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use 
+the `v7_relativeSplatPath` future flag to opt-in early. For more information, see 
+https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ [32mΓ£ô[39m src/test/deleteUndo.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 477[2mms[22m[39m
+[90mstderr[2m | src/test/SetupWizard.test.jsx[2m > [22m[2mSetupWizard Component Tests per Step[2m > 
+[22m[2mStep 1: Farmer Profile[2m > [22m[2mvalidates required name field
+[22m[39mΓÜá∩╕Å React Router Future Flag Warning: React Router will begin wrapping state updates in 
+`React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, 
+see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+ΓÜá∩╕Å React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use 
+the `v7_relativeSplatPath` future flag to opt-in early. For more information, see 
+https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ [32mΓ£ô[39m src/test/validation.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1198[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m Validation UI and i18n Integration[2m > [22mrenders and dismisses WarningBanner with translated keys [33m432[2mms[22m[39m
+[90mstderr[2m | src/test/ExpenseForm.test.jsx[2m > [22m[2mExpenseForm Unit & Integration Tests[2m > 
+[22m[2mtoggles no_work dayStatus hiding cost sections
+[22m[39mΓÜá∩╕Å React Router Future Flag Warning: React Router will begin wrapping state updates in 
+`React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, 
+see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+ΓÜá∩╕Å React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use 
+the `v7_relativeSplatPath` future flag to opt-in early. For more information, see 
+https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ [32mΓ£ô[39m src/test/ActivityCalendar.test.jsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1412[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ActivityCalendarPage Component[2m > [22mrenders 13-month grid with activity codes and greys out invalid days [33m1037[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ActivityCalendarPage Component[2m > [22mopens day details modal when clicking on a day with expenses [33m369[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CropRecommendation.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 2000[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders recommendation header and all numbered sections [33m428[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders ranked crop cards with reliability badges and plain language reasons [33m301[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders district, season, and irrigation filter dropdown selectors [33m670[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders Section 3 Unavailable Crops with crop name and failure reason [33m327[2mms[22m[39m
+ [32mΓ£ô[39m src/test/SetupWizard.test.jsx [2m([22m[2m10 tests[22m[2m)[22m[33m 3132[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates required name field [33m1032[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mrejects future date of birth [33m395[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates NIC format (9 digits + V/X or 12 digits) [33m328[2mms[22m[39m
+ [32mΓ£ô[39m src/test/BudgetOverview.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 2129[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m BudgetOverview Page Component[2m > [22mrenders Cost Impact Summary title and KPI section [33m302[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m BudgetOverview Page Component[2m > [22mrenders category variance table with status badges and estimated split badge [33m748[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m BudgetOverview Page Component[2m > [22mrenders SO1 metadata banners for low confidence, extrapolation, and lag saturation [33m396[2mms[22m[39m
+ [32mΓ£ô[39m src/test/ExpenseForm.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 2356[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mtoggles no_work dayStatus hiding cost sections [33m1530[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22madds and removes repeatable input lines [33m361[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mdisplays mapped server field error next to activity select on submission failure [33m451[2mms[22m[39m
+ [32mΓ£ô[39m src/test/ForecastCard.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 397[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CycleSummary.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 941[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleSummaryPage Component[2m > [22mrenders summary tiles and shows profit when sales exist [33m378[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleSummaryPage Component[2m > [22mhandles Close Cycle with confirmation dialog [33m498[2mms[22m[39m
+ [32mΓ£ô[39m src/test/FilterBar.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 608[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m FilterBar[2m > [22mcalls setFilters with correct category on category change [33m359[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CycleNotes.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1005[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleNotesPage Component[2m > [22mrenders notes form generated from schema with existing notes [33m321[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleNotesPage Component[2m > [22msubmits updated notes successfully [33m588[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CostImpactCard.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1013[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mrenders Cost Impact Summary section [33m513[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mshows full predicted total, expected-to-date, variance %, and tier badge as separate values [33m311[2mms[22m[39m
+ [32mΓ£ô[39m src/test/HarvestSales.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1540[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m HarvestSales Component[2m > [22mrenders harvest and sales sections with computed totals [33m522[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m HarvestSales Component[2m > [22msubmits a new harvest round [33m723[2mms[22m[39m
+[90mstderr[2m | src/test/DailyCostTrackerHub.test.jsx[2m > [22m[2mDailyCostTrackerHub Page[2m > [22m[2mrenders 
+all 5 numbered sections
+[22m[39mΓÜá∩╕Å React Router Future Flag Warning: React Router will begin wrapping state updates in 
+`React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, 
+see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+ΓÜá∩╕Å React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use 
+the `v7_relativeSplatPath` future flag to opt-in early. For more information, see 
+https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+ [32mΓ£ô[39m src/test/DailyCostTrackerHub.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 986[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m DailyCostTrackerHub Page[2m > [22mrenders all 5 numbered sections [33m331[2mms[22m[39m
+ [32mΓ£ô[39m src/test/formatters.test.js [2m([22m[2m11 tests[22m[2m)[22m[90m 59[2mms[22m[39m
+ [32mΓ£ô[39m src/test/i18n.test.js [2m([22m[2m3 tests[22m[2m)[22m[90m 60[2mms[22m[39m
+ [32mΓ£ô[39m src/test/StatusBadge.test.jsx [2m([22m[2m8 tests[22m[2m)[22m[90m 73[2mms[22m[39m
+ [32mΓ£ô[39m src/test/AlertsPage.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 432[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+[2m      Tests [22m [1m[32m96 passed[39m[22m[90m (96)[39m
+[2m   Start at [22m 18:49:48
+[2m   Duration [22m 33.91s[2m (transform 5.03s, setup 11.71s, collect 32.16s, tests 19.82s, environment 69.31s, prepare 10.36s)[22m
+

@@ -1,0 +1,68 @@
+
+server\src\models\Alert.js:13:  expectedToDate: { type: Number, required: true },
+server\src\services\alertService.js:172:        expectedToDate: data.expectedToDate,
+server\src\services\forecastService.js:35:const phasingPriorsPath = path.join(sharedConfigDir, 'phasingPriors.json');
+server\src\services\forecastService.js:39:let phasingPriorsData = null;
+server\src\services\forecastService.js:42:function loadPhasingPriors() {
+server\src\services\forecastService.js:43:  if (!phasingPriorsData && fs.existsSync(phasingPriorsPath)) {
+server\src\services\forecastService.js:44:    phasingPriorsData = JSON.parse(fs.readFileSync(phasingPriorsPath, 
+'utf8'));
+server\src\services\forecastService.js:46:  return phasingPriorsData;
+server\src\services\forecastService.js:138:  const priors = priorsConfig || loadPhasingPriors();
+shared\phasing.js:2: * phasingFor – cumulative expected-spend fraction by day of cycle.
+shared\phasing.js:74:export function phasingFor(category, dayOfCycle, cycleLength) {
+shared\variance.js:20:import { phasingFor } from './phasing.js';
+shared\variance.js:90:  let totalExpectedToDate = 0;
+shared\variance.js:102:        ? phasingFor(cat, dayOfCycle, cycleLength)
+shared\variance.js:105:    const expectedToDate = bl.expectedToDate !== undefined
+shared\variance.js:106:      ? bl.expectedToDate
+shared\variance.js:109:    // Guard zero expectedToDate: spend above zero expectedToDate returns flagged state 
+(attention tier, no_baseline reason)
+shared\variance.js:119:    } else if (expectedToDate > 0) {
+shared\variance.js:120:      variancePct = (actual - expectedToDate) / expectedToDate;
+shared\variance.js:138:      expectedToDate,
+shared\variance.js:147:    totalExpectedToDate += expectedToDate;
+shared\variance.js:150:  const totalVariancePct = totalExpectedToDate > 0
+shared\variance.js:151:    ? (totalActual - totalExpectedToDate) / totalExpectedToDate
+shared\variance.js:163:      expectedToDate: totalExpectedToDate,
+client\src\i18n\locales\en.json:239:    "expectedToDate": "Expected To Date (Phased)",
+client\src\i18n\locales\en.json:240:    "categoryExpectedToDate": "Expected To Date",
+client\src\i18n\locales\si.json:239:    "expectedToDate": "අද දක්වා බලාපොරොත්තු වන මුදල",
+client\src\i18n\locales\si.json:240:    "categoryExpectedToDate": "අද දක්වා බලාපොරොත්තු වන මුදල",
+client\src\pages\AlertsPage.jsx:98:            <span className="font-medium">{formatCurrency(alert.expectedToDate, 
+lang)}</span>
+client\src\pages\BudgetOverview.jsx:93:      Predicted: data.expectedToDate,
+client\src\pages\BudgetOverview.jsx:97:      deviation: data.actual - data.expectedToDate,
+client\src\pages\BudgetOverview.jsx:193:                value={varLoading ? '…' : 
+formatCurrency(total?.expectedToDate, lang)}
+client\src\pages\BudgetOverview.jsx:284:                {total?.actual > total?.expectedToDate && (
+client\src\pages\BudgetOverview.jsx:377:                      <td className="py-3 px-3 text-blue-700 
+font-medium">{formatCurrency(data.expectedToDate, lang)}</td>
+client\src\pages\DailyCostTrackerHub.jsx:136:          Predicted: d.expectedToDate,
+client\src\pages\ExpenseForm.jsx:1156:                  {variance?.total?.expectedToDate ? 
+formatCurrency(variance.total.expectedToDate, lang) : (t('kpi.noBaseline') || 'No baseline yet')}
+client\src\pages\ExpenseForm.jsx:1164:                  {categoryVariance?.expectedToDate != null ? 
+formatCurrency(categoryVariance.expectedToDate, lang) : '-'}
+client\src\test\AlertsPage.test.jsx:30:        { _id: 'a1', category: 'fertilizer', tier: 'significant', variancePct: 
+0.25, expectedToDate: 22500, actualToDate: 28125, dayOfCycle: 36, resolvedAt: null },
+client\src\test\AlertsPage.test.jsx:31:        { _id: 'a2', category: 'fuel', tier: 'attention', variancePct: 0.10, 
+expectedToDate: 12500, actualToDate: 13750, dayOfCycle: 36, resolvedAt: null },
+client\src\test\BudgetOverview.test.jsx:46:          seed: { expected: 25000, expectedToDate: 17500, actual: 22000, 
+variancePct: 0.04, budgetUsedPct: 0.728, tier: 'normal', low: 20000, high: 30000, is_estimated_split: false },
+client\src\test\BudgetOverview.test.jsx:47:          fertilizer: { expected: 45000, expectedToDate: 22500, actual: 
+28000, variancePct: 0.244, budgetUsedPct: 0.622, tier: 'significant', low: 36000, high: 54000, is_estimated_split: 
+false },
+client\src\test\BudgetOverview.test.jsx:48:          machinery: { expected: 30000, expectedToDate: 15000, actual: 
+16000, variancePct: 0.067, budgetUsedPct: 0.533, tier: 'normal', low: 24000, high: 36000, is_estimated_split: true },
+client\src\test\BudgetOverview.test.jsx:50:        total: { expected: 100000, expectedToDate: 55000, actual: 66000, 
+variancePct: 0.131, budgetUsedPct: 0.622, tier: 'attention', low: 80000, high: 120000 },
+client\src\test\BudgetOverview.test.jsx:168:          total: { expected: 100000, expectedToDate: 50000, actual: 50000, 
+variancePct: 0, budgetUsedPct: 0.5, tier: 'normal' },
+client\src\test\CostImpactCard.test.jsx:32:            expectedToDate: 15000,
+client\src\test\CostImpactCard.test.jsx:41:          expectedToDate: 120000,
+client\src\test\DailyCostTrackerHub.test.jsx:35:        total: { expected: 100000, expectedToDate: 45000, actual: 
+17000, variancePct: 0.05, tier: 'normal' },
+client\src\test\DailyCostTrackerHub.test.jsx:37:          seed: { expectedToDate: 5000, actual: 5000 },
+client\src\test\DailyCostTrackerHub.test.jsx:38:          fertilizer: { expectedToDate: 10000, actual: 12000 }
+
+

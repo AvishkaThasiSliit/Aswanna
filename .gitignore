@@ -1,0 +1,17 @@
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+temp/
+server/temp/
+client/temp/
+dist/
+coverage/
+private_dataset_storage/
+server/private_dataset_storage/
+voice-service/models/
+voice-capture-audio/
+.mongo-cache/
+.cache/
+*.local

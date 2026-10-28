@@ -8,8 +8,12 @@ const cycleSchema = new mongoose.Schema({
   district: String,
   startDate: Date,
   endDate: Date,
+  extentValue: Number,
+  extentUnit: String,
   status: { type: String, enum: ['draft', 'active', 'harvesting', 'closed'] },
   baselineSource: { type: String, enum: ['SO1', 'SO2', 'none'] },
+  baselineStatus: { type: String, enum: ['ready', 'missing', 'pending'], default: 'pending' },
+  so1Metadata: { type: mongoose.Schema.Types.Mixed, default: null },
   deletedAt: { type: Date, default: null },
   createdBy: String,
   clientRequestId: { type: String, unique: true, sparse: true }

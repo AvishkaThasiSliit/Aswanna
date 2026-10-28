@@ -1,0 +1,16 @@
+====================================================================================================
+ASWANNA VOICE PIPELINE FREEZE V2 HASH RECORD
+====================================================================================================
+v1 = D:\Aswanna_freeze_voice (before 2026-10-27 08:20); v2 = current
+Freeze Timestamp:   2026-10-28T09:15:23.646297
+Freeze Destination: D:\Aswanna_freeze_voice_v2\shared_voice
+====================================================================================================
+
+Algorithm Hash                                                             Path
+--------- ----                                                             ----
+SHA256    9E72E2EA1AD3EFBC99C9DFD0094CAD4FF57C3260097A6B91D7ACAF282070DA02 D:\Aswanna_freeze_voice_v2\shared_voice\asrConfusions.json
+SHA256    FE6AAE993B2C87E22DB1BF1F4B4E9A9367E5EB88C13BF44417D9AAC6E3E28177 D:\Aswanna_freeze_voice_v2\shared_voice\extractExpenses.js
+SHA256    B71678A7A69B3AA2B50CB706ADE1A04C27A3DEE518D6CED68991D5EB89DF36F7 D:\Aswanna_freeze_voice_v2\shared_voice\keywordMap.json
+SHA256    27B38E6DF9B64CCADFE7C01B313E0B55FE9716B4E80073FF8E5222660F5EE02D D:\Aswanna_freeze_voice_v2\shared_voice\parseCommand.js
+SHA256    6486201B80E801DBB72436236EEB22E67A631E5C7FD9CC62361B7AA6B9ED7687 D:\Aswanna_freeze_voice_v2\shared_voice\sinhalaNumberWords.json
+SHA256    EBF1DBDACE5F1F350AFC8D2B6EBCC13588D5617D9D3A3C772E37439AB3033D38 D:\Aswanna_freeze_voice_v2\shared_voice\sinhalaNumbers.js

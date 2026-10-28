@@ -1,0 +1,52 @@
+===============================================================
+   DETERMINISTIC EXPENSE EXTRACTOR (TASK V1.1) EVALUATION
+===============================================================
+NOTE: All evaluation phrases are draft, authored by AI and unreviewed
+by a native speaker. Results are indicative only.
+
+### Dev Set Overall Summary (N=38 phrases, 49 expected items)
+
+| Metric | Value | Target / Note |
+| :--- | :--- | :--- |
+| Total Phrases | 38 | 28 single-item + 10 multi-item |
+| Expected Items | 49 | Total discrete expense items |
+| Extracted Items | 49 | Items parsed by extractor |
+| Item Precision | 100% | Matched / Extracted |
+| Item Recall | 100% | Matched / Expected |
+| Category Accuracy | 98% | Exact canonical category match |
+| Amount Exact Match | 71.4% | Exact numeric LKR match (or null when unresolved) |
+| needs_review Count | 12 | Safely flagged for user confirmation |
+| Silent Error Count | 5 | Target: 0 (status 'ok' with incorrect attributes) |
+
+### Per-Language Breakdown (Dev Set)
+| Language | Phrases | Expected Items | Category Accuracy | Amount Exact Match | needs_review | Silent Errors |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| en | 16 | 23 | 100.0% | 100.0% | 2 | 0 |
+| si | 17 | 19 | 94.7% | 36.8% | 8 | 5 |
+| mixed | 5 | 7 | 100.0% | 71.4% | 2 | 0 |
+
+### Multi-Item Phrase Performance
+| Multi-Item Metric | Count / Value | Description |
+| :--- | :--- | :--- |
+| Multi-Item Phrases | 10 | Phrases containing 2+ expenses |
+| Expected Items in Multi | 21 | Discrete items expected |
+| Extracted Items in Multi | 21 | Discrete items parsed |
+| Multi-Item Recall | 95.2% | Fully correct multi-items / expected |
+| Items Merged | 0 | Expenses incorrectly merged together |
+| Items Split Wrongly | 0 | Single expenses incorrectly over-split |
+
+### Silent Errors Audit Log (Target: 0)
+⚠️ 5 silent errors found:
+- [VP-SI-012 | si] "කුඹුර හාලා දෙන්න ට්‍රැක්ටරේට අටදාස් පන්සියයක් දුන්නා": amount mismatch: 8000 vs expected 8500; quantity mismatch: null vs expected 1; unit mismatch: 'null' vs expected 'සේවාව'
+- [VP-SI-014 | si] "වල් නෙලන්න ආපු කුලී කම්කරුවන්ට හයදාහක් ගෙව්වා": unit mismatch: 'null' vs expected 'කම්කරුවන්'
+- [VP-SI-017 | si] "ඇලෙන් වතුර හරවන්න වාරිමාර්ග ගාස්තුව දෙදහස් පන්සියයක් ගෙව්වා": amount mismatch: 2000 vs expected 2500; quantity mismatch: null vs expected 1; unit mismatch: 'null' vs expected 'ගාස්තු'
+- [VP-SI-022 | si] "පෝර ඉහින්න ආපු කුලී කම්කරුවාට දවසේ කුලිය දෙදහස් පන්සියයක් දුන්නා": amount mismatch: 2000 vs expected 2500; quantity mismatch: null vs expected 1; unit mismatch: 'null' vs expected 'දින'
+- [VP-SI-023 | si] "කනුවක් හිටවන්න සහ වැට බඳින්න කම්බි වලට හාරදාස් පන්සියයක් ගියා": amount mismatch: 4000 vs expected 4500
+
+### Held-out Set Status
+Held-out Set count: 0 phrases.
+Status: Empty placeholder. "To be written by the owner or a native speaker. Do not populate."
+
+===============================================================
+             VOICE EVALUATION HARNESS COMPLETE                 
+===============================================================

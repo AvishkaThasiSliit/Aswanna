@@ -1,0 +1,11 @@
+2026-10-01 12:44:00,203 [INFO] Starting master dataset build. Root: c:\Users\MSI\Desktop\Research\Price folder, Output: c:\Users\MSI\Desktop\Research\Price folder\_output
+2026-10-01 12:44:00,253 [INFO] Found 698 Excel files across repository.
+2026-10-01 12:44:09,032 [INFO] Processed 698 files (0 failed).
+2026-10-01 12:44:09,033 [INFO] Loaded 54016 primary own-week observations.
+2026-10-01 12:44:09,131 [INFO] Backfilled 301 missing product-week prices from lookbacks.
+2026-10-01 12:44:09,808 [INFO] Written master_prices_long.csv (56608 rows).
+2026-10-01 12:44:09,902 [INFO] Written vegetables_long.csv (14848 rows).
+2026-10-01 12:44:09,932 [INFO] Written vegetables_wide.csv (464 rows, 37 columns).
+2026-10-01 12:44:09,935 [INFO] Written mismatches.csv (7 rows).
+2026-10-01 12:44:09,939 [INFO] Written revisions.csv (0 rows).
+2026-10-01 12:44:09,945 [INFO] Written product_name_map.csv (122 rows).

@@ -1,0 +1,73 @@
+{
+  "disclaimer": "SYNTHETIC: replace with DoA field data",
+  "scenario": "late_season_spike",
+  "description": "Synthetic 90-day cycle that remains strictly on-track through mid-season, but suffers sudden severe late-season pest infestation and unseasonal rain forcing emergency labour and agrochemical outlays.",
+  "cycle": {
+    "crop": "Chili",
+    "district": "Matale",
+    "season": "Maha",
+    "cycleLength": 90,
+    "startDate": "2026-05-01",
+    "endDate": "2026-07-30"
+  },
+  "baselines": {
+    "seed": { "expected": 15000, "low": 13500, "high": 16500 },
+    "fertilizer": { "expected": 45000, "low": 40500, "high": 49500 },
+    "agrochemical": { "expected": 30000, "low": 27000, "high": 33000 },
+    "fuel": { "expected": 20000, "low": 18000, "high": 22000 },
+    "labour": { "expected": 60000, "low": 54000, "high": 66000 },
+    "machinery": { "expected": 40000, "low": 36000, "high": 44000 },
+    "irrigation": { "expected": 10000, "low": 9000, "high": 11000 },
+    "other": { "expected": 10000, "low": 9000, "high": 11000 }
+  },
+  "expenses": [
+    { "id": "exp-ls-1", "day": 10, "category": "seed", "amount": 10500, "notes": "Seedling purchase" },
+    { "id": "exp-ls-2", "day": 35, "category": "fertilizer", "amount": 40000, "notes": "Basal fertilizer application" },
+    { "id": "exp-ls-3", "day": 38, "category": "agrochemical", "amount": 27000, "notes": "Routine prophylactic spray" },
+    { "id": "exp-ls-4", "day": 40, "category": "labour", "amount": 26500, "notes": "Scheduled weeding" },
+    { "id": "exp-ls-5", "day": 82, "category": "agrochemical", "amount": 9000, "notes": "Emergency insecticide spray for sudden thrips/mite outbreak" },
+    { "id": "exp-ls-6", "day": 84, "category": "labour", "amount": 40000, "notes": "Rush emergency harvest labour to beat monsoon rains" }
+  ],
+  "expectedAlertEvents": [
+    {
+      "day": 40,
+      "category": "agrochemical",
+      "expectedToDate": 27222.22,
+      "actualToDate": 27000,
+      "variancePct": -0.0082,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: at day 40 of 90, t = 40/90 = 0.4444. Phase = 0.90 + (0.4444-0.4)/0.6 * 0.1 = 0.9074. expectedToDate = 30000 * 0.907407 = 27222.22. Actual = 27000. Variance = -0.82% -> normal tier in both modes."
+    },
+    {
+      "day": 40,
+      "category": "labour",
+      "expectedToDate": 26666.67,
+      "actualToDate": 26500,
+      "variancePct": -0.0062,
+      "tier": "normal",
+      "singleTier": "normal",
+      "notes": "Hand-check: at day 40 of 90, linear phase = 40/90 = 0.4444. expectedToDate = 60000 * (40/90) = 26666.67. Actual = 26500. Variance = -0.62% -> normal tier in both modes."
+    },
+    {
+      "day": 85,
+      "category": "agrochemical",
+      "expectedToDate": 29722.22,
+      "actualToDate": 36000,
+      "variancePct": 0.2112,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: at day 85 of 90, t = 85/90 = 0.9444. Phase = 0.90 + (0.9444-0.4)/0.6 * 0.1 = 0.99074. expectedToDate = 30000 * 0.99074 = 29722.22. Actual = 36000. Variance = +21.12% > 12% volatile threshold -> significant tier in both modes."
+    },
+    {
+      "day": 85,
+      "category": "labour",
+      "expectedToDate": 56666.67,
+      "actualToDate": 66500,
+      "variancePct": 0.1735,
+      "tier": "significant",
+      "singleTier": "significant",
+      "notes": "Hand-check: at day 85 of 90, linear phase = 85/90 = 0.9444. expectedToDate = 60000 * (85/90) = 56666.67. Actual = 66500. Variance = +17.35% > 15% stable threshold -> significant tier in both modes."
+    }
+  ]
+}

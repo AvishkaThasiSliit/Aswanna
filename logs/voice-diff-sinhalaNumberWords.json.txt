@@ -1,0 +1,40 @@
+Comparing files D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumberWords.json and SHARED\VOICE\SINHALANUMBERWORDS.JSON
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumberWords.json
+    { "word": "හයදාහක්", "value": 6000, "source": "observed-in-captured-data" },
+    { "word": "හයදහස්", "value": 6000, "source": "author-assumption" },
+***** SHARED\VOICE\SINHALANUMBERWORDS.JSON
+    { "word": "හයදාහක්", "value": 6000, "source": "observed-in-captured-data" },
+    { "word": "හයදාස්", "value": 6000, "source": "observed-in-captured-data" },
+    { "word": "හයදහස්", "value": 6000, "source": "author-assumption" },
+*****
+
+***** D:\ASWANNA_FREEZE_VOICE\SHARED_VOICE\sinhalaNumberWords.json
+    { "word": "නවදහස්", "value": 9000, "source": "author-assumption" },
+    { "word": "දසදහස්", "value": 10000, "source": "author-assumption" }
+  ]
+***** SHARED\VOICE\SINHALANUMBERWORDS.JSON
+    { "word": "නවදහස්", "value": 9000, "source": "author-assumption" },
+    { "word": "පන්දාස්", "value": 5000, "source": "observed-in-captured-data" },
+    { "word": "දසදහස්", "value": 10000, "source": "author-assumption" },
+    { "word": "විසි", "value": 20, "source": "observed-in-captured-data" },
+    { "word": "තිස්", "value": 30, "source": "author-assumption" },
+    { "word": "හතලිස්", "value": 40, "source": "author-assumption" },
+    { "word": "හතළිස්", "value": 40, "source": "author-assumption" },
+    { "word": "පනස්", "value": 50, "source": "author-assumption" },
+    { "word": "හැත්තෑ", "value": 70, "source": "author-assumption" },
+    { "word": "අසූ", "value": 80, "source": "author-assumption" },
+    { "word": "අනූ", "value": 90, "source": "author-assumption" },
+    { "word": "ලක්ෂ", "value": 100000, "source": "author-assumption" },
+    { "word": "ලක්ෂය", "value": 100000, "source": "author-assumption" },
+    { "word": "ලක්ෂයක්", "value": 100000, "source": "author-assumption" },
+    { "word": "ලක්ෂේ", "value": 100000, "source": "author-assumption" },
+    { "word": "ලක්ෂෙ", "value": 100000, "source": "author-assumption" },
+    { "word": "දෙලක්ෂ", "value": 200000, "source": "author-assumption" },
+    { "word": "දෙලක්ෂයක්", "value": 200000, "source": "author-assumption" },
+    { "word": "තුන්ලක්ෂ", "value": 300000, "source": "author-assumption" },
+    { "word": "තුන්ලක්ෂයක්", "value": 300000, "source": "author-assumption" },
+    { "word": "පස්ලක්ෂ", "value": 500000, "source": "author-assumption" },
+    { "word": "පස්ලක්ෂයක්", "value": 500000, "source": "author-assumption" }
+  ]
+*****
+

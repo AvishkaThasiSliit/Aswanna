@@ -1,0 +1,942 @@
+{
+  "timestamp": "2026-10-28T06:11:35.975Z",
+  "varianceAccuracy": {
+    "totalComparisons": 65,
+    "exactAgreements": 65,
+    "agreementPct": 100,
+    "discrepancies": []
+  },
+  "alertMetrics": {
+    "totalEvents": 42,
+    "tiered": {
+      "attention": {
+        "tp": 11,
+        "fp": 0,
+        "fn": 0,
+        "tn": 31,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1
+      },
+      "significant": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0,
+        "tn": 35,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1
+      },
+      "overall": {
+        "tp": 18,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1
+      },
+      "confusionMatrix": {
+        "normal": {
+          "normal": 24,
+          "attention": 0,
+          "significant": 0
+        },
+        "attention": {
+          "normal": 0,
+          "attention": 11,
+          "significant": 0
+        },
+        "significant": {
+          "normal": 0,
+          "attention": 0,
+          "significant": 7
+        }
+      }
+    },
+    "proposalBaseline": {
+      "attention": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 9,
+        "tn": 31,
+        "precision": 1,
+        "recall": 0.18181818181818182,
+        "f1": 0.3076923076923077
+      },
+      "significant": {
+        "tp": 7,
+        "fp": 19,
+        "fn": 0,
+        "tn": 16,
+        "precision": 0.2692307692307692,
+        "recall": 1,
+        "f1": 0.42424242424242425
+      },
+      "overall": {
+        "tp": 18,
+        "fp": 10,
+        "fn": 0,
+        "tn": 14,
+        "precision": 0.6428571428571429,
+        "recall": 1,
+        "f1": 0.782608695652174
+      },
+      "confusionMatrix": {
+        "normal": {
+          "normal": 14,
+          "attention": 0,
+          "significant": 10
+        },
+        "attention": {
+          "normal": 0,
+          "attention": 2,
+          "significant": 9
+        },
+        "significant": {
+          "normal": 0,
+          "attention": 0,
+          "significant": 7
+        }
+      }
+    },
+    "flat10": {
+      "attention": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 9,
+        "tn": 31,
+        "precision": 1,
+        "recall": 0.18181818181818182,
+        "f1": 0.3076923076923077
+      },
+      "significant": {
+        "tp": 7,
+        "fp": 5,
+        "fn": 0,
+        "tn": 30,
+        "precision": 0.5833333333333334,
+        "recall": 1,
+        "f1": 0.7368421052631579
+      },
+      "overall": {
+        "tp": 14,
+        "fp": 0,
+        "fn": 4,
+        "tn": 24,
+        "precision": 1,
+        "recall": 0.7777777777777778,
+        "f1": 0.8750000000000001
+      },
+      "confusionMatrix": {
+        "normal": {
+          "normal": 24,
+          "attention": 0,
+          "significant": 0
+        },
+        "attention": {
+          "normal": 4,
+          "attention": 2,
+          "significant": 5
+        },
+        "significant": {
+          "normal": 0,
+          "attention": 0,
+          "significant": 7
+        }
+      }
+    },
+    "failingCases": {
+      "tiered": [],
+      "proposalBaseline": [
+        {
+          "fixture": "on_track.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "1.39%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "on_track.json",
+          "day": 70,
+          "category": "agrochemical",
+          "variancePct": "1.05%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "on_track.json",
+          "day": 70,
+          "category": "fuel",
+          "variancePct": "1.43%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "on_track.json",
+          "day": 100,
+          "category": "labour",
+          "variancePct": "2.14%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 15,
+          "category": "seed",
+          "variancePct": "1.43%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "8.89%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 50,
+          "category": "labour",
+          "variancePct": "11.25%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 50,
+          "category": "machinery",
+          "variancePct": "12.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 60,
+          "category": "fuel",
+          "variancePct": "10.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "significant_overspend.json",
+          "day": 50,
+          "category": "fuel",
+          "variancePct": "2.00%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "9.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 50,
+          "category": "fuel",
+          "variancePct": "9.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 70,
+          "category": "fuel",
+          "variancePct": "10.71%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "drift_stable.json",
+          "day": 50,
+          "category": "labour",
+          "variancePct": "8.00%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "drift_stable.json",
+          "day": 60,
+          "category": "machinery",
+          "variancePct": "8.00%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 15,
+          "category": "seed",
+          "variancePct": "7.00%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 50,
+          "category": "labour",
+          "variancePct": "10.00%",
+          "groundTruth": "normal",
+          "predicted": "significant",
+          "reason": "False alarm: alerted on minor/normal variance"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "12.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 50,
+          "category": "machinery",
+          "variancePct": "15.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: binary baseline cannot differentiate attention vs significant"
+        }
+      ],
+      "flat10": [
+        {
+          "fixture": "mild_overspend.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "8.89%",
+          "groundTruth": "attention",
+          "predicted": "normal",
+          "reason": "Missed alert: variance <= 10% ignored"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 50,
+          "category": "labour",
+          "variancePct": "11.25%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: flat-10 cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 50,
+          "category": "machinery",
+          "variancePct": "12.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: flat-10 cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "mild_overspend.json",
+          "day": 60,
+          "category": "fuel",
+          "variancePct": "10.00%",
+          "groundTruth": "attention",
+          "predicted": "normal",
+          "reason": "Missed alert: variance <= 10% ignored"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "9.00%",
+          "groundTruth": "attention",
+          "predicted": "normal",
+          "reason": "Missed alert: variance <= 10% ignored"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 50,
+          "category": "fuel",
+          "variancePct": "9.00%",
+          "groundTruth": "attention",
+          "predicted": "normal",
+          "reason": "Missed alert: variance <= 10% ignored"
+        },
+        {
+          "fixture": "drift_volatile.json",
+          "day": 70,
+          "category": "fuel",
+          "variancePct": "10.71%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: flat-10 cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 40,
+          "category": "fertilizer",
+          "variancePct": "12.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: flat-10 cannot differentiate attention vs significant"
+        },
+        {
+          "fixture": "exact_boundaries.json",
+          "day": 50,
+          "category": "machinery",
+          "variancePct": "15.00%",
+          "groundTruth": "attention",
+          "predicted": "significant",
+          "reason": "Tier mismatch: flat-10 cannot differentiate attention vs significant"
+        }
+      ]
+    },
+    "detailedEvents": [
+      {
+        "fixture": "on_track.json",
+        "day": 15,
+        "category": "seed",
+        "variancePct": 0,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 15,
+        "category": "labour",
+        "variancePct": -0.02857142857142857,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": 0.013888888888888888,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 40,
+        "category": "machinery",
+        "variancePct": 0,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 70,
+        "category": "agrochemical",
+        "variancePct": 0.010526315789473684,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 70,
+        "category": "fuel",
+        "variancePct": 0.014285714285714285,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 100,
+        "category": "labour",
+        "variancePct": 0.02142857142857143,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "on_track.json",
+        "day": 100,
+        "category": "other",
+        "variancePct": -0.02,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "mild_overspend.json",
+        "day": 15,
+        "category": "seed",
+        "variancePct": 0.014285714285714285,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "mild_overspend.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": 0.08888888888888889,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "mild_overspend.json",
+        "day": 50,
+        "category": "labour",
+        "variancePct": 0.1125,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "mild_overspend.json",
+        "day": 50,
+        "category": "machinery",
+        "variancePct": 0.12,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "mild_overspend.json",
+        "day": 60,
+        "category": "fuel",
+        "variancePct": 0.1,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "significant_overspend.json",
+        "day": 15,
+        "category": "seed",
+        "variancePct": 0.17857142857142858,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "significant_overspend.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": 0.15555555555555556,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "significant_overspend.json",
+        "day": 50,
+        "category": "machinery",
+        "variancePct": 0.2,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "significant_overspend.json",
+        "day": 50,
+        "category": "labour",
+        "variancePct": 0.18,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "significant_overspend.json",
+        "day": 50,
+        "category": "fuel",
+        "variancePct": 0.02,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "late_season_spike.json",
+        "day": 40,
+        "category": "agrochemical",
+        "variancePct": -0.008163265306122464,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "late_season_spike.json",
+        "day": 40,
+        "category": "labour",
+        "variancePct": -0.006249999999999909,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "late_season_spike.json",
+        "day": 85,
+        "category": "agrochemical",
+        "variancePct": 0.21121495327102802,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "late_season_spike.json",
+        "day": 85,
+        "category": "labour",
+        "variancePct": 0.17352941176470593,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "underspend.json",
+        "day": 40,
+        "category": "seed",
+        "variancePct": -0.2777777777777778,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "underspend.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": -0.3333333333333333,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "underspend.json",
+        "day": 50,
+        "category": "labour",
+        "variancePct": -0.3,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "underspend.json",
+        "day": 50,
+        "category": "fuel",
+        "variancePct": -0.4,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "zero_baseline.json",
+        "day": 30,
+        "category": "irrigation",
+        "variancePct": 0,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "attention",
+        "flat10Pred": "attention"
+      },
+      {
+        "fixture": "zero_baseline.json",
+        "day": 30,
+        "category": "other",
+        "variancePct": 0,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "zero_baseline.json",
+        "day": 30,
+        "category": "labour",
+        "variancePct": 0,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "zero_baseline.json",
+        "day": 60,
+        "category": "other",
+        "variancePct": 0,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "attention",
+        "flat10Pred": "attention"
+      },
+      {
+        "fixture": "drift_volatile.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": 0.09,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "drift_volatile.json",
+        "day": 50,
+        "category": "fuel",
+        "variancePct": 0.09,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "drift_volatile.json",
+        "day": 70,
+        "category": "fuel",
+        "variancePct": 0.10714285714285714,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "drift_stable.json",
+        "day": 50,
+        "category": "labour",
+        "variancePct": 0.08,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "drift_stable.json",
+        "day": 60,
+        "category": "machinery",
+        "variancePct": 0.08,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "exact_boundaries.json",
+        "day": 15,
+        "category": "seed",
+        "variancePct": 0.07,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "exact_boundaries.json",
+        "day": 50,
+        "category": "labour",
+        "variancePct": 0.1,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "exact_boundaries.json",
+        "day": 40,
+        "category": "fertilizer",
+        "variancePct": 0.12,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "exact_boundaries.json",
+        "day": 50,
+        "category": "machinery",
+        "variancePct": 0.15,
+        "groundTruth": "attention",
+        "tieredPred": "attention",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "temporary_spike_resolving.json",
+        "day": 20,
+        "category": "labour",
+        "variancePct": 0.2,
+        "groundTruth": "significant",
+        "tieredPred": "significant",
+        "proposalBaselinePred": "significant",
+        "flat10Pred": "significant"
+      },
+      {
+        "fixture": "temporary_spike_resolving.json",
+        "day": 60,
+        "category": "labour",
+        "variancePct": -0.08333333333333333,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      },
+      {
+        "fixture": "temporary_spike_resolving.json",
+        "day": 100,
+        "category": "labour",
+        "variancePct": -0.02,
+        "groundTruth": "normal",
+        "tieredPred": "normal",
+        "proposalBaselinePred": "normal",
+        "flat10Pred": "normal"
+      }
+    ]
+  },
+  "cropRanking": {
+    "isDeterministic": true,
+    "isStableUnderPermutation": true,
+    "comparison": [
+      {
+        "crop": "Tomato",
+        "predictedCost": 180000,
+        "expectedYield": 3500,
+        "costEfficiency": 51.43,
+        "sampleSize": 3,
+        "meanError": 0.1,
+        "shrunkError": 0.125,
+        "reliability": 0.875,
+        "score": 64.2857,
+        "costOnlyRank": 1,
+        "accuracyRank": 1,
+        "rankShift": 0
+      },
+      {
+        "crop": "Paddy",
+        "predictedCost": 125000,
+        "expectedYield": 2200,
+        "costEfficiency": 56.82,
+        "sampleSize": 1,
+        "meanError": 0.05,
+        "shrunkError": 0.125,
+        "reliability": 0.875,
+        "score": 71.0227,
+        "costOnlyRank": 2,
+        "accuracyRank": 2,
+        "rankShift": 0
+      },
+      {
+        "crop": "Maize",
+        "predictedCost": 110000,
+        "expectedYield": 1800,
+        "costEfficiency": 61.11,
+        "sampleSize": 2,
+        "meanError": 0.2,
+        "shrunkError": 0.17,
+        "reliability": 0.83,
+        "score": 81.8889,
+        "costOnlyRank": 3,
+        "accuracyRank": 3,
+        "rankShift": 0
+      },
+      {
+        "crop": "Chili",
+        "predictedCost": 160000,
+        "expectedYield": 1200,
+        "costEfficiency": 133.33,
+        "sampleSize": 0,
+        "meanError": 0,
+        "shrunkError": 0.15,
+        "reliability": 0.85,
+        "score": 173.3333,
+        "costOnlyRank": 4,
+        "accuracyRank": 4,
+        "rankShift": 0
+      }
+    ]
+  },
+  "liveBenchmarks": {
+    "alertLatencyStats": {
+      "runs": 220,
+      "sameRequestConfirmed": true,
+      "sameRequestPercentage": 100,
+      "min": 34.787500000000364,
+      "max": 267.9492,
+      "mean": 68.81838863636362,
+      "p50": 53.96849999999904,
+      "p95": 137.36889999999948
+    },
+    "endpointStats": {
+      "createExpense": {
+        "runs": 60,
+        "p50": 136.4126000000033,
+        "p95": 225.41629999999714,
+        "mean": 146.43156333333408,
+        "targetMet": true
+      },
+      "listExpenses": {
+        "runs": 60,
+        "p50": 32.85109999999986,
+        "p95": 52.39310000000114,
+        "mean": 35.202118333332876,
+        "targetMet": true
+      },
+      "updateExpense": {
+        "runs": 60,
+        "p50": 127.51080000000002,
+        "p95": 212.1059000000023,
+        "mean": 136.18117833333326,
+        "targetMet": true
+      },
+      "deleteExpense": {
+        "runs": 60,
+        "p50": 50.74879999999757,
+        "p95": 89.66010000000097,
+        "mean": 58.32742166666697,
+        "targetMet": true
+      },
+      "getVariance": {
+        "runs": 60,
+        "p50": 37.377300000000105,
+        "p95": 60.86659999999756,
+        "mean": 40.938863333333515,
+        "targetMet": true
+      }
+    }
+  }
+}

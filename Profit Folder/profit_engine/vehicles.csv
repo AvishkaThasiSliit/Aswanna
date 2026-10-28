@@ -1,0 +1,10 @@
+vehicle_id,vehicle_name,fuel_type,km_per_l_min,km_per_l_max,km_per_l_avg,payload_kg,typical_use
+dimo_batti,"DIMO Batti / Tata Ace Zip",Diesel,20.0,24.0,22.0,600,"Vegetables, fruits, small harvest loads"
+dimo_batta_ht2,"DIMO Batta HT2",Diesel,15.0,19.0,17.0,1000,"Vegetables, paddy, sacks (1-ton workhorse)"
+tata_ace_gold,"Tata Ace Gold Diesel",Diesel,15.0,19.0,17.0,1000,"Produce, crates, grain"
+suzuki_carry,"Suzuki Carry",Petrol,15.0,20.0,17.5,650,"Small harvest loads, mini-truck"
+mahindra_bolero,"Mahindra Bolero Pik-Up",Diesel,10.0,13.0,11.5,1750,"Heavy crop loads, long distance"
+bajaj_re_petrol,"Bajaj RE 4S / 4-stroke Three-Wheeler",Petrol,25.0,30.0,27.5,300,"Small quantities of vegetables/fruits"
+bajaj_re_diesel,"Bajaj RE Diesel Three-Wheeler",Diesel,25.0,30.0,27.5,350,"Produce and heavier small loads"
+bajaj_ct100,"Bajaj CT100 / CT100 ES Motorbike",Petrol,65.0,80.0,72.5,50,"Farmer + small bags/crates, short-distance transport"
+shared_lorry,"Shared Commercial Lorry (Freight)",Diesel,4.0,6.0,5.0,8000,"Shared freight per kg / per crate"

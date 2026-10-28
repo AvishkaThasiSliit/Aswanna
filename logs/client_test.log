@@ -1,0 +1,57 @@
+
+> client@1.0.0 test
+> vitest run --run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/Aswanna/client[39m
+
+ [32m✓[39m src/test/deleteUndo.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 475[2mms[22m[39m
+ [32m✓[39m src/test/validation.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1091[2mms[22m[39m
+   [33m[2m✓[22m[39m Validation UI and i18n Integration[2m > [22mrenders inline validation error messages in English [33m358[2mms[22m[39m
+ [32m✓[39m src/test/CropRecommendation.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 2164[2mms[22m[39m
+   [33m[2m✓[22m[39m CropRecommendation Page Component[2m > [22mrenders recommendation header and all numbered sections [33m855[2mms[22m[39m
+   [33m[2m✓[22m[39m CropRecommendation Page Component[2m > [22mrenders ranked crop cards with reliability badges and plain language reasons [33m492[2mms[22m[39m
+   [33m[2m✓[22m[39m CropRecommendation Page Component[2m > [22mrenders district, season, and irrigation filter dropdown selectors [33m323[2mms[22m[39m
+ [32m✓[39m src/test/ActivityCalendar.test.jsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1508[2mms[22m[39m
+   [33m[2m✓[22m[39m ActivityCalendarPage Component[2m > [22mrenders 13-month grid with activity codes and greys out invalid days [33m1107[2mms[22m[39m
+   [33m[2m✓[22m[39m ActivityCalendarPage Component[2m > [22mopens day details modal when clicking on a day with expenses [33m395[2mms[22m[39m
+ [32m✓[39m src/test/SetupWizard.test.jsx [2m([22m[2m10 tests[22m[2m)[22m[33m 3576[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates required name field [33m1095[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mrejects future date of birth [33m538[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates NIC format (9 digits + V/X or 12 digits) [33m465[2mms[22m[39m
+   [33m[2m✓[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates phone format (10 digits starting with 0) [33m352[2mms[22m[39m
+ [32m✓[39m src/test/BudgetOverview.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 2290[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders Cost Impact Summary title and KPI section [33m423[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders category variance table with status badges and estimated split badge [33m453[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders SO1 prediction interval panel and within-interval information badge [33m351[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders SO1 metadata banners for low confidence, extrapolation, and lag saturation [33m481[2mms[22m[39m
+   [33m[2m✓[22m[39m BudgetOverview Page Component[2m > [22mrenders missing baseline message and Retry Baseline button when variance status is missing_baseline [33m398[2mms[22m[39m
+ [32m✓[39m src/test/ExpenseForm.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 2506[2mms[22m[39m
+   [33m[2m✓[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mtoggles no_work dayStatus hiding cost sections [33m1265[2mms[22m[39m
+   [33m[2m✓[22m[39m ExpenseForm Unit & Integration Tests[2m > [22madds and removes repeatable input lines [33m591[2mms[22m[39m
+   [33m[2m✓[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mdisplays mapped server field error next to activity select on submission failure [33m636[2mms[22m[39m
+ [32m✓[39m src/test/ForecastCard.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 374[2mms[22m[39m
+ [32m✓[39m src/test/CycleSummary.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 983[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleSummaryPage Component[2m > [22mrenders summary tiles and shows profit when sales exist [33m444[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleSummaryPage Component[2m > [22mhandles Close Cycle with confirmation dialog [33m477[2mms[22m[39m
+ [32m✓[39m src/test/CycleNotes.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 936[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleNotesPage Component[2m > [22mrenders notes form generated from schema with existing notes [33m367[2mms[22m[39m
+   [33m[2m✓[22m[39m CycleNotesPage Component[2m > [22msubmits updated notes successfully [33m476[2mms[22m[39m
+ [32m✓[39m src/test/HarvestSales.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1258[2mms[22m[39m
+   [33m[2m✓[22m[39m HarvestSales Component[2m > [22mrenders harvest and sales sections with computed totals [33m421[2mms[22m[39m
+   [33m[2m✓[22m[39m HarvestSales Component[2m > [22msubmits a new harvest round [33m594[2mms[22m[39m
+ [32m✓[39m src/test/CostImpactCard.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 792[2mms[22m[39m
+   [33m[2m✓[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mrenders Cost Impact Summary section [33m380[2mms[22m[39m
+ [32m✓[39m src/test/FilterBar.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 366[2mms[22m[39m
+ [32m✓[39m src/test/DailyCostTrackerHub.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 833[2mms[22m[39m
+ [32m✓[39m src/test/StatusBadge.test.jsx [2m([22m[2m8 tests[22m[2m)[22m[90m 132[2mms[22m[39m
+ [32m✓[39m src/test/formatters.test.js [2m([22m[2m11 tests[22m[2m)[22m[90m 50[2mms[22m[39m
+ [32m✓[39m src/test/i18n.test.js [2m([22m[2m3 tests[22m[2m)[22m[90m 51[2mms[22m[39m
+ [32m✓[39m src/test/AlertsPage.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 668[2mms[22m[39m
+   [33m[2m✓[22m[39m AlertsPage Component[2m > [22mrenders alerts header and overspend alert cards [33m342[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m18 passed[39m[22m[90m (18)[39m
+[2m      Tests [22m [1m[32m95 passed[39m[22m[90m (95)[39m
+[2m   Start at [22m 18:11:35
+[2m   Duration [22m 35.73s[2m (transform 5.53s, setup 11.89s, collect 37.51s, tests 20.05s, environment 75.51s, prepare 13.96s)[22m
+
