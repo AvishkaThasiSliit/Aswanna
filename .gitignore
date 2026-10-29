@@ -15,3 +15,5 @@ voice-capture-audio/
 .mongo-cache/
 .cache/
 *.local
+bill-scan-data/
+bill-service/.venv/

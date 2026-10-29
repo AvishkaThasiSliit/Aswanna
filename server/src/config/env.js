@@ -1,14 +1,53 @@
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Attempt to load .env file if process.loadEnvFile is available
+if (typeof process.loadEnvFile === 'function') {
+  const candidateEnvPaths = [
+    path.resolve(process.cwd(), '.env'),
+    path.resolve(process.cwd(), 'server', '.env'),
+    path.resolve(__dirname, '../../..', '.env'),
+    path.resolve(__dirname, '../../..', 'server', '.env'),
+    path.resolve(__dirname, '../..', '.env')
+  ];
+  for (const envPath of candidateEnvPaths) {
+    if (fs.existsSync(envPath)) {
+      try {
+        process.loadEnvFile(envPath);
+        break;
+      } catch {
+        // continue if already loaded or unable to parse
+      }
+    }
+  }
+}
+
+const nodeEnv = process.env.NODE_ENV || 'development';
+
+function getValidatedMongoUri() {
+  if (process.env.MONGODB_URI && process.env.MONGODB_URI.trim()) {
+    return process.env.MONGODB_URI.trim();
+  }
+  if ((process.env.NODE_ENV || nodeEnv) === 'test') {
+    return ''; // test environment uses in-memory MongoMemoryServer
+  }
+  throw new Error('CONFIG_ERROR: MONGODB_URI environment variable is required. Please set MONGODB_URI in your environment or server/.env file.');
+}
+
 // Central env config – all process.env access lives here
 export const ENV = {
-  NODE_ENV: process.env.NODE_ENV || 'development',
+  NODE_ENV: nodeEnv,
   PORT: parseInt(process.env.PORT || '4000', 10),
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb+srv://admin:urEREDNn6hAE0IBc@cluster0.g8sc8.mongodb.net/?appName=Aswanna',
+  get MONGODB_URI() {
+    return getValidatedMongoUri();
+  },
+  set MONGODB_URI(val) {
+    process.env.MONGODB_URI = val;
+  },
   JWT_SECRET: process.env.JWT_SECRET || 'dev-jwt-secret-change-in-prod',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
   RATE_LIMIT_WINDOW_MS: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10), // 15 min

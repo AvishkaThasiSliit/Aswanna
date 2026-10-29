@@ -1,0 +1,65 @@
+====================================================================================================
+TASK SECURITY-1: DATABASE CREDENTIAL REMOVAL & ARCHIVE V2 REBUILD REPORT
+Date: 2026-10-28
+Repository: D:\Aswanna
+Target Folder: D:\Aswanna_archive_2026-10-28_v2
+====================================================================================================
+
+[1. DISK FREE SPACE GUARD]
+  - Before: 2,132,140,032 bytes (2.09 GB)
+  - After:  1,814,589,440 bytes (1.81 GB)
+  - Limit:  >= 1.0 GB (Constraint met)
+
+[2. GIT FORENSICS]
+  - Remotes:
+      origin https://github.com/AvishkaThasiSliit/Aswanna.git (fetch)
+      origin https://github.com/AvishkaThasiSliit/Aswanna.git (push)
+  - Commit history:
+      f2821d4 AvishkaThasiSliit Wed Oct 28 12:31:20 2026 +0530 Aswanna SO3: Financial tracking, variance engine, tiered alerts, voice pipeline, and documentation
+      92d96d0 Avishka Thu Oct 8 16:14:39 2026 +0530 Phase 0.6: data layer hardened, 51 tests passing
+  - Tracked file counts by top folder (git ls-files):
+      (root): 8, Profit Folder: 3088, client: 77, docs: 34, logs: 124, ml: 34, scripts: 2,
+      server: 183, shared: 37, so1-service: 15, voice-learn: 13, voice-service: 19
+  - Tracked checks:
+      Profit Folder: 3088 tracked | ml: 34 tracked | so1-service: 15 tracked
+      node_modules: 0 tracked | .venv: 0 tracked | voice-service/models: 0 tracked | .wav: 0 tracked | .env: 0 tracked
+  - 15 largest objects in history:
+      All in Profit Folder/Price folder/ (csv and joblib models ranging from 3.27 MB to 7.00 MB)
+  - Commit introducing mongodb+srv:
+      f2821d4 Aswanna SO3: Financial tracking, variance engine, tiered alerts, voice pipeline, and documentation
+  - Git blame author & date:
+      AvishkaThasiSliit, Wed Oct 28 12:31:20 2026 +0530
+
+[3. CODE FIX]
+  - server/src/config/env.js: Hardcoded connection string removed. Loads .env via process.loadEnvFile.
+    Requires MONGODB_URI in non-test mode (fails at startup with CONFIG_ERROR if unset). Allows empty URI in test mode.
+  - server/.env.example: Updated with MONGODB_URI=<your connection string>.
+  - server/.env: Created and confirmed git-ignored via git check-ignore -v (.gitignore:5:.env).
+  - docs/SO3-README.md: Updated environment table to document required MONGODB_URI without fallback.
+
+[4. REDACTION & REPO GREP]
+  - docs/archive-report.md: Credential fragments redacted to [REDACTED].
+  - logs/archive-report.txt: Verified free of raw credentials.
+  - Repo grep for "mongodb+srv://": Only in .mongo-cache\mongod-x64-win32-7.0.14.exe (binary).
+  - Repo grep for cluster host name: (None).
+
+[5. TEST VERIFICATION & SERVER STARTUP]
+  - Server startup test: Reached local dev DB / MongoMemoryServer; /api/health returned 200 {"status":"ok"}.
+  - Server tests: 20 passed, 20 total suites (450 passed, 450 total tests).
+  - Client tests: 22 passed, 22 total files (126 passed, 126 total tests).
+  - Evaluate.js: Complete evaluation - ALL PASS.
+  - Temp directories: server\temp and client\temp empty; root temp contains OS/system files, preserved.
+
+[6. REBUILT ARCHIVE V2: D:\Aswanna_archive_2026-10-28_v2]
+  - archive-source.zip: 1,461,081 bytes | SHA256: 811c66318989977f58b2d5066dc874354b841462036cc71aa93498172d525671
+    Includes voice-learn/models/category_clf.joblib and tagger.joblib.
+  - archive-freeze.zip: 52,278 bytes | SHA256: a7da24009963641c914df99d47c5c2ab2681499cf0af562988b116da9784b62c
+  - archive-git.bundle: OMITTED (commit f2821d4 in history holds legacy credential).
+  - MANIFEST.txt: 52,864 bytes | SHA256: 8b14fb717cd8034e648020435376f8c4caf0f7d018f3a60d05b109726c6918d5
+  - ARCHIVE-README.md: 7,152 bytes | SHA256: 73fe35be4bd7f74596affe89867087aca71fe8405c749eb8faf0fff584064438
+  - ARCHIVE-HASHES.txt: 814 bytes
+  - Secret scan on included files: 0 active connection strings.
+  - Integrity check: 27 sampled files match live originals 100%. Freeze v2 matches 100%.
+  - Clean verify folder deletion: Verified.
+  - Old archive folder D:\Aswanna_archive_2026-10-28 preserved.
+====================================================================================================

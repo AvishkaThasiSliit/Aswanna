@@ -1,0 +1,69 @@
+====================================================================================================
+ASWANNA SO3 ARCHIVE VERIFICATION REPORT (TASK ARCHIVE-1)
+Date: 2026-10-28
+Target Folder: D:\Aswanna_archive_2026-10-28
+Git Commit: f2821d4 (master)
+====================================================================================================
+
+[0. PRE-CHECKS]
+  - Drive C: 174.90 GB used, 0.16 GB free
+  - Drive D: 297.91 GB used, 2.09 GB free (Target archive folder created on D:)
+  - Reparse points / junctions:
+      12 under D:\Aswanna (all inside node_modules, temp, models; all skipped)
+      1 under D:\Aswanna_scratch_v1check (node_modules junction; skipped)
+  - Git state: .git exists=True, branch=master, commit=f2821d4, git status --short=0 lines (clean)
+  - Archive size estimate: 477 included files = 7.17 MB uncompressed << 1.09 GB limit. PASS.
+
+[1. ARCHIVE ARTIFACTS CREATED IN D:\Aswanna_archive_2026-10-28]
+  - archive-source.zip:
+      File count: 479 entries (477 source + ARCHIVE-README.md + MANIFEST.txt)
+      Size:       1,388,999 bytes (1.32 MB)
+      SHA256:     5e96bcd5ad8750b271cca20c0f901e136b9e856bafdf39411f4d8f5cfd45b383
+  - archive-freeze.zip:
+      File count: 18 entries (D:\Aswanna_freeze_voice and D:\Aswanna_freeze_voice_v2)
+      Size:       52,278 bytes (0.05 MB)
+      SHA256:     a7da24009963641c914df99d47c5c2ab2681499cf0af562988b116da9784b62c
+  - archive-git.bundle:
+      Size:       110,771,594 bytes (105.64 MB)
+      SHA256:     d4aaa1fd44301407d202573e7b4db506f8913dcbfafbaf390821c5099afbc759
+  - MANIFEST.txt:
+      Entries:    478 lines (sorted relative path, size, SHA256)
+      Size:       50,700 bytes
+      SHA256:     cbf049133e65b832c8bba65517278f55b1ff4e668a6f63b385b806bf7c4ac9a8
+  - ARCHIVE-README.md:
+      Size:       6,799 bytes
+      SHA256:     2b21d022ce3d57e175380ddf590dd064b8032b2472cc04e594cad0d8a3e1e61d
+  - ARCHIVE-HASHES.txt:
+      Size:       751 bytes
+      SHA256:     971efeb3288f344fc8654ff9cb01851b3e8c9735dbe199e44ff4e6b2cff3df15
+
+[2. UNTOUCHED REFERENCE BACKUPS]
+  - D:\Aswanna.zip:
+      Size:       1,290,009,068 bytes (1,230.25 MB)
+      SHA256:     d4283885ee8452523ad29fb431a8b41a48802247de7b954aac86e5b4899f21b3
+  - D:\Aswanna_backup_before_cleanup.zip:
+      Historical record in logs\cleanup-inventory.txt: 755,646,160 bytes (superseded by D:\Aswanna.zip)
+
+[3. TEAMMATE ASSETS PRESERVED UNTOUCHED ON DISK]
+  - Profit Folder: 45,437 files,  960,216,267 bytes (915.73 MB)
+  - ml:            15,102 files,  425,673,639 bytes (405.95 MB)
+  - so1-service:   13,599 files,  403,612,228 bytes (384.91 MB)
+  - Total:         74,138 files, 1,789,502,134 bytes (~1.67 GB)
+
+[4. SECRET SCAN OF INCLUDED SOURCE FILES]
+  - 477 files scanned.
+  - 26 candidate matches found (all mock test credentials, documentation placeholders, NLP tokens, or base dev DB URL).
+  - Masked values reviewed and verified safe.
+
+[5. ARCHIVE EXTRACTION AND INTEGRITY VERIFICATION]
+  - Zip entries inspected: 0 forbidden keywords / extensions found.
+  - Test extraction to D:\Aswanna_archive_verify completed.
+  - 25 sampled files compared against live originals: 100% BYTE-FOR-BYTE MATCH.
+  - 6 shared\voice files compared against logs\freeze-v2-hashes.txt: 100% MATCH.
+  - Reparse points in extracted folder: 0.
+  - D:\Aswanna_archive_verify cleanly deleted.
+
+[6. REPOSITORY INVARIANCE]
+  - No existing project files, fixtures, models, or evaluations modified or deleted.
+  - No servers, test runners, or training executions were performed during archive creation.
+====================================================================================================

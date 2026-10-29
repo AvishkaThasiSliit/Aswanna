@@ -73,7 +73,7 @@ All runtime variables are loaded through `server/src/config/env.js` and Vite's `
 | :--- | :--- | :--- | :--- |
 | `PORT` | `4000` | Port number | HTTP port for the Node.js Express server. |
 | `NODE_ENV` | `development` | `development` \| `production` \| `test` | Runtime environment mode. Disables dev routes in production. |
-| `MONGODB_URI` | `mongodb://localhost:27017/aswanna` | MongoDB URI | Connection string for MongoDB database instance. |
+| `MONGODB_URI` | *None* (Required) | MongoDB URI | Connection string for MongoDB. Must be set via environment / `server/.env` (server fails at startup if unset, except `NODE_ENV=test`). |
 | `JWT_SECRET` | `dev-jwt-secret-change-in-prod` | String | Secret key for signing and verifying JSON Web Tokens. |
 | `JWT_EXPIRES_IN` | `7d` | String (`7d`, `24h`) | Session token expiration duration. |
 | `RATE_LIMIT_WINDOW_MS` | `900000` (15 min) | Milliseconds | Window size for Express rate limiting. |
