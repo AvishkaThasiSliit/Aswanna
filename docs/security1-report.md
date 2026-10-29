@@ -197,7 +197,7 @@ Removed hard-coded fallback connection string. Automatically loads `.env` if ava
   ```
   .mongo-cache\mongod-x64-win32-7.0.14.exe (binary executable)
   ```
-- Files matching cluster host name (`cluster0.g8sc8.mongodb.net`):
+- Files matching cluster host name (`<cluster-host>`):
   ```
   (None)
   ```
