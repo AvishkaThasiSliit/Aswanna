@@ -39,6 +39,13 @@ $env:PORT = "8000"
 & "voice-service\.venv\Scripts\uvicorn.exe" app:app --app-dir voice-service --host 127.0.0.1 --port 8000
 ```
 
+#### 4. Optional: Python Bill Scanner Service (FastAPI on Port 8010)
+```powershell
+$env:BILL_INTERNAL_TOKEN = "your-high-entropy-secret-token"
+$env:TESSERACT_CMD = "tesseract" # or full path to tesseract executable
+& "bill-service\.venv\Scripts\uvicorn.exe" main:app --app-dir bill-service --host 127.0.0.1 --port 8010
+```
+
 ---
 
 ## 2. Test Suites & Verification
@@ -115,9 +122,19 @@ All runtime variables are loaded through `server/src/config/env.js` and Vite's `
 #### C. Dev Voice Capture & Forecasting
 | Variable | Default Value | Allowed Values | Description |
 | :--- | :--- | :--- | :--- |
-| `VOICE_CAPTURE` | `off` | `off` \| `on` | Server gating flag for dev capture endpoints (`/api/dev/voice-capture`). Enabled only when flag is `on` and `NODE_ENV !== 'production'`. |
-| `VITE_VOICE_CAPTURE` | `off` | `off` \| `on` | Client gating toggle for `/dev/voice-capture` recording page. |
-| `FORECAST_MODE` | `off` | `off` \| `on` | Toggles end-of-season forecasting logic. Disabled by default as it overlaps SO1. |
+| `VOICE_CAPTURE` | `off` | `off`, `on` | Server gating flag for dev capture endpoints (`/api/dev/voice-capture`). Enabled only when flag is `on` and `NODE_ENV !== 'production'`. |
+| `VITE_VOICE_CAPTURE` | `off` | `off`, `on` | Client gating toggle for `/dev/voice-capture` recording page. |
+| `FORECAST_MODE` | `off` | `off`, `on` | Toggles end-of-season forecasting logic. Disabled by default as it overlaps SO1. |
+
+#### D. Bill Scanner Service & Optical Character Recognition
+| Variable | Default Value | Allowed Values | Description |
+| :--- | :--- | :--- | :--- |
+| `BILL_SCAN` | `off` | `off`, `on` | Server gating flag for `/api/bill-scan`. Returns 404 when `off`. |
+| `BILL_SERVICE_URL` | `http://127.0.0.1:8010` | URL | Target address of the Python bill scanner microservice. |
+| `BILL_INTERNAL_TOKEN` | *None* (Empty string) | Secret String | Shared secret token required for authentication between Express and Python bill service. Returns 503 if unset when `BILL_SCAN=on`. |
+| `VITE_BILL_SCAN` | `off` | `off`, `on` | Client UI toggle to display the Scan Bill camera button. |
+
+**Security Boundary Note:** The `bill-service` microservice is private to the application cluster and must not be exposed directly to the public internet. The Node.js Express server terminates TLS and client authentication (`requireAuth`), enforces rate limiting, validates payload size (max 5 MB) and MIME types (PNG/JPEG magic bytes), and proxies validated image payloads upstream using `BILL_INTERNAL_TOKEN`. This internal token blocks direct bypass.
 
 ---
 

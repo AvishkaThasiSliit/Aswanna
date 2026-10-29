@@ -83,6 +83,24 @@ export const ENV = {
   VOICE_PSEUDONYMIZATION_KEY: process.env.VOICE_PSEUDONYMIZATION_KEY || 'aswanna-voice-pseudo-salt-secret-key-2026',
   VOICE_DATASET_MAX_CONTRIBUTOR_BYTES: parseInt(process.env.VOICE_DATASET_MAX_CONTRIBUTOR_BYTES || '104857600', 10), // 100 MB per contributor
   VOICE_DATASET_MIN_FREE_DISK_BYTES: parseInt(process.env.VOICE_DATASET_MIN_FREE_DISK_BYTES || '52428800', 10), // 50 MB minimum free disk buffer
+  get BILL_SCAN() {
+    return process.env.BILL_SCAN || 'off';
+  },
+  set BILL_SCAN(val) {
+    process.env.BILL_SCAN = val;
+  },
+  get BILL_SERVICE_URL() {
+    return process.env.BILL_SERVICE_URL || 'http://127.0.0.1:8010';
+  },
+  set BILL_SERVICE_URL(val) {
+    process.env.BILL_SERVICE_URL = val;
+  },
+  get BILL_INTERNAL_TOKEN() {
+    return process.env.BILL_INTERNAL_TOKEN || '';
+  },
+  set BILL_INTERNAL_TOKEN(val) {
+    process.env.BILL_INTERNAL_TOKEN = val;
+  },
 };
 
 /**

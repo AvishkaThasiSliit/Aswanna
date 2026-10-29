@@ -1,0 +1,61 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-9.2.0, pluggy-1.7.0 -- D:\Aswanna\bill-service\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: D:\Aswanna\bill-service
+plugins: anyio-4.15.1, hypothesis-6.170.13
+collecting ... collected 45 items
+
+tests/test_api.py::test_multipart_upload_spooling_evidence PASSED        [  2%]
+tests/test_api.py::test_startup_token_check_raises_when_unset PASSED     [  4%]
+tests/test_api.py::test_health_endpoint_no_auth PASSED                   [  6%]
+tests/test_api.py::test_auth_rejection_missing_token PASSED              [  8%]
+tests/test_api.py::test_auth_rejection_bad_token PASSED                  [ 11%]
+tests/test_api.py::test_auth_acceptance_bearer_token PASSED              [ 13%]
+tests/test_api.py::test_invalid_content_type_rejected PASSED             [ 15%]
+tests/test_api.py::test_magic_bytes_validation_with_png_content_type PASSED [ 17%]
+tests/test_api.py::test_malformed_content_length_returns_400 PASSED      [ 20%]
+tests/test_api.py::test_negative_content_length_returns_400 PASSED       [ 22%]
+tests/test_api.py::test_upload_limit_5mb_rejection PASSED                [ 24%]
+tests/test_api.py::test_chunked_upload_no_content_length_succeeds PASSED [ 26%]
+tests/test_api.py::test_chunked_upload_oversized_rejected_with_413 PASSED [ 28%]
+tests/test_api.py::test_missing_tesseract_returns_http_503 PASSED        [ 31%]
+tests/test_api.py::test_ocr_timeout_returns_http_504 PASSED              [ 33%]
+tests/test_eval_bills.py::test_wilson_score_interval_bounds PASSED       [ 35%]
+tests/test_eval_bills.py::test_silent_total_error_detection PASSED       [ 37%]
+tests/test_eval_bills.py::test_date_outcomes PASSED                      [ 40%]
+tests/test_eval_bills.py::test_vendor_normalisation_and_overlap PASSED   [ 42%]
+tests/test_parse_bill.py::test_allowed_categories_matches_app_spec PASSED [ 44%]
+tests/test_parse_bill.py::test_total_standard_comma_decimal PASSED       [ 46%]
+tests/test_parse_bill.py::test_total_space_separated_with_rs PASSED      [ 48%]
+tests/test_parse_bill.py::test_subtotal_vs_tax_vs_total PASSED           [ 51%]
+tests/test_parse_bill.py::test_cash_change_exclusion PASSED              [ 53%]
+tests/test_parse_bill.py::test_ambiguous_date PASSED                     [ 55%]
+tests/test_parse_bill.py::test_unambiguous_date PASSED                   [ 57%]
+tests/test_parse_bill.py::test_digit_confusion_detection PASSED          [ 60%]
+tests/test_parse_bill.py::test_missing_total PASSED                      [ 62%]
+tests/test_parse_bill.py::test_category_matching_and_allowed_list PASSED [ 64%]
+tests/test_parse_bill.py::test_unknown_item_gets_other_and_category_unsure PASSED [ 66%]
+tests/test_parse_bill.py::test_items_sum_mismatch PASSED                 [ 68%]
+tests/test_parse_bill.py::test_grounding_whole_number_token_250_vs_12500 PASSED [ 71%]
+tests/test_parse_bill.py::test_parser_ungrounded_total_rejected PASSED   [ 73%]
+tests/test_parse_bill.py::test_total_qty_and_total_items_are_not_money PASSED [ 75%]
+tests/test_parse_bill.py::test_discount_and_rounding_lines_excluded PASSED [ 77%]
+tests/test_parse_bill.py::test_balance_due_vs_total_conflict PASSED      [ 80%]
+tests/test_parse_bill.py::test_conflicting_totals PASSED                 [ 82%]
+tests/test_parse_bill.py::test_qty_x_price_amount_row PASSED             [ 84%]
+tests/test_parse_bill.py::test_sinhala_total_keyword PASSED              [ 86%]
+tests/test_parse_bill.py::test_property_grounding_total_digits_must_exist PASSED [ 88%]
+tests/test_parse_bill.py::test_grounding_formats_spec PASSED             [ 91%]
+tests/test_parse_bill.py::test_conflicting_totals_record_behavior_discount_and_net_total PASSED [ 93%]
+tests/test_parse_bill.py::test_conflicting_totals_record_behavior_total_and_net_total PASSED [ 95%]
+tests/test_parse_bill.py::test_bill1f_grounding_whitespace_cases PASSED  [ 97%]
+tests/test_parse_bill.py::test_field_independence_unambiguous_date_with_conflicting_total PASSED [100%]
+
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\Aswanna\bill-service\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 45 passed, 1 warning in 3.03s ========================

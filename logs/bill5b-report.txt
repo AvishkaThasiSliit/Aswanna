@@ -1,0 +1,232 @@
+TASK BILL-5b: In-Depth Error Analysis & Wilson Intervals Report
+Date: 2026-10-29
+
+1. DISK SPACE & ENVIRONMENT
+- D: Drive Free Space: 4.79 GB
+- Voice Service Integrity: SHA-256 hashes verified identical.
+- Test Lockfile: logs/bill-eval-test.lock untouched.
+
+2. WILSON SCORE INTERVALS FOR BOTH SPLITS (eval_bills.py wilson_score_interval)
+
+=== DEVELOPMENT SPLIT (N=20) ===
+
+--- OVERALL (N=20) ---
+TOTALS:
+  correct        :  9/20 ( 45.0%) 95% CI: [0.2582, 0.6579]
+  silent wrong   :  0/20 (  0.0%) 95% CI: [0.0000, 0.1611]
+  wrong flagged  :  6/20 ( 30.0%) 95% CI: [0.1455, 0.5190]
+  no value       :  5/20 ( 25.0%) 95% CI: [0.1119, 0.4687]
+DATES:
+  correct        :  5/20 ( 25.0%) 95% CI: [0.1119, 0.4687]
+  wrong flagged  :  1/20 (  5.0%) 95% CI: [0.0089, 0.2361]
+  silent wrong   :  0/20 (  0.0%) 95% CI: [0.0000, 0.1611]
+  no value       : 14/20 ( 70.0%) 95% CI: [0.4810, 0.8545]
+
+--- Level 0 (N=5) ---
+TOTALS:
+  correct        :  3/ 5 ( 60.0%) 95% CI: [0.2307, 0.8824]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  wrong flagged  :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+  no value       :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+DATES:
+  correct        :  3/ 5 ( 60.0%) 95% CI: [0.2307, 0.8824]
+  wrong flagged  :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  no value       :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+
+--- Level 1 (N=5) ---
+TOTALS:
+  correct        :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  wrong flagged  :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+  no value       :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+DATES:
+  correct        :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+  wrong flagged  :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  no value       :  4/ 5 ( 80.0%) 95% CI: [0.3755, 0.9638]
+
+--- Level 2 (N=5) ---
+TOTALS:
+  correct        :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  wrong flagged  :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+  no value       :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+DATES:
+  correct        :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+  wrong flagged  :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  no value       :  4/ 5 ( 80.0%) 95% CI: [0.3755, 0.9638]
+
+--- Level 3 (N=5) ---
+TOTALS:
+  correct        :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  wrong flagged  :  2/ 5 ( 40.0%) 95% CI: [0.1176, 0.7693]
+  no value       :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+DATES:
+  correct        :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  wrong flagged  :  1/ 5 ( 20.0%) 95% CI: [0.0362, 0.6245]
+  silent wrong   :  0/ 5 (  0.0%) 95% CI: [0.0000, 0.4345]
+  no value       :  4/ 5 ( 80.0%) 95% CI: [0.3755, 0.9638]
+=== TEST SPLIT (N=40) ===
+
+--- OVERALL (N=40) ---
+TOTALS:
+  correct        : 21/40 ( 52.5%) 95% CI: [0.3750, 0.6706]
+  silent wrong   :  1/40 (  2.5%) 95% CI: [0.0044, 0.1288]
+  wrong flagged  : 10/40 ( 25.0%) 95% CI: [0.1419, 0.4019]
+  no value       :  8/40 ( 20.0%) 95% CI: [0.1050, 0.3476]
+DATES:
+  correct        : 16/40 ( 40.0%) 95% CI: [0.2635, 0.5540]
+  wrong flagged  :  2/40 (  5.0%) 95% CI: [0.0138, 0.1650]
+  silent wrong   :  0/40 (  0.0%) 95% CI: [0.0000, 0.0876]
+  no value       : 22/40 ( 55.0%) 95% CI: [0.3983, 0.6929]
+
+--- Level 0 (N=10) ---
+TOTALS:
+  correct        :  7/10 ( 70.0%) 95% CI: [0.3968, 0.8922]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  wrong flagged  :  3/10 ( 30.0%) 95% CI: [0.1078, 0.6032]
+  no value       :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+DATES:
+  correct        :  7/10 ( 70.0%) 95% CI: [0.3968, 0.8922]
+  wrong flagged  :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  no value       :  3/10 ( 30.0%) 95% CI: [0.1078, 0.6032]
+
+--- Level 1 (N=10) ---
+TOTALS:
+  correct        :  7/10 ( 70.0%) 95% CI: [0.3968, 0.8922]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  wrong flagged  :  2/10 ( 20.0%) 95% CI: [0.0567, 0.5098]
+  no value       :  1/10 ( 10.0%) 95% CI: [0.0179, 0.4042]
+DATES:
+  correct        :  2/10 ( 20.0%) 95% CI: [0.0567, 0.5098]
+  wrong flagged  :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  no value       :  8/10 ( 80.0%) 95% CI: [0.4902, 0.9433]
+
+--- Level 2 (N=10) ---
+TOTALS:
+  correct        :  5/10 ( 50.0%) 95% CI: [0.2366, 0.7634]
+  silent wrong   :  1/10 ( 10.0%) 95% CI: [0.0179, 0.4042]
+  wrong flagged  :  3/10 ( 30.0%) 95% CI: [0.1078, 0.6032]
+  no value       :  1/10 ( 10.0%) 95% CI: [0.0179, 0.4042]
+DATES:
+  correct        :  4/10 ( 40.0%) 95% CI: [0.1682, 0.6873]
+  wrong flagged  :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  no value       :  6/10 ( 60.0%) 95% CI: [0.3127, 0.8318]
+
+--- Level 3 (N=10) ---
+TOTALS:
+  correct        :  2/10 ( 20.0%) 95% CI: [0.0567, 0.5098]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  wrong flagged  :  2/10 ( 20.0%) 95% CI: [0.0567, 0.5098]
+  no value       :  6/10 ( 60.0%) 95% CI: [0.3127, 0.8318]
+DATES:
+  correct        :  3/10 ( 30.0%) 95% CI: [0.1078, 0.6032]
+  wrong flagged  :  2/10 ( 20.0%) 95% CI: [0.0567, 0.5098]
+  silent wrong   :  0/10 (  0.0%) 95% CI: [0.0000, 0.2775]
+  no value       :  5/10 ( 50.0%) 95% CI: [0.2366, 0.7634]
+
+DATE OUTCOME DEFINITION (eval_bills.py lines 121-138):
+def evaluate_date(pred_date: Optional[str], true_date: Optional[str], status: str, reasons: List[str]) -> str:
+    is_flagged = (status == "needs_review") or ("ambiguous_date" in reasons) or len(reasons) > 0
+    if not pred_date:
+        return "no_value"
+    if not true_date:
+        return "wrong_flagged" if is_flagged else "silent_error"
+    if pred_date == true_date:
+        return "correct"
+    else:
+        return "wrong_flagged" if is_flagged else "silent_error"
+
+Is a date flagged ambiguous_date but with right value counted as correct?
+YES. Under lines 134-135, equality check pred_date == true_date returns "correct" before checking is_flagged.
+
+3. THE 24 NON-CORRECT TEST DATES
+Total non-correct dates: 24
+Bill ID    Level   Predicted    Ground Truth Outcome         Reasons
+bill_009   L0      None         2025-09-25   no_value        ['category_unsure', 'sum_mismatch']
+bill_011   L0      None         2025-01-18   no_value        ['category_unsure', 'largest_amount_fallback', 'sum_mismatch']
+bill_013   L0      None         2025-07-19   no_value        ['largest_amount_fallback']
+bill_021   L1      None         2025-06-26   no_value        ['sum_mismatch']
+bill_022   L1      None         2025-06-21   no_value        ['category_unsure', 'sum_mismatch']
+bill_023   L1      None         2026-11-15   no_value        ['balance_due_used_as_total', 'category_unsure', 'sum_mismatch']
+bill_025   L1      None         2026-06-24   no_value        ['category_unsure', 'largest_amount_fallback', 'sum_mismatch']
+bill_027   L1      None         2026-08-20   no_value        ['category_unsure', 'largest_amount_fallback', 'sum_mismatch']
+bill_028   L1      None         2026-05-23   no_value        ['category_unsure', 'sum_mismatch']
+bill_029   L1      None         2026-07-02   no_value        ['category_unsure', 'largest_amount_fallback']
+bill_030   L1      None         2025-01-03   no_value        ['category_unsure', 'conflicting_totals']
+bill_037   L2      None         2026-01-22   no_value        []
+bill_038   L2      None         2026-04-08   no_value        ['category_unsure', 'largest_amount_fallback', 'sum_mismatch']
+bill_039   L2      None         2026-03-23   no_value        ['category_unsure', 'conflicting_totals']
+bill_040   L2      None         2025-05-20   no_value        []
+bill_043   L2      None         2025-09-01   no_value        ['category_unsure', 'sum_mismatch']
+bill_045   L2      None         2025-11-26   no_value        ['balance_due_used_as_total', 'category_unsure', 'sum_mismatch']
+bill_052   L3      2028-05-02   2026-05-02   wrong_flagged   ['ambiguous_date', 'balance_due_used_as_total', 'category_unsure', 'sum_mismatch']
+bill_053   L3      None         2025-02-02   no_value        ['category_unsure', 'conflicting_totals']
+bill_054   L3      None         2025-02-07   no_value        ['category_unsure', 'ocr_digit_confusion', 'sum_mismatch']
+bill_055   L3      None         2025-06-22   no_value        ['category_unsure', 'ocr_digit_confusion', 'sum_mismatch']
+bill_057   L3      None         2025-01-17   no_value        ['category_unsure', 'sum_mismatch']
+bill_059   L3      None         2025-04-03   no_value        ['category_unsure', 'missing_total', 'total_missing']
+bill_060   L3      2025-12-18   2025-12-10   wrong_flagged   ['category_unsure', 'conflicting_totals', 'ocr_digit_confusion']
+
+Breakdown:
+Null (no value predicted) : 22
+Ambiguous date flagged    : 1 (bill_052)
+OCR error (wrong string)  : 2 (bill_052, bill_060)
+
+4. BILL_040 ANALYSIS (SILENT TOTAL ERROR)
+OCR text lines:
+Line 1: LANKA IOC FUEL POINT Colombo Road, Polonnaruwa
+Line 2: Tel: @27-2223840
+Line 3: Total Items: 1 | Total Qty: 1 Subtotal LKR 9,500.00
+Line 4: Discount (Less) -LKR 950.00
+Line 5: TOTAL PAYABLE LKR 8,550.80
+Line 6: THANK YOU! PLEASE COME AGAIN
+
+Parsed line items: [] (count: 0)
+Sum-check inputs and result:
+items: []
+total_val: 8550.8
+condition `if items and total_val is not None:` -> False
+Result: Sum check was SKIPPED because items list is empty (len=0).
+
+Code condition from parse_bill.py (lines 732-738):
+    # 5. Check sum of items vs total
+    if items and total_val is not None:
+        items_sum = sum(Decimal(str(it["amount"])) for it in items)
+        if items_sum != total_val:
+            reasons.append("sum_mismatch")
+            status = "needs_review"
+
+5. BILL_010, BILL_025, BILL_043 DETAILS
+bill_010:
+  Line before total [5]: At 362 Seed Paddy 20kg 2 x 4,100.00 || 8,200.00
+  Total line        [6]: Total Items: 2 | Total Qty: 5 TOTAL 16,600.00
+  Rank 1 matches: []
+  Rank 2 matches: []
+  Rank 3 matches: []
+  Fallback candidates: [(Decimal('2800'), '2,800.00', '...'), (Decimal('8400'), '8,400.00', '...'), (Decimal('362'), '362', '...'), (Decimal('4100'), '4,100.00', '...'), (Decimal('8200'), '8,200.00', '...')]
+
+bill_025:
+  Line before total [5]: MOP Fertilizer 50kg
+  Total line        [6]: 3 @ 4,800.00 each 14,400.00 Total Items: 3 | Total Qty: 7 BALANCE DUE 20,200.00 Cash Tendered 20,500.00
+  Rank 1 matches: []
+  Rank 2 matches: []
+  Rank 3 matches: []
+  Fallback candidates: [(Decimal('850'), '850.00', '...'), (Decimal('850'), '850.00', '...'), (Decimal('1650.08'), '1,650.08', '...'), (Decimal('4950'), '4,950.00', '...')]
+
+bill_043:
+  Line before total [4]: 3@ 1,200.00 each Rs .3, 600.00
+  Total line        [5]: TOTAL PAYABLE Rs.12, 600.09
+  Rank 1 matches: [(Decimal('600.09'), '600.09', 'TOTAL PAYABLE Rs.12, 600.09')]
+  Rank 2 matches: []
+  Rank 3 matches: []
+  Fallback candidates: [(Decimal('4500'), '4,500.00', '...'), (Decimal('1200'), '1,200.00', '...'), (Decimal('600'), '600.00', '...')]
+
+6. LOG-SUPPORTED STAGE LABELS VS INTERPRETATION
+In logs/bill-eval-test.json, the pipeline logs only status and programmatic reasons (such as largest_amount_fallback, conflicting_totals, total_not_in_ocr_text, ocr_digit_confusion, total_missing, sum_mismatch, category_unsure). Among the 19 stage labels in docs/bill5-report.md, only "Grounding rejected" is directly supported by a dedicated log flag ("total_not_in_ocr_text" on bill_056 and bill_058). All other 17 failure stage labels—namely classifying cases into "Wrong line picked" versus "OCR misread"—are engineering interpretations derived from cross-referencing Tesseract's raw OCR text against the ground-truth annotations. For instance, the logs record "largest_amount_fallback" for bill_010, bill_025, and bill_038 identically, but human inspection reveals that bill_010 and bill_025 failed due to layout suppression (Total Items: keyword skipping), whereas bill_038 failed because OCR corrupted the balance due amount into non-numeric characters (5,950.ee). Similarly, bill_040 has no log reasons at all (reasons: []), so labeling its failure as an "OCR misread" (.00 read as .80) is entirely an interpretation established by manual text comparison.

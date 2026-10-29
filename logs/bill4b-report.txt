@@ -1,0 +1,40 @@
+TASK BILL-4b: BILL-4 Fixes and Invariant Hardening Report
+Date: 2026-10-29
+
+1. STATUS TABLE
+- Preconditions (free space > 1 GB): DONE (4.79 GB free)
+- Bill Mapping Hardening (one row, total_missing, category_unsure, amount_rounded): DONE
+- Client Review Table Guard (Accept tap required, no image in DOM/state/storage): DONE
+- Test Suites (all requested tests added and passing): DONE
+- Documentation Cleanup (fixed env tables, removed predominantly claim): DONE
+- Full Suites (server 465 passed, client 132 passed, check:sinhala passed): DONE
+
+2. TESTS ADDED & VERIFIED
+Server tests (server/tests/billScan.test.js):
+- mapping returns one row even when items exist
+- total_missing
+- category_unsure with disagreeing items
+- amount_rounded
+- upstream timeout maps to 504 with { error: { code, message } }
+
+Client tests (client/src/test/BillScan.test.jsx):
+- client: Save disabled until Accept, nothing saved before confirm, no img element or object URL left after processing
+
+3. FULL SUITE RESULTS
+- Server: 21 suites, 465 passed, 0 failed (exit code 0)
+- Client: 23 suites, 132 passed, 0 failed (exit code 0)
+- Sinhala parity: passed (exit code 0)
+- Voice hashes: verified identical (exit code 0)
+- Disk space: 4.79 GB before, 4.78 GB after
+
+4. FILES CHANGED
+- server/src/services/billMapping.js
+- client/src/components/VoiceExpenseEntry.jsx
+- client/src/i18n/locales/en.json
+- client/src/i18n/locales/si.json
+- server/tests/billScan.test.js
+- client/src/test/BillScan.test.jsx
+- docs/SO3-README.md
+- docs/bill4-report.md
+- docs/bill4b-report.md
+- logs/bill4b-*.txt

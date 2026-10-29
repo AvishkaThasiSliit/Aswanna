@@ -27,6 +27,7 @@ import recommendationRoutes from './routes/recommendation.js';
 import voiceRoutes from './routes/voice.js';
 import datasetCollectionRoutes from './routes/datasetCollection.js';
 import devVoiceCaptureRoutes from './routes/devVoiceCapture.js';
+import billScanRoutes from './routes/billScan.js';
 import { ENV } from './config/env.js';
 import { errorHandler } from './utils/errors.js';
 
@@ -98,6 +99,12 @@ app.use('/api/dev/voice-capture', (req, res, next) => {
     return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Route not found' } });
   }
   return devVoiceCaptureRoutes(req, res, next);
+});
+app.use('/api/bill-scan', (req, res, next) => {
+  if (ENV.BILL_SCAN !== 'on') {
+    return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Route not found' } });
+  }
+  return billScanRoutes(req, res, next);
 });
 
 // ─── Frontend Static Serving ──────────────────────────────────────────────────

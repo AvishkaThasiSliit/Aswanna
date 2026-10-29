@@ -1,0 +1,49 @@
+====================================================================================================
+TASK BILL-1: BILL SCANNER FOUNDATION REPORT (ENGINE CHECK)
+Date: 2026-10-29
+Repository: D:\Aswanna
+Status: STOPPED AT STEP 1 (Tesseract missing)
+====================================================================================================
+
+[0. DISK FREE SPACE GUARD]
+  - Free space on D: 1,804,537,856 bytes (1.80 GB)
+  - Limit: >= 1.0 GB (PASS)
+
+[1. STEP 0: SPECIFICATION]
+  - Written to docs/bill-scan-spec.md
+  - Scope: Printed bills only; handwriting is an explicit non-goal.
+  - Schema: Compatible with voice extractor items + source "bill".
+  - Privacy: In-memory processing, no disk retention unless BILL_KEEP_IMAGES=on, magic-byte checks, EXIF stripped, offline only.
+  - Flag: BILL_SCAN=off by default.
+  - Evaluation: Primary success metric defined BEFORE results: silent error count (wrong totals without review flag), followed by correct-total rate.
+
+[2. STEP 1: ENGINE CHECK]
+  - Command: where.exe tesseract
+    Output: INFO: Could not find files for the given pattern(s).
+  - Command: tesseract --version
+    Output: The term 'tesseract' is not recognized as the name of a cmdlet, function, script file, or operable program.
+  - Common locations checked:
+      C:\Program Files\Tesseract-OCR\tesseract.exe -> False
+      C:\Program Files (x86)\Tesseract-OCR\tesseract.exe -> False
+      C:\Users\EBAY\AppData\Local\Tesseract-OCR\tesseract.exe -> False
+      C:\tools\tesseract\tesseract.exe -> False
+      D:\ search -> No matches.
+  - Decision: STOP step 1 per instruction:
+      "If Tesseract is missing, STOP this step and tell me exactly what to install; do not install system software yourself."
+
+[3. INSTALLATION INSTRUCTIONS FOR USER]
+  - Option A (winget):
+      winget install UB-Mannheim.TesseractOCR
+  - Option B (installer):
+      Download tesseract-ocr-w64-setup from https://github.com/UB-Mannheim/tesseract/wiki
+      Install to C:\Program Files\Tesseract-OCR and ensure PATH includes this directory.
+      Optionally check Sinhala (sin) language pack during installation.
+  - Verification commands:
+      tesseract --version
+      tesseract --list-langs
+
+[4. HYGIENE & INVARIANCE]
+  - Added bill-scan-data/ and bill-service/.venv/ to .gitignore.
+  - Verified shared/voice against logs/freeze-v2-hashes.txt: 100% MATCH.
+  - No git commit, add, or push performed.
+====================================================================================================

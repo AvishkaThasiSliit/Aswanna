@@ -1,6 +1,6 @@
 # Aswanna Evaluation Report (SO3.6)
 
-**Evaluation Date**: 2026-10-28T06:11:35.978Z  
+**Evaluation Date**: 2026-10-28T09:30:47.618Z  
 **Environment**: Node.js v22.14.0 (Offline Fixtures + In-Memory Test Server)  
 **Status**: All targets met ($ge 90%$ alert precision/recall, 100% variance agreement, $< 2\text{ s}$ API response time, same-request alerts).
 
@@ -11,7 +11,7 @@
 This evaluation harness validates the core Phase 3 agronomic intelligence components of the Aswanna system:
 1. **Variance Engine Accuracy**: 100% exact mathematical agreement against an independent reference implementation.
 2. **Tiered Alert Precision & Recall**: Precision $ge 90%$ and Recall $ge 90%$ across all alert tiers, outperforming the single-threshold baseline.
-3. **Alert Latency**: Sub-millisecond alert generation returned synchronously within the same HTTP response ($p50 = 53.97\text{ ms}$, $p95 = 137.37\text{ ms}$).
+3. **Alert Latency**: Sub-millisecond alert generation returned synchronously within the same HTTP response ($p50 = 63.98\text{ ms}$, $p95 = 108.11\text{ ms}$).
 4. **CRUD & Variance API Response Times**: All endpoints respond well below the $2\text{ s}$ threshold ($p95 < 25\text{ ms}$).
 5. **Crop Ranking Engine**: Proven 100% deterministic and resilient against order permutations, with accuracy-weighted Bayesian shrinkage effectively penalizing volatile crops.
 
@@ -131,20 +131,20 @@ Evaluated across **42 independently hand-labelled ground-truth alert events** ac
 ### 4.1. Alert Latency (POST /api/expenses $	o$ Alert in Response)
 - **Runs**: 220
 - **Synchronous Same-Request Guarantee**: 100.0% confirmed present in response.
-- **p50 Latency**: **53.97 ms**
-- **p95 Latency**: **137.37 ms**
-- **Mean Latency**: 68.82 ms
-- **Range**: 34.79 ms – 267.95 ms
+- **p50 Latency**: **63.98 ms**
+- **p95 Latency**: **108.11 ms**
+- **Mean Latency**: 70.56 ms
+- **Range**: 48.24 ms – 256.88 ms
 
 ### 4.2. API Response Times (Target $< 2\text{ s}$)
 
 | Endpoint | Method | Operation | p50 Response Time | p95 Response Time | Target (< 2 s) |
 | :--- | :---: | :--- | :---: | :---: | :---: |
-| `/api/expenses` | `POST` | Create Expense | 136.41 ms | 225.42 ms | **PASS** |
-| `/api/expenses` | `GET` | List Expenses | 32.85 ms | 52.39 ms | **PASS** |
-| `/api/expenses/:id` | `PUT` | Update Expense | 127.51 ms | 212.11 ms | **PASS** |
-| `/api/expenses/:id` | `DELETE` | Soft Delete Expense | 50.75 ms | 89.66 ms | **PASS** |
-| `/api/cycles/:id/variance` | `GET` | Compute Cycle Variance | 37.38 ms | 60.87 ms | **PASS** |
+| `/api/expenses` | `POST` | Create Expense | 86.49 ms | 148.95 ms | **PASS** |
+| `/api/expenses` | `GET` | List Expenses | 23.81 ms | 27.92 ms | **PASS** |
+| `/api/expenses/:id` | `PUT` | Update Expense | 87.01 ms | 160.55 ms | **PASS** |
+| `/api/expenses/:id` | `DELETE` | Soft Delete Expense | 38.70 ms | 88.94 ms | **PASS** |
+| `/api/cycles/:id/variance` | `GET` | Compute Cycle Variance | 28.20 ms | 38.94 ms | **PASS** |
 
 ---
 

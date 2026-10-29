@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import {
   Mic, MicOff, Square, X, Plus, Trash2, CheckCircle, Check,
   AlertCircle, AlertTriangle, Sparkles, ShieldCheck,
-  RotateCcw, ListFilter, HelpCircle
+  RotateCcw, ListFilter, HelpCircle, Camera
 } from 'lucide-react';
 
 import { apiFetch, ApiError, getAuthToken } from '../utils/api.js';
@@ -132,6 +132,159 @@ function VoiceExpenseEntryInner({
   const audioChunksRef = useRef([]);
   const [isTranscribing, setIsTranscribing] = useState(false);
   const timerRef = useRef(null);
+
+  // Bill scan feature flag check (URL param ?bill=on/off, window.__BILL_SCAN__, or VITE_BILL_SCAN=on)
+  const currentSearchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const isBillScanEnabled = (
+    currentSearchParams?.get('bill') === 'on' ||
+    (typeof window !== 'undefined' && (window.__BILL_SCAN__ === 'on' || window.__BILL_SCAN__ === true)) ||
+    (import.meta.env?.VITE_BILL_SCAN === 'on' || import.meta.env?.VITE_BILL_SCAN === 'true')
+  );
+
+  const fileInputRef = useRef(null);
+  const [isScanningBill, setIsScanningBill] = useState(false);
+  const [billScanError, setBillScanError] = useState('');
+
+  // Downscale image helper to max 1600px long edge before upload
+  const downscaleImageIfNeeded = (file) => {
+    return new Promise((resolve) => {
+      if (!window.Image || !window.HTMLCanvasElement || typeof window.URL?.createObjectURL !== 'function') {
+        return resolve(file);
+      }
+      try {
+        const img = new Image();
+        const objectUrl = URL.createObjectURL(file);
+        let resolved = false;
+        const cleanup = () => {
+          try { URL.revokeObjectURL(objectUrl); } catch {}
+        };
+        img.onload = () => {
+          if (resolved) return;
+          resolved = true;
+          cleanup();
+          const maxDim = 1600;
+          let { width, height } = img;
+          if (width <= maxDim && height <= maxDim) {
+            return resolve(file);
+          }
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return resolve(file);
+          ctx.drawImage(img, 0, 0, width, height);
+          canvas.toBlob((blob) => {
+            if (blob) {
+              resolve(blob);
+            } else {
+              resolve(file);
+            }
+          }, file.type || 'image/jpeg', 0.90);
+        };
+        img.onerror = () => {
+          if (resolved) return;
+          resolved = true;
+          cleanup();
+          resolve(file);
+        };
+        img.src = objectUrl;
+        // Fallback for test / headless environments where image loading doesn't fire events
+        if (typeof setTimeout === 'function') {
+          setTimeout(() => {
+            if (!resolved) {
+              resolved = true;
+              cleanup();
+              resolve(file);
+            }
+          }, 50);
+        }
+      } catch {
+        resolve(file);
+      }
+    });
+  };
+
+  const handleBillFileChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    // Reset file input so same file can be re-selected if desired
+    e.target.value = '';
+
+    setBillScanError('');
+
+    // Client-side validations
+    if (file.size === 0) {
+      setBillScanError(t('billScan.emptyFile'));
+      return;
+    }
+    const ct = file.type?.toLowerCase();
+    if (ct !== 'image/png' && ct !== 'image/jpeg' && ct !== 'image/jpg') {
+      setBillScanError(t('billScan.invalidType'));
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setBillScanError(t('billScan.fileTooLarge'));
+      return;
+    }
+
+    setIsScanningBill(true);
+
+    try {
+      // Optional downscale before upload
+      const uploadBlob = await downscaleImageIfNeeded(file);
+
+      const headers = {
+        'Content-Type': ct || 'image/jpeg'
+      };
+      const token = getAuthToken();
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
+      const res = await fetch('/api/bill-scan', {
+        method: 'POST',
+        headers,
+        body: uploadBlob
+      });
+
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => ({}));
+        const msg = errJson.error?.message || errJson.message || t('billScan.errorGeneric');
+        throw new Error(msg);
+      }
+
+      const data = await res.json();
+      const extractedItems = Array.isArray(data.items) ? data.items : [];
+
+      if (extractedItems.length === 0) {
+        setBillScanError(t('billScan.emptyFile'));
+        return;
+      }
+
+      // Add to pending rows without saving until farmer confirms
+      // Requirement 2: Scanned amount ALWAYS needs an explicit Accept tap before Save is enabled
+      const billRows = extractedItems.map(item => ({
+        ...item,
+        billAccepted: false,
+        source: 'bill'
+      }));
+
+      setPreviousPendingItems([...pendingItems]);
+      setPendingItems(prev => [...prev, ...billRows]);
+      showToast?.(t('billScan.photoProcessed'));
+    } catch (err) {
+      setBillScanError(err.message || t('billScan.errorGeneric'));
+    } finally {
+      setIsScanningBill(false);
+    }
+  };
 
   // Sync language if i18n language changes
   useEffect(() => {
@@ -543,12 +696,37 @@ function VoiceExpenseEntryInner({
         r !== 'asr_alternatives_disagree' &&
         r !== 'amount_from_words_verify' &&
         r !== 'asr_low_confidence' &&
-        r !== 'unit_price_fractional'
+        r !== 'unit_price_fractional' &&
+        r !== 'amount_rounded' &&
+        r !== 'category_unsure' &&
+        r !== 'single_row_from_total'
       );
       const hasAmount = !isNaN(Number(row.totalAmount)) && Number(row.totalAmount) > 0;
       const hasCategory = Boolean(row.category && CANONICAL_CATEGORIES.includes(row.category));
       return {
         ...row,
+        billAccepted: true,
+        reasons: filteredReasons,
+        status: (hasAmount && hasCategory && filteredReasons.length === 0) ? 'ok' : 'needs_review'
+      };
+    }));
+  };
+
+  // Farmer accept handler for scanned bill items (Requirement 2)
+  const handleAcceptBillItem = (id) => {
+    setPreviousPendingItems([...pendingItems]);
+    setPendingItems(prev => prev.map(row => {
+      if (row.id !== id) return row;
+      const filteredReasons = (row.reasons || []).filter(r =>
+        r !== 'amount_rounded' &&
+        r !== 'category_unsure' &&
+        r !== 'single_row_from_total'
+      );
+      const hasAmount = !isNaN(Number(row.totalAmount)) && Number(row.totalAmount) > 0;
+      const hasCategory = Boolean(row.category && CANONICAL_CATEGORIES.includes(row.category));
+      return {
+        ...row,
+        billAccepted: true,
         reasons: filteredReasons,
         status: (hasAmount && hasCategory && filteredReasons.length === 0) ? 'ok' : 'needs_review'
       };
@@ -741,6 +919,10 @@ function VoiceExpenseEntryInner({
       const totalNum = Number(item.totalAmount);
       const isTotalValid = !isNaN(totalNum) && totalNum > 0;
       const isCatValid = Boolean(item.category && CANONICAL_CATEGORIES.includes(item.category));
+      // Requirement 2: Scanned amount ALWAYS needs an explicit Accept tap before Save is enabled, even when status is ok
+      if (item.source === 'bill' && !item.billAccepted) {
+        return true;
+      }
       return item.status === 'needs_review' || !isTotalValid || !isCatValid;
     });
   }, [pendingItems]);
@@ -1020,46 +1202,84 @@ function VoiceExpenseEntryInner({
         </div>
       )}
 
-      {/* Mic Controls & Recording Bar */}
-      {(SpeechRecognition || isWhisperMode) && (
-        <div className="flex flex-wrap items-center gap-3">
-          {!isRecording ? (
+      {/* Controls & Recording / Scanning Bar */}
+      <div className="flex flex-wrap items-center gap-3">
+        {(SpeechRecognition || isWhisperMode) && (
+          <>
+            {!isRecording ? (
+              <button
+                type="button"
+                id="voice-mic-btn"
+                data-testid="voice-mic-btn"
+                onClick={startRecording}
+                disabled={isTranscribing || isScanningBill}
+                className="flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded-control transition-colors shadow-sm"
+              >
+                <Mic size={15} />
+                <span>{isTranscribing ? t('voice.extracting') : t('voice.startRecording')}</span>
+              </button>
+            ) : (
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 border border-red-200 rounded-control text-red-700 text-xs font-semibold animate-pulse">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                  <span>{t('voice.recording')}</span>
+                  <span className="font-mono ml-1">{formatTimer(recordingSeconds)}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={stopRecording}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-slate-800 hover:bg-slate-900 text-white rounded-control transition-colors"
+                >
+                  <Square size={13} />
+                  <span>{t('voice.stopRecording')}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={cancelRecording}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-control transition-colors"
+                >
+                  <X size={13} />
+                  <span>{t('voice.cancelRecording')}</span>
+                </button>
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Scan Bill Button (gated by VITE_BILL_SCAN=on) */}
+        {isBillScanEnabled && (
+          <div>
+            <input
+              type="file"
+              ref={fileInputRef}
+              data-testid="bill-file-input"
+              accept="image/png,image/jpeg"
+              capture="environment"
+              onChange={handleBillFileChange}
+              className="hidden"
+            />
             <button
               type="button"
-              id="voice-mic-btn"
-              data-testid="voice-mic-btn"
-              onClick={startRecording}
-              disabled={isTranscribing}
-              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded-control transition-colors shadow-sm"
+              id="bill-scan-btn"
+              data-testid="bill-scan-btn"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isScanningBill || isRecording || isTranscribing}
+              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold bg-teal-700 hover:bg-teal-800 disabled:opacity-50 text-white rounded-control transition-colors shadow-sm"
             >
-              <Mic size={15} />
-              <span>{isTranscribing ? t('voice.extracting') : t('voice.startRecording')}</span>
+              <Camera size={15} />
+              <span>{isScanningBill ? t('billScan.scanning') : t('billScan.scanButton')}</span>
             </button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 border border-red-200 rounded-control text-red-700 text-xs font-semibold animate-pulse">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
-                <span>{t('voice.recording')}</span>
-                <span className="font-mono ml-1">{formatTimer(recordingSeconds)}</span>
-              </div>
-              <button
-                type="button"
-                onClick={stopRecording}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-slate-800 hover:bg-slate-900 text-white rounded-control transition-colors"
-              >
-                <Square size={13} />
-                <span>{t('voice.stopRecording')}</span>
-              </button>
-              <button
-                type="button"
-                onClick={cancelRecording}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-control transition-colors"
-              >
-                <X size={13} />
-                <span>{t('voice.cancelRecording')}</span>
-              </button>
-            </div>
-          )}
+          </div>
+        )}
+      </div>
+
+      {/* Bill Scan Error banner */}
+      {billScanError && (
+        <div data-testid="bill-scan-error" className="p-2.5 bg-red-50 border border-red-200 rounded-control flex items-center justify-between text-red-800 text-xs">
+          <span>{billScanError}</span>
+          <button type="button" onClick={() => setBillScanError('')} className="text-red-500 hover:text-red-700">
+            <X size={14} />
+          </button>
         </div>
       )}
 
@@ -1175,7 +1395,7 @@ function VoiceExpenseEntryInner({
                   </thead>
                   <tbody className="divide-y border-border">
                     {pendingItems.map((item) => {
-                      const isNeedsReview = item.status === 'needs_review' || !item.category || !item.totalAmount;
+                      const isNeedsReview = item.status === 'needs_review' || !item.category || !item.totalAmount || (item.source === 'bill' && !item.billAccepted);
                       return (
                         <tr
                           key={item.id}
@@ -1288,11 +1508,14 @@ function VoiceExpenseEntryInner({
                                     {item.reasons.map(r => t(`voice.reasons.${r}`, r)).join('; ')}
                                   </div>
                                 )}
-                                {item.reasons && (item.reasons.includes('amount_implausible') || item.reasons.includes('asr_alternatives_disagree') || item.reasons.includes('amount_from_words_verify') || item.reasons.includes('asr_low_confidence') || item.reasons.includes('unit_price_fractional')) && (
+                                {(
+                                  (item.source === 'bill' && !item.billAccepted) ||
+                                  (item.reasons && (item.reasons.includes('amount_implausible') || item.reasons.includes('asr_alternatives_disagree') || item.reasons.includes('amount_from_words_verify') || item.reasons.includes('asr_low_confidence') || item.reasons.includes('unit_price_fractional') || item.reasons.includes('amount_rounded') || item.reasons.includes('category_unsure')))
+                                ) && (
                                   <button
                                     type="button"
-                                    data-testid={`voice-override-btn-${item.id}`}
-                                    onClick={() => handleOverrideRow(item.id)}
+                                    data-testid={item.source === 'bill' ? `bill-accept-btn-${item.id}` : `voice-override-btn-${item.id}`}
+                                    onClick={() => item.source === 'bill' ? handleAcceptBillItem(item.id) : handleOverrideRow(item.id)}
                                     className="mt-1 inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 rounded transition-colors"
                                   >
                                     <Check size={11} />

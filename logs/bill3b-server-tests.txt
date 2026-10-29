@@ -1,0 +1,545 @@
+﻿
+> server@1.0.0 test
+> cross-env NODE_ENV=test TMP=d:/Aswanna/temp TEMP=d:/Aswanna/temp NODE_OPTIONS=--experimental-vm-modules jest --runInBand
+
+node.exe : (node:21508) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+At C:\Program Files\nodejs\npm.ps1:29 char:3
++   & $NODE_EXE $NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:21508) Ex...nge at any time:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS tests/api.test.js (55.891 s)
+PASS tests/validationMatrix.test.js (24.857 s)
+PASS tests/recommendation.test.js (18.055 s)
+PASS tests/so1RealIntegration.test.js (13.495 s)
+PASS tests/forecast.test.js (12.977 s)
+PASS tests/datasetCollectionSecurity.test.js (14.678 s)
+  ΓùÅ Console
+
+    console.error
+      UNHANDLED ERROR: Error: Simulated Database Persistence Failure
+          at Object.<anonymous> (D:\Aswanna\server\tests\datasetCollectionSecurity.test.js:743:32)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+    [0m [90m 132 |[39m   [36mconst[39m isDev [33m=[39m process[33m.[39menv[33m.[39m[33mNODE_ENV[39m 
+[33m!==[39m [32m'production'[39m[33m;[39m
+     [90m 133 |[39m   [36mif[39m (isDev) {
+    [31m[1m>[22m[39m[90m 134 |[39m     console[33m.[39merror([32m'UNHANDLED ERROR:'[39m[33m,[39m 
+err)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 135 |[39m   }
+     [90m 136 |[39m   [36mreturn[39m res[33m.[39mstatus([35m500[39m)[33m.[39mjson({
+     [90m 137 |[39m     error[33m:[39m {[0m
+
+      at errorHandler (src/utils/errors.js:134:13)
+      at Layer.handle_error (../node_modules/express/lib/router/layer.js:71:5)
+      at trim_prefix (../node_modules/express/lib/router/index.js:326:13)
+      at ../node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (../node_modules/express/lib/router/index.js:346:12)
+      at next (../node_modules/express/lib/router/index.js:280:10)
+      at Layer.handle_error (../node_modules/express/lib/router/layer.js:67:12)
+      at trim_prefix (../node_modules/express/lib/router/index.js:326:13)
+      at ../node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (../node_modules/express/lib/router/index.js:346:12)
+      at next (../node_modules/express/lib/router/index.js:280:10)
+      at Layer.handle_error (../node_modules/express/lib/router/layer.js:67:12)
+      at trim_prefix (../node_modules/express/lib/router/index.js:326:13)
+      at ../node_modules/express/lib/router/index.js:286:9
+      at Function.process_params (../node_modules/express/lib/router/index.js:346:12)
+      at next (../node_modules/express/lib/router/index.js:280:10)
+      at ../node_modules/express/lib/router/index.js:646:15
+      at next (../node_modules/express/lib/router/index.js:265:14)
+      at next (../node_modules/express/lib/router/route.js:141:14)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_bfa0074001 -> spk_3cfb9aaec5
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_3cfb9aaec5 -> spk_bfa0074001
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_8245440082 -> spk_8245440082
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 0
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_8245440082 -> spk_bc4dc39e77
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_04b4290491 -> spk_46de387ffa
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: HMAC SECRET KEY ROTATION
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:38:11)
+
+    console.log
+      Dry Run: NO (Live database mutation)
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:39:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:40:11)
+
+    console.log
+      Found 1 total participant consent records.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:43:11)
+
+    console.log
+      Speaker [REDACTED_USER_ID]: spk_46de387ffa -> spk_04b4290491
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:62:13)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:114:11)
+
+    console.log
+      Rotation completed.
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:115:11)
+
+    console.log
+      Consents rotated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:116:11)
+
+    console.log
+      Recordings updated: 1
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:117:11)
+
+    console.log
+      ======================================================================
+
+      at rotatePseudonymizationKeys (scripts/rotateVoicePseudonymizationKey.js:118:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: RETENTION & PURGE AUDIT
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:38:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:39:11)
+
+    console.log
+      Execution Mode: DRY RUN (No data or files modified)
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:40:11)
+
+    console.log
+      Current Timestamp: 2026-10-29T09:32:55.608Z
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:41:11)
+
+    console.log
+      Soft-Delete Cutoff (30 days): 2026-09-29T09:32:55.608Z
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:42:11)
+
+    console.log
+      Found 1 expired or aged soft-deleted recording(s).
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:59:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:88:11)
+
+    console.log
+      PURGE SUMMARY:
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:89:11)
+
+    console.log
+        Target Records:         1
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:90:11)
+
+    console.log
+        Records Removed:        0
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:91:11)
+
+    console.log
+        Media Files Unlinked:   0
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:92:11)
+
+    console.log
+        Storage Space Reclaimed: 0.02 MB
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:93:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:94:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:37:11)
+
+    console.log
+      ASWANNA VOICE DATASET: RETENTION & PURGE AUDIT
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:38:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:39:11)
+
+    console.log
+      Execution Mode: EXECUTE (Live purge enabled)
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:40:11)
+
+    console.log
+      Current Timestamp: 2026-10-29T09:32:55.616Z
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:41:11)
+
+    console.log
+      Soft-Delete Cutoff (30 days): 2026-09-29T09:32:55.616Z
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:42:11)
+
+    console.log
+      Found 1 expired or aged soft-deleted recording(s).
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:59:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:88:11)
+
+    console.log
+      PURGE SUMMARY:
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:89:11)
+
+    console.log
+        Target Records:         1
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:90:11)
+
+    console.log
+        Records Removed:        1
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:91:11)
+
+    console.log
+        Media Files Unlinked:   1
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:92:11)
+
+    console.log
+        Storage Space Reclaimed: 0.02 MB
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:93:11)
+
+    console.log
+      ======================================================================
+
+      at purgeExpiredRecordings (scripts/purgeExpiredVoiceDatasetRecordings.js:94:11)
+
+PASS tests/phase3.test.js (15.561 s)
+PASS tests/voiceProxy.test.js (8.747 s)
+PASS tests/datasetCollection.test.js (7.39 s)
+PASS tests/voicePipelineRegression.test.js (7.15 s)
+PASS tests/generativeNumberParser.test.js
+PASS tests/logic.test.js
+PASS tests/devVoiceCapture.test.js (5.071 s)
+PASS tests/voiceExtract.test.js
+PASS tests/coverage.test.js
+PASS tests/sinhalaNumbers.test.js
+PASS tests/voiceCommand.test.js
+PASS tests/evalHarness.test.js
+PASS tests/evaluatorMetrics.test.js
+PASS tests/so1Contract.test.js
+
+Test Suites: 20 passed, 20 total
+Tests:       450 passed, 450 total
+Snapshots:   0 total
+Time:        218.039 s
+Ran all test suites.

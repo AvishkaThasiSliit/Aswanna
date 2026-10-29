@@ -730,7 +730,24 @@
       "amount_from_words_verify": "වචන වලින් හඳුනාගත් මුදල තහවුරු කරන්න (needs native review)",
       "asr_low_confidence": "හඬ හඳුනාගැනීමේ විශ්වාසනීයත්වය අඩුය, කරුණාකර තහවුරු කරන්න (needs native review)",
       "unit_price_fractional": "ඒකක මිලෙහි ශත අගයන් විසිරී ඇත, කරුණාකර මුදල හෝ ප්‍රමාණය තහවුරු කරන්න (needs native review)",
-      "sibling_clause_unresolved": "මෙම ප්‍රකාශයේ වෙනත් වියදමක් පරීක්ෂා කළ යුතුය, කරුණාකර සියලු මුදල් පරීක්ෂා කරන්න (needs native review)"
+      "sibling_clause_unresolved": "මෙම ප්‍රකාශයේ වෙනත් වියදමක් පරීක්ෂා කළ යුතුය, කරුණාකර සියලු මුදල් පරීක්ෂා කරන්න (needs native review)",
+      "amount_rounded": "ශත අගයන් සහිත මුදල ආසන්න රුපියලට වටයන ලදී, කරුණාකර තහවුරු කරන්න (needs native review)",
+      "single_row_from_total": "තනි අයිතම හඳුනාගත නොහැකි වූ බැවින් මුළු එකතුවෙන් එක් පේළියක් සාදන ලදී (needs native review)",
+      "line_item_unverified": "අයිතම වියදම බිල්පතේ මුළු එකතුව සමඟ සැසඳිය නොහැකි විය (needs native review)",
+      "ocr_digit_confusion": "ඉලක්කම් අපැහැදිලි බවක් හඳුනාගන්නා ලදී, කරුණාකර මුදල පරීක්ෂා කරන්න (needs native review)",
+      "category_unsure": "ප්‍රවර්ගය නිශ්චය කරගත නොහැකි විය, කරුණාකර තෝරන්න (needs native review)",
+      "total_missing": "බිල්පතේ මුළු මුදල සොයාගත නොහැකි විය, කරුණාකර මුදල ඇතුළත් කරන්න (needs native review)"
     }
+  },
+  "billScan": {
+    "scanButton": "බිල්පත ස්කෑන් කරන්න (needs native review)",
+    "scanning": "බිල්පත ස්කෑන් කරමින් පවතී... (needs native review)",
+    "emptyFile": "තෝරාගත් ගොනුව හිස්ය (needs native review)",
+    "invalidType": "කරුණාකර නිවැරදි පින්තූරයක් තෝරන්න (needs native review)",
+    "fileTooLarge": "පින්තූරය නියමිත උපරිම ප්‍රමාණය ඉක්මවයි (needs native review)",
+    "errorGeneric": "බිල්පත ස්කෑන් කිරීම අසාර්ථක විය (needs native review)",
+    "errorDownstream": "බිල්පත් ස්කෑන් සේවාව දැනට ක්‍රියාත්මක නොවේ (needs native review)",
+    "noActiveCycle": "කරුණාකර පළමුව වගා කන්නය සක්‍රිය කරන්න (needs native review)",
+    "photoProcessed": "බිල්පතේ විස්තර වෙන් කරගන්නා ලදී. ඡායාරූපය ගබඩා නොකෙරේ. (needs native review)"
   }
 }

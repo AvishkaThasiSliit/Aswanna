@@ -730,7 +730,24 @@
       "amount_from_words_verify": "Amount parsed from Sinhala number words; please confirm or tap Accept",
       "asr_low_confidence": "Speech recognition confidence is low; please verify",
       "unit_price_fractional": "Calculated unit price has fractional cents; please verify amount or quantity",
-      "sibling_clause_unresolved": "Another item in this statement requires review; please check all amounts"
+      "sibling_clause_unresolved": "Another item in this statement requires review; please check all amounts",
+      "amount_rounded": "Amount had fractional cents and was rounded to integer rupees; please verify",
+      "single_row_from_total": "No line items detected; created single row from total; please check category",
+      "line_item_unverified": "Line item could not be fully cross-verified with bill total",
+      "ocr_digit_confusion": "Potential OCR digit confusion detected; please verify amount",
+      "category_unsure": "Category could not be determined with confidence; please select",
+      "total_missing": "Total amount could not be found on bill; please enter amount"
     }
+  },
+  "billScan": {
+    "scanButton": "Scan Bill",
+    "scanning": "Scanning bill...",
+    "emptyFile": "Selected file is empty.",
+    "invalidType": "Please select a PNG or JPEG image.",
+    "fileTooLarge": "Image exceeds 5 MB limit.",
+    "errorGeneric": "Bill scanning failed. Please try again or enter details manually.",
+    "errorDownstream": "Bill scanning service is currently unavailable.",
+    "noActiveCycle": "Please activate a crop cycle before scanning bills.",
+    "photoProcessed": "Bill processed into review items. Photo is not stored."
   }
 }

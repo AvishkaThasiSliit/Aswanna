@@ -1,0 +1,1404 @@
+{
+  "split": "test",
+  "evaluated_at": "2026-10-29T18:03:47Z",
+  "total_records": 40,
+  "overall": {
+    "count": 40,
+    "silent_total_errors": {
+      "count": 1,
+      "rate": 0.025,
+      "ci_95": [
+        0.0044,
+        0.1288
+      ]
+    },
+    "correct_total": {
+      "count": 21,
+      "rate": 0.525,
+      "ci_95": [
+        0.375,
+        0.6706
+      ]
+    },
+    "wrong_flagged_total": {
+      "count": 10,
+      "rate": 0.25,
+      "ci_95": [
+        0.1419,
+        0.4019
+      ]
+    },
+    "no_value_total": {
+      "count": 8,
+      "rate": 0.2,
+      "ci_95": [
+        0.105,
+        0.3476
+      ]
+    },
+    "silent_date_errors": {
+      "count": 0,
+      "rate": 0.0,
+      "ci_95": [
+        0.0,
+        0.0876
+      ]
+    },
+    "correct_date": {
+      "count": 16,
+      "rate": 0.4,
+      "ci_95": [
+        0.2635,
+        0.554
+      ]
+    },
+    "vendor_exact_match": {
+      "count": 36,
+      "rate": 0.9,
+      "ci_95": [
+        0.7695,
+        0.9604
+      ]
+    },
+    "vendor_mean_token_overlap": 0.9483
+  },
+  "by_degradation_level": {
+    "0": {
+      "count": 10,
+      "silent_total_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_total": {
+        "count": 7,
+        "rate": 0.7,
+        "ci_95": [
+          0.3968,
+          0.8922
+        ]
+      },
+      "wrong_flagged_total": {
+        "count": 3,
+        "rate": 0.3,
+        "ci_95": [
+          0.1078,
+          0.6032
+        ]
+      },
+      "no_value_total": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "silent_date_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_date": {
+        "count": 7,
+        "rate": 0.7,
+        "ci_95": [
+          0.3968,
+          0.8922
+        ]
+      },
+      "vendor_exact_match": {
+        "count": 10,
+        "rate": 1.0,
+        "ci_95": [
+          0.7225,
+          1.0
+        ]
+      },
+      "vendor_mean_token_overlap": 1.0
+    },
+    "1": {
+      "count": 10,
+      "silent_total_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_total": {
+        "count": 7,
+        "rate": 0.7,
+        "ci_95": [
+          0.3968,
+          0.8922
+        ]
+      },
+      "wrong_flagged_total": {
+        "count": 2,
+        "rate": 0.2,
+        "ci_95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "no_value_total": {
+        "count": 1,
+        "rate": 0.1,
+        "ci_95": [
+          0.0179,
+          0.4042
+        ]
+      },
+      "silent_date_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_date": {
+        "count": 2,
+        "rate": 0.2,
+        "ci_95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "vendor_exact_match": {
+        "count": 10,
+        "rate": 1.0,
+        "ci_95": [
+          0.7225,
+          1.0
+        ]
+      },
+      "vendor_mean_token_overlap": 1.0
+    },
+    "2": {
+      "count": 10,
+      "silent_total_errors": {
+        "count": 1,
+        "rate": 0.1,
+        "ci_95": [
+          0.0179,
+          0.4042
+        ]
+      },
+      "correct_total": {
+        "count": 5,
+        "rate": 0.5,
+        "ci_95": [
+          0.2366,
+          0.7634
+        ]
+      },
+      "wrong_flagged_total": {
+        "count": 3,
+        "rate": 0.3,
+        "ci_95": [
+          0.1078,
+          0.6032
+        ]
+      },
+      "no_value_total": {
+        "count": 1,
+        "rate": 0.1,
+        "ci_95": [
+          0.0179,
+          0.4042
+        ]
+      },
+      "silent_date_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_date": {
+        "count": 4,
+        "rate": 0.4,
+        "ci_95": [
+          0.1682,
+          0.6873
+        ]
+      },
+      "vendor_exact_match": {
+        "count": 10,
+        "rate": 1.0,
+        "ci_95": [
+          0.7225,
+          1.0
+        ]
+      },
+      "vendor_mean_token_overlap": 1.0
+    },
+    "3": {
+      "count": 10,
+      "silent_total_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_total": {
+        "count": 2,
+        "rate": 0.2,
+        "ci_95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "wrong_flagged_total": {
+        "count": 2,
+        "rate": 0.2,
+        "ci_95": [
+          0.0567,
+          0.5098
+        ]
+      },
+      "no_value_total": {
+        "count": 6,
+        "rate": 0.6,
+        "ci_95": [
+          0.3127,
+          0.8318
+        ]
+      },
+      "silent_date_errors": {
+        "count": 0,
+        "rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.2775
+        ]
+      },
+      "correct_date": {
+        "count": 3,
+        "rate": 0.3,
+        "ci_95": [
+          0.1078,
+          0.6032
+        ]
+      },
+      "vendor_exact_match": {
+        "count": 6,
+        "rate": 0.6,
+        "ci_95": [
+          0.3127,
+          0.8318
+        ]
+      },
+      "vendor_mean_token_overlap": 0.7933
+    }
+  },
+  "records": [
+    {
+      "id": "bill_006",
+      "degradation_level": 0,
+      "latency_ms": 1547.74,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 17604.0,
+        "ground_truth": 17604.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-06-16",
+        "ground_truth": "2025-06-16",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "WAYAMBA AGRO SERVICE",
+        "ground_truth": "Wayamba Agro Service",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "WAYAMBA AGRO SERVICE 102 Station Road, Maho\nTel: @37-2275112\nDate: 16.06.2025 Bill No: INV-2025-1006\nItem Description Qty Rate Amount\nGrass Cutter Blade 1.. 1 x 1,650.00 || Rs 1 650\nZinc Sulphate 1kg 1 x 850.00 || Rs 850\nBispyribac Sodium 5@.. 1 x 1,950.00 || Rs 1 950\nBg 300 Certified See.. 3 x 3,950.00 || Rs 11 850\nTotal Items: 4 | Total Qty: 6 Subtotal Rs 16 300\nVAT (8%) Rs 1 304\nTOTAL Rs 17 604\nCash Tendered Rs 18 000\nChange Rs 396\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_007",
+      "degradation_level": 0,
+      "latency_ms": 991.6,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 19510.0,
+        "ground_truth": 19510.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2026-03-07",
+        "ground_truth": "2026-03-07",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CEYPETCO FILLING STATION AQ Highway, Medawachchiya\nTel: @25-2245001\nDate: 7 Mar 2026 Bill No: INV-2026-1007 At 362 Seed Paddy 20kg 3 @ 4,100.00 each 12,300.00\nGrass Cutter Blade 12in\n1 @ 1,650.00 each 1,650.00\nUrea Fertilizer 50kg\n2 @ 4,500.00 each 9,000.00\nSubtotal 22,950.00\nDiscount (Less) -3,440.00\nTOTAL 19,510.00\nCash Tendered 20,000.00\nChange 490.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_008",
+      "degradation_level": 0,
+      "latency_ms": 684.43,
+      "status": "needs_review",
+      "reasons": [
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 778.0,
+        "ground_truth": 778.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2026-12-25",
+        "ground_truth": "2026-12-25",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "LANKA IOC FUEL POINT",
+        "ground_truth": "Lanka IOC Fuel Point",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "LANKA IOC FUEL POINT Colombo Road, Polonnaruwa Tel: @27-2223840 Date: 25-12-26 Bill No: INV-2026-1008\nItem Description Qty Rate Amount\nPetrol 92 Octane 2 x 360.00 || LKR 720.00\nTotal Items: 1 | Total Qty: 2 Subtotal LKR 720.00\nVAT (8%) LKR 58.00\nNET TOTAL LKR 778.00\nCash Tendered LKR 1,000.00\nChange LKR 222.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_009",
+      "degradation_level": 0,
+      "latency_ms": 687.53,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 12474.0,
+        "ground_truth": 12474.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-09-25",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "CITY HARDWARE & AGRI TOOLS",
+        "ground_truth": "City Hardware & Agri Tools",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CITY HARDWARE & AGRI TOOLS 77 Bazaar Street, Matale\nTel: @66-2223400\nBg 300 Certified Seed 20kg 1 @ 3,950.00 each LKR 3,950.00\nBg 358 Seed Paddy 20kg\n2 @ 3,800.00 each LKR 7,600.00\nTotal Items: 2 | Total Qty: 3 Subtotal LKR 11,550.00\nVAT (8%) LKR 924.00\nNET TOTAL LKR 12,474.00\nCash Tendered LKR 12,500.00\nChange LKR 26.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_010",
+      "degradation_level": 0,
+      "latency_ms": 713.32,
+      "status": "needs_review",
+      "reasons": [
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 8400.0,
+        "ground_truth": 16600.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": "2025-05-28",
+        "ground_truth": "2025-05-28",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CEYPETCO FILLING STATION AQ Highway, Medawachchiya\nTel: @25-2245001\nDate: 2025-05-28 Bill No: INV-2025-1010\nItem Description Qty Rate Amount\nGlyphosate Weedicide.. 3 x 2,800.00 || 8,400.00\nAt 362 Seed Paddy 20kg 2 x 4,100.00 || 8,200.00\nTotal Items: 2 | Total Qty: 5 TOTAL 16,600.00\nCash Tendered 17,000.00\nChange 400.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_011",
+      "degradation_level": 0,
+      "latency_ms": 622.24,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 1500.0,
+        "ground_truth": 1166.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-01-18",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "DAMBULLA AGRI INPUTS CENTER",
+        "ground_truth": "Dambulla Agri Inputs Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "DAMBULLA AGRI INPUTS CENTER 88 Market Road, Dambulla\nTel: @66-2284990\nPetrol 92 Octane\n3 @ 360.00 each LKR 1,080.00\nSubtotal\nVAT (8%)\nTOTAL\nCash Tendered\nChange\nTotal Items: 1 | Total Qty: 3\nLKR 1,080.00\nLKR 86.00\nLKR 1,166.00\nLKR 1,500.00\nLKR 334.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_012",
+      "degradation_level": 0,
+      "latency_ms": 763.42,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 22200.0,
+        "ground_truth": 22200.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-10-04",
+        "ground_truth": "2025-10-04",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART 5@ Commercial Zone, Hingurakgoda Tel: @27-2246110 Date: 04/10/2025 Bill No: INV-2025-1012\nItem Description Qty Rate Amount\nCompost Fertilizer 2.. 2 x 1,200.00 || Rs 2 400\nMancozeb Fungicide 5.. 3 x 1,400.00 || Rs 4 200\nPVC Ball Valve 2 inch 3 x 1,250.00 || Rs 3 750\nBg 300 Certified See.. 3 x 3,950.00 || Rs 11 850\nTOTAL PAYABLE Rs 22 200\nCash Tendered Rs 22 500\nChange Rs 300\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_013",
+      "degradation_level": 0,
+      "latency_ms": 427.47,
+      "status": "needs_review",
+      "reasons": [
+        "largest_amount_fallback"
+      ],
+      "total": {
+        "predicted": 800.0,
+        "ground_truth": 800.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-07-19",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "SINHA AUTO & DIESEL CENTER",
+        "ground_truth": "Sinha Auto & Diesel Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "SINHA AUTO & DIESEL CENTER 14 Puttalam Road, Nikaweratiya\nTel: @37-2260455\nSuper Diesel\n2 @ 400.00 each Rs 800\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_014",
+      "degradation_level": 0,
+      "latency_ms": 765.93,
+      "status": "needs_review",
+      "reasons": [
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 8154.0,
+        "ground_truth": 8154.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-12-18",
+        "ground_truth": "2025-12-18",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "CITY HARDWARE & AGRI TOOLS",
+        "ground_truth": "City Hardware & Agri Tools",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CITY HARDWARE & AGRI TOOLS 77 Bazaar Street, Matale\nTel: @66-2223400\nDate: 2025-12-18 Bill No: INV-2025-1014\nItem Description Qty Rate Amount\nWeedicide Spray 50@m1 1 x 1,750.00 || 1,750/=\nPump Repair Labour C.. 2 x 1,500.00 || 3,000/=\nSuper Diesel 1 x 400.00 || 400/=\nJute Gunny Bags 1@pcs 2 x 1,200.00 || 2,400/=\nSubtotal 7,550/=\nVAT (8%) 604/=\nBALANCE DUE 8,154/=\nCash Tendered 8,500/=\nChange 346/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_015",
+      "degradation_level": 0,
+      "latency_ms": 660.21,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 15500.0,
+        "ground_truth": 15100.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": "2025-09-13",
+        "ground_truth": "2025-09-13",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART 5@ Commercial Zone, Hingurakgoda Tel: @27-2246110 Date: 13-09-25 Bg 300 Certified Seed 20kg 3 @ 3,950.00 each Safety Rubber Boots Pair 1 @ 2,400.00 each\nSprinkler Head 3/4 inch\n1 @ 850.00 each\nCash Tendered\nChange\nTHANK YOU!\nRs.11,850.00 Rs .2,400.00 Rs .850.00 Rs.15,500.00\nRs .400.00\nPLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_021",
+      "degradation_level": 1,
+      "latency_ms": 639.38,
+      "status": "needs_review",
+      "reasons": [
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 1020.0,
+        "ground_truth": 1020.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-06-26",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART 5@ Commercial Zone, Hingurakgoda\nTel: @27-2246110\nCompost Fertilizer 25kg\n1 @ 1,200.00 each 1,200.00\nTotal Items: 1 | Total Qty: 1 Subtotal 1,200.00\nDiscount (Less) -180.00\nNET TOTAL 1,020.00\nCash Tendered 1,500.00\nChange 480.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_022",
+      "degradation_level": 1,
+      "latency_ms": 843.92,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 18727.0,
+        "ground_truth": 18727.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-06-21",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "NEW GAMINI HARDWARE STORES",
+        "ground_truth": "New Gamini Hardware Stores",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "NEW GAMINI HARDWARE STORES\n33 Hospital Road, Tambuttegama\nTel: @25-2276550 Urea Fertilizer 50kg x 4,500.00 || 4,500/=\nWheelbarrow Heavy Duty x 9,500.00 || 9,500/=\nWeedicide Spray 500ml x 1,750.00 || 3,500/=\nFoot Valve 2 inch x 1,450.00 || 2,900/=\nTotal Items: 4 | Total Qty: 6 Subtotal 28, 480/=\nDiscount (Less) -3,060/=\nVAT (8%) 1,387/=\nNET TOTAL 18,727/=\nCash Tendered 19, 080/=\nChange 273/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_023",
+      "degradation_level": 1,
+      "latency_ms": 680.05,
+      "status": "needs_review",
+      "reasons": [
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 1512.0,
+        "ground_truth": 1512.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-11-15",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART 5@ Commercial Zone, Hingurakgoda\nTel: @27-2246110\nGrass Cutter Blade 12in\n1 @ 1,650.00 each LKR 1,658.00\nTotal Items: 1 | Total Qty: 1 Subtotal LKR 1,650.00\nDiscount (Less) -LKR 250.00\nVAT (8%) LKR 112.00\nBALANCE DUE LKR 1,512.00\nCash Tendered LKR 2,000.00\nChange LKR 488.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_024",
+      "degradation_level": 1,
+      "latency_ms": 891.0,
+      "status": "needs_review",
+      "reasons": [
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 9374.0,
+        "ground_truth": 9374.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-09-24",
+        "ground_truth": "2025-09-24",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "CITY HARDWARE & AGRI TOOLS",
+        "ground_truth": "City Hardware & Agri Tools",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CITY HARDWARE & AGRI TOOLS 77 Bazaar Street, Matale\nTel: @66-2223400\nDate: 24.09.2025 Bill No: INV-2025-1024\nItem Description Qty Rate Amount\nJute Gunny Bags 1@pcs 3 x 1,200.00 || 3,600/=\nSafety Rubber Boots .. 1 x 2,400.00 || 2,400/=\nKerosene Oil 1 x 240.00 || 240/=\nTarpaulin Sheet 12x1.. 1 x 3,400.00 || 3,400/=\nTotal Items: 4 | Total Qty: 6 Subtotal 9,648/=\nDiscount (Less) -960/=\nVAT (8%) 694/=\nBALANCE DUE 9,374/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_025",
+      "degradation_level": 1,
+      "latency_ms": 706.16,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 4950.0,
+        "ground_truth": 20200.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-06-24",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CEYPETCO FILLING STATION AQ Highway, Medawachchiya\nTel: @25-2245001\nZinc Sulphate 1kg 1 @ 850.00 each 850.00\nGrass Cutter Blade 12in\n3 @ 1,650.08 each 4,950.00\nMOP Fertilizer 50kg\n3 @ 4,800.00 each 14,400.00 Total Items: 3 | Total Qty: 7 BALANCE DUE 20,200.00 Cash Tendered 20,500.00\nChange 300.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_026",
+      "degradation_level": 1,
+      "latency_ms": 802.76,
+      "status": "needs_review",
+      "reasons": [
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 34906.0,
+        "ground_truth": 34906.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2026-09-24",
+        "ground_truth": "2026-09-24",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "NEW GAMINI HARDWARE STORES",
+        "ground_truth": "New Gamini Hardware Stores",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "NEW GAMINI HARDWARE STORES 33 Hospital Road, Tambuttegama\nTel: @25-2276550\nDate: 24-09-26 Bill No: INV-2026-1026\nItem Description Qty Rate Amount\nSuper Diesel 1 x 400.00 || 400.00\nMOP Fertilizer 50kg 3 x 4,800.00 || 14,400.00\nDrip Irrigation Pipe.. 3 x 7,500.00 || 22,500.00\nPetrol 92 Octane 2 x 360.00 || 720.00\nTotal Items: 4 | Total Qty: 9 Subtotal 38,020.00\nDiscount (Less) -5, 708.08\nVAT (8%) 2,586.00\nNET TOTAL 34,906.00\nCash Tendered 35,008.00\nChange 94.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_027",
+      "degradation_level": 1,
+      "latency_ms": 705.52,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 13600.0,
+        "ground_truth": 16970.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-08-20",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "NEW GAMINI HARDWARE STORES",
+        "ground_truth": "New Gamini Hardware Stores",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "NEW GAMINI HARDWARE STORES 33 Hospital Road, Tambuttegama\nTel: @25-2276550\nKnapsack Sprayer 16L 2 @ 6,800.00 each LKR 13,600.00\nAuto Diesel\n3 @ 350.00 each LKR 1,050.00\nKerosene Oil\n3 @ 240.00 each LKR 720.00\nSprayer Servicing Charge\n2 @ 800.00 each LKR 1,600.00 Total Items: 4 | Total Qty: 10 TOTAL LKR 16,970.00\nCash Tendered LKR 17,000.00\nChange LKR 30.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_028",
+      "degradation_level": 1,
+      "latency_ms": 660.72,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 5180.0,
+        "ground_truth": 5180.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-05-23",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "SINHA AUTO & DIESEL CENTER",
+        "ground_truth": "Sinha Auto & Diesel Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "SINHA AUTO & DIESEL CENTER 14 Puttalam Road, Nikaweratiya\nTel: @37-2260455\nMancozeb Fungicide 5.. 2 x 1,400.00 || LKR 2,800.00\nWater Pump V-Belt B-42 3 x 1,100.00 || LKR 3,300.00\nTotal Items: 2 | Total Qty: 5 Subtotal LKR 6,100.00\nDiscount (Less) -LKR 920.00\nTOTAL LKR 5,180.00\nCash Tendered LKR 5,500.00\nChange LKR 320.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_029",
+      "degradation_level": 1,
+      "latency_ms": 672.33,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback"
+      ],
+      "total": {
+        "predicted": 2550.0,
+        "ground_truth": 2550.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-07-02",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART 5@ Commercial Zone, Hingurakgoda\nTel: @27-2246110\nZinc Sulphate 1kg\n3 @ 850.00 each 2,550/=\nTotal Items: 1 | Total Qty: 3 BALANCE DUE 2,550/=\nCash Tendered 3, 000/=\nChange 450/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_030",
+      "degradation_level": 1,
+      "latency_ms": 874.1,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "conflicting_totals"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 14688.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-01-03",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "WAYAMBA AGRO SERVICE",
+        "ground_truth": "Wayamba Agro Service",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "WAYAMBA AGRO SERVICE 102 Station Road, Maho\nTel: @37-2275112\nDate: @3-@1-25 Bill No: INV-2025-1030\nItem Description Qty Rate Amount\nKnapsack Sprayer 16L 2 x 6,800.00 || Rs.13,600.00\nSubtotal Rs.13,600.00\nVAT (8%) Rs.1, 088.00\nBALANCE DUE Rs.14,688.00\nSRR SSeS SSS SSSSSSSSSSSSSSSSSSSSSSessssesessssesses= THANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_036",
+      "degradation_level": 2,
+      "latency_ms": 705.02,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 720.0,
+        "ground_truth": 720.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-08-18",
+        "ground_truth": "2025-08-18",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "DAMBULLA AGRI INPUTS CENTER",
+        "ground_truth": "Dambulla Agri Inputs Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "DAMBULLA AGRI INPUTS CENTER 88 Market Road, Dambulla\nTel: @66-2284990\nDate: 18-08-25 Bill No: INV-2025-1036\nmeen Description, = SS*S*\u00abS \u00ab=\nPetrol 92 Octane 2 x 360.00 || 720.00\nNETTOTAR 720.00\nChange 280.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_037",
+      "degradation_level": 2,
+      "latency_ms": 585.71,
+      "status": "ok",
+      "reasons": [],
+      "total": {
+        "predicted": 650.0,
+        "ground_truth": 650.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-01-22",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "LANKA AGRO CHEMICALS & FARM SUPPLIES",
+        "ground_truth": "Lanka Agro Chemicals & Farm Supplies",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "LANKA AGRO CHEMICALS & FARM SUPPLIES 45 Kandy Road, Kurunegala\nTel: @37-2234567\nChilli Seed Packet 100g 1@ 650.00 each LKR 650.00\nTOTAL PAYABLE LKR 650.00\nCash Tendered LKR 1,000.00\nChange LKR 352.00\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_038",
+      "degradation_level": 2,
+      "latency_ms": 808.68,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 4008.0,
+        "ground_truth": 5950.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-04-08",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "RAJARATA FARMERS MART",
+        "ground_truth": "Rajarata Farmers Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "RAJARATA FARMERS MART 12 Main Street, Anuradhapura\nTel: 025-2221234\nDate: 8-84-26 Bill No: INV-2626-1938\nItem Description Qty Rate Amount\nMancozeb Fungicide 5.. 2 x 1,400.00 || 2,800.00\nCompost Fertilizer Zax 2 x 1,200.00 || 2,400.0e0\nAuto Diesel 1 x 350.90 [| 350.00\nSuper Diese] 1 x 400.00 || 4008.00\nTotal Items: 4 | Total Qty: 6 BALANCE DUE 5,950.ee nT OR renault THANK You! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_039",
+      "degradation_level": 2,
+      "latency_ms": 658.53,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "conflicting_totals"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 12870.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2026-03-23",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "LANKA AGRO CHEMICALS & FARM SUPPLIES",
+        "ground_truth": "Lanka Agro Chemicals & Farm Supplies",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "LANKA AGRO CHEMICALS & FARM SUPPLIES 45 Kandy Road, Kurunegala\nTel: @37-2234567\nZinc Sulphate 1kg 2 @ 850.00 each Rs 1 700\nBg 300 Certified Seed 20kg\n3 @ 3,950.00 each Rs 11 850\nSubtotal Rs 13 550\nDiscount (Less) -Rs 680\nBALANCE DUE Rs 12 8790\nCash Tendered Rs 13 000\nChange Rs 130\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_040",
+      "degradation_level": 2,
+      "latency_ms": 553.28,
+      "status": "ok",
+      "reasons": [],
+      "total": {
+        "predicted": 8550.8,
+        "ground_truth": 8550.0,
+        "outcome": "silent_error"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-05-20",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "LANKA IOC FUEL POINT",
+        "ground_truth": "Lanka IOC Fuel Point",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "LANKA IOC FUEL POINT Colombo Road, Polonnaruwa\nTel: @27-2223840\nTotal Items: 1 | Total Qty: 1 Subtotal LKR 9,500.00\nDiscount (Less) -LKR 950.00\nTOTAL PAYABLE LKR 8,550.80\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_041",
+      "degradation_level": 2,
+      "latency_ms": 636.97,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 3950.0,
+        "ground_truth": 3950.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2026-04-05",
+        "ground_truth": "2026-04-05",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CEYPETCO FILLING STATION AQ Highway, Medawachchiya\nTel: 925-2245001\nDate: 05/04/2026 Bill No: INV-2026-1041\nBg 300 Certified Seed 20kg\n41 @ 3,950.00 each LKR 3,950.00\nTotal Items: 1 | Total Qty: 1 NET TOTAL ue 50.00\nCash Tendered LKR 4,000.00\nChange LKR 50.02\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_042",
+      "degradation_level": 2,
+      "latency_ms": 630.29,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 15450.0,
+        "ground_truth": 15450.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2025-02-12",
+        "ground_truth": "2025-02-12",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "RAJARATA FARMERS MART",
+        "ground_truth": "Rajarata Farmers Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "RAJARATA FARMERS MART 12 Main Street, Anuradhapura\nTel: @25-2221234\nDate: 12-02-25 Bill No: INV-2025-1042\nItem Description Qty Rate Amount\nPVC Ball Valve 2 inch 3 x 1,250.00 I] Rs 3 750\nSafety Rubber Boots .. 3 x 2,400.00 || Rs 7 200\nUrea Fertilizer 5e@kg 1 x 4,500.0@ || Rs 4 5e0\nTOTAL Rs 15 450"
+    },
+    {
+      "id": "bill_043",
+      "degradation_level": 2,
+      "latency_ms": 572.45,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 600.09,
+        "ground_truth": 12600.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-09-01",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "DAMBULLA AGRI INPUTS CENTER",
+        "ground_truth": "Dambulla Agri Inputs Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "DAMBULLA AGRI INPUTS CENTER 88 Market Road, Dambulla\nTel: 066- 2284998\nMaize Hybrid Seeds 5kg 2@ 4,500.00 each Rs.9, 000.00\nJute Gunny Bags 1@pcs\n3@ 1,200.00 each Rs .3, 600.00\nTOTAL PAYABLE Rs.12, 600.09\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_044",
+      "degradation_level": 2,
+      "latency_ms": 721.21,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "largest_amount_fallback",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 13600.0,
+        "ground_truth": 27000.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": "2025-10-13",
+        "ground_truth": "2025-10-13",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "LANKA AGRO CHEMICALS & FARM SUPPLIES",
+        "ground_truth": "Lanka Agro Chemicals & Farm Supplies",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "LANKA AGRO CHEMICALS & FARM SUPPLIES 45 Kandy Road, Kurunegala\nTel: @37-2234567\nDate: 13/10/2025 Bill No: INV-2025-1044\nItem Description Qty Rate Amount\nWater Pump V-Belt B-42 1 x 1,100.00 || 1,100/=\nKnapsack Sprayer 16L 2 x 6,800.00 || 13,600/=\nAt 362 Seed Paddy 20kg 3 x 4,100.00 || 12,300/=\nCash Tendered 27,500/=\nChange 500/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_045",
+      "degradation_level": 2,
+      "latency_ms": 606.76,
+      "status": "needs_review",
+      "reasons": [
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 6588.0,
+        "ground_truth": 6588.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-11-26",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "CEYPETCO FILLING STATION AS Highway, Medawachchiya\nTel: @25-2245001\nEngine Oil 4T 1L 2 @ 1,850.00 each 3, 700/=\nSprayer Servicing Charge\n3 @ 800.00 each 2,400/=\nSubtotal 6,100/=\nVAT (8%) 488/=\nBALANCE DUE 6,588/=\nCash Tendered 7, 000/=\nChange 412/=\nTHANK YOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_051",
+      "degradation_level": 3,
+      "latency_ms": 1079.52,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "conflicting_totals"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 9720.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": "2026-09-03",
+        "ground_truth": "2026-09-03",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "WAYAMBA AGRO SERVICE",
+        "ground_truth": "Wayamba Agro Service",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "WAYAMBA AGRO SERVICE 182 Station Road, Mahe\nTel; @8?-2275102\nDate; 03-09-26 Bill No: INV- 2026-1051\nhe atta ded Maire Hyorid Seeds Sig 2 @ 4,500.08 each Len 9,080.80\nTotal Teema: 1 | Total ety: 2\nSubtotal LER 9, ee. oo\nVAT (@%) LER 720.00\nBALANCE DUE LER 9,728.88\n\u2014\u2014\u2014 anneal\nCai Tendered LKR 10, O68. Be\nChange Lor 780.68\nTHANK You! PLEASE COPE AGAIN"
+    },
+    {
+      "id": "bill_052",
+      "degradation_level": 3,
+      "latency_ms": 1112.41,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 864.0,
+        "ground_truth": 864.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": "2028-05-02",
+        "ground_truth": "2026-05-02",
+        "outcome": "wrong_flagged"
+      },
+      "vendor": {
+        "predicted": "NEW GAMINT HARDWARE STORES BY Hospital Bead, Tasbuttegens",
+        "ground_truth": "New Gamini Hardware Stores",
+        "exact_match": false,
+        "token_overlap": 0.3333
+      },
+      "raw_text": "NEW GAMINT HARDWARE STORES BY Hospital Bead, Tasbuttegens\nWel: @25-2276530\nbate: 02-05-28 BAL1 No: 1MV-2026-1052\nPen meceistion =\u2014=SCO*~<\u201c*\u00e9\u2018t*\u00absy:\u00abCS\nSiree atiketng ths, 1 x 800.00 || 8007\nVAT (8%) A s~\nBALANCE DUE 864/= tte ne nn ne en ne en eee ee eee creer eseenenersssesssses\nCash Terhered 1, p=\nchange 1Mi=\nHea Vou! PLEAS? COPE ADAIN"
+    },
+    {
+      "id": "bill_053",
+      "degradation_level": 3,
+      "latency_ms": 1337.16,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "conflicting_totals"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 17442.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-02-02",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "LANKA Ide FUEL POINT",
+        "ground_truth": "Lanka IOC Fuel Point",
+        "exact_match": false,
+        "token_overlap": 0.6
+      },
+      "raw_text": "LANKA Ide FUEL POINT\nColesbo Bead, Polonnarcen\nVel: @27-222384@\nPeter teeter errr errr re rere re ey Compost Fertilizer 25ag 3 8 1,208.88 each As. 3,600.00\nBinding Wire Roll t&g\n2 @ 1,600.00 each fs, 3,200.08\nTarpaulin Sheet Left\n2 @ 3,400.00 each fis. 6,800.00\nTiller Cultiveater Tyne\n3 @ 1,458.00 each Rs. 1S8_ Oo\nSubtotal Rs.17,850.00\nDiscount (Less) Ais. 1,860.00\nVAT (SM) As.1,292 08\nTOTAL Rs.17,442.808\nPlt eee ee ees Se ese es SSE Cadh Teadered Ss. 17, o.oo THAR VOU! PLEASE COME AnaD"
+    },
+    {
+      "id": "bill_054",
+      "degradation_level": 3,
+      "latency_ms": 1179.58,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "ocr_digit_confusion",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 16478.88,
+        "ground_truth": 16470.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-02-07",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "RAIARATA FARMERS MART",
+        "ground_truth": "Rajarata Farmers Mart",
+        "exact_match": false,
+        "token_overlap": 0.5
+      },
+      "raw_text": "RAIARATA FARMERS MART\n12 Madv Street, Anuredhapure\nTeds @2S-2224234\nBete: O7 82/2025 Bill Wo: INV- 7075-1054\nItem Description Qty Rate ee T\nTS? Fertilizer Stig 1 = 5,200.00 || 5,200.00\nUrea Fertilizer Sg 2 x 4,500.00 || 5,000.08\nEmgine O41 47 OL 1 x 1,850,9@ || 1,850.00\nee Tatal Items: 3 | Total Qty: \u00ab Subtotal 16, 050,08\nDiscount (Less) ~ 850,08\nWAT (8%) 1,220.08\nTOTAL PAYABLE 16,478.88\nTHU WOU! PLEASE COME AGAIN"
+    },
+    {
+      "id": "bill_055",
+      "degradation_level": 3,
+      "latency_ms": 727.28,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "ocr_digit_confusion",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 14888.68,
+        "ground_truth": 14000.0,
+        "outcome": "wrong_flagged"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-06-22",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "NEW GAMINI HARDWARE STORES",
+        "ground_truth": "New Gamini Hardware Stores",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "NEW GAMINI HARDWARE STORES\n33 Mespitel anes, Tasbuttegany\nVel: O25-12700se\na Bilspyritne Seldve Seve 1 @ 1,950.08 each LER S, BSH) Ge Meedicide Spray Sita 1 @ 1,750.08 each LER 2, 750,08 Flexitie Hose Pipe 4am 2 B 3,206,08 each LER 6,460.63 TOTAL PAYABLE LKR 14,888.68\nsaree SS San warn Ereseseensssseeeass\nTHERE YOU! PLease (opm AGAIN"
+    },
+    {
+      "id": "bill_056",
+      "degradation_level": 3,
+      "latency_ms": 568.95,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch",
+        "total_not_in_ocr_text"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 16500.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": "2025-06-22",
+        "ground_truth": "2025-06-22",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "RAJARATA FARMERS MART",
+        "ground_truth": "Rajarata Farmers Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "RAJARATA FARMERS MART\nyz Main Street, Aeucedhapura\nTel: @25-222i234 Date: 22/06/2025 Bill Ma: UW. 2825-1856\nItem Qescription Qty fate Amount\nKnapsack Sprayer 161 2x 6,000.00 || LER 13,608.00\nFoot Walwe 2 inch 2 = 1,458.00 || LKR 2,990.00\nfetal Itens: 2 | Total Qey: 4 TOTAL PAYABLE LKR 16,500.60 264 Se See See ee es OS ES SEES THAME YOU! PLEASE COME Acalw"
+    },
+    {
+      "id": "bill_057",
+      "degradation_level": 3,
+      "latency_ms": 614.71,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "sum_mismatch"
+      ],
+      "total": {
+        "predicted": 8424.0,
+        "ground_truth": 8424.0,
+        "outcome": "correct"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-01-17",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "JAYA HARDWARE & MACHINERY MART",
+        "ground_truth": "Jaya Hardware & Machinery Mart",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "JAYA HARDWARE & MACHINERY MART\n5@ Comercial Tene, Hiagursigeda\nVel: @i7-2248110\neee ere eer rrr rer ere eer rere Bicpyribar Sodium SaGe) 3 @ 1,950.00 each 5, 858/=\nChitld Seed Packer Lacy\n3 @ 650,60 each 1,958/= Total Items: 2 | Total Qty: 6 Subtotal 7, B88/=\nVAT (8%) Gaay=\nTOTAL 8,424/=\nCash Temdered 6. y=\nchange File\nTHANK YOU! PLEASE COME MAIN"
+    },
+    {
+      "id": "bill_058",
+      "degradation_level": 3,
+      "latency_ms": 708.64,
+      "status": "needs_review",
+      "reasons": [
+        "ambiguous_date",
+        "balance_due_used_as_total",
+        "category_unsure",
+        "sum_mismatch",
+        "total_not_in_ocr_text"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 14850.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": "2025-04-05",
+        "ground_truth": "2025-04-05",
+        "outcome": "correct"
+      },
+      "vendor": {
+        "predicted": "SINHA AUTO & DIESEL CENTER",
+        "ground_truth": "Sinha Auto & Diesel Center",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "SINHA AUTO & DIESEL CENTER\ni4 Pwithlas Road, Wikeeerae din\nTel; #97-2260a55 Se ara RONEN Hrersitl tit See Secehosaeik Date: 05/04/2025 W411 Mo: Ti 2035. yo59\nItem Descripticn Qty Hate amount\nManconeb Furigicide 5, . 1 = 1,400.08 | | As _1, SDG)., Oop\nBinding Wire Roll Skg im 1,600.08 || Rs.1,600.00\nBg 389 Certified See.. 3 x 3,950.00 || As. 19,850.08\nTotal Iteet: 9 | tetal grey: 5 BALANCE DUE Rs.14,858,00\nSSS SAA aS Sanne ee reese ESekEEseceeeececcas\nCash Temfered as 15, a. eo\nChanger hs. 258 aey\nTHANE TOU! PLease come agamy"
+    },
+    {
+      "id": "bill_059",
+      "degradation_level": 3,
+      "latency_ms": 623.09,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "missing_total",
+        "total_missing"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 29350.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": null,
+        "ground_truth": "2025-04-03",
+        "outcome": "no_value"
+      },
+      "vendor": {
+        "predicted": "WAYAMBA AGRO SERVICE",
+        "ground_truth": "Wayamba Agro Service",
+        "exact_match": true,
+        "token_overlap": 1.0
+      },
+      "raw_text": "WAYAMBA AGRO SERVICE\n182 Station Read, Mako\nVek: G37-3978137 Date: 2035-04-93 840) No: IMV.2025-1059\nMericoreb Fungicide 560g\n3 @ 1,408,809 each 4, as\nFlexible Hose Pipe Bhs\n3 @ 3,280,90 each 9), feBe)/'=\nBy 309 Certified Seed 20kg\n3 3,950,088 each 11, B39/-\nEngine O61 4T 1\n2 @ 1,858.08 each 4, 0 / = One EES Ren 8 ee Ss ae teeta ee peu edkeuy Total ftews: 4 | total qty: 11 BALANCE DUE 29,358/=\nCosh Tendered 29, SS \u2014\nChange i56/=\nTANK YOU! PLEASE Come agar"
+    },
+    {
+      "id": "bill_060",
+      "degradation_level": 3,
+      "latency_ms": 693.1,
+      "status": "needs_review",
+      "reasons": [
+        "category_unsure",
+        "conflicting_totals",
+        "ocr_digit_confusion"
+      ],
+      "total": {
+        "predicted": null,
+        "ground_truth": 1944.0,
+        "outcome": "no_value"
+      },
+      "date": {
+        "predicted": "2025-12-18",
+        "ground_truth": "2025-12-10",
+        "outcome": "wrong_flagged"
+      },
+      "vendor": {
+        "predicted": "CEYPETCO FILLING STATION a Hiigteeay, fedeackchiys",
+        "ground_truth": "Ceypetco Filling Station",
+        "exact_match": false,
+        "token_overlap": 0.5
+      },
+      "raw_text": "CEYPETCO FILLING STATION a Hiigteeay, fedeackchiys\nTel: ezS-2200e81\npave: 18.12.2025 Bill No: INV-2025-1e68\nTtem Description gey fate Samoa\nWater Pump V-Balit fat ix 1,200.86 |) LKR 1, 1o8. 88\nSprayer Servicing Ch.. 4 \u00ab 800,@0 || LER bane , 8\nfetal treme: 2 | Total Qtys 2\nSubtotal LKR 1,900.08\nDiscount (Less) -LER 10S, 8\nWAT (2) LKR 144.06\nTOTAL LKR 1,944.68\nCash Tendered Lon 2,060.2\nChange cen 34.08\nTHK WOU! PLEASE COME AGAIN"
+    }
+  ]
+}

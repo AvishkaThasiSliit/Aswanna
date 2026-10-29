@@ -1,0 +1,46 @@
+====================================================================================================
+TASK BILL-1B: BILL SCANNER ENGINE VERIFICATION REPORT
+Date: 2026-10-29
+Repository: D:\Aswanna
+Status: STOPPED AT STEP 0 (Engine check failed)
+====================================================================================================
+
+[0. DISK FREE SPACE GUARD]
+  - Free space on D: 1,804,451,840 bytes (1.80 GB)
+  - Limit: >= 1.0 GB (PASS)
+
+[1. STEP 0: ENGINE VERIFICATION OUTPUTS]
+  - Command: tesseract --version
+    Output:
+    tesseract : The term 'tesseract' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+    At line:5 char:1
+    + tesseract --version
+    + ~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (tesseract:String) [], CommandNotFoundException
+        + FullyQualifiedErrorId : CommandNotFoundException
+
+  - Command: tesseract --list-langs
+    Output:
+    tesseract : The term 'tesseract' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+    At line:6 char:1
+    + tesseract --list-langs
+    + ~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (tesseract:String) [], CommandNotFoundException
+        + FullyQualifiedErrorId : CommandNotFoundException
+
+  - where.exe tesseract:
+    INFO: Could not find files for the given pattern(s).
+
+  - TESSERACT_CMD env variable: (empty / unset)
+
+  - Standard location search:
+    C:\Program Files\Tesseract-OCR\tesseract.exe -> False
+    C:\Program Files (x86)\Tesseract-OCR\tesseract.exe -> False
+    C:\Users\EBAY\AppData\Local\Programs\Tesseract-OCR\tesseract.exe -> False
+    Recursive scan on C:\Program Files, C:\Users\EBAY, D:\ -> 0 matches
+
+[2. STOPPING DIRECTIVE]
+  - Prompt condition: "If it fails, stop and report the exact error."
+  - The path placeholder "<PASTE FULL PATH TO tesseract.exe, or \"on PATH\">" was not filled.
+  - Stopped at Step 0 per instruction.
+====================================================================================================

@@ -1,0 +1,143 @@
+﻿
+> client@1.0.0 test
+> vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mD:/Aswanna/client[39m
+
+ [32mΓ£ô[39m src/test/deleteUndo.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 361[2mms[22m[39m
+ [32mΓ£ô[39m src/test/VoiceDatasetCollection.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 1292[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceDatasetCollectionPage Component (Phase 2)[2m > [22mrenders consent confirmation card when participant has not yet consented [33m507[2mms[22m[39m
+ [32mΓ£ô[39m src/test/BudgetOverview.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1358[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m BudgetOverview Page Component[2m > [22mrenders category variance table with status badges and estimated split badge [33m371[2mms[22m[39m
+[90mstdout[2m | src/test/VoiceExpenseEntryWhisper.test.jsx[2m > [22m[2mVoiceExpenseEntry - Whisper Mode Plumbing Tests (TASK W1)[2m > [22m[2mrecords audio with MediaRecorder and invokes /api/voice/transcribe on stop
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-0.3[39m,
+  maxNoSpeechProb: [33m0.05[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mfalse[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+[90mstdout[2m | src/test/VoiceExpenseEntryWhisper.test.jsx[2m > [22m[2mVoiceExpenseEntry - Whisper Mode Plumbing Tests (TASK W1)[2m > [22m[2mmarks items as asr_low_confidence when avg_logprob is below threshold and clears on Accept
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-1.4[39m,
+  maxNoSpeechProb: [33m0.05[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mtrue[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+ [32mΓ£ô[39m src/test/VoiceExpenseEntryWhisper.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2038[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry - Whisper Mode Plumbing Tests (TASK W1)[2m > [22mrecords audio with MediaRecorder and invokes /api/voice/transcribe on stop [33m759[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry - Whisper Mode Plumbing Tests (TASK W1)[2m > [22mmarks items as asr_low_confidence when avg_logprob is below threshold and clears on Accept [33m883[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry - Whisper Mode Plumbing Tests (TASK W1)[2m > [22mfalls back to typed entry and preserves pending items when the speech service returns 503 [33m392[2mms[22m[39m
+ [32mΓ£ô[39m src/test/ExpenseForm.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 3079[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mtoggles no_work dayStatus hiding cost sections [33m1434[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22madds and removes repeatable input lines [33m668[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ExpenseForm Unit & Integration Tests[2m > [22mdisplays mapped server field error next to activity select on submission failure [33m964[2mms[22m[39m
+ [32mΓ£ô[39m src/test/SetupWizard.test.jsx [2m([22m[2m10 tests[22m[2m)[22m[33m 5255[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates required name field [33m1122[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mrejects future date of birth [33m385[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates NIC format (9 digits + V/X or 12 digits) [33m476[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 1: Farmer Profile[2m > [22mvalidates phone format (10 digits starting with 0) [33m491[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 2: Machinery Owned[2m > [22msupports adding repeatable machinery rows and validates required purchase year if filled [33m606[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 3: Land Details[2m > [22mrequires at least one land with valid landCode and extent [33m328[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 3: Land Details[2m > [22mcomputes live acres when extentValue and unit change [33m312[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 3: Land Details[2m > [22mdetects duplicate landCode in repeatable land rows [33m886[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m SetupWizard Component Tests per Step[2m > [22mStep 4: Start Cultivation Cycle[2m > [22mcreates and activates cycle, displaying baselineStatus [33m358[2mms[22m[39m
+ [32mΓ£ô[39m src/test/VoiceExpenseEntry.test.jsx [2m([22m[2m17 tests[22m[2m)[22m[33m 6818[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m2. Typed text path (no mic) -> extraction -> pending table [33m1060[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m3. Three-expense example from problem statement gives 3 rows and total 4500.00 [33m570[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m4. Edit a row -> recalculates total and subtotals [33m385[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m5. Delete a row -> recalculates [33m377[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m6. Row with status needs_review -> Confirm button disabled with warning message [33m364[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m7. Repeated tap on Confirm while save is in flight does not POST twice [33m324[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m8. Partial failure: 2 of 3 succeed, 1 fails -> table keeps only the failed row and does not re-save successes on retry [33m720[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m10. Follow-up command: ambiguity never modifies a row until user taps a choice [33m641[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m11. Follow-up command: undo restores previous pending rows [33m427[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m12. Follow-up command: query displays answer without mutating rows [33m388[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m VoiceExpenseEntry Component Tests (TASK V2)[2m > [22m13. Follow-up command: add keeps existing pending rows (appends without replacing) [33m304[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CropRecommendation.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 1692[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders recommendation header and all numbered sections [33m529[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CropRecommendation Page Component[2m > [22mrenders district, season, and irrigation filter dropdown selectors [33m314[2mms[22m[39m
+ [32mΓ£ô[39m src/test/validation.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1277[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m Validation UI and i18n Integration[2m > [22mrenders inline validation error messages in English [33m350[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m Validation UI and i18n Integration[2m > [22mrenders and dismisses WarningBanner with translated keys [33m447[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CycleSummary.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1052[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleSummaryPage Component[2m > [22mrenders summary tiles and shows profit when sales exist [33m474[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleSummaryPage Component[2m > [22mhandles Close Cycle with confirmation dialog [33m468[2mms[22m[39m
+ [32mΓ£ô[39m src/test/ActivityCalendar.test.jsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1325[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ActivityCalendarPage Component[2m > [22mrenders 13-month grid with activity codes and greys out invalid days [33m946[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m ActivityCalendarPage Component[2m > [22mopens day details modal when clicking on a day with expenses [33m375[2mms[22m[39m
+[90mstdout[2m | src/test/asrConfidence.test.js[2m > [22m[2mapplyAsrConfidence pure function (TASK W1)[2m > [22m[2mpreserves items when confidence is good (mean avg_logprob >= -1.0, max no_speech <= 0.6)
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-0.385[39m,
+  maxNoSpeechProb: [33m0.1[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mfalse[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+[90mstdout[2m | src/test/asrConfidence.test.js[2m > [22m[2mapplyAsrConfidence pure function (TASK W1)[2m > [22m[2mflags all rows with asr_low_confidence and needs_review when mean avg_logprob is below threshold
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-1.325[39m,
+  maxNoSpeechProb: [33m0.12[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mtrue[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+[90mstdout[2m | src/test/asrConfidence.test.js[2m > [22m[2mapplyAsrConfidence pure function (TASK W1)[2m > [22m[2mflags all rows when max no_speech_prob exceeds threshold
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-0.275[39m,
+  maxNoSpeechProb: [33m0.78[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mtrue[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+[90mstdout[2m | src/test/asrConfidence.test.js[2m > [22m[2mapplyAsrConfidence pure function (TASK W1)[2m > [22m[2mverifies that confirm remains blocked when asr_low_confidence is present until accepted
+[22m[39m[ASR Confidence Check] {
+  meanAvgLogprob: [33m-2.1[39m,
+  maxNoSpeechProb: [33m0.85[39m,
+  minAvgLogprobThreshold: [33m-1[39m,
+  maxNoSpeechThreshold: [33m0.6[39m,
+  flagged: [33mtrue[39m,
+  thresholdOrigin: [32m'library defaults, NOT tuned'[39m
+}
+
+ [32mΓ£ô[39m src/test/asrConfidence.test.js [2m([22m[2m5 tests[22m[2m)[22m[90m 24[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CycleNotes.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1112[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleNotesPage Component[2m > [22mrenders notes form generated from schema with existing notes [33m411[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CycleNotesPage Component[2m > [22msubmits updated notes successfully [33m612[2mms[22m[39m
+ [32mΓ£ô[39m src/test/DailyCostTrackerHub.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1479[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m DailyCostTrackerHub Page[2m > [22mrenders all 5 numbered sections [33m414[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m DailyCostTrackerHub Page[2m > [22mdisplays summary tiles including remaining budget and status badge [33m396[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m DailyCostTrackerHub Page[2m > [22mrenders quick action buttons: Add New Expense and View All Expenses [33m397[2mms[22m[39m
+ [32mΓ£ô[39m src/test/ForecastCard.test.jsx [2m([22m[2m6 tests[22m[2m)[22m[33m 523[2mms[22m[39m
+ [32mΓ£ô[39m src/test/FilterBar.test.jsx [2m([22m[2m5 tests[22m[2m)[22m[33m 823[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m FilterBar[2m > [22mcalls setFilters with correct category on category change [33m471[2mms[22m[39m
+ [32mΓ£ô[39m src/test/CostImpactCard.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1311[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mrenders Cost Impact Summary section [33m575[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m CostImpactCard Component in ExpenseForm[2m > [22mshows full predicted total, expected-to-date, variance %, and tier badge as separate values [33m524[2mms[22m[39m
+ [32mΓ£ô[39m src/test/HarvestSales.test.jsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2173[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m HarvestSales Component[2m > [22mrenders harvest and sales sections with computed totals [33m650[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m HarvestSales Component[2m > [22msubmits a new harvest round [33m1127[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m HarvestSales Component[2m > [22mtriggers soft delete and toast undo callback on harvest delete [33m390[2mms[22m[39m
+ [32mΓ£ô[39m src/test/StatusBadge.test.jsx [2m([22m[2m8 tests[22m[2m)[22m[90m 155[2mms[22m[39m
+ [32mΓ£ô[39m src/test/AlertsPage.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[33m 736[2mms[22m[39m
+   [33m[2mΓ£ô[22m[39m AlertsPage Component[2m > [22mrenders alerts header and overspend alert cards [33m398[2mms[22m[39m
+ [32mΓ£ô[39m src/test/formatters.test.js [2m([22m[2m11 tests[22m[2m)[22m[90m 46[2mms[22m[39m
+ [32mΓ£ô[39m src/test/i18n.test.js [2m([22m[2m3 tests[22m[2m)[22m[90m 40[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m22 passed[39m[22m[90m (22)[39m
+[2m      Tests [22m [1m[32m126 passed[39m[22m[90m (126)[39m
+[2m   Start at [22m 14:38:32
+[2m   Duration [22m 50.95s[2m (transform 14.83s, setup 21.12s, collect 74.95s, tests 33.97s, environment 105.21s, prepare 23.04s)[22m
+
